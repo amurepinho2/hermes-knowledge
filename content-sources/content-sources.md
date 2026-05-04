@@ -12,8 +12,6 @@
 || **Not Boring** (Packy McCormick) | Estratégia, análises profundas, business | 2x/semana | ✅ Ativo | https://www.notboring.co |
 || **Lenny Rachitsky** | Product, growth, career para founders/VCs | Semanal | ✅ Ativo | https://lennyrachitsky.com |
 || **Stratechery** (Ben Thompson) | Tech strategy, business model analysis | Diário | ✅ Ativo | https://stratechery.com |
-|| **The Generalist** (Mario Gabriele) | Deep dives em empresas | Semanal | ❌ Descontinuado | - |
-|| **StrictlyVC** | Funding news, deals, interviews | Diário | ⚠️ Requer login | - |
 || **CB Insights** | Data-driven trends, market intel | 3-5x/semana | ⚠️ Parcial | https://www.cbinsights.com |
 || **Newcomer** (Eric Newcomer) | Insider VC, breaking news | Semanal | ✅ Ativo | https://www.newcomer.co |
 || **Term Sheet** (Fortune) | Deals diário | Diário | ✅ Ativo | https://fortune.com/term-sheet |
@@ -82,8 +80,6 @@
 || **Brazil Journal** | Notícias | Business, VC, startups | ✅ Ativo | https://braziljournal.com |
 || **Startupi** | Rankings/Dados | Investimentos BR, funding | ✅ Ativo | https://startupi.com.br |
 || **NeoFeed** | Notícias | Startups, VC, tech BR | ✅ Ativo | https://neofeed.com.br |
-|| **Brazilian Report** | Newsletter | Brazil/LatAm news | ⚠️ Requer login | https://brazilian.report |
-|| **AMCHAM** | Negócios | Corporate, international business | ✅ Ativo | https://www.amcham.com.br |
 || **SaaS Brasil** | Dados | Ecossistema SaaS BR | ✅ Ativo | https://saasbrasil.com.br |
 || **Startups.com.br** | Portal | Startups BR | ✅ Ativo | https://startups.com.br |
 || **Distrito** | Reports | VC LatAm data | ✅ Ativo | https://distrito.com |
@@ -95,7 +91,6 @@
 || **G1/Tecnologia** | Notícias | Tech news BR | ✅ Ativo | https://g1.globo.com/tecnologia |
 || **CFO Brasil** | Negócios | CFO, finanças corporativas | ✅ Ativo | https://cfobrasil.com.br |
 || **Canal Startup** | YouTube/Notícias | Startups BR | ✅ Ativo | https://canalstartup.com.br |
-|| **Poder360** | Notícias | Política, negócios | ✅ Ativo | https://www.poder360.com.br |
 || **Época Negócios** | Revista | Business, economia | ✅ Ativo | https://epocanegocios.globo.com |
 
 ---
