@@ -1,0 +1,136 @@
+{
+  "name": "Investidores.vc",
+  "alias": "IVC",
+  "logo": {
+    "wordmark": "ivc-logo-full.png",
+    "mark": "ivc-logo-mark.png",
+    "minHeightWordmarkPx": 28,
+    "minHeightMarkPx": 24,
+    "clearSpaceMultiplier": 1.0,
+    "preferredCorner": "bottom-right"
+  },
+  "colors": {
+    "primary": {
+      "yellow": "#FFBA00",
+      "ink": "#1A1B1F",
+      "white": "#FFFFFF"
+    },
+    "ink": {
+      "900": "#1A1B1F",
+      "800": "#2B2D33",
+      "700": "#323232",
+      "600": "#4F4F4F",
+      "500": "#636262",
+      "400": "#9194A6",
+      "300": "#979797",
+      "200": "#CFD1D8",
+      "100": "#E5E7EB",
+      "50":  "#F2F3F5"
+    },
+    "yellow": {
+      "500": "#FFBA00",
+      "400": "#FFC21F",
+      "300": "#FFD14D",
+      "200": "#FFE389",
+      "100": "#FFF1C2",
+      "50":  "#FFF9E9"
+    },
+    "surfaces": {
+      "white":  "#FFFFFF",
+      "bg":     "#F8F8F8",
+      "cream":  "#FFF9E9"
+    },
+    "semantic": {
+      "success": "#16A34A",
+      "warning": "#F59E0B",
+      "danger":  "#EF4444",
+      "info":    "#2563EB"
+    },
+    "approvedPairs": [
+      { "bg": "#FFBA00", "fg": "#1A1B1F", "label": "signature" },
+      { "bg": "#1A1B1F", "fg": "#FFFFFF", "label": "headline" },
+      { "bg": "#1A1B1F", "fg": "#FFBA00", "label": "accent-on-dark" },
+      { "bg": "#FFFFFF", "fg": "#323232", "label": "body" },
+      { "bg": "#FFF9E9", "fg": "#1A1B1F", "label": "editorial-warm" }
+    ],
+    "forbiddenPairs": [
+      { "bg": "#FFBA00", "fg": "#FFFFFF", "reason": "low contrast" },
+      { "bg": "#FFFFFF", "fg": "#9194A6", "reason": "low contrast for text" }
+    ]
+  },
+  "typography": {
+    "family": "Cera Pro",
+    "fallback": "-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif",
+    "weights": { "thin": 200, "regular": 400, "medium": 500, "bold": 700 },
+    "tracking": { "tight": "-0.02em", "normal": "0", "label": "0.06em" },
+    "thumbnailScale": {
+      "headline":  { "weightCss": 700, "sizePx": [84, 120], "tracking": "-0.02em", "lineHeight": 1.05 },
+      "subhead":   { "weightCss": 500, "sizePx": [40, 56],  "tracking": "-0.01em", "lineHeight": 1.15 },
+      "eyebrow":   { "weightCss": 700, "sizePx": [22, 28],  "tracking": "0.06em",  "uppercase": true },
+      "body":      { "weightCss": 400, "sizePx": [28, 36],  "tracking": "0",       "lineHeight": 1.4 }
+    }
+  },
+  "spacing": {
+    "scalePx": { "1": 4, "2": 8, "3": 12, "4": 16, "5": 20, "6": 24, "8": 32, "10": 40, "12": 48, "16": 64 },
+    "thumbnail": {
+      "safeMarginPx": 64,
+      "preferredMarginPx": 96,
+      "logoOffsetPx": [64, 96]
+    }
+  },
+  "radii": {
+    "xs": 4,
+    "sm": 8,
+    "md": 12,
+    "lg": 16,
+    "xl": 20,
+    "2xl": 24,
+    "pill": 999,
+    "default": "lg",
+    "thumbnailScaleMultiplier": 4
+  },
+  "shadows": {
+    "sm":  "0px 1px 3px rgba(0,0,0,0.08)",
+    "md":  "0px 2px 8px rgba(0,0,0,0.10)",
+    "lg":  "0px 8px 20px rgba(43,45,51,0.16)",
+    "thumbnail": "0px 16px 40px rgba(0,0,0,0.18)"
+  },
+  "voice": {
+    "personality": ["confident", "premium", "calm", "contemporary"],
+    "avoid": ["emoji", "decorative icons", "colorful gradients", "playful illustrations", "exclamation marks"]
+  },
+  "thumbnail": {
+    "instagram": {
+      "square":    { "widthPx": 1080, "heightPx": 1080 },
+      "portrait":  { "widthPx": 1080, "heightPx": 1350 },
+      "story":     { "widthPx": 1080, "heightPx": 1920 }
+    },
+    "principles": [
+      "One headline, one idea, one accent.",
+      "Yellow is the protagonist — use as fill, pill, or underline.",
+      "Headlines must be huge and Cera Pro Bold.",
+      "Logo present but discrete, always in a bottom corner.",
+      "No emoji, no gradients outside the approved set, no decorative icons."
+    ],
+    "canonicalLayouts": [
+      {
+        "id": "yellow-pill",
+        "bg": "#1A1B1F",
+        "fg": "#FFFFFF",
+        "accent": "#FFBA00",
+        "structure": "Eyebrow (small uppercase) → Headline (white, with one word inside a yellow pill) → Logo bottom-right"
+      },
+      {
+        "id": "yellow-block",
+        "bg": ["#FFBA00", "#1A1B1F"],
+        "split": "70/30 horizontal",
+        "structure": "Yellow block holds headline in ink-900. Black block holds logo wordmark."
+      },
+      {
+        "id": "editorial",
+        "bg": "#FFFFFF or #FFF9E9",
+        "structure": "Eyebrow (tracked uppercase, ink-600) → Huge ink-900 headline (one word in yellow optional) → Logo discreet bottom"
+      }
+    ]
+  }
+}
