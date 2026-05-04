@@ -187,22 +187,27 @@
 ## 🏆 Priorização para Curadoria
 
 **Tier 1 — Verificar todo dia:**
-1. Tomasz Tunguz
-2. Not Boring
-3. Lenny Rachitsky
-4. Stratechery (Ben Thompson)
-5. Perfis Twitter/X (@ttunguz, @pacaborralho, @chaikishore, @benedictevans)
-6. Brazil Journal (seção VC/startups)
-7. Startupi (rankings)
+
+1. NeoFeed
+2. Startups.com.br
+3. Brazil Journal (seção VC/startups)
+4. 8. Perfis Twitter/X (@ttunguz, @pacaborralho, @chaikishore, @benedictevans)
+5. Perfis Twitter/X BR
+6. Lenny Rachitsky
+7. Tomasz Tunguz
+8. Not Boring
+9. Stratechery (Ben Thompson)
+10. Morning Brew / The Hustle
+
 
 **Tier 2 — Verificar 2-3x por semana:**
 1. First Round Review
 2. Acquired (show notes)
 3. Masters of Scale
 4. Carta (reports)
-5. Perfis Twitter/X BR
-6. Morning Brew / The Hustle
-7. NeoFeed
+5. Startupi (rankings)
+6. Distrito
+
 
 **Tier 3 — Verificar semanalmente:**
 1. Newcomer
@@ -210,7 +215,7 @@
 3. Femstreet
 4. Wealth management newsletters
 5. AI newsletters (The Batch, Import AI)
-6. Fontes Brasil adicionais (Exame, Valor, Distrito)
+6. Fontes Brasil adicionais (Exame, Valor)
 
 ---
 
