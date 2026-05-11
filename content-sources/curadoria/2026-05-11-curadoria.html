@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Curadoria IVC — 11/Mai/2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Cera+Pro:wght@400;500;700;900&family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ivc-yellow: #FFBA00;
+  --ivc-ink: #1A1B1F;
+  --bg: #0d0d0f;
+  --card: #18181f;
+  --card-hover: #22222b;
+  --border: #2a2a35;
+  --text: #e8e8ec;
+  --text-muted: #8888a0;
+  --tag-ai: #7c3aed;
+  --tag-vc: #0590c8;
+  --tag-br: #059669;
+  --tag-wealth: #b45309;
+  --tag-twitter: #e11d48;
+  --radii: 12px;
+  --spacing: 4px;
+  --transition: all 0.2s ease;
+}
+
+[data-theme="light"] {
+  --bg: #f5f5f0;
+  --card: #ffffff;
+  --card-hover: #fafaf8;
+  --border: #e0e0d8;
+  --text: #1a1b1f;
+  --text-muted: #666660;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  transition: background 0.3s, color 0.3s;
+}
+
+.container { max-width: 780px; margin: 0 auto; padding: 20px 16px 80px; }
+
+/* HEADER */
+.header {
+  border-bottom: 2px solid var(--ivc-yellow);
+  padding-bottom: 20px;
+  margin-bottom: 28px;
+}
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+.header-brand {
+  font-family: 'Cera Pro', sans-serif;
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ivc-yellow);
+}
+.header-date {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--text-muted);
+  text-align: right;
+}
+.header-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 6vw, 44px);
+  font-weight: 900;
+  color: var(--text);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+.header-title span { color: var(--ivc-yellow); }
+
+/* STATS STRIP */
+.stats-strip {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+.stat-chip {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.stat-chip .num {
+  font-family: 'Cera Pro', sans-serif;
+  font-weight: 900;
+  font-size: 18px;
+  color: var(--ivc-yellow);
+}
+.stat-chip .label {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* THEME TOGGLE */
+.theme-toggle {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--text-muted);
+  cursor: pointer;
+  z-index: 100;
+  transition: var(--transition);
+}
+.theme-toggle:hover { border-color: var(--ivc-yellow); color: var(--ivc-yellow); }
+
+/* SECTION */
+.section { margin-bottom: 40px; }
+.section-label {
+  font-family: 'Cera Pro', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-label .dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.s-ai .section-label { color: #a78bfa; }
+.s-ai .section-label .dot { background: var(--tag-ai); }
+.s-vc .section-label { color: #38bdf8; }
+.s-vc .section-label .dot { background: var(--tag-vc); }
+.s-br .section-label { color: #34d399; }
+.s-br .section-label .dot { background: var(--tag-br); }
+.s-wealth .section-label { color: #fbbf24; }
+.s-wealth .section-label .dot { background: var(--tag-wealth); }
+.s-twitter .section-label { color: #fb7185; }
+.s-twitter .section-label .dot { background: var(--tag-twitter); }
+
+/* CARDS */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radii);
+  padding: 16px;
+  margin-bottom: 10px;
+  transition: var(--transition);
+  opacity: 0;
+  transform: translateY(12px);
+  animation: fadeUp 0.4s ease forwards;
+}
+.card:hover {
+  border-color: var(--ivc-yellow);
+  background: var(--card-hover);
+}
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.card-header { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+.card-tag {
+  font-family: 'Cera Pro', sans-serif;
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+.tag-ai { background: rgba(124,58,237,0.15); color: #a78bfa; }
+.tag-vc { background: rgba(5,144,200,0.15); color: #38bdf8; }
+.tag-br { background: rgba(5,150,105,0.15); color: #34d399; }
+.tag-wealth { background: rgba(180,83,9,0.15); color: #fbbf24; }
+.tag-twitter { background: rgba(225,29,72,0.15); color: #fb7185; }
+
+.card-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--text);
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+.card-title a {
+  color: inherit;
+  text-decoration: none;
+}
+.card-title a:hover { color: var(--ivc-yellow); }
+.card-summary {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+.card-link {
+  color: var(--ivc-yellow);
+  text-decoration: none;
+  font-weight: 500;
+}
+.card-link:hover { text-decoration: underline; }
+.relevance {
+  font-size: 10px;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-family: 'Cera Pro', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.rel-high { background: rgba(34,197,94,0.15); color: #22c55e; }
+.rel-med { background: rgba(251,191,36,0.15); color: #fbbf24; }
+.rel-low { background: rgba(107,114,128,0.15); color: #9ca3af; }
+
+/* TWITTER CARDS */
+.tw-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+}
+.tw-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radii);
+  padding: 12px 14px;
+  opacity: 0;
+  transform: translateY(12px);
+  animation: fadeUp 0.4s ease forwards;
+}
+.tw-card:hover { border-color: var(--ivc-yellow); }
+.tw-handle {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ivc-yellow);
+  margin-bottom: 6px;
+}
+.tw-text {
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.5;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+/* TRANSPARENCY TABLE */
+.trans-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.trans-table th {
+  font-family: 'Cera Pro', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 8px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+.trans-table td {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+}
+.trans-table tr:last-child td { border-bottom: none; }
+.status-dot {
+  display: inline-block;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+.sok { background: #22c55e; }
+.sfail { background: #ef4444; }
+.swarn { background: #f59e0b; }
+
+/* FOOTER */
+.footer {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--text-muted);
+  text-align: center;
+}
+.footer a { color: var(--ivc-yellow); text-decoration: none; }
+.footer a:hover { text-decoration: underline; }
+
+/* HIGHLIGHT CARD */
+.highlight {
+  background: linear-gradient(135deg, rgba(255,186,0,0.08) 0%, transparent 60%);
+  border-left: 3px solid var(--ivc-yellow);
+}
+.highlight .card-title { font-size: 16px; }
+
+@media (max-width: 480px) {
+  .stats-strip { gap: 8px; }
+  .stat-chip { padding: 6px 10px; }
+  .stat-chip .num { font-size: 15px; }
+  .tw-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<button class="theme-toggle" onclick="document.body.toggleAttribute('data-theme'); this.textContent = document.body.dataset.theme === 'light' ? '🌙 dark' : '☀️ light'">☀️ light</button>
+
+<div class="container">
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-top">
+    <div class="header-brand">IVC · Curadoria de Conteúdo</div>
+    <div class="header-date">11/Mai/2026 · 08h BRT</div>
+  </div>
+  <h1 class="header-title">Curadoria <span>diária</span></h1>
+</header>
+
+<!-- STATS -->
+<div class="stats-strip">
+  <div class="stat-chip"><span class="num">21</span><span class="label">feeds</span></div>
+  <div class="stat-chip"><span class="num">98</span><span class="label">artigos</span></div>
+  <div class="stat-chip"><span class="num">10</span><span class="label">perfis Twitter</span></div>
+  <div class="stat-chip"><span class="num">1</span><span class="label">seleção</span></div>
+</div>
+
+<!-- ═══════════════ SEÇÃO AI ═══════════════ -->
+<section class="section s-ai">
+  <div class="section-label"><span class="dot"></span>Inteligência Artificial</div>
+
+  <div class="card highlight" style="animation-delay:50ms">
+    <div class="card-header">
+      <span class="card-tag tag-ai">VentureBeat AI</span>
+      <span class="relevance rel-high">Alto</span>
+    </div>
+    <div class="card-title"><a href="https://venturebeat.com/infrastructure/railway-secures-usd100-million-to-challenge-aws-with-ai-native-cloud" target="_blank">Railway secures $100M to challenge AWS with AI-native cloud infrastructure</a></div>
+    <div class="card-summary">A plataforma de cloud com 2M de desenvolvedores levantó US$100M para competir diretamente com AWS, posicionando-se como a escolha nativa para workloads de IA. Modelo de receita baseado em usage, com crescimento acelerado de GMV.</div>
+    <div class="card-footer">
+      <a class="card-link" href="https://venturebeat.com/infrastructure/railway-secures-usd100-million-to-challenge-aws-with-ai-native-cloud" target="_blank">venturebeat.com →</a>
+      Por que importa: infraestrutura AI-native é o próximo campo de batalha em cloud computing — oportunidades para VCs apostarem em alternativas ao trio AWS/GCP/Azure.
+    </div>
+  </div>
+
+  <div class="card" style="animation-delay:100ms">
+    <div class="card-header">
+      <span class="card-tag tag-ai">Last Week AI</span>
+      <span class="relevance rel-med">Médio</span>
+    </div>
+    <div class="card-title"><a href="https://lastweekin.ai/p/last-week-in-ai-340-openai-vs-musk" target="_blank">OpenAI vs Musk + Microsoft, DeepSeek v4, Vision Banana (#340)</a></div>
+    <div class="card-summary">Semana marcante: Musk processa OpenAI, acordo Amazon-OpenAI de US$50B pode sair do papel, DeepSeek antecipa V4. A guerra pela liderança em IA geral esquenta entre Big Techs.</div>
+    <div class="card-footer">
+      <a class="card-link" href="https://lastweekin.ai/p/last-week-in-ai-340-openai-vs-musk" target="_blank">lastweekin.ai →</a>
+      OpenAI/Microsoft: parceria bilionária redefine competitive landscape em IA — следитеfor implications para startups.
+    </div>
+  </div>
+
+  <div class="card" style="animation-delay:150ms">
+    <div class="card-header">
+      <span class="card-tag tag-ai">Import AI</span>
+      <span class="relevance rel-med">Médio</span>
+    </div>
+    <div class="card-title"><a href="https://importai.substack.com/p/import-ai-455-automating-ai-research" target="_blank">AI systems are about to start building themselves (Import AI #455)</a></div>
+    <div class="card-summary">Primeiros passos concretos em direção a recursive self-improvement — modelos que contribuem para o desenvolvimento de versões melhores de si mesmos. Discussão sobre implicações para alinhamento e segurança.</div>
+    <div class="card-footer">
+      <a class="card-link" href="https://importai.substack.com/p/import-ai-455-automating-ai-research" target="_blank">importai.substack.com →</a>
+      Auto-improving AI é um tema quente para investors em segurança e alinhamento.
+    </div>
+  </div>
+
+</section>
+
+<!-- ═══════════════ SEÇÃO VC/GLOBAL ═══════════════ -->
+<section class="section s-vc">
+  <div class="section-label"><span class="dot"></span>VC & Global</div>
+
+  <div class="card highlight" style="animation-delay:200ms">
+    <div class="card-header">
+      <span class="card-tag tag-vc">Venture Unlocked</span>
+      <span class="relevance rel-high">Alto</span>
+    </div>
+    <div class="card-title"><a href="https://www.ventureunlocked.com" target="_blank">Betting on Founders Who Build the Real World + Unpacking "A Crisis Moment In Seed"</a></div>
+    <div class="card-summary">Samir Kaji destaca founders que estão construindo em setores físicos (manufatura, logística, agricultura) e faz análise profunda da crise no seed: valuation reset, prazos de gestation alongados, e a dificuldade de ARIA em ajudar empresas no estágio pré-product-market-fit.</div>
+    <div class="card-footer">
+      <a class="card-link" href="https://www.ventureunlocked.com" target="_blank">ventureunlocked.com →</a>
+      Por que importa: seed em crise tem implicações diretas para fundos early-stage em LatAm — melhor buying opportunity para VCs que sabem actuar.
+    </div>
+  </div>
+
+  <div class="card" style="animation-delay:250ms">
+    <div class="card-header">
+      <span class="card-tag tag-vc">Stratechery</span>
+      <span class="relevance rel-high">Alto</span>
+    </div>
+    <div class="card-title"><a href="https://stratechery.com" target="_blank">The Inference Shift</a></div>
+    <div class="card-summary">Análise profunda de como o centro de gravidade em IA está se movendo de training para inference — a batalha pelo controle da camada de inferência terá implicações duradouras para a cadeia de valor em IA.</div>
+    <div class="card-footer">
+      <a class="card-link" href="https://stratechery.com" target="_blank">stratechery.com →</a>
+      Inference como campo competitivo: oportunidades para investimentos em otimização, caching e infraestrutura de serving.
+    </div>
+  </div>
+
+  <div class="card" style="animation-delay:300ms">
+    <div class="card-header">
+      <span class="card-tag tag-vc">Newcomer / Femstreet</span>
+      <span class="relevance rel-med">Médio</span>
+    </div>
+    <div class="card-title"><a href="https://www.newcomer.co" target="_blank">Customer Support & Dictation Loom + PMF Lessons from Failures</a></div>
+    <div class="card-summary">Newcomer cobre startups de voz e suporte ao cliente; Femstreet reúne aprendizados de founders que falharam em encontrar product-market-fit — conteúdo denso para seed investors.</div>
+    <div class="card-footer">
+      <a class="card-link" href="https://www.newcomer.co" target="_blank">newcomer.co + femstreet.com →</a>
+      PMF failures são dados valiosos para Due Diligence — evite os mesmos erros.
+    </div>
+  </div>
+
+</section>
+
+<!-- ═══════════════ SEÇÃO BR ═══════════════ -->
+<section class="section s-br">
+  <div class="section-label"><span class="dot"></span>Brasil & América Latina</div>
+
+  <div class="card highlight" style="animation-delay:350ms">
+    <div class="card-header">
+      <span class="card-tag tag-br">NeoFeed</span>
+      <span class="relevance rel-high">Alto</span>
+    </div>
+    <div class="card-title"><a href="https://neofeed.com.br/startups/dna-capital-atrai-jj-impact-ventures-btg-e-bndes-em-novo-fundo-de-saude-de-ate-r-500-milhoes/" target="_blank">DNA Capital atrai J&J Impact Ventures, BTG e BNDES em novo fundo de saúde de até R$ 500M</a></div>
+    <div class="card-summary">A DNA Capital está levantando um fundo de até R$ 500 milhões focado em healthtech e life sciences no Brasil, com participações de J&J Impact Ventures, BTG Pactual e BNDES. O fundo visa investir em empresas nos estágios Series A-B.</div>
+    <div class="card-footer">
+      <a class="card-link" href="https://neofeed.com.br/startups/dna-capital-atrai-jj-impact-ventures-btg-e-bndes-em-novo-fundo-de-saude-de-ate-r-500-milhoes/" target="_blank">neofeed.com.br →</a>
+      Por que importa: healthtech sigue sendo tema quente em LatAm — o Involvement de grandes instituciones validates a tese.
+    </div>
+  </div>
+
+  <div class="card" style="animation-delay:400ms">
+    <div class="card-header">
+      <span class="card-tag tag-br">StartupsBR</span>
+      <span class="relevance rel-high">Alto</span>
+    </div>
+    <div class="card-title"><a href="https://startups.com.br/negocios/venture-capital/investidora-levanta-us-10m-para-fundo-de-vc-com-tese-em-maes/" target="_blank">Investidora levanta US$ 10M para fundo de VC com tese em mães (Mother Ventures)</a></div>
+    <div class="card-summary">Mother Ventures levantou US$ 10M com tese focada em produtos e serviços para mães — um segmento com alto NPS, recorrência natural e enorme underserved market no Brasil.</div>
+    <div class="card-footer">
+      <a class="card-link" href="https://startups.com.br/negocios/venture-capital/investidora-levanta-us-10m-para-fundo-de-vc-com-tese-em-maes/" target="_blank">startups.com.br →</a>
+      Thesis de nicho em VC: abordagem de fundo com tese pointed pode outperform em LatAm.
+    </div>
+  </div>
+
+  <div class="card" style="animation-delay:450ms">
+    <div class="card-header">
+      <span class="card-tag tag-br">Brazil Journal</span>
+      <span class="relevance rel-med">Médio</span>
+    </div>
+    <div class="card-title"><a href="https://braziljournal.com/o-proximo-grande-negocio-em-saneamento-pode-estar-no-lixo/" target="_blank">O próximo grande negócio em saneamento pode estar no lixo</a></div>
+    <div class="card-summary">A convergência entre waste management e saneamento básico está criando uma nova categoria de infraestrutura no Brasil — tratada com baixa prioridade histórica, agora atrai interesse de fundos de private equity e infrastructure.</div>
+    <div class="card-footer">
+      <a class="card-link" href="https://braziljournal.com/o-proximo-grande-negocio-em-saneamento-pode-estar-no-lixo/" target="_blank">braziljournal.com →</a>
+      Waste-to-infrastructure é tese emergente com apoio regulatório e ESG tailwinds.
+    </div>
+  </div>
+
+</section>
+
+<!-- ═══════════════ SEÇÃO WEALTH ═══════════════ -->
+<section class="section s-wealth">
+  <div class="section-label"><span class="dot"></span>Wealth & Investing</div>
+
+  <div class="card" style="animation-delay:500ms">
+    <div class="card-header">
+      <span class="card-tag tag-wealth">Rational Walk</span>
+      <span class="relevance rel-high">Alto</span>
+    </div>
+    <div class="card-title"><a href="https://rationalwalk.com/greg-abels-2026-letter-to-shareholders/" target="_blank">Greg Abel's 2026 Letter to Shareholders + Unique Challenge</a></div>
+    <div class="card-summary">Primeira carta anual de Greg Abel como CEO da Berkshire Hathaway: foco em long-term thinking, preservação de cultura e qualidade sobre frequência de investimentos. Leitura essencial para entender governança e succession.</div>
+    <div class="card-footer">
+      <a class="card-link" href="https://rationalwalk.com/greg-abels-2026-letter-to-shareholders/" target="_blank">rationalwalk.com →</a>
+      Abel como CEO da Berkshire é o maior evento em governance de investimentos da década — implications para value investing global.
+    </div>
+  </div>
+
+  <div class="card" style="animation-delay:550ms">
+    <div class="card-header">
+      <span class="card-tag tag-wealth">TechCrunch</span>
+      <span class="relevance rel-high">Alto</span>
+    </div>
+    <div class="card-title"><a href="https://techcrunch.com/2026/05/11/koreas-biggest-manufacturers-back-config-the-tsmc-of-robot-data/" target="_blank">Korea's biggest manufacturers back Config, the TSMC of robot data</a></div>
+    <div class="card-summary">Conglomerados sul-coreanos investem na Config, startup que constrói a camada de dados para robótica — posicionando-a como o "TSMC dos dados físicos". Agregadores e dados de sensores são o próximo gargalo.</div>
+    <div class="card-footer">
+      <a class="card-link" href="https://techcrunch.com/2026/05/11/koreas-biggest-manufacturers-back-config-the-tsmc-of-robot-data/" target="_blank">techcrunch.com →</a>
+      TSMC analogy para robotics data: picks-and-shovels do physical AI stack.
+    </div>
+  </div>
+
+  <div class="card" style="animation-delay:600ms">
+    <div class="card-header">
+      <span class="card-tag tag-wealth">Invest Like The Best / Meb Faber</span>
+      <span class="relevance rel-med">Médio</span>
+    </div>
+    <div class="card-title"><a href="https://investlikethebest.substack.com/p/valueletter-snap-inc" target="_blank">ValueLetter Snap Inc + S&P 500 Dividend Yield All-Time Low</a></div>
+    <div class="card-summary">Análise fundamental de Snap como deep-value opportunity e observação de que o dividend yield do S&P 500 atingiu mínima histórica — señales de sobrevalorização e challenges para investidores de renda.</div>
+    <div class="card-footer">
+      <a class="card-link" href="https://investlikethebest.substack.com/p/valueletter-snap-inc" target="_blank">investlikethebest.substack.com →</a>
+      Mercado de ações em máximos históricos com yields em mínimas: disciplina de valuation é crucial.
+    </div>
+  </div>
+
+</section>
+
+<!-- ═══════════════ SEÇÃO TWITTER ═══════════════ -->
+<section class="section s-twitter">
+  <div class="section-label"><span class="dot"></span>Twitter / X — Perfis Ativos</div>
+
+  <div class="tw-grid">
+    <div class="tw-card" style="animation-delay:650ms">
+      <div class="tw-handle">@ttunguz</div>
+      <div class="tw-text">RT @adam__converce: [link sobre dados] — post mais relevante do feed de Tunguz</div>
+    </div>
+    <div class="tw-card" style="animation-delay:680ms">
+      <div class="tw-handle">@chamath</div>
+      <div class="tw-text">It's hard to understand what the other 39% are thinking. Once you drive a Tesla, it's like driving an all-seeing sensor with a super computer behind it.</div>
+    </div>
+    <div class="tw-card" style="animation-delay:710ms">
+      <div class="tw-handle">@jason</div>
+      <div class="tw-text">Join our mailing list today! Help us stay in touch with you.</div>
+    </div>
+    <div class="tw-card" style="animation-delay:740ms">
+      <div class="tw-handle">@paulg</div>
+      <div class="tw-text">@jdmccafferty Interesting how perfectly they line up: [visual]</div>
+    </div>
+    <div class="tw-card" style="animation-delay:770ms">
+      <div class="tw-handle">@naval</div>
+      <div class="tw-text">Listening to the @trishapaytas podcast two weeks behind... Wishing you well, Ryan 😊</div>
+    </div>
+    <div class="tw-card" style="animation-delay:800ms">
+      <div class="tw-handle">@pmarca</div>
+      <div class="tw-text">Many people are correctly saying...</div>
+    </div>
+    <div class="tw-card" style="animation-delay:830ms">
+      <div class="tw-handle">@alexisohanian</div>
+      <div class="tw-text">@Limoncasillas @Cristiano Please!</div>
+    </div>
+    <div class="tw-card" style="animation-delay:860ms">
+      <div class="tw-handle">@_alexlazar</div>
+      <div class="tw-text">what's good?</div>
+    </div>
+    <div class="tw-card" style="animation-delay:890ms">
+      <div class="tw-handle">@gduguid</div>
+      <div class="tw-text">@CharlieSheen_ Charlie ur the best...</div>
+    </div>
+    <div class="tw-card" style="animation-delay:920ms">
+      <div class="tw-handle">@lessin</div>
+      <div class="tw-text">@typesfast @ConorNeu lol</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ TRANSPARENCY FOOTER ═══════════════ -->
+<footer class="footer">
+  <div style="margin-bottom:16px">
+    <table class="trans-table">
+      <thead>
+        <tr>
+          <th>Fonte</th>
+          <th>Status</th>
+          <th>Artigos</th>
+          <th>Tier</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Stratechery</td><td><span class="status-dot sok"></span>OK</td><td>5</td><td>1</td></tr>
+        <tr><td>Not Boring</td><td><span class="status-dot sok"></span>OK</td><td>5</td><td>1</td></tr>
+        <tr><td>Brazil Journal</td><td><span class="status-dot sok"></span>OK</td><td>5</td><td>1</td></tr>
+        <tr><td>Startupi</td><td><span class="status-dot sok"></span>OK</td><td>5</td><td>1</td></tr>
+        <tr><td>NeoFeed</td><td><span class="status-dot sok"></span>OK</td><td>5</td><td>2</td></tr>
+        <tr><td>Import AI</td><td><span class="status-dot sok"></span>OK</td><td>5</td><td>AI</td></tr>
+        <tr><td>Bens Bites</td><td><span class="status-dot sok"></span>OK</td><td>5</td><td>AI</td></tr>
+        <tr><td>Last Week AI</td><td><span class="status-dot sok"></span>OK</td><td>5</td><td>AI</td></tr>
+        <tr><td>VentureBeat AI</td><td><span class="status-dot sok"></span>OK</td><td>5</td><td>AI</td></tr>
+        <tr><td>Femstreet</td><td><span class="status-dot sok"></span>OK</td><td>5</td><td>2</td></tr>
+        <tr><td>Venture Unlocked</td><td><span class="status-dot sok"></span>OK</td><td>5</td><td>2</td></tr>
+        <tr><td>Newcomer</td><td><span class="status-dot sok"></span>OK</td><td>5</td><td>2</td></tr>
+        <tr><td>Exame</td><td><span class="status-dot sok"></span>OK</td><td>5</td><td>2</td></tr>
+        <tr><td>StartupsBR</td><td><span class="status-dot sok"></span>OK</td><td>5</td><td>2</td></tr>
+        <tr><td>Of Dollars And Data</td><td><span class="status-dot sok"></span>OK</td><td>5</td><td>Wealth</td></tr>
+        <tr><td>Rational Walk</td><td><span class="status-dot sok"></span>OK</td><td>5</td><td>Wealth</td></tr>
+        <tr><td>Invest Like The Best</td><td><span class="status-dot sok"></span>OK</td><td>3</td><td>Wealth</td></tr>
+        <tr><td>Meb Faber</td><td><span class="status-dot sok"></span>OK</td><td>5</td><td>Wealth</td></tr>
+        <tr><td>A Wealth Of Common Sense</td><td><span class="status-dot sok"></span>OK</td><td>5</td><td>Wealth</td></tr>
+        <tr><td>TechCrunch</td><td><span class="status-dot sok"></span>OK</td><td>5</td><td>2</td></tr>
+        <tr><td>The Full Ratchet</td><td><span class="status-dot swarn"></span>0 arts</td><td>0</td><td>2</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>
+    21 feeds · 98 artigos · 10 perfis Twitter · <span style="color:var(--ivc-yellow)">1 curadoria</span><br>
+    Gerado em 11/Mai/2026 · <a href="https://github.com/amurepinho2/hermes-knowledge" target="_blank">IVC Hermes Knowledge</a>
+  </p>
+</footer>
+
+</div>
+
+<script>
+  // Stagger card animations
+  document.querySelectorAll('.card, .tw-card').forEach((el, i) => {
+    el.style.animationDelay = `${650 + i * 30}ms`;
+  });
+  // Light/dark toggle
+  const btn = document.querySelector('.theme-toggle');
+  btn.addEventListener('click', () => {
+    const isLight = document.body.dataset.theme === 'light';
+    document.body.dataset.theme = isLight ? '' : 'light';
+    btn.textContent = isLight ? '☀️ light' : '🌙 dark';
+  });
+</script>
+
+</body>
+</html>
