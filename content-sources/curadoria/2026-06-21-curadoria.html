@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Curadoria IVC — 2026-06-21</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ivc-yellow: #FFBA00;
+  --ink: #1A1B1F;
+  --bg: #0d0d0f;
+  --card-bg: #18181f;
+  --card-hover: #1f1f28;
+  --text: #e8e8ec;
+  --text-muted: #8888a0;
+  --accent: #e8ff47;
+  --success: #4ade80;
+  --warning: #fbbf24;
+  --danger: #f87171;
+  --radius: 12px;
+  --spacing: 4px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.6; padding: 20px; }
+.container { max-width: 900px; margin: 0 auto; }
+
+header { text-align: center; padding: 40px 0 30px; border-bottom: 1px solid #2a2a35; margin-bottom: 32px; }
+header h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--ivc-yellow); margin-bottom: 8px; }
+header .subtitle { color: var(--text-muted); font-size: 0.9rem; font-family: 'JetBrains Mono', monospace; }
+.stats-strip { display: flex; justify-content: center; gap: 32px; margin-top: 16px; flex-wrap: wrap; }
+.stat { text-align: center; }
+.stat .num { font-size: 1.8rem; font-weight: 700; color: var(--ivc-yellow); font-family: 'JetBrains Mono', monospace; }
+.stat .label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+
+section { margin-bottom: 40px; }
+.section-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--ivc-yellow); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid var(--ivc-yellow); }
+
+.cards-grid { display: grid; gap: 12px; }
+.card { background: var(--card-bg); border-radius: var(--radius); padding: 16px; border: 1px solid #2a2a35; transition: background 0.2s; }
+.card:hover { background: var(--card-hover); }
+.card h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 6px; line-height: 1.4; }
+.card h3 a { color: var(--text); text-decoration: none; }
+.card h3 a:hover { color: var(--ivc-yellow); }
+.card p { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 10px; line-height: 1.5; }
+.card footer { display: flex; justify-content: space-between; align-items: center; }
+.source-pill { background: var(--ink); color: var(--ivc-yellow); font-size: 0.7rem; font-weight: 600; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.05em; }
+.source-pill.twitter { background: #1a3a5c; color: #4da6ff; }
+.date { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted); }
+
+.twitter-grid { display: grid; gap: 10px; }
+.twitter-card { display: flex; flex-direction: column; gap: 8px; }
+.twitter-card p { margin: 0; font-size: 0.88rem; color: var(--text); }
+
+.transparency { margin-top: 48px; padding-top: 24px; border-top: 1px solid #2a2a35; }
+.transparency h2 { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--ivc-yellow); margin-bottom: 16px; }
+.tbl { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
+.tbl th { text-align: left; color: var(--text-muted); font-weight: 500; padding: 6px 10px; border-bottom: 1px solid #2a2a35; }
+.tbl td { padding: 6px 10px; border-bottom: 1px solid #1f1f28; }
+.tbl tr:hover { background: #1a1a22; }
+.dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; }
+.dot.ok { background: var(--success); }
+.dot.fail { background: var(--danger); }
+.dot.warn { background: var(--warning); }
+
+footer { text-align: center; padding: 32px 0; color: var(--text-muted); font-size: 0.75rem; font-family: 'JetBrains Mono', monospace; }
+
+@media (max-width: 600px) { .stats-strip { gap: 16px; } header h1 { font-size: 1.6rem; } }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <h1>📰 Curadoria IVC</h1>
+  <div class="subtitle">2026-06-21 · 11h BRT</div>
+  <div class="stats-strip">
+    <div class="stat"><div class="num">20</div><div class="label">Feeds Testados</div></div>
+    <div class="stat"><div class="num">88</div><div class="label">Artigos</div></div>
+    <div class="stat"><div class="num">10</div><div class="label">Perfis Twitter</div></div>
+    <div class="stat"><div class="num">10</div><div class="label">Selecionados</div></div>
+  </div>
+</header>
+
+
+
+<section>
+  <h2 class="section-title">🐦 Twitter/X</h2>
+  <div class="twitter-grid">
+        <div class="card twitter-card">
+          <span class="source-pill twitter">@ttunguz</span>
+          <p>@Anvario Do you have enough log data to be able to automatically rewrite the skills?</p>
+        </div>
+        <div class="card twitter-card">
+          <span class="source-pill twitter">@chamath</span>
+          <p>Pod!!!! Absolute banger with @bgurley https://t.co/Q1TLRFi4XC</p>
+        </div>
+        <div class="card twitter-card">
+          <span class="source-pill twitter">@jason</span>
+          <p>Join our mailing list today! Help us stay in touch with you. http://t.co/oAXLSwYe</p>
+        </div>
+        <div class="card twitter-card">
+          <span class="source-pill twitter">@alexisohanian</span>
+          <p>@trackerati Doing our best! More to do</p>
+        </div>
+        <div class="card twitter-card">
+          <span class="source-pill twitter">@paulg</span>
+          <p>@DouglasCarswell @LandsknechtPike By inheriting money. Have you read no history? The tough founder of a dynasty has no way of guaranteeing that his gr</p>
+        </div>
+        <div class="card twitter-card">
+          <span class="source-pill twitter">@naval</span>
+          <p>Listening to the @trishapaytas podcast two weeks behind and they literally mentioned @RyanScottGraham ‘s band. Wishing you well, Ryan 😊</p>
+        </div>
+        <div class="card twitter-card">
+          <span class="source-pill twitter">@pmarca</span>
+          <p>Interesting. https://t.co/gp3NIm2Yqp</p>
+        </div>
+        <div class="card twitter-card">
+          <span class="source-pill twitter">@_alexlazar</span>
+          <p>what’s good? https://t.co/vR2zg653Ju</p>
+        </div>
+        <div class="card twitter-card">
+          <span class="source-pill twitter">@gduguid</span>
+          <p>@CharlieSheen_ Charlie ur the best and ur a credit to all winning men</p>
+        </div>
+        <div class="card twitter-card">
+          <span class="source-pill twitter">@lessin</span>
+          <p>I also like tennis ... but are we really at the point that 70% above the fold WSJ is someone losing in the second round? https://t.co/DUqdNPqRt5</p>
+        </div></div>
+</section>
+
+<div class="transparency">
+  <h2>📊 Relatório de Transparência</h2>
+  <table class="tbl">
+    <thead><tr><th>Fonte</th><th>Status</th><th>Artigos</th><th>Tier</th></tr></thead>
+    <tbody>
+<tr><td>Stratechery</td><td><span class="dot ok"></span>OK</td><td>5</td><td>T1</td></tr>
+<tr><td>NotBoring</td><td><span class="dot ok"></span>OK</td><td>5</td><td>T1</td></tr>
+<tr><td>BrazilJournal</td><td><span class="dot ok"></span>OK</td><td>5</td><td>T1</td></tr>
+<tr><td>NeoFeed</td><td><span class="dot ok"></span>OK</td><td>5</td><td>T1</td></tr>
+<tr><td>Startupi</td><td><span class="dot ok"></span>OK</td><td>5</td><td>T1</td></tr>
+<tr><td>ImportAI</td><td><span class="dot ok"></span>OK</td><td>5</td><td>T2</td></tr>
+<tr><td>BensBites</td><td><span class="dot ok"></span>OK</td><td>5</td><td>T2</td></tr>
+<tr><td>LastWeekAI</td><td><span class="dot ok"></span>OK</td><td>5</td><td>T2</td></tr>
+<tr><td>VentureBeatAI</td><td><span class="dot ok"></span>OK</td><td>5</td><td>T2</td></tr>
+<tr><td>Newcomer</td><td><span class="dot ok"></span>OK</td><td>5</td><td>T2</td></tr>
+<tr><td>VentureUnlocked</td><td><span class="dot ok"></span>OK</td><td>5</td><td>T2</td></tr>
+<tr><td>Femstreet</td><td><span class="dot ok"></span>OK</td><td>5</td><td>T2</td></tr>
+<tr><td>OfDollarsAndData</td><td><span class="dot ok"></span>OK</td><td>5</td><td>T2</td></tr>
+<tr><td>RationalWalk</td><td><span class="dot ok"></span>OK</td><td>5</td><td>T2</td></tr>
+<tr><td>AWealthOfCommonSense</td><td><span class="dot fail"></span>FAIL</td><td>0</td><td>T2</td></tr>
+<tr><td>MebFaber</td><td><span class="dot ok"></span>OK</td><td>5</td><td>T2</td></tr>
+<tr><td>InvestLikeTheBest</td><td><span class="dot ok"></span>OK</td><td>3</td><td>T2</td></tr>
+<tr><td>Exame</td><td><span class="dot ok"></span>OK</td><td>5</td><td>T2</td></tr>
+<tr><td>TechCrunch</td><td><span class="dot ok"></span>OK</td><td>5</td><td>T2</td></tr>
+<tr><td>FirstRound</td><td><span class="dot fail"></span>FAIL</td><td>0</td><td>T2</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<footer>
+  IVC Content Curation · Hermes Agent · 2026-06-21
+</footer>
+</div>
+</body>
+</html>
