@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Curadoria IVC · 2026-06-23</title>
+<link href="https://fonts.googleapis.com/css2?family=Cera+Pro:wght@400;500;700&family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ivc-yellow: #FFBA00;
+    --ivc-ink: #1A1B1F;
+    --ivc-surface: #0d0d0f;
+    --ivc-card: #18181f;
+    --ivc-card-hover: #1f1f28;
+    --ivc-border: #2a2a35;
+    --ivc-text: #e8e8ed;
+    --ivc-muted: #8a8a9a;
+    --ivc-radius: 12px;
+    --ivc-spacing: 4px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--ivc-surface);
+    color: var(--ivc-text);
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  .header {
+    background: var(--ivc-ink);
+    border-bottom: 2px solid var(--ivc-yellow);
+    padding: 32px 24px 24px;
+    text-align: center;
+  }
+
+  .header-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--ivc-yellow);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .header-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 6vw, 56px);
+    font-weight: 900;
+    color: #fff;
+    letter-spacing: -1px;
+    margin-bottom: 4px;
+  }
+
+  .header-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--ivc-muted);
+    margin-bottom: 20px;
+  }
+
+  /* STATS STRIP */
+  .stats-strip {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-value {
+    font-family: 'Cera Pro', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--ivc-yellow);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    color: var(--ivc-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 4px;
+  }
+
+  /* SECTION */
+  .sections { max-width: 900px; margin: 0 auto; padding: 24px 16px 80px; }
+
+  .section { margin-bottom: 48px; }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--ivc-border);
+  }
+
+  .section-icon {
+    width: 36px; height: 36px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+  }
+
+  .section-title {
+    font-family: 'Cera Pro', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.5px;
+  }
+
+  /* CARDS */
+  .cards { display: flex; flex-direction: column; gap: 12px; }
+
+  .card {
+    background: var(--ivc-card);
+    border: 1px solid var(--ivc-border);
+    border-radius: var(--ivc-radius);
+    padding: 16px;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: background 0.15s, border-color 0.15s, transform 0.15s;
+    animation: fadeUp 0.4s ease both;
+  }
+
+  .card:hover {
+    background: var(--ivc-card-hover);
+    border-color: var(--ivc-yellow);
+    transform: translateY(-2px);
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .card:nth-child(1) { animation-delay: 0ms; }
+  .card:nth-child(2) { animation-delay: 80ms; }
+  .card:nth-child(3) { animation-delay: 160ms; }
+
+  .card-pill {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    padding: 3px 8px;
+    border-radius: 20px;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .pill-stratechery { background: #c41230; color: #fff; }
+  .pill-notboring { background: #7b2d8b; color: #fff; }
+  .pill-braziljournal { background: #2e7d32; color: #fff; }
+  .pill-neofeed { background: #1565c0; color: #fff; }
+  .pill-startupi { background: #e65100; color: #fff; }
+  .pill-importai { background: #00838f; color: #fff; }
+  .pill-bensbites { background: #f9a825; color: #1a1b1f; }
+  .pill-lastweekai { background: #4527a0; color: #fff; }
+  .pill-vc { background: #283593; color: #fff; }
+  .pill-wealth { background: #5d4037; color: #fff; }
+  .pill-twitter { background: var(--ivc-ink); color: var(--ivc-yellow); border: 1px solid var(--ivc-yellow); }
+  .pill-techcrunch { background: #0a0a0a; color: #fff; border: 1px solid #555; }
+  .pill-exame { background: #b71c1c; color: #fff; }
+  .pill-default { background: var(--ivc-border); color: var(--ivc-text); }
+
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+
+  .card-desc {
+    font-size: 13px;
+    color: var(--ivc-muted);
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--ivc-muted);
+  }
+
+  .card-footer a { color: var(--ivc-yellow); text-decoration: none; }
+  .card-footer a:hover { text-decoration: underline; }
+
+  /* TWITTER */
+  .twitter-card {
+    background: var(--ivc-card);
+    border: 1px solid var(--ivc-border);
+    border-radius: var(--ivc-radius);
+    padding: 14px 16px;
+    animation: fadeUp 0.4s ease both;
+  }
+
+  .twitter-handle {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ivc-yellow);
+    margin-bottom: 6px;
+  }
+
+  .twitter-text {
+    font-size: 14px;
+    color: var(--ivc-text);
+    line-height: 1.5;
+    margin-bottom: 8px;
+  }
+
+  .twitter-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--ivc-muted);
+  }
+
+  /* TRANSPARENCY TABLE */
+  .transparency {
+    background: var(--ivc-card);
+    border: 1px solid var(--ivc-border);
+    border-radius: var(--ivc-radius);
+    overflow: hidden;
+    margin-top: 48px;
+  }
+
+  .transparency-header {
+    background: var(--ivc-ink);
+    padding: 14px 20px;
+    font-family: 'Cera Pro', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ivc-yellow);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--ivc-border);
+  }
+
+  .transparency table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .transparency th {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--ivc-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 10px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--ivc-border);
+  }
+
+  .transparency td {
+    padding: 10px 16px;
+    font-size: 13px;
+    border-bottom: 1px solid rgba(42,42,53,0.5);
+    vertical-align: middle;
+  }
+
+  .transparency tr:last-child td { border-bottom: none; }
+
+  .status-dot {
+    display: inline-block;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    margin-right: 8px;
+  }
+
+  .dot-green { background: #4caf50; box-shadow: 0 0 6px #4caf5066; }
+  .dot-red { background: #f44336; }
+  .dot-yellow { background: #ff9800; }
+
+  .transparency tr:hover td { background: rgba(255,186,0,0.04); }
+
+  /* FOOTER */
+  .footer {
+    text-align: center;
+    padding: 24px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--ivc-muted);
+    border-top: 1px solid var(--ivc-border);
+    margin-top: 48px;
+  }
+
+  /* PICK SECTION */
+  .pick {
+    background: linear-gradient(135deg, rgba(255,186,0,0.08), rgba(255,186,0,0.02));
+    border: 1px solid rgba(255,186,0,0.3);
+    border-radius: var(--ivc-radius);
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+
+  .pick-label {
+    font-family: 'Cera Pro', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--ivc-yellow);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+
+  /* MOBILE */
+  @media (max-width: 600px) {
+    .stats-strip { gap: 16px; }
+    .section-title { font-size: 15px; }
+    .card-title { font-size: 15px; }
+    .transparency td, .transparency th { padding: 8px 10px; font-size: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-eyebrow">IVC Intelligence</div>
+  <div class="header-title">Curadoria Diária</div>
+  <div class="header-date">2026-06-23 · Terça-feira</div>
+  <div class="stats-strip">
+    <div class="stat"><div class="stat-value">19</div><div class="stat-label">Fontes Rastreadas</div></div>
+    <div class="stat"><div class="stat-value">93</div><div class="stat-label">Artigos Coletados</div></div>
+    <div class="stat"><div class="stat-value">8</div><div class="stat-label">Perfis Twitter</div></div>
+    <div class="stat"><div class="stat-value">4</div><div class="stat-label">Melhores Picks</div></div>
+  </div>
+</div>
+
+<div class="sections">
+
+  <!-- PICK DA CURADORIA -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon" style="background: var(--ivc-yellow); color: var(--ivc-ink);">★</div>
+      <div class="section-title">🎯 Pick da Curadoria</div>
+    </div>
+    <div class="cards">
+      <a class="card pick" href="https://stratechery.com/2026/memory-chips-and-china-microsoft-and-chinese-models/">
+        <div class="pick-label">Must-Read · Stratechery</div>
+        <div class="card-title">Memory Chips and China, Microsoft and Chinese Models</div>
+        <div class="card-desc">Os três grandes fabricantes de memória podem se arrepender de ter aberto a porta para competitors chineses; Microsoft, meantime, está altamente motivada a usar modelos chineses. Análise profunda sobre geopolítica de chips e IA.</div>
+        <div class="card-footer"><span>Stratechery</span><a href="https://stratechery.com/2026/memory-chips-and-china-microsoft-and-chinese-models/">Ler →</a></div>
+      </a>
+    </div>
+  </div>
+
+  <!-- AI -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon" style="background: #00838f; color: #fff;">🤖</div>
+      <div class="section-title">Inteligência Artificial</div>
+    </div>
+    <div class="cards">
+      <a class="card" href="https://importai.substack.com/p/import-ai-462-superpersuasion-self">
+        <span class="card-pill pill-importai">Import AI</span>
+        <div class="card-title">Import AI 462: Superpersuasion; self-sustaining AI; paths to ASI</div>
+        <div class="card-desc">Superpersuasão, IA auto-sustentável e caminhos para ASI. Como creencias religiosas se manifestam no cenário da singularidade.</div>
+        <div class="card-footer"><span>Import AI · 22 Jun</span><a href="https://importai.substack.com/p/import-ai-462-superpersuasion-self">Ler →</a></div>
+      </a>
+      <a class="card" href="https://www.bensbites.com/p/the-first-big-exit-in-ai">
+        <span class="card-pill pill-bensbites">Bens Bites</span>
+        <div class="card-title">The first big exit in AI</div>
+        <div class="card-desc">A primeira grande saída de IA. little tools for making life easier — análise do panorama de aquisições em IA.</div>
+        <div class="card-footer"><span>Bens Bites · 18 Jun</span><a href="https://www.bensbites.com/p/the-first-big-exit-in-ai">Ler →</a></div>
+      </a>
+    </div>
+  </div>
+
+  <!-- VC GLOBAL -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon" style="background: #283593; color: #fff;">🌐</div>
+      <div class="section-title">VC & Global</div>
+    </div>
+    <div class="cards">
+      <a class="card" href="https://stratechery.com/2026/apple-price-increases-apple-intelligence-and-the-e-u/">
+        <span class="card-pill pill-stratechery">Stratechery</span>
+        <div class="card-title">Apple Price Increases, Apple Intelligence and the E.U.</div>
+        <div class="card-desc">Apple finalmente eleva preços, mas não envia Siri AI para a UE. Análise do modelo de monetização Apple e impacto regulatório.</div>
+        <div class="card-footer"><span>Stratechery · 22 Jun</span><a href="https://stratechery.com/2026/apple-price-increases-apple-intelligence-and-the-e-u/">Ler →</a></div>
+      </a>
+      <a class="card" href="https://www.newcomer.co/p/cursor-investors-set-for-epic-payout">
+        <span class="card-pill pill-default">Newcomer</span>
+        <div class="card-title">Cursor Investors Set for Epic Payout from Musk's Juggernaut</div>
+        <div class="card-desc">Investidores do Cursor rumo a payout épico com a aquisição pela SpaceX. Gavin Newsom emerge como pragmata pró-tech.</div>
+        <div class="card-footer"><span>Newcomer · 19 Jun</span><a href="https://www.newcomer.co/p/cursor-investors-set-for-epic-payout">Ler →</a></div>
+      </a>
+      <a class="card" href="https://www.notboring.co/p/weekly-dose-of-optimism-198">
+        <span class="card-pill pill-notboring">Not Boring</span>
+        <div class="card-title">Weekly Dose of Optimism #198</div>
+        <div class="card-desc">Midjourney Scanner, Laser Phase Plate, Valar Goes Critical, Anduril CCA, Reindustrialize — ciência e otimismo em dose dupla.</div>
+        <div class="card-footer"><span>Not Boring · 19 Jun</span><a href="https://www.notboring.co/p/weekly-dose-of-optimism-198">Ler →</a></div>
+      </a>
+    </div>
+  </div>
+
+  <!-- BRASIL -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon" style="background: #2e7d32; color: #fff;">🇧🇷</div>
+      <div class="section-title">Brasil</div>
+    </div>
+    <div class="cards">
+      <a class="card" href="https://neofeed.com.br/poder/exclusivo-apos-caso-master-governo-pretende-reestruturar-bc-e-cvm/">
+        <span class="card-pill pill-neofeed">NeoFeed</span>
+        <div class="card-title">EXCLUSIVO: Após Caso Master, governo reestrutura BC e CVM</div>
+        <div class="card-desc">Governo pretende reestruturar Banco Central e CVM após o Caso Master. Implicações profundas para fintechs e regulação.</div>
+        <div class="card-footer"><span>NeoFeed · 23 Jun</span><a href="https://neofeed.com.br/poder/exclusivo-apos-caso-master-governo-pretende-reestruturar-bc-e-cvm/">Ler →</a></div>
+      </a>
+      <a class="card" href="https://braziljournal.com/vale-tera-disputa-por-conselho-stieler-resiste-gasparino-entra-no-jogo/">
+        <span class="card-pill pill-braziljournal">Brazil Journal</span>
+        <div class="card-title">Vale: disputa por conselho — Stieler resiste, Gasparino entra</div>
+        <div class="card-desc">Previ propõe novo chairman da Vale em batalha de governança. Assembleia extraordinaria em 22 de julho.</div>
+        <div class="card-footer"><span>Brazil Journal · 23 Jun</span><a href="https://braziljournal.com/vale-tera-disputa-por-conselho-stieler-resiste-gasparino-entra-no-jogo/">Ler →</a></div>
+      </a>
+      <a class="card" href="https://startupi.com.br/vixtra-levanta-r-50-milhoes-em-serie-a/">
+        <span class="card-pill pill-startupi">Startupi</span>
+        <div class="card-title">Vixtra levanta R$ 50M em Série A para infrastructure financeira</div>
+        <div class="card-desc">Vixtra levanta R$ 50 milhões em Série A para expandir infraestrutura financeira voltada ao importador brasileiro.</div>
+        <div class="card-footer"><span>Startupi · 22 Jun</span><a href="https://startupi.com.br/vixtra-levanta-r-50-milhoes-em-serie-a/">Ler →</a></div>
+      </a>
+      <a class="card" href="https://startupi.com.br/superinteligencia-no-radar-o-desafio-dos-fundadores-brasileiros-entre-disrupcao-da-ia-e-o-custo-da-regulacao/">
+        <span class="card-pill pill-startupi">Startupi</span>
+        <div class="card-title">Superinteligência: o desafio dos fundadores brasileiros</div>
+        <div class="card-desc">Disrupção da IA versus custo da regulação — o dilema dos founders brasileiros no radar da superinteligência.</div>
+        <div class="card-footer"><span>Startupi · 23 Jun</span><a href="https://startupi.com.br/superinteligencia-no-radar-o-desafio-dos-fundadores-brasileiros-entre-disrupcao-da-ia-e-o-custo-da-regulacao/">Ler →</a></div>
+      </a>
+    </div>
+  </div>
+
+  <!-- WEALTH -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon" style="background: #5d4037; color: #fff;">💰</div>
+      <div class="section-title">Wealth & Markets</div>
+    </div>
+    <div class="cards">
+      <a class="card" href="https://ofdollarsanddata.com/how-much-will-spacex-actually-cost-your-index-fund/">
+        <span class="card-pill pill-default">Of Dollars And Data</span>
+        <div class="card-title">How Much Will SpaceX Actually Cost Your Index Fund?</div>
+        <div class="card-desc">SpaceX faz IPO a US$ 1.77 trilhão, levanta US$ 75 bi. Análise detalhada do impacto nos fundos de índice.</div>
+        <div class="card-footer"><span>OfDollarsAndData · 9 Jun</span><a href="https://ofdollarsanddata.com/how-much-will-spacex-actually-cost-your-index-fund/">Ler →</a></div>
+      </a>
+      <a class="card" href="https://www.exame.com/feed/">
+        <span class="card-pill pill-exame">Exame</span>
+        <div class="card-title">Juros a 14,25%: maior fundo imobiliário do País capta até R$ 1,25 bi</div>
+        <div class="card-desc">Em meio à taxa SELIC em 14,25%, o maior fundo imobiliário brasileiro pretende captar até R$ 1,25 bilhão.</div>
+        <div class="card-footer"><span>Exame · 22 Jun</span><a href="https://www.exame.com/feed/">Ler →</a></div>
+      </a>
+    </div>
+  </div>
+
+  <!-- TWITTER -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon" style="background: var(--ivc-ink); color: var(--ivc-yellow);">𝕏</div>
+      <div class="section-title">Twitter / X</div>
+    </div>
+    <div class="cards">
+      <div class="twitter-card" style="animation-delay: 0ms">
+        <div class="twitter-handle">@ttunguz · Tomasz Tunguz</div>
+        <div class="twitter-text">"Every board should be asking which pricing model their inference reselling business is running. Cost-plus is a payment processor with a dashboard. Value-based is software."</div>
+        <div class="twitter-meta">23 Jun · 22 likes · 22 Jun</div>
+      </div>
+      <div class="twitter-card" style="animation-delay: 80ms">
+        <div class="twitter-handle">@ttunguz · Tomasz Tunguz</div>
+        <div class="twitter-text">"What if the customer wants to bring their own key? Cost-plus breaks: a markup is a visible tax on something they already buy. Value-based survives: you're selling work."</div>
+        <div class="twitter-meta">22 Jun · 7 likes</div>
+      </div>
+      <div class="twitter-card" style="animation-delay: 160ms">
+        <div class="twitter-handle">@chamath · Chamath Palihapitiya</div>
+        <div class="twitter-text">"From 2011-2018, I was an institutional investor, managing my own capital alongside capital from some exceptional Limited Partners. Every quarter I still get on the phone with these LPs and update them."</div>
+        <div class="twitter-meta">22 Jun · 625 likes · 77 RTs</div>
+      </div>
+      <div class="twitter-card" style="animation-delay: 240ms">
+        <div class="twitter-handle">@pmarca · Marc Andreessen</div>
+        <div class="twitter-text">"Interesting." (link para análise)</div>
+        <div class="twitter-meta">22 Jun</div>
+      </div>
+      <div class="twitter-card" style="animation-delay: 320ms">
+        <div class="twitter-handle">@alexisohanian · Alexis Ohanian</div>
+        <div class="twitter-text">"@trackerati Doing our best! More to do"</div>
+        <div class="twitter-meta">22 Jun</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRANSPARENCY REPORT -->
+  <div class="transparency">
+    <div class="transparency-header">📡 Relatório de Transparência — Fontes Testadas</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Fonte</th>
+          <th>Categoria</th>
+          <th>Status</th>
+          <th>Artigos</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Stratechery</td><td>VC/Global</td><td><span class="status-dot dot-green"></span>✅</td><td>5</td></tr>
+        <tr><td>NotBoring</td><td>VC/Global</td><td><span class="status-dot dot-green"></span>✅</td><td>5</td></tr>
+        <tr><td>BrazilJournal</td><td>BR</td><td><span class="status-dot dot-green"></span>✅</td><td>5</td></tr>
+        <tr><td>ImportAI</td><td>AI</td><td><span class="status-dot dot-green"></span>✅</td><td>5</td></tr>
+        <tr><td>BensBites</td><td>AI</td><td><span class="status-dot dot-green"></span>✅</td><td>5</td></tr>
+        <tr><td>LastWeekAI</td><td>AI</td><td><span class="status-dot dot-green"></span>✅</td><td>5</td></tr>
+        <tr><td>VentureBeatAI</td><td>AI</td><td><span class="status-dot dot-green"></span>✅</td><td>5</td></tr>
+        <tr><td>NeoFeed</td><td>BR</td><td><span class="status-dot dot-green"></span>✅</td><td>5</td></tr>
+        <tr><td>Startupi</td><td>BR</td><td><span class="status-dot dot-green"></span>✅</td><td>5</td></tr>
+        <tr><td>Femstreet</td><td>VC/Global</td><td><span class="status-dot dot-yellow"></span>⚠️ Feed desatualizado</td><td>5</td></tr>
+        <tr><td>VentureUnlocked</td><td>VC/Global</td><td><span class="status-dot dot-green"></span>✅</td><td>5</td></tr>
+        <tr><td>Newcomer</td><td>VC/Global</td><td><span class="status-dot dot-green"></span>✅</td><td>5</td></tr>
+        <tr><td>OfDollarsAndData</td><td>Wealth</td><td><span class="status-dot dot-green"></span>✅</td><td>5</td></tr>
+        <tr><td>RationalWalk</td><td>Wealth</td><td><span class="status-dot dot-green"></span>✅</td><td>5</td></tr>
+        <tr><td>MebFaber</td><td>Wealth</td><td><span class="status-dot dot-green"></span>✅</td><td>5</td></tr>
+        <tr><td>AWealthOfCommonSense</td><td>Wealth</td><td><span class="status-dot dot-green"></span>✅</td><td>5</td></tr>
+        <tr><td>InvestLikeTheBest</td><td>Wealth</td><td><span class="status-dot dot-green"></span>✅</td><td>3</td></tr>
+        <tr><td>Exame</td><td>BR</td><td><span class="status-dot dot-green"></span>✅</td><td>5</td></tr>
+        <tr><td>TechCrunch</td><td>Tech</td><td><span class="status-dot dot-green"></span>✅</td><td>5</td></tr>
+        <tr><td>@ttunguz</td><td>Twitter</td><td><span class="status-dot dot-green"></span>✅</td><td>5</td></tr>
+        <tr><td>@chamath</td><td>Twitter</td><td><span class="status-dot dot-green"></span>✅</td><td>5</td></tr>
+        <tr><td>@jason</td><td>Twitter</td><td><span class="status-dot dot-green"></span>✅</td><td>5</td></tr>
+        <tr><td>@alexisohanian</td><td>Twitter</td><td><span class="status-dot dot-green"></span>✅</td><td>5</td></tr>
+        <tr><td>@paulg</td><td>Twitter</td><td><span class="status-dot dot-green"></span>✅</td><td>5</td></tr>
+        <tr><td>@naval</td><td>Twitter</td><td><span class="status-dot dot-green"></span>✅</td><td>5</td></tr>
+        <tr><td>@pmarca</td><td>Twitter</td><td><span class="status-dot dot-green"></span>✅</td><td>5</td></tr>
+        <tr><td>@_alexlazar</td><td>Twitter</td><td><span class="status-dot dot-green"></span>✅</td><td>5</td></tr>
+        <tr><td>@gduguid</td><td>Twitter</td><td><span class="status-dot dot-green"></span>✅</td><td>1</td></tr>
+        <tr><td>@lessin</td><td>Twitter</td><td><span class="status-dot dot-green"></span>✅</td><td>5</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<div class="footer">
+  IVC Curadoria · Dados de 2026-06-23 · 19 fontes rastreadas · 93 artigos · 8 perfis Twitter
+</div>
+
+</body>
+</html>
