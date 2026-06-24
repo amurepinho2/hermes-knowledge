@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Curadoria IVC · 24 de Junho, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cera+Pro:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ivc-yellow: #FFBA00;
+  --ivc-ink: #1A1B1F;
+  --bg: #0d0d0f;
+  --card-bg: #18181f;
+  --card-hover: #22222a;
+  --text: #e8e8ee;
+  --text-muted: #8888a0;
+  --border: #2a2a36;
+  --r: 12px;
+  --sp: 4px;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:var(--bg); color:var(--text); font-family:'Inter',sans-serif; line-height:1.6; min-height:100vh; }
+.topo {
+  border-bottom:1px solid var(--border);
+  padding:24px 32px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:16px;
+}
+.topo .marca {
+  font-family:'Cera Pro',sans-serif;
+  font-weight:700;
+  font-size:1.4rem;
+  color:var(--ivc-yellow);
+  letter-spacing:-0.5px;
+}
+.topo .data {
+  font-family:monospace;
+  color:var(--text-muted);
+  font-size:0.9rem;
+}
+.stats-strip {
+  display:flex;
+  gap:20px;
+  font-size:0.82rem;
+  color:var(--text-muted);
+  flex-wrap:wrap;
+}
+.stats-strip span { color:var(--ivc-yellow); font-weight:600; }
+main { max-width:1100px; margin:0 auto; padding:24px 24px 64px; }
+section { margin-bottom:48px; }
+.section-header {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:20px;
+  padding-bottom:10px;
+  border-bottom:1px solid var(--border);
+}
+.section-header h2 {
+  font-family:'Cera Pro',sans-serif;
+  font-size:1.15rem;
+  font-weight:700;
+  letter-spacing:0.5px;
+}
+.dot { width:8px;height:8px;border-radius:50%;display:inline-block; }
+.cards { display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:16px; }
+.card {
+  background:var(--card-bg);
+  border:1px solid var(--border);
+  border-radius:var(--r);
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  transition:background 0.2s, transform 0.2s;
+}
+.card:hover { background:var(--card-hover); transform:translateY(-2px); }
+.pill {
+  font-size:0.72rem;
+  font-weight:700;
+  letter-spacing:0.8px;
+  text-transform:uppercase;
+  padding:3px 10px;
+  border-radius:20px;
+  align-self:flex-start;
+}
+.card h3 { font-family:'Cera Pro',sans-serif; font-size:1rem; font-weight:600; line-height:1.35; }
+.card h3 a { color:var(--text); text-decoration:none; }
+.card h3 a:hover { color:var(--ivc-yellow); }
+.card p { font-size:0.875rem; color:var(--text-muted); flex:1; }
+.card footer { font-size:0.78rem; color:var(--text-muted); margin-top:4px; }
+
+/* Twitter */
+.twitter-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:12px; }
+.tw-card {
+  background:var(--card-bg);
+  border:1px solid var(--border);
+  border-radius:var(--r);
+  padding:14px 16px;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+.tw-handle { font-weight:700; font-size:0.88rem; color:var(--ivc-yellow); }
+.tw-preview { font-size:0.82rem; color:var(--text-muted); line-height:1.4; }
+
+/* Transparency table */
+.trans-table { width:100%; border-collapse:collapse; font-size:0.82rem; margin-top:8px; }
+.trans-table th { text-align:left; color:var(--text-muted); font-weight:600; padding:8px 12px; border-bottom:1px solid var(--border); }
+.trans-table td { padding:8px 12px; border-bottom:1px solid #ffffff08; }
+.dot-ok { color:#4ade80; } .dot-fail { color:#f87171; }
+.status-ok { color:#4ade80; } .status-fail { color:#f87171; } .status-warn { color:#fbbf24; }
+footer.section { border-top:1px solid var(--border); padding-top:32px; margin-top:64px; }
+footer h3 { font-family:'Cera Pro',sans-serif; margin-bottom:16px; color:var(--text-muted); }
+.credit { text-align:center; padding:24px; color:var(--text-muted); font-size:0.78rem; border-top:1px solid var(--border); margin-top:48px; }
+</style>
+</head>
+<body>
+<header class="topo">
+  <div class="marca">IVC Curadoria</div>
+  <div class="data">24 de Junho, 2026</div>
+  <div class="stats-strip">
+    <span>19/20</span> fontes RSS
+    &nbsp;·&nbsp;
+    <span>93</span> artigos
+    &nbsp;·&nbsp;
+    <span>10/10</span> perfis Twitter
+  </div>
+</header>
+
+<main>
+
+<!-- AI -->
+<section>
+  <div class="section-header"><span class="dot" style="background:#a78bfa"></span><h2>INTELIGÊNCIA ARTIFICIAL</h2></div>
+  <div class="cards">
+    
+    <article class="card">
+      <span class="pill" style="background:#a78bfa22;color:#a78bfa">Import AI</span>
+      <h3><a href="https://importai.substack.com/p/import-ai-462-superpersuasion-self" target="_blank">Superpersuasion; self-sustaining AI; paths to ASI</a></h3>
+      <p>Jack Clark covers superpersuasion as the next frontier, self-sustaining AI systems, and pathways to ASI. Dense weekly that cuts through the noise.</p>
+      <footer><span>Jun 2026</span></footer>
+    </article>
+    
+    <article class="card">
+      <span class="pill" style="background:#a78bfa22;color:#a78bfa">VentureBeat AI</span>
+      <h3><a href="https://venturebeat.com/infrastructure/railway-secures-usd100-million-to-challen" target="_blank">Railway secures $100M to challenge AWS with AI-native cloud</a></h3>
+      <p>AI-native cloud infra attracting serious capital. Railway joins Lambda, CoreWeave in challenging hyperscalers for the AI workload.</p>
+      <footer><span>Jun 2026</span></footer>
+    </article>
+  </div>
+</section>
+
+<!-- VC / GLOBAL -->
+<section>
+  <div class="section-header"><span class="dot" style="background:#34d399"></span><h2>VC & ANÁLISE GLOBAL</h2></div>
+  <div class="cards">
+    
+    <article class="card">
+      <span class="pill" style="background:#34d39922;color:#34d399">Venture Unlocked</span>
+      <h3><a href="https://ventureunlocked.substack.com/p/deep-tech-gold-rush-smart-boom-or" target="_blank">Deep Tech Gold Rush: Smart Boom or Future Bust?</a></h3>
+      <p>Samir Kaji dissects the current deep tech funding wave — when the thesis is right vs. when it's just froth. Essential reading for GPs balancing AI infra bets.</p>
+      <footer><span>Jun 2026</span></footer>
+    </article>
+    
+    <article class="card">
+      <span class="pill" style="background:#34d39922;color:#34d399">Not Boring</span>
+      <h3><a href="https://www.notboring.co/p/return-on-tokens-rot" target="_blank">Return on Tokens (ROT)</a></h3>
+      <p>Packy McCormick introduces ROT framework — applying classic business evaluation logic to tokenized networks. Novel mental model worth stealing.</p>
+      <footer><span>Jun 2026</span></footer>
+    </article>
+    
+    <article class="card">
+      <span class="pill" style="background:#34d39922;color:#34d399">Newcomer</span>
+      <h3><a href="https://www.newcomer.co/p/cursor-investors-set-for-epic-payout" target="_blank">Cursor Investors Set for Epic Payout from Musk's Juggernaut</a></h3>
+      <p>Cursor (Anysphere) investors positioned to capitalize as xAI/Juggernaut stack integrates AI coding tools. Good exit angle for code AI plays.</p>
+      <footer><span>Jun 2026</span></footer>
+    </article>
+  </div>
+</section>
+
+<!-- BRASIL -->
+<section>
+  <div class="section-header"><span class="dot" style="background:#60a5fa"></span><h2>BRASIL</h2></div>
+  <div class="cards">
+    
+    <article class="card">
+      <span class="pill" style="background:#60a5fa22;color:#60a5fa">NeoFeed</span>
+      <h3><a href="https://neofeed.com.br/negocios/o-novo-round-da-guerra-do-delivery-compra-interm" target="_blank">O novo round da guerra do delivery: "compra intermediada" leva Keeta à Justiça</a></h3>
+      <p>Keeta (Meituan) entra na justiça contra prática de "compra intermediada" no delivery brasileiro. Competição de last-mile aquecida + regulação local.</p>
+      <footer><span>Jun 2026</span></footer>
+    </article>
+    
+    <article class="card">
+      <span class="pill" style="background:#60a5fa22;color:#60a5fa">Startupi</span>
+      <h3><a href="https://startupi.com.br/med-2-0-o-avanco-necessario/" target="_blank">MED 2.0: o avanço necessário para enfrentar a nova geração de fraudes no Pix</a></h3>
+      <p>Nova geração de fraudes no Pix exige evolução do MED (Manual de Escopo). BC em modo responsivo — espaço para healthtechs de segurança digital.</p>
+      <footer><span>Jun 2026</span></footer>
+    </article>
+    
+    <article class="card">
+      <span class="pill" style="background:#60a5fa22;color:#60a5fa">NeoFeed</span>
+      <h3><a href="https://neofeed.com.br/videos/revolucao-ia/inter-ve-ia-conversacional-como-o-pro" target="_blank">Inter vê IA conversacional como próximo salto da experiência financeira</a></h3>
+      <p>Banco Inter investindo em IA conversacional para revolução na experiência financeira. Fintechs BR acelerando em agentes de IA.</p>
+      <footer><span>Jun 2026</span></footer>
+    </article>
+  </div>
+</section>
+
+<!-- WEALTH -->
+<section>
+  <div class="section-header"><span class="dot" style="background:#f472b6"></span><h2>WEALTH & CAPITAL</h2></div>
+  <div class="cards">
+    
+    <article class="card">
+      <span class="pill" style="background:#f472b622;color:#f472b6">Rational Walk</span>
+      <h3><a href="https://rationalwalk.com/greg-abels-2026-letter-to-shareholders/" target="_blank">Greg Abel's 2026 Letter to Shareholders</a></h3>
+      <p>Primeira carta oficial de Greg Abel como CEO designado da Berkshire. Consequências para alocação de capital e governance das holdings.</p>
+      <footer><span>Jun 2026</span></footer>
+    </article>
+    
+    <article class="card">
+      <span class="pill" style="background:#f472b622;color:#f472b6">Of Dollars And Data</span>
+      <h3><a href="https://ofdollarsanddata.com/how-much-will-spacex-actually-cost-your-index-fund/" target="_blank">How Much Will SpaceX Actually Cost Your Index Fund?</a></h3>
+      <p>Análise quant detalhada do custo real do Starlink/SpaceX em portfólios indexados. Relevante direto pro SPV de SpaceX que a IVC está distribuindo.</p>
+      <footer><span>Jun 2026</span></footer>
+    </article>
+  </div>
+</section>
+
+<!-- TWITTER -->
+<section>
+  <div class="section-header"><span class="dot" style="background:#fbbf24"></span><h2>TWITTER / X</h2></div>
+  <div class="twitter-grid">
+    <div class="tw-card">
+      <span class="tw-handle">@ttunguz</span>
+      <span class="tw-preview">@Anvario Do you have enough log data to be able to automatically rewrite the skills?</span>
+    </div>
+    <div class="tw-card">
+      <span class="tw-handle">@chamath</span>
+      <span class="tw-preview">Pod!!!! Absolute banger with @bgurley https://t.co/Q1TLRFi4XC</span>
+    </div>
+    <div class="tw-card">
+      <span class="tw-handle">@jason</span>
+      <span class="tw-preview">Join our mailing list today! Help us stay in touch with you.</span>
+    </div>
+    <div class="tw-card">
+      <span class="tw-handle">@alexisohanian</span>
+      <span class="tw-preview">@trackerati Doing our best! More to do</span>
+    </div>
+    <div class="tw-card">
+      <span class="tw-handle">@paulg</span>
+      <span class="tw-preview">@DouglasCarswell @LandsknechtPike By inheriting money. Have you read no history?</span>
+    </div>
+    <div class="tw-card">
+      <span class="tw-handle">@naval</span>
+      <span class="tw-preview">Listening to the @trishapaytas podcast... wishing you well, Ryan 😊</span>
+    </div>
+    <div class="tw-card">
+      <span class="tw-handle">@pmarca</span>
+      <span class="tw-preview">Interesting. https://t.co/gp3NIm2Yqp</span>
+    </div>
+    <div class="tw-card">
+      <span class="tw-handle">@_alexlazar</span>
+      <span class="tw-preview">what's good? https://t.co/vR2zg653Ju</span>
+    </div>
+    <div class="tw-card">
+      <span class="tw-handle">@gduguid</span>
+      <span class="tw-preview">@CharlieSheen_ Charlie ur the best and ur a credit to all winning men</span>
+    </div>
+    <div class="tw-card">
+      <span class="tw-handle">@lessin</span>
+      <span class="tw-preview">I also like tennis... are we really at the point that 70% above the fold WSJ is someone losing in the second round?</span>
+    </div>
+  </div>
+</section>
+
+<!-- TRANSPARENCY -->
+<footer class="section">
+  <h3>Relatório de Transparência — Fontes Testadas</h3>
+  <table class="trans-table">
+    <tr><th>Fonte</th><th>Status</th><th>Artigos</th><th>Tier</th></tr>
+    <tr><td>Stratechery</td><td class='status-ok'>🟢 OK</td><td>5</td><td>Tier 1</td></tr>
+    <tr><td>Not Boring</td><td class='status-ok'>🟢 OK</td><td>5</td><td>Tier 1</td></tr>
+    <tr><td>Brazil Journal</td><td class='status-ok'>🟢 OK</td><td>5</td><td>Tier 1</td></tr>
+    <tr><td>Import AI</td><td class='status-ok'>🟢 OK</td><td>5</td><td>Tier 1</td></tr>
+    <tr><td>Bens Bites</td><td class='status-ok'>🟢 OK</td><td>5</td><td>Tier 1</td></tr>
+    <tr><td>Last Week AI</td><td class='status-ok'>🟢 OK</td><td>5</td><td>Tier 1</td></tr>
+    <tr><td>VentureBeat AI</td><td class='status-ok'>🟢 OK</td><td>5</td><td>Tier 1</td></tr>
+    <tr><td>NeoFeed</td><td class='status-ok'>🟢 OK</td><td>5</td><td>Tier 1</td></tr>
+    <tr><td>Startupi</td><td class='status-ok'>🟢 OK</td><td>5</td><td>Tier 1</td></tr>
+    <tr><td>Femstreet</td><td class='status-ok'>🟢 OK</td><td>5</td><td>Tier 1</td></tr>
+    <tr><td>Venture Unlocked</td><td class='status-ok'>🟢 OK</td><td>5</td><td>Tier 1</td></tr>
+    <tr><td>Newcomer</td><td class='status-ok'>🟢 OK</td><td>5</td><td>Tier 1</td></tr>
+    <tr><td>Of Dollars And Data</td><td class='status-ok'>🟢 OK</td><td>5</td><td>Tier 1</td></tr>
+    <tr><td>Rational Walk</td><td class='status-ok'>🟢 OK</td><td>5</td><td>Tier 1</td></tr>
+    <tr><td>A Wealth Of Common Sense</td><td class='status-ok'>🟢 OK</td><td>5</td><td>Tier 1</td></tr>
+    <tr><td>Meb Faber</td><td class='status-ok'>🟢 OK</td><td>5</td><td>Tier 1</td></tr>
+    <tr><td>Invest Like The Best</td><td class='status-ok'>🟢 OK</td><td>3</td><td>Tier 1</td></tr>
+    <tr><td>Exame</td><td class='status-ok'>🟢 OK</td><td>5</td><td>Tier 1</td></tr>
+    <tr><td>TechCrunch</td><td class='status-ok'>🟢 OK</td><td>5</td><td>Tier 1</td></tr>
+    <tr><td>Startups BR</td><td class='status-ok'>🟢 OK</td><td>5</td><td>Tier 1</td></tr>
+    <tr><td>The Full Ratchet</td><td class='status-fail'>🔴 FAIL</td><td>0</td><td>Tier 2</td></tr>
+  </table>
+</footer>
+
+<div class="credit">
+  Gerado automaticamente por Hermes Agent · IVC Content Curadoria · 24/Jun/2026
+</div>
+</main>
+</body>
+</html>
