@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Curadoria IVC — 2026-06-27</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cera+Pro:wght@400;500;700;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ivc-yellow: #FFBA00;
+    --ivc-yellow-dim: rgba(255,186,0,0.15);
+    --bg: #0d0d0f;
+    --card-bg: #18181f;
+    --card-hover: #1f1f28;
+    --text: #e8e8ec;
+    --text-dim: #8888a0;
+    --border: rgba(255,186,0,0.12);
+    --r: 12px;
+  }
+  [data-theme="light"] {
+    --bg: #f5f4f0;
+    --card-bg: #ffffff;
+    --card-hover: #f0efe8;
+    --text: #1A1B1F;
+    --text-dim: #666670;
+    --border: rgba(26,27,31,0.12);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    min-height: 100vh;
+    transition: background 0.3s, color 0.3s;
+  }
+  .container { max-width: 860px; margin: 0 auto; padding: 32px 20px; }
+  .header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 40px; flex-wrap: wrap; gap: 16px; }
+  .masthead { font-family: 'Cera Pro', sans-serif; font-weight: 900; font-size: 28px; letter-spacing: -0.5px; color: var(--ivc-yellow); text-transform: uppercase; }
+  .masthead span { color: var(--text); }
+  .tagline { font-size: 12px; color: var(--text-dim); font-family: 'JetBrains Mono', monospace; margin-top: 4px; letter-spacing: 0.5px; }
+  .header-right { text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+  .date-display { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--ivc-yellow); background: var(--ivc-yellow-dim); border: 1px solid var(--ivc-yellow); border-radius: var(--r); padding: 6px 14px; }
+  .toggle-btn { background: var(--card-bg); border: 1px solid var(--border); color: var(--text-dim); border-radius: var(--r); padding: 6px 14px; font-size: 12px; font-family: 'JetBrains Mono', monospace; cursor: pointer; transition: all 0.2s; }
+  .toggle-btn:hover { border-color: var(--ivc-yellow); color: var(--ivc-yellow); }
+  .stats-strip { display: flex; gap: 0; background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; margin-bottom: 40px; }
+  .stat { flex: 1; padding: 16px 20px; text-align: center; border-right: 1px solid var(--border); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-family: 'Cera Pro', sans-serif; font-weight: 900; font-size: 28px; color: var(--ivc-yellow); line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--text-dim); font-family: 'JetBrains Mono', monospace; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .section { margin-bottom: 48px; }
+  .section-title { font-family: 'Cera Pro', sans-serif; font-weight: 700; font-size: 18px; color: var(--ivc-yellow); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; text-transform: uppercase; letter-spacing: 1px; }
+  .section-icon { font-size: 20px; }
+  .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 4px; }
+  @media (max-width: 480px) { .cards-grid { grid-template-columns: 1fr; } }
+  .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--r); padding: 20px; transition: all 0.2s ease; animation: fadeUp 0.4s ease both; position: relative; overflow: hidden; }
+  .card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent, var(--ivc-yellow)); opacity: 0.8; }
+  .card:hover { background: var(--card-hover); transform: translateY(-2px); border-color: var(--accent, var(--ivc-yellow)); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+  .card:nth-child(1) { animation-delay: 0ms; } .card:nth-child(2) { animation-delay: 80ms; } .card:nth-child(3) { animation-delay: 160ms; } .card:nth-child(4) { animation-delay: 240ms; }
+  .source-pill { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 500; color: var(--accent, var(--ivc-yellow)); background: rgba(255,186,0,0.08); border: 1px solid rgba(255,186,0,0.25); border-radius: 4px; padding: 2px 8px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .card-title { font-family: 'Cera Pro', sans-serif; font-weight: 700; font-size: 16px; line-height: 1.3; margin-bottom: 10px; color: var(--text); }
+  .card-title a { color: var(--text); text-decoration: none; transition: color 0.2s; }
+  .card-title a:hover { color: var(--ivc-yellow); }
+  .card-desc { font-size: 13px; color: var(--text-dim); line-height: 1.55; }
+  .twitter-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 4px; }
+  .tweet-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--r); padding: 16px 20px; transition: all 0.2s; }
+  .tweet-card:hover { border-color: var(--ivc-yellow); }
+  .tweet-handle { font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; color: var(--ivc-yellow); margin-bottom: 6px; }
+  .tweet-text { font-size: 13px; color: var(--text); line-height: 1.5; }
+  .transparency { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; margin-top: 48px; }
+  .transparency h3 { font-family: 'Cera Pro', sans-serif; font-size: 14px; font-weight: 700; color: var(--ivc-yellow); text-transform: uppercase; letter-spacing: 1px; padding: 16px 20px; border-bottom: 1px solid var(--border); }
+  .transparency table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .transparency th { text-align: left; padding: 10px 20px; color: var(--text-dim); font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid var(--border); }
+  .transparency td { padding: 10px 20px; border-bottom: 1px solid var(--border); color: var(--text); vertical-align: middle; }
+  .transparency tr:last-child td { border-bottom: none; }
+  .status-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 8px; }
+  .dot-green { background: #00e676; } .dot-yellow { background: #ffca28; } .dot-red { background: #ff5252; }
+  .tier-badge { font-family: 'JetBrains Mono', monospace; font-size: 10px; background: var(--ivc-yellow-dim); color: var(--ivc-yellow); border-radius: 3px; padding: 1px 6px; }
+  .footer { margin-top: 48px; padding: 24px 0; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+  .footer-left { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-dim); }
+  .footer-right { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-dim); }
+</style>
+</head>
+<body>
+<div class="container">
+  <header class="header">
+    <div class="header-left">
+      <div class="masthead">IVC <span>Curadoria</span></div>
+      <div class="tagline">conteúdo curado para investidores • 2026-06-27</div>
+    </div>
+    <div class="header-right">
+      <div class="date-display">2026-06-27</div>
+      <button class="toggle-btn" onclick="toggleTheme()">☀/☾ modo</button>
+    </div>
+  </header>
+
+  <div class="stats-strip">
+    <div class="stat"><div class="stat-num">21</div><div class="stat-label">fontes testadas</div></div>
+    <div class="stat"><div class="stat-num">21</div><div class="stat-label">acessadas</div></div>
+    <div class="stat"><div class="stat-num">98</div><div class="stat-label">artigos</div></div>
+    <div class="stat"><div class="stat-num">10</div><div class="stat-label">perfis Twitter</div></div>
+    <div class="stat"><div class="stat-num">14</div><div class="stat-label">selecionados</div></div>
+  </div>
+
+  
+<section class="section">
+  <h2 class="section-title"><span class="section-icon">🤖</span> Inteligência Artificial</h2>
+  <div class="cards-grid">
+    <article class="card" style="--accent:#FFBA00">
+  <span class="source-pill">Stratechery</span>
+  <h3 class="card-title"><a href="https://stratechery.com/2026/anthropics-safety-superpower/" target="_blank">Anthropic's Safety Superpower</a></h3>
+  <p class="card-desc">Anthropic's belief in its own commitment to safety gives the company license to aggressively favor its business and even challenge the U.S. government.…</p>
+</article>
+<article class="card" style="--accent:#FFBA00">
+  <span class="source-pill">Import AI</span>
+  <h3 class="card-title"><a href="https://importai.substack.com/p/import-ai-460-reward-hacking-society" target="_blank">Import AI 460: Reward hacking society, RSI data from Anthropic; and RL-based quadcopter racing</a></h3>
+  <p class="card-desc">When will markets price the singularity?…</p>
+</article>
+<article class="card" style="--accent:#FFBA00">
+  <span class="source-pill">VentureBeat AI</span>
+  <h3 class="card-title"><a href="https://venturebeat.com/technology/google-just-redesigned-the-search-box-for-the-first-time-in-25-years-heres-why-it-matters-more-than-you-think" target="_blank">Google just redesigned the search box for the first time in 25 years — here’s why it matters more than you think.</a></h3>
+  <p class="card-desc">For a quarter century, the Google search box has been one of the most recognizable interfaces in computing: a thin white rectangle, a blinking cursor, a few typ…</p>
+</article>
+<article class="card" style="--accent:#FFBA00">
+  <span class="source-pill">Bens Bites</span>
+  <h3 class="card-title"><a href="https://www.bensbites.com/p/new-claude-model-fable" target="_blank">New Claude model - Fable</a></h3>
+  <p class="card-desc">everyone's building with it.…</p>
+</article>
+  </div>
+</section>
+  
+<section class="section">
+  <h2 class="section-title"><span class="section-icon">🌐</span> VC & Global</h2>
+  <div class="cards-grid">
+    <article class="card" style="--accent:#FFBA00">
+  <span class="source-pill">Not Boring</span>
+  <h3 class="card-title"><a href="https://www.notboring.co/p/weekly-dose-of-optimism-197" target="_blank">Weekly Dose of Optimism #197</a></h3>
+  <p class="card-desc">La Sagrada Fam&#237;lia, Life Bio Trial, Saronic, Doudna CRISPR, Standard Bots + Science Breakthroughs + Extra Doses…</p>
+</article>
+<article class="card" style="--accent:#FFBA00">
+  <span class="source-pill">Newcomer</span>
+  <h3 class="card-title"><a href="https://www.newcomer.co/p/david-sacks-warning-about-anthropic" target="_blank">David Sacks' Warning About Anthropic Regulatory Pleas Misses the Mark & SpaceX Asks Investors to Dream Big in Mega IPO</a></h3>
+  <p class="card-desc">Plus, pressure on token prices, a Databricks round in the works & more…</p>
+</article>
+<article class="card" style="--accent:#FFBA00">
+  <span class="source-pill">Venture Unlocked</span>
+  <h3 class="card-title"><a href="https://ventureunlocked.substack.com/p/deep-tech-gold-rush-smart-boom-or" target="_blank">Deep Tech Gold Rush: Smart Boom or Future Bust?</a></h3>
+  <p class="card-desc">Follow me @samirkaji for my thoughts on the venture market, with a focus on the continued evolution of the VC landscape.…</p>
+</article>
+<article class="card" style="--accent:#FFBA00">
+  <span class="source-pill">Femstreet</span>
+  <h3 class="card-title"><a href="https://femstreet.substack.com/p/femstreetissue287" target="_blank">Lessons from failing to find PMF; Sales forecasting 101; Setting up your exit strategy</a></h3>
+  <p class="card-desc">Where women lead, shape, and fund the future.…</p>
+</article>
+  </div>
+</section>
+  
+<section class="section">
+  <h2 class="section-title"><span class="section-icon">🇧🇷</span> Brasil</h2>
+  <div class="cards-grid">
+    <article class="card" style="--accent:#FFBA00">
+  <span class="source-pill">Brazil Journal</span>
+  <h3 class="card-title"><a href="https://braziljournal.com/as-pedaladas-de-lula-para-se-reeleger-enquanto-o-tcu-faz-vista-grossa/" target="_blank">As pedaladas de Lula para se reeleger — enquanto o TCU faz vista grossa</a></h3>
+  <p class="card-desc">A guerra de Donald Trump e a guerra eleitoral de Lula jogaram as projeções de inflação para cima no Brasil, desancoraram as expectativas e colocaram os juros fu…</p>
+</article>
+<article class="card" style="--accent:#FFBA00">
+  <span class="source-pill">NeoFeed</span>
+  <h3 class="card-title"><a href="https://neofeed.com.br/negocios/a-viagem-turbulenta-da-cvc-acao-nas-minimas-historicas-e-desconfianca-em-alta-no-mercado/" target="_blank">A viagem turbulenta da CVC: ação nas mínimas históricas e desconfiança em alta no mercado</a></h3>
+  <p class="card-desc"><img width="300" height="169" src="https://neofeed.com.br/wp-content/uploads/2026/06/loja-cvc-300x169.jpg" class="attachment-medium size-medium wp-post-image" a…</p>
+</article>
+<article class="card" style="--accent:#FFBA00">
+  <span class="source-pill">StartupsBR</span>
+  <h3 class="card-title"><a href="https://startups.com.br/opiniao/geopolitica-e-eleicoes-dominaram-os-bastidores-do-web-summit-rio-2026/" target="_blank">Geopolítica e eleições dominaram os bastidores do Web Summit Rio 2026</a></h3>
+  <p class="card-desc">Web Summit Rio 2026 | Foto: DivulgaçãoA eleição presidencial de outubro fez parte das rodas de conversa, com um novo n…</p>
+</article>
+  </div>
+</section>
+  
+<section class="section">
+  <h2 class="section-title"><span class="section-icon">📈</span> Riqueza & Investimento</h2>
+  <div class="cards-grid">
+    <article class="card" style="--accent:#FFBA00">
+  <span class="source-pill">Of Dollars And Data</span>
+  <h3 class="card-title"><a href="https://ofdollarsanddata.com/how-much-will-spacex-actually-cost-your-index-fund/" target="_blank">How Much Will SpaceX Actually Cost Your Index Fund?</a></h3>
+  <p class="card-desc">This week SpaceX is having its initial public offering (IPO) where it plans to raise $75 billion at a $1.77 trillion valuation. Anthropic and OpenAI have their …</p>
+</article>
+<article class="card" style="--accent:#FFBA00">
+  <span class="source-pill">Rational Walk</span>
+  <h3 class="card-title"><a href="https://rationalwalk.com/greg-abels-2026-letter-to-shareholders/" target="_blank">Greg Abel's 2026 Letter to Shareholders</a></h3>
+  <p class="card-desc">Greg Abel's first letter to Berkshire Hathaway shareholders emphasized the need to keep the company's unique culture.…</p>
+</article>
+<article class="card" style="--accent:#FFBA00">
+  <span class="source-pill">Meb Faber</span>
+  <h3 class="card-title"><a href="https://mebfaber.com/2026/05/28/my-new-book-investing-in-america/" target="_blank">My New Book: Investing in America</a></h3>
+  <p class="card-desc">Investing in America. Coming July 4, 2026
+The post My New Book: Investing in America appeared first on Meb Faber Research - Stock…</p>
+</article>
+  </div>
+</section>
+  
+<section class="section">
+  <h2 class="section-title"><span class="section-icon">𝕏</span> Twitter / X</h2>
+  <div class="twitter-grid">
+    <div class="tweet-card">
+  <div class="tweet-handle">@ttunguz <span style="color:var(--text-dim);font-weight:400">(5 tweets)</span></div>
+  <div class="tweet-text">@Anvario Do you have enough log data to be able to automatically rewrite the skills?</div>
+</div><div class="tweet-card">
+  <div class="tweet-handle">@chamath <span style="color:var(--text-dim);font-weight:400">(5 tweets)</span></div>
+  <div class="tweet-text">Pod!!!! Absolute banger with @bgurley https://t.co/Q1TLRFi4XC</div>
+</div><div class="tweet-card">
+  <div class="tweet-handle">@jason <span style="color:var(--text-dim);font-weight:400">(5 tweets)</span></div>
+  <div class="tweet-text">Join our mailing list today! Help us stay in touch with you. http://t.co/oAXLSwYe</div>
+</div><div class="tweet-card">
+  <div class="tweet-handle">@alexisohanian <span style="color:var(--text-dim);font-weight:400">(5 tweets)</span></div>
+  <div class="tweet-text">@trackerati Doing our best! More to do</div>
+</div><div class="tweet-card">
+  <div class="tweet-handle">@paulg <span style="color:var(--text-dim);font-weight:400">(5 tweets)</span></div>
+  <div class="tweet-text">@DouglasCarswell @LandsknechtPike By inheriting money. Have you read no history? The tough founder of a dynasty has no way of guaranteeing that his gr</div>
+</div><div class="tweet-card">
+  <div class="tweet-handle">@naval <span style="color:var(--text-dim);font-weight:400">(5 tweets)</span></div>
+  <div class="tweet-text">Listening to the @trishapaytas podcast two weeks behind and they literally mentioned @RyanScottGraham ‘s band. Wishing you well, Ryan 😊</div>
+</div>
+  </div>
+</section>
+
+  <div class="transparency">
+    <h3>Relatório de Transparência — Fontes</h3>
+    <table>
+      <thead>
+        <tr><th>Fonte</th><th>Categoria</th><th>Status</th><th>Artigos</th><th>Tier</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Stratechery</td><td>VC/Global</td><td><span class="status-dot dot-green"></span>✅ OK</td><td>5</td><td><span class="tier-badge">T1</span></td></tr>
+<tr><td>Not Boring</td><td>VC/Global</td><td><span class="status-dot dot-green"></span>✅ OK</td><td>5</td><td><span class="tier-badge">T1</span></td></tr>
+<tr><td>Brazil Journal</td><td>BR</td><td><span class="status-dot dot-green"></span>✅ OK</td><td>5</td><td><span class="tier-badge">T1</span></td></tr>
+<tr><td>Import AI</td><td>AI</td><td><span class="status-dot dot-green"></span>✅ OK</td><td>5</td><td><span class="tier-badge">T1</span></td></tr>
+<tr><td>Bens Bites</td><td>AI</td><td><span class="status-dot dot-green"></span>✅ OK</td><td>5</td><td><span class="tier-badge">T1</span></td></tr>
+<tr><td>Last Week AI</td><td>AI</td><td><span class="status-dot dot-green"></span>✅ OK</td><td>5</td><td><span class="tier-badge">T1</span></td></tr>
+<tr><td>VentureBeat AI</td><td>AI</td><td><span class="status-dot dot-green"></span>✅ OK</td><td>5</td><td><span class="tier-badge">T1</span></td></tr>
+<tr><td>NeoFeed</td><td>BR</td><td><span class="status-dot dot-green"></span>✅ OK</td><td>5</td><td><span class="tier-badge">T1</span></td></tr>
+<tr><td>Startupi</td><td>BR</td><td><span class="status-dot dot-green"></span>✅ OK</td><td>5</td><td><span class="tier-badge">T1</span></td></tr>
+<tr><td>TechCrunch</td><td>Tech</td><td><span class="status-dot dot-green"></span>✅ OK</td><td>5</td><td><span class="tier-badge">T1</span></td></tr>
+<tr><td>Newcomer</td><td>VC/Global</td><td><span class="status-dot dot-green"></span>✅ OK</td><td>5</td><td><span class="tier-badge">T1</span></td></tr>
+<tr><td>Venture Unlocked</td><td>VC/Global</td><td><span class="status-dot dot-green"></span>✅ OK</td><td>5</td><td><span class="tier-badge">T1</span></td></tr>
+<tr><td>Femstreet</td><td>VC/Global</td><td><span class="status-dot dot-green"></span>✅ OK</td><td>5</td><td><span class="tier-badge">T1</span></td></tr>
+<tr><td>Of Dollars And Data</td><td>Wealth</td><td><span class="status-dot dot-green"></span>✅ OK</td><td>5</td><td><span class="tier-badge">T1</span></td></tr>
+<tr><td>Rational Walk</td><td>Wealth</td><td><span class="status-dot dot-green"></span>✅ OK</td><td>5</td><td><span class="tier-badge">T1</span></td></tr>
+<tr><td>Meb Faber</td><td>Wealth</td><td><span class="status-dot dot-green"></span>✅ OK</td><td>5</td><td><span class="tier-badge">T1</span></td></tr>
+<tr><td>A Wealth Of Common Sense</td><td>Wealth</td><td><span class="status-dot dot-green"></span>✅ OK</td><td>5</td><td><span class="tier-badge">T1</span></td></tr>
+<tr><td>Invest Like The Best</td><td>Wealth</td><td><span class="status-dot dot-green"></span>✅ OK</td><td>3</td><td><span class="tier-badge">T1</span></td></tr>
+<tr><td>Exame</td><td>BR</td><td><span class="status-dot dot-green"></span>✅ OK</td><td>5</td><td><span class="tier-badge">T1</span></td></tr>
+<tr><td>StartupsBR</td><td>BR</td><td><span class="status-dot dot-green"></span>✅ OK</td><td>5</td><td><span class="tier-badge">T1</span></td></tr>
+<tr><td>The Full Ratchet</td><td>VC/Global</td><td><span class="status-dot dot-yellow"></span>⚠️ 0 artigos</td><td>0</td><td><span class="tier-badge">T2</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-left">IVC Curadoria • 2026-06-27 • 21 fontes • 98 artigos • 10 perfis Twitter</div>
+    <div class="footer-right">Amure Pinho × Atlas Hermes</div>
+  </footer>
+</div>
+<script>
+function toggleTheme() {
+  const body = document.body;
+  const isLight = body.getAttribute('data-theme') === 'light';
+  body.setAttribute('data-theme', isLight ? '' : 'light');
+  localStorage.setItem('ivc-theme', isLight ? 'dark' : 'light');
+}
+const saved = localStorage.getItem('ivc-theme');
+if (saved === 'light') document.body.setAttribute('data-theme', 'light');
+</script>
+</body>
+</html>
