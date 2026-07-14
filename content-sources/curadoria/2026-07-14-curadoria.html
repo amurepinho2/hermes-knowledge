@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Curadoria IVC — 14/07/2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ivc-yellow: #FFBA00;
+  --ivc-ink: #1A1B1F;
+  --bg: #0d0d0f;
+  --card-bg: #18181f;
+  --card-border: #2a2a35;
+  --text-primary: #f0f0f5;
+  --text-secondary: #8888a0;
+  --font-head: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --radius: 12px;
+  --spacing: 4px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.header {
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  text-align: center;
+  padding: 40px 0;
+  border-bottom: 1px solid var(--card-border);
+}
+
+.header-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--ivc-yellow);
+  margin-bottom: 12px;
+}
+
+.header h1 {
+  font-family: var(--font-head);
+  font-size: clamp(36px, 6vw, 72px);
+  font-weight: 900;
+  color: var(--ivc-yellow);
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.header-date {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.stats-strip {
+  display: inline-flex;
+  gap: 24px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 100px;
+  padding: 10px 28px;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-val {
+  font-family: var(--font-mono);
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--ivc-yellow);
+}
+
+.stat-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-secondary);
+}
+
+.stat-sep {
+  width: 1px;
+  background: var(--card-border);
+  align-self: stretch;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section {
+  margin-bottom: 56px;
+}
+
+.section-title {
+  font-family: var(--font-head);
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--ivc-yellow);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-emoji {
+  font-size: 24px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--cols, 2), 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .card-grid { grid-template-columns: 1fr; }
+  .stats-strip { flex-wrap: wrap; justify-content: center; gap: 16px; }
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 20px;
+  border-left: 3px solid var(--accent, var(--ivc-yellow));
+  transition: transform 0.2s, box-shadow 0.2s;
+  animation: fadeUp 0.5s ease both;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+
+.card-pill {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--accent, var(--ivc-yellow));
+  background: color-mix(in srgb, var(--accent, var(--ivc-yellow)) 12%, transparent);
+  padding: 3px 10px;
+  border-radius: 100px;
+  margin-bottom: 10px;
+}
+
+.twitter-pill {
+  color: var(--text-primary);
+  background: rgba(240,240,245,0.08);
+}
+
+.card-title {
+  font-family: var(--font-head);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 8px;
+}
+
+.card-title a {
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.card-title a:hover {
+  color: var(--ivc-yellow);
+}
+
+.card-desc {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin-bottom: 12px;
+}
+
+.card-link {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent, var(--ivc-yellow));
+  text-decoration: none;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.card-link:hover { opacity: 1; }
+
+.twitter-card {
+  border-left-color: var(--text-secondary);
+}
+
+.twitter-preview {
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.transparency {
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 28px;
+}
+
+.transparency h3 {
+  font-family: var(--font-head);
+  font-size: 18px;
+  color: var(--ivc-yellow);
+  margin-bottom: 16px;
+}
+
+.trans-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.trans-table th {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-secondary);
+  text-align: left;
+  padding: 6px 12px;
+  border-bottom: 1px solid var(--card-border);
+}
+
+.trans-table td {
+  padding: 6px 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  color: var(--text-secondary);
+}
+
+.trans-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+.dot-green { display:inline-block; width:8px; height:8px; border-radius:50%; background:#22c55e; margin-right:6px; }
+.dot-yellow { display:inline-block; width:8px; height:8px; border-radius:50%; background:#eab308; margin-right:6px; }
+.dot-red { display:inline-block; width:8px; height:8px; border-radius:50%; background:#ef4444; margin-right:6px; }
+
+.footer {
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-secondary);
+  padding-top: 24px;
+  border-top: 1px solid var(--card-border);
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.card:nth-child(1) { animation-delay: 0ms; }
+.card:nth-child(2) { animation-delay: 50ms; }
+.card:nth-child(3) { animation-delay: 100ms; }
+.card:nth-child(4) { animation-delay: 150ms; }
+.card:nth-child(5) { animation-delay: 200ms; }
+.card:nth-child(6) { animation-delay: 250ms; }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-eyebrow">IVC Content Curation</div>
+  <h1>Curadoria Matinal</h1>
+  <div class="header-date">14 de Julho de 2026 · Terça-feira</div>
+  <div class="stats-strip">
+    <div class="stat"><div class="stat-val">20</div><div class="stat-label">feeds ok</div></div>
+    <div class="stat-sep"></div>
+    <div class="stat"><div class="stat-val">98</div><div class="stat-label">artigos</div></div>
+    <div class="stat-sep"></div>
+    <div class="stat"><div class="stat-val">10</div><div class="stat-label">perfis Twitter</div></div>
+    <div class="stat-sep"></div>
+    <div class="stat"><div class="stat-val">4</div><div class="stat-label">selecionados</div></div>
+  </div>
+</header>
+
+<div class="container">
+
+
+<section class="section">
+  <h2 class="section-title"><span class="section-emoji">🤖</span> Inteligência Artificial</h2>
+  <div class="card-grid" style="--cols:2">
+    <article class="card" style="--accent:#38bdf8">
+  <div class="card-pill">ImportAI</div>
+  <h3 class="card-title"><a href="https://importai.substack.com/p/import-ai-464-fables-writes-gpu-kernels" target="_blank">Import AI 464: Fable writes GPU kernels; AI automation; and analog computation</a></h3>
+  <p class="card-desc">Is this the beginning of a new world?</p>
+  <a href="https://importai.substack.com/p/import-ai-464-fables-writes-gpu-kernels" class="card-link" target="_blank">↗ ler artigo</a>
+</article><article class="card" style="--accent:#38bdf8">
+  <div class="card-pill">ImportAI</div>
+  <h3 class="card-title"><a href="https://importai.substack.com/p/import-ai-463-self-improving-robots" target="_blank">Import AI 463: Self-improving robots; a 10k Chinese GPU cluster; and an elegiac essay for the human era</a></h3>
+  <p class="card-desc">What eras bookend our interregnum?</p>
+  <a href="https://importai.substack.com/p/import-ai-463-self-improving-robots" class="card-link" target="_blank">↗ ler artigo</a>
+</article><article class="card" style="--accent:#f97316">
+  <div class="card-pill">BensBites</div>
+  <h3 class="card-title"><a href="https://www.bensbites.com/p/grok-x-cursor" target="_blank">Grok x Cursor</a></h3>
+  <p class="card-desc">More Fable, GPT-5.6 and new ChatGPT voice</p>
+  <a href="https://www.bensbites.com/p/grok-x-cursor" class="card-link" target="_blank">↗ ler artigo</a>
+</article><article class="card" style="--accent:#f97316">
+  <div class="card-pill">BensBites</div>
+  <h3 class="card-title"><a href="https://www.bensbites.com/p/my-thoughts-on-fable" target="_blank">My thoughts on Fable</a></h3>
+  <p class="card-desc">what I want from a harness</p>
+  <a href="https://www.bensbites.com/p/my-thoughts-on-fable" class="card-link" target="_blank">↗ ler artigo</a>
+</article>
+  </div>
+</section>
+
+
+<section class="section">
+  <h2 class="section-title"><span class="section-emoji">🌐</span> VC & Global</h2>
+  <div class="card-grid" style="--cols:2">
+    <article class="card" style="--accent:#e8ff47">
+  <div class="card-pill">Stratechery</div>
+  <h3 class="card-title"><a href="https://stratechery.com/2026/the-openai-super-app-chatgpt-codex-whither-chat/" target="_blank">The OpenAI Super App, ChatGPT = Codex, Whither Chat</a></h3>
+  <p class="card-desc">OpenAI has refashioned Codex as the new ChatGPT; is the company abandoning the chat category they pioneered?</p>
+  <a href="https://stratechery.com/2026/the-openai-super-app-chatgpt-codex-whither-chat/" class="card-link" target="_blank">↗ ler artigo</a>
+</article><article class="card" style="--accent:#a78bfa">
+  <div class="card-pill">NotBoring</div>
+  <h3 class="card-title"><a href="https://www.notboring.co/p/weekly-dose-of-optimism-201" target="_blank">Weekly Dose of Optimism #201</a></h3>
+  <p class="card-desc">Aalo, Data Centers, American Turbines, OXMAN Ink, Neo Hands + Extra Doses</p>
+  <a href="https://www.notboring.co/p/weekly-dose-of-optimism-201" class="card-link" target="_blank">↗ ler artigo</a>
+</article><article class="card" style="--accent:#f472b6">
+  <div class="card-pill">Femstreet</div>
+  <h3 class="card-title"><a href="https://femstreet.substack.com/p/femstreetissue288" target="_blank">Common and costly product messaging mistakes; How to write a great fundraising blurb; The art of giving and receiving feedback</a></h3>
+  <p class="card-desc">Where women lead, shape, and fund the future.</p>
+  <a href="https://femstreet.substack.com/p/femstreetissue288" class="card-link" target="_blank">↗ ler artigo</a>
+</article><article class="card" style="--accent:#34d399">
+  <div class="card-pill">VentureUnlocked</div>
+  <h3 class="card-title"><a href="https://ventureunlocked.substack.com/p/crazy-and-rational-ventures-cognitive" target="_blank">Crazy, and Rational: Venture's Cognitive Dissonance Moment</a></h3>
+  <p class="card-desc">Having spent 27 years in and around private markets, including 22 years at SVB and First Republic where I had a front row seat to the dot-com era and everything after, I&#8217;ve s…</p>
+  <a href="https://ventureunlocked.substack.com/p/crazy-and-rational-ventures-cognitive" class="card-link" target="_blank">↗ ler artigo</a>
+</article>
+  </div>
+</section>
+
+
+<section class="section">
+  <h2 class="section-title"><span class="section-emoji">🇧🇷</span> Brasil</h2>
+  <div class="card-grid" style="--cols:2">
+    <article class="card" style="--accent:#86efac">
+  <div class="card-pill">BrazilJournal</div>
+  <h3 class="card-title"><a href="https://braziljournal.com/mp-do-frete-ou-do-caos-proposta-gera-multas-liminares-e-ameaca-de-greve/" target="_blank">MP do Frete ou do caos? Proposta gera multas, liminares e ameaça de greve</a></h3>
+  <p class="card-desc">As empresas expostas aos custos do transporte rodoviário têm acompanhado com preocupação a possível votação pelo Senado da medida provisória do Governo que reforçou a política de p…</p>
+  <a href="https://braziljournal.com/mp-do-frete-ou-do-caos-proposta-gera-multas-liminares-e-ameaca-de-greve/" class="card-link" target="_blank">↗ ler artigo</a>
+</article><article class="card" style="--accent:#86efac">
+  <div class="card-pill">BrazilJournal</div>
+  <h3 class="card-title"><a href="https://braziljournal.com/cabreuva-o-mega-cd-que-vai-colocar-a-renner-sete-anos-a-frente-da-concorrencia/" target="_blank">Cabreúva: o mega CD que vai colocar a Renner “sete anos à frente da concorrência”</a></h3>
+  <p class="card-desc">CABREÚVA (SP) — Nos últimos anos, o mercado passou a acreditar que a Renner havia perdido o brilho, em especial sua receita de crescimento com eficiência – exatamente o que a trans…</p>
+  <a href="https://braziljournal.com/cabreuva-o-mega-cd-que-vai-colocar-a-renner-sete-anos-a-frente-da-concorrencia/" class="card-link" target="_blank">↗ ler artigo</a>
+</article><article class="card" style="--accent:#4ade80">
+  <div class="card-pill">NeoFeed</div>
+  <h3 class="card-title"><a href="https://neofeed.com.br/negocios/o-novo-tarifaco-dos-eua-e-a-corrida-do-brasil-contra-o-relogio-na-avaliacao-de-marcos-troyjo/" target="_blank">O novo tarifaço dos EUA e a corrida do Brasil contra o relógio, na avaliação de Marcos Troyjo</a></h3>
+  <p class="card-desc"><img width="300" height="169" src="https://neofeed.com.br/wp-content/uploads/2026/07/Marcos-Troyjo-1-300x169.jpg" class="attachment-medium size-medium wp-post-image" alt="" decodin…</p>
+  <a href="https://neofeed.com.br/negocios/o-novo-tarifaco-dos-eua-e-a-corrida-do-brasil-contra-o-relogio-na-avaliacao-de-marcos-troyjo/" class="card-link" target="_blank">↗ ler artigo</a>
+</article><article class="card" style="--accent:#4ade80">
+  <div class="card-pill">NeoFeed</div>
+  <h3 class="card-title"><a href="https://neofeed.com.br/economia/importadores-dos-eua-reembolsam-us-71-bilhoes-das-tarifas-de-trump-e-o-deficit-do-governo-explode/" target="_blank">Importadores dos EUA reembolsam US$ 71 bilhões das tarifas de Trump. E o déficit do governo explode</a></h3>
+  <p class="card-desc"><img width="300" height="169" src="https://neofeed.com.br/wp-content/uploads/2026/07/tarifaDolar-300x169.jpg" class="attachment-medium size-medium wp-post-image" alt="" decoding="a…</p>
+  <a href="https://neofeed.com.br/economia/importadores-dos-eua-reembolsam-us-71-bilhoes-das-tarifas-de-trump-e-o-deficit-do-governo-explode/" class="card-link" target="_blank">↗ ler artigo</a>
+</article>
+  </div>
+</section>
+
+
+<section class="section">
+  <h2 class="section-title"><span class="section-emoji">💰</span> Wealth & Investimento</h2>
+  <div class="card-grid" style="--cols:3">
+    <article class="card" style="--accent:#fbbf24">
+  <div class="card-pill">OfDollarsAndData</div>
+  <h3 class="card-title"><a href="https://ofdollarsanddata.com/a-century-of-us-stock-returns/" target="_blank">A Century of U.S. Stock Returns: Expect the Unexpected</a></h3>
+  <p class="card-desc">In honor of America's 250th birthday, I decided to do a deep dive into U.S. stock returns over the past century. My goal was to answer the following question:
+If you had invested i…</p>
+  <a href="https://ofdollarsanddata.com/a-century-of-us-stock-returns/" class="card-link" target="_blank">↗ ler artigo</a>
+</article><article class="card" style="--accent:#f59e0b">
+  <div class="card-pill">RationalWalk</div>
+  <h3 class="card-title"><a href="https://rationalwalk.com/greg-abels-2026-letter-to-shareholders/" target="_blank">Greg Abel&#8217;s 2026 Letter to Shareholders</a></h3>
+  <p class="card-desc">Greg Abel's first letter to Berkshire Hathaway shareholders emphasized the need to keep the company's unique culture.</p>
+  <a href="https://rationalwalk.com/greg-abels-2026-letter-to-shareholders/" class="card-link" target="_blank">↗ ler artigo</a>
+</article><article class="card" style="--accent:#d97706">
+  <div class="card-pill">AWealthOfCommonSense</div>
+  <h3 class="card-title"><a href="https://awealthofcommonsense.com/2026/07/talk-your-book-do-we-need-the-federal-reserve/" target="_blank">Talk Your Book: Do We Need the Federal Reserve?</a></h3>
+  <p class="card-desc"><img width="1024" height="398" src="https://awealthofcommonsense.com/wp-content/uploads/2026/07/Screenshot-2026-07-10-164738-1024x398.png" class="attachment-large size-large wp-pos…</p>
+  <a href="https://awealthofcommonsense.com/2026/07/talk-your-book-do-we-need-the-federal-reserve/" class="card-link" target="_blank">↗ ler artigo</a>
+</article>
+  </div>
+</section>
+
+<section class="section">
+  <h2 class="section-title"><span class="section-emoji">𝕏</span> Twitter / X</h2>
+  <div class="card-grid" style="--cols:2">
+    <article class="card twitter-card" style="--accent:#FFBA00">
+  <div class="card-pill twitter-pill">@ttunguz</div>
+  <p class="card-desc twitter-preview">"@Anvario Do you have enough log data to be able to automatically rewrite the skills?"</p>
+</article><article class="card twitter-card" style="--accent:#FFBA00">
+  <div class="card-pill twitter-pill">@chamath</div>
+  <p class="card-desc twitter-preview">"Pod!!!! Absolute banger with @bgurley https://t.co/Q1TLRFi4XC"</p>
+</article><article class="card twitter-card" style="--accent:#FFBA00">
+  <div class="card-pill twitter-pill">@jason</div>
+  <p class="card-desc twitter-preview">"Join our mailing list today! Help us stay in touch with you. http://t.co/oAXLSwYe"</p>
+</article><article class="card twitter-card" style="--accent:#FFBA00">
+  <div class="card-pill twitter-pill">@alexisohanian</div>
+  <p class="card-desc twitter-preview">"@trackerati Doing our best! More to do"</p>
+</article><article class="card twitter-card" style="--accent:#FFBA00">
+  <div class="card-pill twitter-pill">@paulg</div>
+  <p class="card-desc twitter-preview">"@DouglasCarswell @LandsknechtPike By inheriting money. Have you read no history? The tough founder of a dynasty has no way of guaranteeing that his gr"</p>
+</article><article class="card twitter-card" style="--accent:#FFBA00">
+  <div class="card-pill twitter-pill">@naval</div>
+  <p class="card-desc twitter-preview">"Listening to the @trishapaytas podcast two weeks behind and they literally mentioned @RyanScottGraham ‘s band. Wishing you well, Ryan 😊"</p>
+</article><article class="card twitter-card" style="--accent:#FFBA00">
+  <div class="card-pill twitter-pill">@pmarca</div>
+  <p class="card-desc twitter-preview">"Interesting. https://t.co/gp3NIm2Yqp"</p>
+</article><article class="card twitter-card" style="--accent:#FFBA00">
+  <div class="card-pill twitter-pill">@_alexlazar</div>
+  <p class="card-desc twitter-preview">"what’s good? https://t.co/vR2zg653Ju"</p>
+</article><article class="card twitter-card" style="--accent:#FFBA00">
+  <div class="card-pill twitter-pill">@gduguid</div>
+  <p class="card-desc twitter-preview">"@CharlieSheen_ Charlie ur the best and ur a credit to all winning men"</p>
+</article><article class="card twitter-card" style="--accent:#FFBA00">
+  <div class="card-pill twitter-pill">@lessin</div>
+  <p class="card-desc twitter-preview">"I also like tennis ... but are we really at the point that 70% above the fold WSJ is someone losing in the second round? https://t.co/DUqdNPqRt5"</p>
+</article>
+  </div>
+</section>
+
+</div>
+
+<div class="transparency">
+  <h3>📡 Relatório de Transparência</h3>
+  <table class="trans-table">
+    <thead>
+      <tr>
+        <th>Fonte</th>
+        <th>Status</th>
+        <th>Artigos</th>
+        <th>Tier</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Stratechery</td><td><span class="dot-green"></span>OK</td><td>5</td><td>Tier 1</td></tr>
+      <tr><td>Not Boring</td><td><span class="dot-green"></span>OK</td><td>5</td><td>Tier 1</td></tr>
+      <tr><td>Brazil Journal</td><td><span class="dot-green"></span>OK</td><td>5</td><td>Tier 1</td></tr>
+      <tr><td>Startupi</td><td><span class="dot-green"></span>OK</td><td>5</td><td>Tier 1</td></tr>
+      <tr><td>Import AI</td><td><span class="dot-green"></span>OK</td><td>5</td><td>AI</td></tr>
+      <tr><td>Bens Bites</td><td><span class="dot-green"></span>OK</td><td>5</td><td>AI</td></tr>
+      <tr><td>Last Week AI</td><td><span class="dot-green"></span>OK</td><td>5</td><td>AI</td></tr>
+      <tr><td>VentureBeat AI</td><td><span class="dot-green"></span>OK</td><td>5</td><td>AI</td></tr>
+      <tr><td>NeoFeed</td><td><span class="dot-green"></span>OK</td><td>5</td><td>BR</td></tr>
+      <tr><td>Exame</td><td><span class="dot-green"></span>OK</td><td>5</td><td>BR</td></tr>
+      <tr><td>TechCrunch</td><td><span class="dot-green"></span>OK</td><td>5</td><td>Tech</td></tr>
+      <tr><td>The Full Ratchet</td><td><span class="dot-yellow"></span>0 articles</td><td>0</td><td>Tier 2</td></tr>
+      <tr><td>@ttunguz</td><td><span class="dot-green"></span>OK</td><td>5</td><td>Twitter</td></tr>
+      <tr><td>@chamath</td><td><span class="dot-green"></span>OK</td><td>5</td><td>Twitter</td></tr>
+      <tr><td>@paulg</td><td><span class="dot-green"></span>OK</td><td>5</td><td>Twitter</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<footer class="footer">
+  Gerado em 14/07/2026 · 08h BRT · IVC Content Curation · 20 feeds · 98 artigos · 10 perfis Twitter
+</footer>
+
+</body>
+</html>
