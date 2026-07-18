@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Curadoria IVC · 2026-07-18</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ivc-yellow: #FFBA00;
+    --ivc-ink: #1A1B1F;
+    --ivc-bg: #0d0d0f;
+    --ivc-card: #18181f;
+    --ivc-card-hover: #1f1f28;
+    --ivc-border: #2a2a35;
+    --ivc-text: #e8e8ed;
+    --ivc-text-muted: #8888a0;
+    --ivc-radius: 12px;
+    --ivc-spacing: 4px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--ivc-bg);
+    color: var(--ivc-text);
+    font-family: 'Inter', system-ui, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  .header {
+    background: var(--ivc-ink);
+    border-bottom: 1px solid var(--ivc-border);
+    padding: 32px 24px;
+    text-align: center;
+  }
+  .header-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--ivc-yellow);
+    margin-bottom: 8px;
+  }
+  .header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 6vw, 56px);
+    font-weight: 900;
+    color: #fff;
+    letter-spacing: -1px;
+    margin-bottom: 4px;
+  }
+  .header-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--ivc-text-muted);
+  }
+
+  /* STATS STRIP */
+  .stats-strip {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    background: var(--ivc-card);
+    border-top: 1px solid var(--ivc-border);
+    border-bottom: 1px solid var(--ivc-border);
+    overflow: hidden;
+  }
+  .stat-item {
+    padding: 16px 32px;
+    text-align: center;
+    border-right: 1px solid var(--ivc-border);
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--ivc-yellow);
+  }
+  .stat-label {
+    font-size: 11px;
+    color: var(--ivc-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 2px;
+  }
+
+  /* SECTIONS */
+  .section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 24px;
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .section-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--ivc-yellow);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+  }
+  .section-subtitle {
+    font-size: 12px;
+    color: var(--ivc-text-muted);
+    margin-top: 2px;
+  }
+
+  /* CARDS */
+  .card {
+    background: var(--ivc-card);
+    border: 1px solid var(--ivc-border);
+    border-radius: var(--ivc-radius);
+    padding: 20px;
+    margin-bottom: 16px;
+    transition: background 0.15s, border-color 0.15s, transform 0.15s;
+    animation: fadeUp 0.4s ease both;
+  }
+  .card:hover {
+    background: var(--ivc-card-hover);
+    border-color: var(--ivc-yellow);
+    transform: translateY(-2px);
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .card-pill {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+  }
+  .pill-stratechery { background: #c8102e22; color: #ff6b6b; border: 1px solid #c8102e44; }
+  .pill-venturebeatai { background: #7b2d8b22; color: #d4a0ff; border: 1px solid #7b2d8b44; }
+  .pill-techcrunch { background: #1a8b0022; color: #5dff5d; border: 1px solid #1a8b0044; }
+  .pill-braziljournal { background: #2e7d3222; color: #a5d6a7; border: 1px solid #2e7d3244; }
+  .pill-newcomer { background: #ff6f0022; color: #ffcc80; border: 1px solid #ff6f0044; }
+  .pill-startupi { background: #1565c022; color: #90caf9; border: 1px solid #1565c044; }
+  .pill-neofeed { background: #e6510022; color: #ffab91; border: 1px solid #e6510044; }
+  .pill-exame { background: #c6282822; color: #ef9a9a; border: 1px solid #c6282844; }
+  .pill-startupsbr { background: #00695c22; color: #80cbc4; border: 1px solid #00695c44; }
+  .pill-ofdollarsanddata { background: #37474f22; color: #b0bec5; border: 1px solid #37474f44; }
+  .pill-mebfaber { background: #4a148c22; color: #ce93d8; border: 1px solid #4a148c44; }
+  .pill-ventureunlocked { background: #bf360c22; color: #ffab91; border: 1px solid #bf360c44; }
+  .pill-default { background: #33334022; color: #b0b0c0; border: 1px solid #33334044; }
+
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.4;
+    margin-bottom: 10px;
+  }
+  .card-title a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .card-title a:hover {
+    color: var(--ivc-yellow);
+  }
+  .card-desc {
+    font-size: 13.5px;
+    color: var(--ivc-text-muted);
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--ivc-border);
+    padding-top: 10px;
+  }
+  .card-source {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--ivc-yellow);
+    font-weight: 500;
+  }
+  .card-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--ivc-text-muted);
+  }
+  .card-link {
+    font-size: 12px;
+    color: var(--ivc-yellow);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 4px 12px;
+    border: 1px solid var(--ivc-yellow);
+    border-radius: 6px;
+    transition: background 0.15s;
+  }
+  .card-link:hover {
+    background: var(--ivc-yellow);
+    color: var(--ivc-ink);
+  }
+
+  /* TWITTER SECTION */
+  .twitter-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 12px;
+  }
+  .tweet-card {
+    background: var(--ivc-card);
+    border: 1px solid var(--ivc-border);
+    border-radius: var(--ivc-radius);
+    padding: 16px;
+    animation: fadeUp 0.4s ease both;
+  }
+  .tweet-handle {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ivc-yellow);
+    margin-bottom: 8px;
+  }
+  .tweet-text {
+    font-size: 13px;
+    color: var(--ivc-text);
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* TRANSPARENCY */
+  .transparency {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 24px;
+    border-top: 1px solid var(--ivc-border);
+  }
+  .transparency h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 16px;
+  }
+  .t-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .t-table th {
+    text-align: left;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--ivc-text-muted);
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--ivc-border);
+  }
+  .t-table td {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--ivc-border);
+    color: var(--ivc-text);
+  }
+  .t-dot { font-size: 14px; }
+  .dot-green { color: #4caf50; }
+  .dot-yellow { color: #ff9800; }
+  .dot-red { color: #f44336; }
+  .t-cat {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+  .cat-ai { background: #7b2d8b33; color: #d4a0ff; }
+  .cat-vc { background: #ff6f0033; color: #ffcc80; }
+  .cat-br { background: #1565c033; color: #90caf9; }
+  .cat-wealth { background: #37474f33; color: #b0bec5; }
+  .cat-twitter { background: #1da1f233; color: #80cbff; }
+
+  /* FOOTER */
+  .footer {
+    text-align: center;
+    padding: 32px 24px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--ivc-text-muted);
+    border-top: 1px solid var(--ivc-border);
+  }
+
+  @media (max-width: 600px) {
+    .stats-strip { flex-wrap: wrap; }
+    .stat-item { flex: 1 1 40%; border-bottom: 1px solid var(--ivc-border); }
+    .twitter-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-label">IVC · Curadoria Automática</div>
+  <h1>Curadoria de Conteúdo</h1>
+  <div class="header-date">2026-07-18 · 11h BRT</div>
+</div>
+
+<!-- STATS -->
+<div class="stats-strip">
+  <div class="stat-item">
+    <div class="stat-number">20</div>
+    <div class="stat-label">Fontes Testadas</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number">19</div>
+    <div class="stat-label">Fontes Acessadas</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number">93</div>
+    <div class="stat-label">Artigos Coletados</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number">10</div>
+    <div class="stat-label">Perfis Twitter</div>
+  </div>
+</div>
+
+<!-- AI SECTION -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon">🤖</div>
+    <div>
+      <div class="section-title">Inteligência Artificial</div>
+      <div class="section-subtitle">Modelos, agentes, segurança e investimentos em IA</div>
+    </div>
+  </div>
+
+  <div class="card" style="animation-delay: 0ms">
+    <span class="card-pill pill-venturebeatai">VentureBeatAI</span>
+    <div class="card-title"><a href="https://venturebeat.com/ai/the-agent-security-gap-54-of-enterprises-have-already-had-an-ai-agent-incident/" target="_blank">The agent security gap: 54% of enterprises have already had an AI agent incident</a></div>
+    <div class="card-desc">Pesquisa com 107 empresas revela que agentes de IA já estão causando incidentes de segurança em mais da metade das organizações, enquanto controles de governança ainda estão muito atrás da velocidade de adoção. Dado shocking: a maioria ainda compartilha credenciais entre agentes.</div>
+    <div class="card-footer">
+      <span class="card-source">VentureBeatAI</span>
+      <span class="card-date">16 Jul 2026</span>
+      <a href="https://venturebeat.com/ai/the-agent-security-gap-54-of-enterprises-have-already-had-an-ai-agent-incident/" target="_blank" class="card-link">Ler →</a>
+    </div>
+  </div>
+  <div class="card" style="animation-delay: 50ms">
+    <span class="card-pill pill-venturebeatai">VentureBeatAI</span>
+    <div class="card-title"><a href="https://venturebeat.com/ai/the-ai-compute-gap-enterprises-are-buying-infrastructure-faster-than-they-can-measure-what-it-costs/" target="_blank">The AI compute gap: Enterprises are buying infrastructure faster than they can measure what it costs</a></div>
+    <div class="card-desc">107 empresas estão investindo em infraestrutura de IA num ritmo que supera sua capacidade de medir o retorno. A "compute gap" está se tornando o novo problema de governança corporativa — e vai definir quais empresas dominam ou saem do mercado nos próximos 3 anos.</div>
+    <div class="card-footer">
+      <span class="card-source">VentureBeatAI</span>
+      <span class="card-date">16 Jul 2026</span>
+      <a href="https://venturebeat.com/ai/the-ai-compute-gap-enterprises-are-buying-infrastructure-faster-than-they-can-measure-what-it-costs/" target="_blank" class="card-link">Ler →</a>
+    </div>
+  </div>
+  <div class="card" style="animation-delay: 100ms">
+    <span class="card-pill pill-stratechery">Stratechery</span>
+    <div class="card-title"><a href="https://stratechery.com/2026/the-openai-super-app-chatgpt-codex-whither-chat/" target="_blank">The OpenAI Super App, ChatGPT = Codex, Whither Chat</a></div>
+    <div class="card-desc">OpenAI transformou o Codex no novo ChatGPT. Análise de Ben Thompson: a empresa está abandonando a categoria de "chat" que eles mesmos criaram? A mudança sinaliza uma estratégia de super app com implicações profundas para o ecossistema de agentes autônomos.</div>
+    <div class="card-footer">
+      <span class="card-source">Stratechery</span>
+      <span class="card-date">14 Jul 2026</span>
+      <a href="https://stratechery.com/2026/the-openai-super-app-chatgpt-codex-whither-chat/" target="_blank" class="card-link">Ler →</a>
+    </div>
+  </div>
+  <div class="card" style="animation-delay: 150ms">
+    <span class="card-pill pill-techcrunch">TechCrunch</span>
+    <div class="card-title"><a href="https://techcrunch.com/2026/07/18/neil-rimer-thinks-the-ai-money-is-coming-back-out/" target="_blank">Neil Rimer thinks the AI money is coming back out</a></div>
+    <div class="card-desc">Neil Rimer (Index Ventures) prevê que a riqueza gerada pela IA vai sair do mercado — ou seja, o ciclo de investimento em IA vai ter uma correção significativa. Mensagem importante para VCs que estão posicionando portfólios agora.</div>
+    <div class="card-footer">
+      <span class="card-source">TechCrunch</span>
+      <span class="card-date">18 Jul 2026</span>
+      <a href="https://techcrunch.com/2026/07/18/neil-rimer-thinks-the-ai-money-is-coming-back-out/" target="_blank" class="card-link">Ler →</a>
+    </div>
+  </div>
+  <div class="card" style="animation-delay: 200ms">
+    <span class="card-pill pill-braziljournal">BrazilJournal</span>
+    <div class="card-title"><a href="https://braziljournal.com/moonshot-a-startup-chinesa-que-desafia-os-llms-americanos" target="_blank">Moonshot: a startup chinesa que desafia os LLMs americanos</a></div>
+    <div class="card-desc">Modelo de uma startup chinesa alcançou desempenho equivalente aos melhores LLMs americanos. A guerra de IA EUA vs China ganha um novo capítulo — com implicações diretas para investimentos em modelos foundation e geopolítica de chips.</div>
+    <div class="card-footer">
+      <span class="card-source">BrazilJournal</span>
+      <span class="card-date">17 Jul 2026</span>
+      <a href="https://braziljournal.com/moonshot-a-startup-chinesa-que-desafia-os-llms-americanos" target="_blank" class="card-link">Ler →</a>
+    </div>
+  </div>
+</div>
+
+<!-- VC/GLOBAL SECTION -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon">🌐</div>
+    <div>
+      <div class="section-title">VC & Global</div>
+      <div class="section-subtitle">Estratégia de investimento, fundos, IPOs e análise de mercado</div>
+    </div>
+  </div>
+
+  <div class="card" style="animation-delay: 0ms">
+    <span class="card-pill pill-newcomer">Newcomer</span>
+    <div class="card-title"><a href="https://www.newcomer.co/p/ipo-party-faces-down-volatility" target="_blank">IPO Party Faces Down Volatility & Sinking SpaceX Shares</a></div>
+    <div class="card-desc">Consenso emergente sobre regulação de IA + novo fundo bilionário da Greylock. SpaceX em baixa: o IPO window está aberto mas as ações secundárias da SpaceX estão caindo. Análise do que isso significa para founders e investors que esperam liquidez.</div>
+    <div class="card-footer">
+      <span class="card-source">Newcomer</span>
+      <span class="card-date">17 Jul 2026</span>
+      <a href="https://www.newcomer.co/p/ipo-party-faces-down-volatility" target="_blank" class="card-link">Ler →</a>
+    </div>
+  </div>
+  <div class="card" style="animation-delay: 50ms">
+    <span class="card-pill pill-newcomer">Newcomer</span>
+    <div class="card-title"><a href="https://www.newcomer.co/p/scoop-menlo-ventures-sees-irr" target="_blank">SCOOP: Menlo Ventures sees IRR of 40%+ on recent funds after doubling down on Anthropic</a></div>
+    <div class="card-desc">Menlo Ventures entregou IRR de 40%+ em fundos recentes após dobrar aposta no Anthropic. Firm com 50 anos enfrenta escassez pós-AI antes de acertar em cheio no Anthropic e outras estrelas. Lições sobre como VCs experientes navegam ciclos.</div>
+    <div class="card-footer">
+      <span class="card-source">Newcomer</span>
+      <span class="card-date">16 Jul 2026</span>
+      <a href="https://www.newcomer.co/p/scoop-menlo-ventures-sees-irr" target="_blank" class="card-link">Ler →</a>
+    </div>
+  </div>
+  <div class="card" style="animation-delay: 100ms">
+    <span class="card-pill pill-stratechery">Stratechery</span>
+    <div class="card-title"><a href="https://stratechery.com/2026/apple-sues-openai-apples-real-problem/" target="_blank">Apple Sues OpenAI, Apple's Real Problem</a></div>
+    <div class="card-desc">Apple processa OpenAI por roubo de segredos comerciais. Análise de Ben Thompson: há um funcionário culpado, mas o processo parece mais um gesto desesperado do que uma estratégia coerente. O problema real da Apple é que ela está atrás na corrida de IA.</div>
+    <div class="card-footer">
+      <span class="card-source">Stratechery</span>
+      <span class="card-date">13 Jul 2026</span>
+      <a href="https://stratechery.com/2026/apple-sues-openai-apples-real-problem/" target="_blank" class="card-link">Ler →</a>
+    </div>
+  </div>
+  <div class="card" style="animation-delay: 150ms">
+    <span class="card-pill pill-stratechery">Stratechery</span>
+    <div class="card-title"><a href="https://stratechery.com/2026/ibm-misses-ibms-mainframe-moat-ibms-many-ai-problems/" target="_blank">IBM Misses, IBM's Mainframe Moat, IBM's Many AI Problems</a></div>
+    <div class="card-desc">Resultados preliminares da IBM assustaram o mercado. Análise: o moat de mainframes da IBM está encolhendo e a empresa não tem uma estratégia coerente de IA. Estudo de caso de como vantagem competitiva histórica pode se tornar armadilha.</div>
+    <div class="card-footer">
+      <span class="card-source">Stratechery</span>
+      <span class="card-date">15 Jul 2026</span>
+      <a href="https://stratechery.com/2026/ibm-misses-ibms-mainframe-moat-ibms-many-ai-problems/" target="_blank" class="card-link">Ler →</a>
+    </div>
+  </div>
+  <div class="card" style="animation-delay: 200ms">
+    <span class="card-pill pill-ventureunlocked">VentureUnlocked</span>
+    <div class="card-title"><a href="https://ventureunlocked.substack.com/p/crazy-and-rational-venture-cognitive" target="_blank">Crazy, and Rational: Venture's Cognitive Dissonance Moment</a></div>
+    <div class="card-desc">Samir Kaji (Venture Unlocked) analisa o momento de dissonância cognitiva do venture: ao mesmo tempo que o mercado está eufórico com IA, os fundamentos de mercado mostram cautela. 27 anos de experiência em private markets oferecem perspectiva rara.</div>
+    <div class="card-footer">
+      <span class="card-source">VentureUnlocked</span>
+      <span class="card-date">06 Jul 2026</span>
+      <a href="https://ventureunlocked.substack.com/p/crazy-and-rational-venture-cognitive" target="_blank" class="card-link">Ler →</a>
+    </div>
+  </div>
+</div>
+
+<!-- BRASIL SECTION -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon">🇧🇷</div>
+    <div>
+      <div class="section-title">Brasil</div>
+      <div class="section-subtitle">Startups, fintechs, VC brasileiro e dados de mercado</div>
+    </div>
+  </div>
+
+  <div class="card" style="animation-delay: 0ms">
+    <span class="card-pill pill-startupi">Startupi</span>
+    <div class="card-title"><a href="https://startupi.com.br/2026/07/17/toku-anuncia-investimento-para-expandir-no-mercado-brasileiro/" target="_blank">Toku announce investimento para expandir no mercado brasileiro</a></div>
+    <div class="card-desc">Toku, startup de infraestrutura de pagamentos para PMEs na América Latina, levanta rodada para expandir no Brasil. Contexto: o mercado de embedded finance e pagamentos B2B segue aquecido apesar do cenário macro desafiador.</div>
+    <div class="card-footer">
+      <span class="card-source">Startupi</span>
+      <span class="card-date">17 Jul 2026</span>
+      <a href="https://startupi.com.br/2026/07/17/toku-anuncia-investimento-para-expandir-no-mercado-brasileiro/" target="_blank" class="card-link">Ler →</a>
+    </div>
+  </div>
+  <div class="card" style="animation-delay: 50ms">
+    <span class="card-pill pill-startupi">Startupi</span>
+    <div class="card-title"><a href="https://startupi.com.br/brasil-se-consolida-como-referencia-regional-em-personalizacao-financeira/" target="_blank">Brasil se consolida como referência regional em personalização financeira</a></div>
+    <div class="card-desc">Pesquisa revela que o Brasil lidera a América Latina em personalização de serviços financeiros via IA. Dado relevante para investidores em fintechs e big techs financeiras — a diferença entre Pix e sistemas legados de outros países fica cada vez mais clara.</div>
+    <div class="card-footer">
+      <span class="card-source">Startupi</span>
+      <span class="card-date">17 Jul 2026</span>
+      <a href="https://startupi.com.br/brasil-se-consolida-como-referencia-regional-em-personalizacao-financeira/" target="_blank" class="card-link">Ler →</a>
+    </div>
+  </div>
+  <div class="card" style="animation-delay: 100ms">
+    <span class="card-pill pill-neofeed">NeoFeed</span>
+    <div class="card-title"><a href="https://neofeed.com.br/" target="_blank">Scott Galloway segue "bullish" com a IA, mas alerta que bolha já começou a estourar</a></div>
+    <div class="card-desc">Scott Galloway mantém visão otimista de longo prazo sobre IA, mas adverte: a bolha de valuation em startups de IA começou a estourar. O professor da NYU identifica as empresas que vão sobreviver vs. as que vão desaparecer no próximo ciclo.</div>
+    <div class="card-footer">
+      <span class="card-source">NeoFeed</span>
+      <span class="card-date">17 Jul 2026</span>
+      <a href="https://neofeed.com.br/" target="_blank" class="card-link">Ler →</a>
+    </div>
+  </div>
+  <div class="card" style="animation-delay: 150ms">
+    <span class="card-pill pill-startupi">Startupi</span>
+    <div class="card-title"><a href="https://startupi.com.br/2026/07/16/com-fundo-de-r-5-milhoes-yungas-investe-em-startup-de-ia-focada-em-redes-de-franquia/" target="_blank">Com fundo de R$ 5 milhões, Yungas investe em startup de IA focada em redes de franquia</a></div>
+    <div class="card-desc">Yungas VC (fundo de R$ 5M) investe em startup de IA para redes de franquia — modelo SaaS com IA aplicada a operations de retail. Mostra que o mercado brasileiro de SaaS vertical segue ativo para rodada seed.</div>
+    <div class="card-footer">
+      <span class="card-source">Startupi</span>
+      <span class="card-date">16 Jul 2026</span>
+      <a href="https://startupi.com.br/2026/07/16/com-fundo-de-r-5-milhoes-yungas-investe-em-startup-de-ia-focada-em-redes-de-franquia/" target="_blank" class="card-link">Ler →</a>
+    </div>
+  </div>
+  <div class="card" style="animation-delay: 200ms">
+    <span class="card-pill pill-exame">Exame</span>
+    <div class="card-title"><a href="https://exame.com/brasil/escassez-de-mao-de-obra-qualificada-custa-r-335-bilhoes-ao-brasil-diz-estudo/" target="_blank">Escassez de mão de obra qualificada custa R$ 335 bilhões ao Brasil</a></div>
+    <div class="card-desc">Estudo revela custo bilionário da escassez de mão de obra qualificada no Brasil — problema estrutural que IA pode ajudar a resolver, mas também amplifica. Esse gap é o terreno fértil para自動化 e para EdTechs focadas em requalificação.</div>
+    <div class="card-footer">
+      <span class="card-source">Exame</span>
+      <span class="card-date">18 Jul 2026</span>
+      <a href="https://exame.com/brasil/escassez-de-mao-de-obra-qualificada-custa-r-335-bilhoes-ao-brasil-diz-estudo/" target="_blank" class="card-link">Ler →</a>
+    </div>
+  </div>
+  <div class="card" style="animation-delay: 250ms">
+    <span class="card-pill pill-startupsbr">StartupsBR</span>
+    <div class="card-title"><a href="https://startups.com.br/noticias/gartner-metade-das-empresas-que-demitiram-por-ia-vai-recontratar-ate-2027" target="_blank">Gartner: metade das empresas que demitiram por IA vai recontratar até 2027</a></div>
+    <div class="card-desc">Metade das empresas que usaram IA para cortar وظائف vão precisar contratar novamente até 2027 — revelando que a primeira onda de automação foi incompleta. Dado essencial para quem investe em HR tech e plataformas de upskilling.</div>
+    <div class="card-footer">
+      <span class="card-source">StartupsBR</span>
+      <span class="card-date">17 Jul 2026</span>
+      <a href="https://startups.com.br/noticias/gartner-metade-das-empresas-que-demitiram-por-ia-vai-recontratar-ate-2027" target="_blank" class="card-link">Ler →</a>
+    </div>
+  </div>
+</div>
+
+<!-- WEALTH SECTION -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon">💰</div>
+    <div>
+      <div class="section-title">Wealth & Longue Terme</div>
+      <div class="section-subtitle">Retornos, portfólio e patrimônio de longo prazo</div>
+    </div>
+  </div>
+
+  <div class="card" style="animation-delay: 0ms">
+    <span class="card-pill pill-ofdollarsanddata">OfDollarsAndData</span>
+    <div class="card-title"><a href="https://ofdollarsanddata.com/are-stocks-going-up-or-is-the-dollar-going-down/" target="_blank">Are Stocks Going Up or Is the Dollar Going Down?</a></div>
+    <div class="card-desc">Análise provocativa: com ações em máximos históricos, muitos argumentam que são os dólares que estão caindo. Nick Maghiari desmonta essa tese e mostra o que realmente determina retornos reais de longo prazo — útil para benchmark de portfólio.</div>
+    <div class="card-footer">
+      <span class="card-source">OfDollarsAndData</span>
+      <span class="card-date">14 Jul 2026</span>
+      <a href="https://ofdollarsanddata.com/are-stocks-going-up-or-is-the-dollar-going-down/" target="_blank" class="card-link">Ler →</a>
+    </div>
+  </div>
+  <div class="card" style="animation-delay: 50ms">
+    <span class="card-pill pill-ofdollarsanddata">OfDollarsAndData</span>
+    <div class="card-title"><a href="https://ofdollarsanddata.com/a-century-of-us-stock-returns-expect-the-expected/" target="_blank">A Century of U.S. Stock Returns: Expect the Unexpected</a></div>
+    <div class="card-desc">Deep dive nos 100 anos de retornos do mercado americano — com direito ao aniversário de 250 anos dos EUA. Lições sobre volatilidade, retornos reais e por que o maior risco é ficar fora do mercado nas décadas certas.</div>
+    <div class="card-footer">
+      <span class="card-source">OfDollarsAndData</span>
+      <span class="card-date">07 Jul 2026</span>
+      <a href="https://ofdollarsanddata.com/a-century-of-us-stock-returns-expect-the-expected/" target="_blank" class="card-link">Ler →</a>
+    </div>
+  </div>
+  <div class="card" style="animation-delay: 100ms">
+    <span class="card-pill pill-mebfaber">MebFaber</span>
+    <div class="card-title"><a href="https://mebfaber.com/2026/07/02/ipo-relative-returns-by-year/" target="_blank">IPO Relative Returns by Year</a></div>
+    <div class="card-desc">Dados históricos de retornos pós-IPO por ano de emissão. Conclusão contraintuitiva: IPOs no curto prazo tendem a performar abaixo do mercado. Contexto relevante para quem está avaliando o IPO window atual (SpaceX, Databricks).</div>
+    <div class="card-footer">
+      <span class="card-source">MebFaber</span>
+      <span class="card-date">02 Jul 2026</span>
+      <a href="https://mebfaber.com/2026/07/02/ipo-relative-returns-by-year/" target="_blank" class="card-link">Ler →</a>
+    </div>
+  </div>
+</div>
+
+<!-- TWITTER SECTION -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon">𝕏</div>
+    <div>
+      <div class="section-title">Twitter / X</div>
+      <div class="section-subtitle"> Últimos tweets dos perfis que monitoramos</div>
+    </div>
+  </div>
+  <div class="twitter-grid">
+
+    <div class="tweet-card" style="animation-delay: 0ms">
+      <div class="tweet-handle">@ttunguz</div>
+      <div class="tweet-text">Do you have enough log data to be able to automatically rewrite the skills?</div>
+    </div>
+    <div class="tweet-card" style="animation-delay: 30ms">
+      <div class="tweet-handle">@chamath</div>
+      <div class="tweet-text">Pod!!!! Absolute banger with @bgurley https://t.co/Q1TLRFi4XC</div>
+    </div>
+    <div class="tweet-card" style="animation-delay: 60ms">
+      <div class="tweet-handle">@jason</div>
+      <div class="tweet-text">Join our mailing list today! Help us stay in touch with you.</div>
+    </div>
+    <div class="tweet-card" style="animation-delay: 90ms">
+      <div class="tweet-handle">@alexisohanian</div>
+      <div class="tweet-text">@trackerati Doing our best! More to do</div>
+    </div>
+    <div class="tweet-card" style="animation-delay: 120ms">
+      <div class="tweet-handle">@paulg</div>
+      <div class="tweet-text">@DouglasCarswell @LandsknechtPike By inheriting money. Have you read no history?</div>
+    </div>
+    <div class="tweet-card" style="animation-delay: 150ms">
+      <div class="tweet-handle">@naval</div>
+      <div class="tweet-text">Listening to the @trishapaytas podcast two weeks behind...</div>
+    </div>
+    <div class="tweet-card" style="animation-delay: 180ms">
+      <div class="tweet-handle">@pmarca</div>
+      <div class="tweet-text">Interesting. https://t.co/gp3NIm2Yqp</div>
+    </div>
+    <div class="tweet-card" style="animation-delay: 210ms">
+      <div class="tweet-handle">@_alexlazar</div>
+      <div class="tweet-text">what's good? https://t.co/vR2zg653Ju</div>
+    </div>
+    <div class="tweet-card" style="animation-delay: 240ms">
+      <div class="tweet-handle">@gduguid</div>
+      <div class="tweet-text">@CharlieSheen_ Charlie ur the best and ur a credit to all winning men</div>
+    </div>
+    <div class="tweet-card" style="animation-delay: 270ms">
+      <div class="tweet-handle">@lessin</div>
+      <div class="tweet-text">I also like tennis... but are we really at the point that 70% above the fold WSJ is someone losing in the second round?</div>
+    </div>
+  </div>
+</div>
+
+<!-- TRANSPARENCY TABLE -->
+<div class="transparency">
+  <h2>Relatório de Transparência · Fontes Testadas</h2>
+  <table class="t-table">
+    <thead>
+      <tr>
+        <th>Fonte</th>
+        <th>Categoria</th>
+        <th>Status</th>
+        <th>Artigos</th>
+        <th>Tier</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Stratechery</td>
+        <td><span class="t-cat cat-vc">VC/Global</span></td>
+        <td><span class="t-dot dot-green">●</span> ✅</td>
+        <td>5</td>
+        <td>Tier 1</td>
+      </tr>
+      <tr>
+        <td>Not Boring</td>
+        <td><span class="t-cat cat-vc">VC/Global</span></td>
+        <td><span class="t-dot dot-green">●</span> ✅</td>
+        <td>5</td>
+        <td>Tier 1</td>
+      </tr>
+      <tr>
+        <td>Brazil Journal</td>
+        <td><span class="t-cat cat-br">BR</span></td>
+        <td><span class="t-dot dot-green">●</span> ✅</td>
+        <td>5</td>
+        <td>Tier 1</td>
+      </tr>
+      <tr>
+        <td>Import AI</td>
+        <td><span class="t-cat cat-ai">AI</span></td>
+        <td><span class="t-dot dot-green">●</span> ✅</td>
+        <td>5</td>
+        <td>Tier 2</td>
+      </tr>
+      <tr>
+        <td>Bens Bites</td>
+        <td><span class="t-cat cat-ai">AI</span></td>
+        <td><span class="t-dot dot-green">●</span> ✅</td>
+        <td>5</td>
+        <td>Tier 2</td>
+      </tr>
+      <tr>
+        <td>VentureBeat AI</td>
+        <td><span class="t-cat cat-ai">AI</span></td>
+        <td><span class="t-dot dot-green">●</span> ✅</td>
+        <td>5</td>
+        <td>Tier 2</td>
+      </tr>
+      <tr>
+        <td>NeoFeed</td>
+        <td><span class="t-cat cat-br">BR</span></td>
+        <td><span class="t-dot dot-green">●</span> ✅</td>
+        <td>5</td>
+        <td>Tier 2</td>
+      </tr>
+      <tr>
+        <td>Startupi</td>
+        <td><span class="t-cat cat-br">BR</span></td>
+        <td><span class="t-dot dot-green">●</span> ✅</td>
+        <td>5</td>
+        <td>Tier 1</td>
+      </tr>
+      <tr>
+        <td>Femstreet</td>
+        <td><span class="t-cat cat-vc">VC/Global</span></td>
+        <td><span class="t-dot dot-yellow">●</span> ⚠️ Old content</td>
+        <td>—</td>
+        <td>Tier 2</td>
+      </tr>
+      <tr>
+        <td>Venture Unlocked</td>
+        <td><span class="t-cat cat-vc">VC/Global</span></td>
+        <td><span class="t-dot dot-green">●</span> ✅</td>
+        <td>5</td>
+        <td>Tier 2</td>
+      </tr>
+      <tr>
+        <td>Newcomer</td>
+        <td><span class="t-cat cat-vc">VC/Global</span></td>
+        <td><span class="t-dot dot-green">●</span> ✅</td>
+        <td>5</td>
+        <td>Tier 2</td>
+      </tr>
+      <tr>
+        <td>Of Dollars And Data</td>
+        <td><span class="t-cat cat-wealth">Wealth</span></td>
+        <td><span class="t-dot dot-green">●</span> ✅</td>
+        <td>5</td>
+        <td>Tier 2</td>
+      </tr>
+      <tr>
+        <td>Rational Walk</td>
+        <td><span class="t-cat cat-wealth">Wealth</span></td>
+        <td><span class="t-dot dot-green">●</span> ✅</td>
+        <td>5</td>
+        <td>Tier 3</td>
+      </tr>
+      <tr>
+        <td>A Wealth Of Common Sense</td>
+        <td><span class="t-cat cat-wealth">Wealth</span></td>
+        <td><span class="t-dot dot-red">●</span> ❌</td>
+        <td>0</td>
+        <td>Tier 3</td>
+      </tr>
+      <tr>
+        <td>Meb Faber</td>
+        <td><span class="t-cat cat-wealth">Wealth</span></td>
+        <td><span class="t-dot dot-green">●</span> ✅</td>
+        <td>5</td>
+        <td>Tier 3</td>
+      </tr>
+      <tr>
+        <td>Invest Like The Best</td>
+        <td><span class="t-cat cat-wealth">Wealth</span></td>
+        <td><span class="t-dot dot-green">●</span> ✅</td>
+        <td>3</td>
+        <td>Tier 3</td>
+      </tr>
+      <tr>
+        <td>Exame</td>
+        <td><span class="t-cat cat-br">BR</span></td>
+        <td><span class="t-dot dot-green">●</span> ✅</td>
+        <td>5</td>
+        <td>Tier 3</td>
+      </tr>
+      <tr>
+        <td>TechCrunch</td>
+        <td><span class="t-cat cat-default">Tech</span></td>
+        <td><span class="t-dot dot-green">●</span> ✅</td>
+        <td>5</td>
+        <td>Tier 3</td>
+      </tr>
+      <tr>
+        <td>StartupsBR</td>
+        <td><span class="t-cat cat-br">BR</span></td>
+        <td><span class="t-dot dot-green">●</span> ✅</td>
+        <td>5</td>
+        <td>Tier 3</td>
+      </tr>
+      <tr>
+        <td>Last Week AI</td>
+        <td><span class="t-cat cat-ai">AI</span></td>
+        <td><span class="t-dot dot-green">●</span> ✅</td>
+        <td>5</td>
+        <td>Tier 3</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  IVC Curadoria · Conteúdo filtrado por relevância para investidores em VC/startups/tech<br>
+  Gerado automaticamente · 2026-07-18 · ivc.vc
+</div>
+
+</body>
+</html>
