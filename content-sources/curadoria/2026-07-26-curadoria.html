@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Curadoria IVC · 2026-07-26</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ivc-yellow: #FFBA00;
+  --ink: #1A1B1F;
+  --bg: #0d0d0f;
+  --card-bg: #18181f;
+  --card-hover: #1f1f2a;
+  --text: #e8e8ec;
+  --text-muted: #8888a0;
+  --radius: 12px;
+  --gap: 4px;
+}
+[data-theme="light"]{
+  --bg: #f5f5f0;
+  --card-bg: #ffffff;
+  --card-hover: #f0f0eb;
+  --text: #1A1B1F;
+  --text-muted: #666670;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:Inter,sans-serif;min-height:100vh;transition:background .3s,color .3s}
+.header{background:var(--ink);padding:32px 24px;text-align:center;border-bottom:3px solid var(--ivc-yellow)}
+.header-date{font-family:JetBrains Mono,monospace;font-size:12px;color:var(--ivc-yellow);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
+.header h1{font-family:Playfair Display,serif;font-size:clamp(28px,5vw,48px);color:#fff;margin-bottom:4px}
+.header-sub{color:var(--text-muted);font-size:13px}
+.stats-strip{display:flex;justify-content:center;gap:32px;padding:16px;background:var(--ink);border-bottom:1px solid #2a2a35;flex-wrap:wrap}
+.stat{text-align:center}
+.stat-n{font-family:Playfair Display,serif;font-size:32px;color:var(--ivc-yellow);line-height:1}
+.stat-l{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px}
+.content{max-width:1100px;margin:0 auto;padding:24px 16px}
+.section{margin-bottom:48px}
+.section-title{font-family:Playfair Display,serif;font-size:22px;color:var(--text);margin-bottom:16px;padding-left:12px}
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:var(--gap)}
+.card{background:var(--card-bg);border-radius:var(--radius);padding:16px;border:1px solid #2a2a35;transition:background .2s,transform .2s}
+.card:hover{background:var(--card-hover);transform:translateY(-2px)}
+.card-source{display:inline-block;font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;border-radius:20px;margin-bottom:10px}
+.card-title{font-size:15px;font-weight:600;line-height:1.4;margin-bottom:8px}
+.card-title a{color:var(--text);text-decoration:none}
+.card-title a:hover{color:var(--ivc-yellow)}
+.card-desc{font-size:13px;color:var(--text-muted);line-height:1.5;margin-bottom:12px}
+.card-footer{border-top:1px solid #2a2a35;padding-top:8px}
+.card-link{font-family:JetBrains Mono,monospace;font-size:10px;color:var(--text-muted)}
+.transparency{margin-top:48px;padding:24px;background:var(--card-bg);border-radius:var(--radius);border:1px solid #2a2a35}
+.transparency h2{font-family:Playfair Display,serif;font-size:18px;margin-bottom:16px;color:var(--text)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;color:var(--text-muted);font-size:11px;text-transform:uppercase;letter-spacing:1px;padding:8px 12px;border-bottom:1px solid #2a2a35}
+td{padding:8px 12px;border-bottom:1px solid #1f1f28}
+tr:hover{background:#1f1f28}
+.theme-toggle{position:fixed;top:16px;right:16px;background:var(--card-bg);border:1px solid #2a2a35;border-radius:8px;padding:8px 12px;cursor:pointer;font-size:12px;color:var(--text)}
+.footer{text-align:center;padding:32px;color:var(--text-muted);font-size:12px;font-family:JetBrains Mono,monospace}
+</style>
+</head>
+<body>
+<button class="theme-toggle" onclick="document.body.dataset.theme=document.body.dataset.theme==='light'?'':'light'">☀️/🌙</button>
+
+<div class="header">
+  <div class="header-date">2026-07-26</div>
+  <h1>Curadoria IVC</h1>
+  <div class="header-sub">VC · Startups · Tecnologia · Wealth</div>
+</div>
+
+<div class="stats-strip">
+  <div class="stat"><div class="stat-n">21</div><div class="stat-l">Feeds</div></div>
+  <div class="stat"><div class="stat-n">98</div><div class="stat-l">Artigos</div></div>
+  <div class="stat"><div class="stat-n">10</div><div class="stat-l">Perfis Twitter</div></div>
+  <div class="stat"><div class="stat-n">~2</div><div class="stat-l">Curadas</div></div>
+</div>
+
+<div class="content">
+<section class="section">
+  <h2 class="section-title" style="border-left:4px solid #00d4ff">AI</h2>
+  <div class="cards-grid"><div class="card">
+  <div class="card-source" style="background:#00d4ff20;color:#00d4ff">ImportAI</div>
+  <h3 class="card-title"><a href="https://importai.substack.com/p/import-ai-465-open-vs-closed-gaps" target="_blank">Import AI 465: Open vs closed gaps; Kimi K3; Demis' big policy plan</a></h3>
+  <p class="card-desc">The singularity will be seen in hindsight as an interregnum</p>
+  <div class="card-footer"><span class="card-link">https://importai.substack.com/p/import-ai-465-open-vs-closed…</span></div>
+</div><div class="card">
+  <div class="card-source" style="background:#00d4ff20;color:#00d4ff">ImportAI</div>
+  <h3 class="card-title"><a href="https://importai.substack.com/p/import-ai-464-fables-writes-gpu-kernels" target="_blank">Import AI 464: Fable writes GPU kernels; AI automation; and analog computation</a></h3>
+  <p class="card-desc">Is this the beginning of a new world?</p>
+  <div class="card-footer"><span class="card-link">https://importai.substack.com/p/import-ai-464-fables-writes-…</span></div>
+</div><div class="card">
+  <div class="card-source" style="background:#00d4ff20;color:#00d4ff">BensBites</div>
+  <h3 class="card-title"><a href="https://www.bensbites.com/p/caught-cheating" target="_blank">Caught cheating</a></h3>
+  <p class="card-desc">models, writers, and routers</p>
+  <div class="card-footer"><span class="card-link">https://www.bensbites.com/p/caught-cheating…</span></div>
+</div><div class="card">
+  <div class="card-source" style="background:#00d4ff20;color:#00d4ff">BensBites</div>
+  <h3 class="card-title"><a href="https://www.bensbites.com/p/better-design-than-fable" target="_blank">Better design than Fable</a></h3>
+  <p class="card-desc">unsolved maths problems vs ai models, who'll win?</p>
+  <div class="card-footer"><span class="card-link">https://www.bensbites.com/p/better-design-than-fable…</span></div>
+</div><div class="card">
+  <div class="card-source" style="background:#00d4ff20;color:#00d4ff">LastWeekAI</div>
+  <h3 class="card-title"><a href="https://lastweekin.ai/p/lwiai-podcast-252-gpt-56-grok-45" target="_blank">LWiAI Podcast #252 - GPT 5.6, Grok 4.5, Nemotron-Labs-Diffusion, AI 2040</a></h3>
+  <p class="card-desc">GPT-5.6 and Grok 4.5, Meta's Muse Spark 1.1, regulatory developments in AI and data centers, interpretability research from Anthropic, and the future of AI policy with AI 2040</p>
+  <div class="card-footer"><span class="card-link">https://lastweekin.ai/p/lwiai-podcast-252-gpt-56-grok-45…</span></div>
+</div><div class="card">
+  <div class="card-source" style="background:#00d4ff20;color:#00d4ff">LastWeekAI</div>
+  <h3 class="card-title"><a href="https://lastweekin.ai/p/last-week-in-ai-251-mythos-back-sonnet" target="_blank">Last Week in AI #251 - Mythos Back, Sonnet 5, Etched, LongCat</a></h3>
+  <p class="card-desc">Trump lifts restrictions on Anthropic, Anthropic launches Claude Sonnet 5, Google's NotebookLM updates, chips stories from Etched and Baidu, and more!</p>
+  <div class="card-footer"><span class="card-link">https://lastweekin.ai/p/last-week-in-ai-251-mythos-back-sonn…</span></div>
+</div><div class="card">
+  <div class="card-source" style="background:#00d4ff20;color:#00d4ff">VentureBeatAI</div>
+  <h3 class="card-title"><a href="https://venturebeat.com/technology/google-just-redesigned-the-search-box-for-the-first-time-in-25-years-heres-why-it-matters-more-than-you-think" target="_blank">Google just redesigned the search box for the first time in 25 years — here’s why it matte</a></h3>
+  <p class="card-desc">For a quarter century, the Google search box has been one of the most recognizable interfaces in computing: a thin white rectangle, a blinking cursor, a few typed words, and a list...</p>
+  <div class="card-footer"><span class="card-link">https://venturebeat.com/technology/google-just-redesigned-th…</span></div>
+</div><div class="card">
+  <div class="card-source" style="background:#00d4ff20;color:#00d4ff">VentureBeatAI</div>
+  <h3 class="card-title"><a href="https://venturebeat.com/infrastructure/railway-secures-usd100-million-to-challenge-aws-with-ai-native-cloud" target="_blank">Railway secures $100 million to challenge AWS with AI-native cloud infrastructure</a></h3>
+  <p class="card-desc">Railway, a San Francisco-based cloud platform that has quietly amassed two million developers without spending a dollar on marketing, announced Thursday that it raised $100 million...</p>
+  <div class="card-footer"><span class="card-link">https://venturebeat.com/infrastructure/railway-secures-usd10…</span></div>
+</div></div>
+</section><section class="section">
+  <h2 class="section-title" style="border-left:4px solid #ff6b35">VC/Global</h2>
+  <div class="cards-grid"><div class="card">
+  <div class="card-source" style="background:#ff6b3520;color:#ff6b35">Stratechery</div>
+  <h3 class="card-title"><a href="https://stratechery.com/2026/the-copium-wars/" target="_blank">2026.30: The Copium Wars</a></h3>
+  <p class="card-desc">The best Stratechery content from the week of July 20, 2026 including Chinese models and frontier futures, what happened to Hugging Face, and the NBA and its second apron bet.</p>
+  <div class="card-footer"><span class="card-link">https://stratechery.com/2026/the-copium-wars/…</span></div>
+</div><div class="card">
+  <div class="card-source" style="background:#ff6b3520;color:#ff6b35">Stratechery</div>
+  <h3 class="card-title"><a href="https://stratechery.com/2026/openai-hacks-hugging-face-what-happened-alignment-and-paper-clips/" target="_blank">OpenAI Hacks Hugging Face, What Happened, Alignment and Paper Clips</a></h3>
+  <p class="card-desc">OpenAI accidentally hacked Hugging Face, but the takeaways are more encouraging than people realize.</p>
+  <div class="card-footer"><span class="card-link">https://stratechery.com/2026/openai-hacks-hugging-face-what-…</span></div>
+</div><div class="card">
+  <div class="card-source" style="background:#ff6b3520;color:#ff6b35">NotBoring</div>
+  <h3 class="card-title"><a href="https://www.notboring.co/p/ai-is-oil-not-god" target="_blank">AI is Oil, Not God</a></h3>
+  <p class="card-desc">I trust the market over ghost stories</p>
+  <div class="card-footer"><span class="card-link">https://www.notboring.co/p/ai-is-oil-not-god…</span></div>
+</div><div class="card">
+  <div class="card-source" style="background:#ff6b3520;color:#ff6b35">NotBoring</div>
+  <h3 class="card-title"><a href="https://www.notboring.co/p/weekly-dose-of-optimism-203" target="_blank">Weekly Dose of Optimism #203</a></h3>
+  <p class="card-desc">Travis is Back, Jacobian Conjecture Falls, Skyroot, Star Axis, Thunder + Extra Doses</p>
+  <div class="card-footer"><span class="card-link">https://www.notboring.co/p/weekly-dose-of-optimism-203…</span></div>
+</div><div class="card">
+  <div class="card-source" style="background:#ff6b3520;color:#ff6b35">Newcomer</div>
+  <h3 class="card-title"><a href="https://www.newcomer.co/p/high-stakes-battle-over-china-policy" target="_blank">High-Stakes Battle Over China Policy & Open Source AI Pits LLM Giants Against Their Custom</a></h3>
+  <p class="card-desc">Plus, corporate VC investment skyrockets & Mistral preps for its next phase</p>
+  <div class="card-footer"><span class="card-link">https://www.newcomer.co/p/high-stakes-battle-over-china-poli…</span></div>
+</div><div class="card">
+  <div class="card-source" style="background:#ff6b3520;color:#ff6b35">Newcomer</div>
+  <h3 class="card-title"><a href="https://www.newcomer.co/p/scoop-fundraising-documents-reveal" target="_blank">SCOOP: Fundraising Documents Reveal IVP Quietly Raising $1.8 Billion, Boasting 31.1% Net I</a></h3>
+  <p class="card-desc">The firm's 2015 fund has returned 2.0x DPI to investors, making it a top quartile fund</p>
+  <div class="card-footer"><span class="card-link">https://www.newcomer.co/p/scoop-fundraising-documents-reveal…</span></div>
+</div><div class="card">
+  <div class="card-source" style="background:#ff6b3520;color:#ff6b35">VentureUnlocked</div>
+  <h3 class="card-title"><a href="https://ventureunlocked.substack.com/p/crazy-and-rational-ventures-cognitive" target="_blank">Crazy, and Rational: Venture's Cognitive Dissonance Moment</a></h3>
+  <p class="card-desc">Having spent 27 years in and around private markets, including 22 years at SVB and First Republic where I had a front row seat to the dot-com era and everything after, I&#8217;ve s...</p>
+  <div class="card-footer"><span class="card-link">https://ventureunlocked.substack.com/p/crazy-and-rational-ve…</span></div>
+</div><div class="card">
+  <div class="card-source" style="background:#ff6b3520;color:#ff6b35">VentureUnlocked</div>
+  <h3 class="card-title"><a href="https://ventureunlocked.substack.com/p/deep-tech-gold-rush-smart-boom-or" target="_blank">Deep Tech Gold Rush: Smart Boom or Future Bust?</a></h3>
+  <p class="card-desc">Follow me @samirkaji for my thoughts on the venture market, with a focus on the continued evolution of the VC landscape.</p>
+  <div class="card-footer"><span class="card-link">https://ventureunlocked.substack.com/p/deep-tech-gold-rush-s…</span></div>
+</div><div class="card">
+  <div class="card-source" style="background:#ff6b3520;color:#ff6b35">Femstreet</div>
+  <h3 class="card-title"><a href="https://femstreet.substack.com/p/femstreetissue288" target="_blank">Common and costly product messaging mistakes; How to write a great fundraising blurb; The </a></h3>
+  <p class="card-desc">Where women lead, shape, and fund the future.</p>
+  <div class="card-footer"><span class="card-link">https://femstreet.substack.com/p/femstreetissue288…</span></div>
+</div><div class="card">
+  <div class="card-source" style="background:#ff6b3520;color:#ff6b35">Femstreet</div>
+  <h3 class="card-title"><a href="https://femstreet.substack.com/p/femstreetissue287" target="_blank">Lessons from failing to find PMF; Sales forecasting 101; Setting up your exit strategy</a></h3>
+  <p class="card-desc">Where women lead, shape, and fund the future.</p>
+  <div class="card-footer"><span class="card-link">https://femstreet.substack.com/p/femstreetissue287…</span></div>
+</div></div>
+</section><section class="section">
+  <h2 class="section-title" style="border-left:4px solid #4ade80">BR</h2>
+  <div class="cards-grid"><div class="card">
+  <div class="card-source" style="background:#4ade8020;color:#4ade80">BrazilJournal</div>
+  <h3 class="card-title"><a href="https://braziljournal.com/no-grand-terroir-31-a-nova-ambicao-da-campanha-gaucha/" target="_blank">No Grand Terroir 31, a nova ambição da Campanha Gaúcha</a></h3>
+  <p class="card-desc">Durante muito tempo, falar de vinho brasileiro era quase inevitavelmente falar da Serra Gaúcha. Foi ali que a vitivinicultura nacional construiu sua identidade, desenvolveu tecnolo...</p>
+  <div class="card-footer"><span class="card-link">https://braziljournal.com/no-grand-terroir-31-a-nova-ambicao…</span></div>
+</div><div class="card">
+  <div class="card-source" style="background:#4ade8020;color:#4ade80">BrazilJournal</div>
+  <h3 class="card-title"><a href="https://braziljournal.com/papua-nova-guine-entre-o-fio-que-sustenta-e-o-elo-que-prende/" target="_blank">Papua Nova Guiné: entre o fio que sustenta e o elo que prende</a></h3>
+  <p class="card-desc">Foi em um objeto aparentemente simples que a Papua Nova Guiné começou a se revelar para mim. No mercado de artesanato de uma das ilhas do país, me apresentaram ao bilum, uma bolsa ...</p>
+  <div class="card-footer"><span class="card-link">https://braziljournal.com/papua-nova-guine-entre-o-fio-que-s…</span></div>
+</div><div class="card">
+  <div class="card-source" style="background:#4ade8020;color:#4ade80">NeoFeed</div>
+  <h3 class="card-title"><a href="https://neofeed.com.br/finde/o-vinho-e-o-vento-como-a-soja-ameaca-os-parreirais-do-rio-grande-do-sul/" target="_blank">O vinho e o vento: como a soja ameaça os parreirais do Rio Grande do Sul</a></h3>
+  <p class="card-desc">
+Os vinhos da Campanha Gaúcha e das novas regiões vinícolas do Rio Grande do Sul estão sob ameaça. E o perigo vem com o vento. Nas últimas duas décadas, a área plantada com soja no...</p>
+  <div class="card-footer"><span class="card-link">https://neofeed.com.br/finde/o-vinho-e-o-vento-como-a-soja-a…</span></div>
+</div><div class="card">
+  <div class="card-source" style="background:#4ade8020;color:#4ade80">NeoFeed</div>
+  <h3 class="card-title"><a href="https://neofeed.com.br/finde/o-que-backrooms-ensina-sobre-a-nova-logica-de-hollywood/" target="_blank">O que &#8220;Backrooms&#8221; ensina sobre a nova lógica de Hollywood</a></h3>
+  <p class="card-desc">
+Kane Parsons tinha 16 anos quando, em 7 de janeiro de 2022, publicou no YouTube o curta de terror Backrooms. Bastaram 48 horas para que o filme de 9 minutos e 14 segundos ultrapas...</p>
+  <div class="card-footer"><span class="card-link">https://neofeed.com.br/finde/o-que-backrooms-ensina-sobre-a-…</span></div>
+</div><div class="card">
+  <div class="card-source" style="background:#4ade8020;color:#4ade80">Startupi</div>
+  <h3 class="card-title"><a href="https://startupi.com.br/cnpj-alfanumerico-entra-em-vigor-a-partir-de-31-07/" target="_blank">CNPJ Alfanumérico entra em vigor a partir de 31/07: entenda o que muda para as empresas</a></h3>
+  <p class="card-desc">Startupi
+
+CNPJ Alfanumérico entra em vigor a partir de 31/07: entenda o que muda para as empresas
+O cenário do empreendedorismo no Brasil tem apresentado crescimento expressivo, co...</p>
+  <div class="card-footer"><span class="card-link">https://startupi.com.br/cnpj-alfanumerico-entra-em-vigor-a-p…</span></div>
+</div><div class="card">
+  <div class="card-source" style="background:#4ade8020;color:#4ade80">Startupi</div>
+  <h3 class="card-title"><a href="https://startupi.com.br/o-genio-saiu-da-garrafa-por-que-o-pix-e-caminho-sem-volta/" target="_blank">O Gênio Saiu da Garrafa: Por Que o Pix É Caminho Sem Volta</a></h3>
+  <p class="card-desc">Startupi
+
+O Gênio Saiu da Garrafa: Por Que o Pix É Caminho Sem Volta
+A conveniência absoluta e a gratuidade estrutural tornaram o meio de pagamento brasileiro um marco irreversível...</p>
+  <div class="card-footer"><span class="card-link">https://startupi.com.br/o-genio-saiu-da-garrafa-por-que-o-pi…</span></div>
+</div><div class="card">
+  <div class="card-source" style="background:#4ade8020;color:#4ade80">Exame</div>
+  <h3 class="card-title"><a href="https://exame.com/exame-in/corpo-mente-e-algoritmos-como-nao-deixar-de-ser-humano-no-mundo-sintetico/" target="_blank">Corpo, mente e algoritmos: como não deixar de ser humano no mundo sintético</a></h3>
+  <p class="card-desc"></p>
+  <div class="card-footer"><span class="card-link">https://exame.com/exame-in/corpo-mente-e-algoritmos-como-nao…</span></div>
+</div><div class="card">
+  <div class="card-source" style="background:#4ade8020;color:#4ade80">Exame</div>
+  <h3 class="card-title"><a href="https://exame.com/brasil/psd-oficializa-candidatura-de-caiado-em-1a-disputa-presidencial-na-historia-do-partido/" target="_blank">PSD oficializa candidatura de Caiado em 1ª disputa presidencial na história do partido</a></h3>
+  <p class="card-desc"></p>
+  <div class="card-footer"><span class="card-link">https://exame.com/brasil/psd-oficializa-candidatura-de-caiad…</span></div>
+</div><div class="card">
+  <div class="card-source" style="background:#4ade8020;color:#4ade80">StartupsBR</div>
+  <h3 class="card-title"><a href="https://startups.com.br/artigo/o-maravalley-virou-o-endereco-das-conversas-que-importam-no-rio/" target="_blank">O palco que não fecha: como o Maravalley mantém o Rio conectado o ano inteiro</a></h3>
+  <p class="card-desc">Maravalley começou o ano de 2026 com 100 empresas residentes | Foto: DivulgaçãoWorld Economic Forum, C40, Finance of Tomorrow, Sandbox Rio, Web Summit e VivaTech passaram pelo hub ...</p>
+  <div class="card-footer"><span class="card-link">https://startups.com.br/artigo/o-maravalley-virou-o-endereco…</span></div>
+</div><div class="card">
+  <div class="card-source" style="background:#4ade8020;color:#4ade80">StartupsBR</div>
+  <h3 class="card-title"><a href="https://startups.com.br/negocios/duplicata-escritural-pode-destravar-mercado-trilionario-avaliam-executivos/" target="_blank">Duplicata escritural pode destravar mercado trilionário, avaliam executivos</a></h3>
+  <p class="card-desc">Gabriel Curioni (CERC), Julio Zanone (Serasa Experian) e Paulo Forattini (Asaas) durante o Asaas Connect Florianópolis 2026 | Crédito: Gabriela Del Carmen/StartupsPara CERC, Asaas ...</p>
+  <div class="card-footer"><span class="card-link">https://startups.com.br/negocios/duplicata-escritural-pode-d…</span></div>
+</div></div>
+</section><section class="section">
+  <h2 class="section-title" style="border-left:4px solid #a78bfa">Wealth</h2>
+  <div class="cards-grid"><div class="card">
+  <div class="card-source" style="background:#a78bfa20;color:#a78bfa">RationalWalk</div>
+  <h3 class="card-title"><a href="https://rationalwalk.com/greg-abels-2026-letter-to-shareholders/" target="_blank">Greg Abel&#8217;s 2026 Letter to Shareholders</a></h3>
+  <p class="card-desc">Greg Abel's first letter to Berkshire Hathaway shareholders emphasized the need to keep the company's unique culture.</p>
+  <div class="card-footer"><span class="card-link">https://rationalwalk.com/greg-abels-2026-letter-to-sharehold…</span></div>
+</div><div class="card">
+  <div class="card-source" style="background:#a78bfa20;color:#a78bfa">RationalWalk</div>
+  <h3 class="card-title"><a href="https://rationalwalk.com/greg-abels-unique-challenge/" target="_blank">Greg Abel&#8217;s Unique Challenge</a></h3>
+  <p class="card-desc">Greg Abel takes over as Chief Executive Officer of Berkshire Hathaway on January 1, 2026, a job that will involve at least three major challenges.</p>
+  <div class="card-footer"><span class="card-link">https://rationalwalk.com/greg-abels-unique-challenge/…</span></div>
+</div><div class="card">
+  <div class="card-source" style="background:#a78bfa20;color:#a78bfa">OfDollarsAndData</div>
+  <h3 class="card-title"><a href="https://ofdollarsanddata.com/money-talks/" target="_blank">Money Talks: The Price of Status</a></h3>
+  <p class="card-desc">A year ago, I published my second book The Wealth Ladder. It's sold over 100,000 copies worldwide and hit the New York Times bestseller list in its third week of publication.
+
+At t...</p>
+  <div class="card-footer"><span class="card-link">https://ofdollarsanddata.com/money-talks/…</span></div>
+</div><div class="card">
+  <div class="card-source" style="background:#a78bfa20;color:#a78bfa">OfDollarsAndData</div>
+  <h3 class="card-title"><a href="https://ofdollarsanddata.com/are-stocks-going-up-or-is-the-dollar-going-down/" target="_blank">Are Stocks Going Up or Is the Dollar Going Down?</a></h3>
+  <p class="card-desc">As stocks have hit new all-time highs in recent months, I've seen an increasing number of people argue that stocks aren't becoming more valuable, the dollar is becoming less valuab...</p>
+  <div class="card-footer"><span class="card-link">https://ofdollarsanddata.com/are-stocks-going-up-or-is-the-d…</span></div>
+</div><div class="card">
+  <div class="card-source" style="background:#a78bfa20;color:#a78bfa">MebFaber</div>
+  <h3 class="card-title"><a href="https://mebfaber.com/2026/07/02/where-is-the-yield/" target="_blank">Where is the Yield?!</a></h3>
+  <p class="card-desc">One day there may be some juice in risky bond yields (relative to T-bills) but that day is not today&#8230; T-Bills and Chill&#8230;Most of the Time
+The post Where is the Yield?! a...</p>
+  <div class="card-footer"><span class="card-link">https://mebfaber.com/2026/07/02/where-is-the-yield/…</span></div>
+</div><div class="card">
+  <div class="card-source" style="background:#a78bfa20;color:#a78bfa">MebFaber</div>
+  <h3 class="card-title"><a href="https://mebfaber.com/2026/06/30/ipo-relative-returns-by-year/" target="_blank">IPO Relative Returns by Year</a></h3>
+  <p class="card-desc">via Meketa  
+The post IPO Relative Returns by Year appeared first on Meb Faber Research - Stock Market and Investing Blog.</p>
+  <div class="card-footer"><span class="card-link">https://mebfaber.com/2026/06/30/ipo-relative-returns-by-year…</span></div>
+</div><div class="card">
+  <div class="card-source" style="background:#a78bfa20;color:#a78bfa">InvestLikeTheBest</div>
+  <h3 class="card-title"><a href="https://investlikethebest.substack.com/p/valueletter-snap-inc" target="_blank">ValueLetter - Snap Inc.</a></h3>
+  <p class="card-desc">What&#8217;s the quality and intrinsic value of Snap-on Inc.? Well, Snap-on is a really great company. Find out, why!</p>
+  <div class="card-footer"><span class="card-link">https://investlikethebest.substack.com/p/valueletter-snap-in…</span></div>
+</div><div class="card">
+  <div class="card-source" style="background:#a78bfa20;color:#a78bfa">InvestLikeTheBest</div>
+  <h3 class="card-title"><a href="https://investlikethebest.substack.com/p/excess-return-with-minimized-risk" target="_blank">Excess Return with Minimized Risk</a></h3>
+  <p class="card-desc">It&#8216;s a common belief that the higher the return one wants to achieve, the higher the risk one has to take. But that&#8216;s not always true.</p>
+  <div class="card-footer"><span class="card-link">https://investlikethebest.substack.com/p/excess-return-with-…</span></div>
+</div><div class="card">
+  <div class="card-source" style="background:#a78bfa20;color:#a78bfa">AWealthOfCommonSense</div>
+  <h3 class="card-title"><a href="https://awealthofcommonsense.com/2026/07/picking-stocks-in-a-bloodbath/" target="_blank">Picking Stocks in a Bloodbath</a></h3>
+  <p class="card-desc">Is Netflix a buy here? Or is it a stock in secular decline?
+The post Picking Stocks in a Bloodbath appeared first on A Wealth of Common Sense.
+...</p>
+  <div class="card-footer"><span class="card-link">https://awealthofcommonsense.com/2026/07/picking-stocks-in-a…</span></div>
+</div><div class="card">
+  <div class="card-source" style="background:#a78bfa20;color:#a78bfa">AWealthOfCommonSense</div>
+  <h3 class="card-title"><a href="https://awealthofcommonsense.com/2026/07/investing-in-the-boom-times/" target="_blank">Investing in the Boom Times</a></h3>
+  <p class="card-desc">Some lessons from investors in South Korea.
+The post Investing in the Boom Times appeared first on A Wealth of Common Sense.
+...</p>
+  <div class="card-footer"><span class="card-link">https://awealthofcommonsense.com/2026/07/investing-in-the-bo…</span></div>
+</div></div>
+</section>
+
+<section class="section">
+  <h2 class="section-title" style="border-left:4px solid #1da1f2">🐦 Twitter</h2>
+  <div class="cards-grid"><div class="card">
+  <div class="card-source" style="background:#1da1f220;color:#1da1f2">@ttunguz</div>
+  <p class="card-desc" style="color:#ccc;font-size:13px">@Anvario Do you have enough log data to be able to automatically rewrite the skills?</p>
+  <div class="card-footer"><span class="card-link">5 tweets · twitter.com</span></div>
+</div><div class="card">
+  <div class="card-source" style="background:#1da1f220;color:#1da1f2">@chamath</div>
+  <p class="card-desc" style="color:#ccc;font-size:13px">Pod!!!! Absolute banger with @bgurley https://t.co/Q1TLRFi4XC</p>
+  <div class="card-footer"><span class="card-link">5 tweets · twitter.com</span></div>
+</div><div class="card">
+  <div class="card-source" style="background:#1da1f220;color:#1da1f2">@jason</div>
+  <p class="card-desc" style="color:#ccc;font-size:13px">Join our mailing list today! Help us stay in touch with you.</p>
+  <div class="card-footer"><span class="card-link">5 tweets · twitter.com</span></div>
+</div><div class="card">
+  <div class="card-source" style="background:#1da1f220;color:#1da1f2">@alexisohanian</div>
+  <p class="card-desc" style="color:#ccc;font-size:13px">@trackerati Doing our best! More to do</p>
+  <div class="card-footer"><span class="card-link">5 tweets · twitter.com</span></div>
+</div><div class="card">
+  <div class="card-source" style="background:#1da1f220;color:#1da1f2">@paulg</div>
+  <p class="card-desc" style="color:#ccc;font-size:13px">@DouglasCarswell By inheriting money. Have you read no history?</p>
+  <div class="card-footer"><span class="card-link">5 tweets · twitter.com</span></div>
+</div><div class="card">
+  <div class="card-source" style="background:#1da1f220;color:#1da1f2">@naval</div>
+  <p class="card-desc" style="color:#ccc;font-size:13px">Listening to the @trishapaytas podcast two weeks behind…</p>
+  <div class="card-footer"><span class="card-link">5 tweets · twitter.com</span></div>
+</div><div class="card">
+  <div class="card-source" style="background:#1da1f220;color:#1da1f2">@pmarca</div>
+  <p class="card-desc" style="color:#ccc;font-size:13px">Interesting. https://t.co/gp3NIm2Yqp</p>
+  <div class="card-footer"><span class="card-link">5 tweets · twitter.com</span></div>
+</div><div class="card">
+  <div class="card-source" style="background:#1da1f220;color:#1da1f2">@_alexlazar</div>
+  <p class="card-desc" style="color:#ccc;font-size:13px">what's good? https://t.co/vR2zg653Ju</p>
+  <div class="card-footer"><span class="card-link">5 tweets · twitter.com</span></div>
+</div><div class="card">
+  <div class="card-source" style="background:#1da1f220;color:#1da1f2">@gduguid</div>
+  <p class="card-desc" style="color:#ccc;font-size:13px">@CharlieSheen_ Charlie ur the best and ur a credit to all winning men</p>
+  <div class="card-footer"><span class="card-link">1 tweets · twitter.com</span></div>
+</div><div class="card">
+  <div class="card-source" style="background:#1da1f220;color:#1da1f2">@lessin</div>
+  <p class="card-desc" style="color:#ccc;font-size:13px">I also like tennis ... but are we really at the point that 70% above the fold WSJ is someone losing?</p>
+  <div class="card-footer"><span class="card-link">5 tweets · twitter.com</span></div>
+</div></div>
+</section>
+
+<div class="transparency">
+  <h2>📊 Relatório de Transparência</h2>
+  <table>
+    <thead><tr><th>Status</th><th>Fonte</th><th>Artigos</th><th>Acessada</th></tr></thead>
+    <tbody><tr>
+  <td><span style="color:#4ade80;font-size:16px">🟢</span></td>
+  <td>Stratechery</td>
+  <td style="text-align:center">5</td>
+  <td style="text-align:center;color:#4ade80">✅</td>
+</tr><tr>
+  <td><span style="color:#4ade80;font-size:16px">🟢</span></td>
+  <td>Not Boring</td>
+  <td style="text-align:center">5</td>
+  <td style="text-align:center;color:#4ade80">✅</td>
+</tr><tr>
+  <td><span style="color:#4ade80;font-size:16px">🟢</span></td>
+  <td>Brazil Journal</td>
+  <td style="text-align:center">5</td>
+  <td style="text-align:center;color:#4ade80">✅</td>
+</tr><tr>
+  <td><span style="color:#4ade80;font-size:16px">🟢</span></td>
+  <td>NeoFeed</td>
+  <td style="text-align:center">5</td>
+  <td style="text-align:center;color:#4ade80">✅</td>
+</tr><tr>
+  <td><span style="color:#4ade80;font-size:16px">🟢</span></td>
+  <td>Startupi</td>
+  <td style="text-align:center">5</td>
+  <td style="text-align:center;color:#4ade80">✅</td>
+</tr><tr>
+  <td><span style="color:#4ade80;font-size:16px">🟢</span></td>
+  <td>Import AI</td>
+  <td style="text-align:center">5</td>
+  <td style="text-align:center;color:#4ade80">✅</td>
+</tr><tr>
+  <td><span style="color:#4ade80;font-size:16px">🟢</span></td>
+  <td>Bens Bites</td>
+  <td style="text-align:center">5</td>
+  <td style="text-align:center;color:#4ade80">✅</td>
+</tr><tr>
+  <td><span style="color:#4ade80;font-size:16px">🟢</span></td>
+  <td>Last Week AI</td>
+  <td style="text-align:center">5</td>
+  <td style="text-align:center;color:#4ade80">✅</td>
+</tr><tr>
+  <td><span style="color:#4ade80;font-size:16px">🟢</span></td>
+  <td>VentureBeat AI</td>
+  <td style="text-align:center">5</td>
+  <td style="text-align:center;color:#4ade80">✅</td>
+</tr><tr>
+  <td><span style="color:#4ade80;font-size:16px">🟢</span></td>
+  <td>Femstreet</td>
+  <td style="text-align:center">5</td>
+  <td style="text-align:center;color:#4ade80">✅</td>
+</tr><tr>
+  <td><span style="color:#4ade80;font-size:16px">🟢</span></td>
+  <td>Venture Unlocked</td>
+  <td style="text-align:center">5</td>
+  <td style="text-align:center;color:#4ade80">✅</td>
+</tr><tr>
+  <td><span style="color:#4ade80;font-size:16px">🟢</span></td>
+  <td>Newcomer</td>
+  <td style="text-align:center">5</td>
+  <td style="text-align:center;color:#4ade80">✅</td>
+</tr><tr>
+  <td><span style="color:#4ade80;font-size:16px">🟢</span></td>
+  <td>Of Dollars And Data</td>
+  <td style="text-align:center">5</td>
+  <td style="text-align:center;color:#4ade80">✅</td>
+</tr><tr>
+  <td><span style="color:#4ade80;font-size:16px">🟢</span></td>
+  <td>Rational Walk</td>
+  <td style="text-align:center">5</td>
+  <td style="text-align:center;color:#4ade80">✅</td>
+</tr><tr>
+  <td><span style="color:#4ade80;font-size:16px">🟢</span></td>
+  <td>A Wealth Of Common Sense</td>
+  <td style="text-align:center">5</td>
+  <td style="text-align:center;color:#4ade80">✅</td>
+</tr><tr>
+  <td><span style="color:#4ade80;font-size:16px">🟢</span></td>
+  <td>Meb Faber</td>
+  <td style="text-align:center">5</td>
+  <td style="text-align:center;color:#4ade80">✅</td>
+</tr><tr>
+  <td><span style="color:#4ade80;font-size:16px">🟢</span></td>
+  <td>Invest Like The Best</td>
+  <td style="text-align:center">3</td>
+  <td style="text-align:center;color:#4ade80">✅</td>
+</tr><tr>
+  <td><span style="color:#4ade80;font-size:16px">🟢</span></td>
+  <td>Exame</td>
+  <td style="text-align:center">5</td>
+  <td style="text-align:center;color:#4ade80">✅</td>
+</tr><tr>
+  <td><span style="color:#4ade80;font-size:16px">🟢</span></td>
+  <td>TechCrunch</td>
+  <td style="text-align:center">5</td>
+  <td style="text-align:center;color:#4ade80">✅</td>
+</tr><tr>
+  <td><span style="color:#4ade80;font-size:16px">🟢</span></td>
+  <td>StartupsBR</td>
+  <td style="text-align:center">5</td>
+  <td style="text-align:center;color:#4ade80">✅</td>
+</tr><tr>
+  <td><span style="color:#4ade80;font-size:16px">🟢</span></td>
+  <td>Twitter (10 perfis)</td>
+  <td style="text-align:center">—</td>
+  <td style="text-align:center;color:#4ade80">✅</td>
+</tr></tbody>
+  </table>
+</div>
+</div>
+
+<div class="footer">
+  Gerado em 2026-07-26 · Atlas Hermes · IVC Content Curation
+</div>
+</body>
+</html>
