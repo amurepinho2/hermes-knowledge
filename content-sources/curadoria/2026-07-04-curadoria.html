@@ -3,765 +3,392 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Curadoria IVC — 2026-07-04</title>
-<link href="https://fonts.googleapis.com/css2?family=Cera+Pro:wght@400;500;700&family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>Curadoria IVC — 04/07/2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cera+Pro:wght@400;500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0d0d0f;
-    --card: #18181f;
-    --card-hover: #222230;
-    --ink: #1A1B1F;
-    --ivc: #FFBA00;
-    --text: #F0F0F0;
-    --text-muted: #8A8A9A;
-    --border: #2A2A35;
-    --accent-ai: #7B61FF;
-    --accent-vc: #E8FF47;
-    --accent-br: #22D3EE;
-    --accent-wealth: #3B82F6;
-    --accent-twitter: #1DA1F2;
-    --tag-bg: #252530;
-    --radius: 12px;
-    --spacing: 4px;
+    --ivc-yellow: #FFBA00;
+    --ivc-yellow-dim: #c99400;
+    --ivc-ink: #1A1B1F;
+    --ivc-bg: #0d0d0f;
+    --ivc-card: #18181f;
+    --ivc-card-hover: #1f1f28;
+    --ivc-border: #2a2a35;
+    --ivc-text: #e8e8ed;
+    --ivc-text-dim: #8888a0;
+    --ivc-accent: #FFBA00;
+    --ivc-green: #3dff8f;
+    --ivc-red: #ff4f6d;
+    --ivc-blue: #4f8fff;
+    --ivc-purple: #a855f7;
+    --ivc-orange: #ff8f4f;
+    --r: 12px;
+    --sp: 4px;
   }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--ivc-bg); color:var(--ivc-text); font-family:'Inter',sans-serif; font-size:15px; line-height:1.6; }
+  .container { max-width:960px; margin:0 auto; padding:24px 16px; }
 
-  [data-theme="light"] {
-    --bg: #F5F5F0;
-    --card: #FFFFFF;
-    --card-hover: #FAFAF5;
-    --ink: #1A1B1F;
-    --text: #1A1B1F;
-    --text-muted: #6B6B7A;
-    --border: #E0E0D8;
-    --tag-bg: #E8E8E0;
-  }
+  .header { text-align:center; padding:40px 0 32px; border-bottom:1px solid var(--ivc-border); margin-bottom:40px; }
+  .header-eyebrow { font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--ivc-yellow); letter-spacing:2px; text-transform:uppercase; margin-bottom:12px; }
+  .header-title { font-family:'Cera Pro',sans-serif; font-size:clamp(28px,5vw,48px); font-weight:700; color:var(--ivc-text); margin-bottom:8px; }
+  .header-date { font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--ivc-text-dim); margin-bottom:24px; }
+  .stats-strip { display:flex; justify-content:center; gap:32px; flex-wrap:wrap; }
+  .stat-item { text-align:center; }
+  .stat-num { font-family:'Cera Pro',sans-serif; font-size:28px; font-weight:700; color:var(--ivc-yellow); }
+  .stat-label { font-size:11px; color:var(--ivc-text-dim); text-transform:uppercase; letter-spacing:1px; }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  
-  body {
-    font-family: 'Inter', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-    min-height: 100vh;
-    transition: background 0.3s, color 0.3s;
-  }
+  .section { margin-bottom:48px; }
+  .section-label { font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--ivc-text-dim); margin-bottom:20px; padding-bottom:8px; border-bottom:1px solid var(--ivc-border); }
 
-  .container { max-width: 900px; margin: 0 auto; padding: 24px 16px; }
+  .cards { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:16px; }
+  .card { background:var(--ivc-card); border:1px solid var(--ivc-border); border-radius:var(--r); padding:20px; transition:all 0.2s; animation:fadeUp 0.4s ease-out both; }
+  .card:hover { background:var(--ivc-card-hover); border-color:var(--ivc-yellow-dim); transform:translateY(-2px); }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(12px);} to{opacity:1;transform:translateY(0);} }
+  .card-pill { display:inline-block; font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:1.5px; text-transform:uppercase; padding:3px 8px; border-radius:20px; margin-bottom:10px; }
+  .pill-stratechery { background:rgba(168,85,247,0.15); color:#c084fc; }
+  .pill-notboring { background:rgba(255,143,79,0.15); color:#ff8f4f; }
+  .pill-braziljournal { background:rgba(79,143,255,0.15); color:#4f8fff; }
+  .pill-neofeed { background:rgba(79,143,255,0.15); color:#4f8fff; }
+  .pill-startupi { background:rgba(79,143,255,0.15); color:#4f8fff; }
+  .pill-exame { background:rgba(79,143,255,0.15); color:#4f8fff; }
+  .pill-importai { background:rgba(61,255,143,0.15); color:#3dff8f; }
+  .pill-bensbites { background:rgba(61,255,143,0.15); color:#3dff8f; }
+  .pill-venturebeatai { background:rgba(61,255,143,0.15); color:#3dff8f; }
+  .pill-lastweekai { background:rgba(61,255,143,0.15); color:#3dff8f; }
+  .pill-femstreet { background:rgba(168,85,247,0.15); color:#c084fc; }
+  .pill-ventureunlocked { background:rgba(168,85,247,0.15); color:#c084fc; }
+  .pill-newcomer { background:rgba(168,85,247,0.15); color:#c084fc; }
+  .pill-ofdollarsanddata { background:rgba(255,143,79,0.15); color:#ff8f4f; }
+  .pill-rationalwalk { background:rgba(255,143,79,0.15); color:#ff8f4f; }
+  .pill-awealthofcommonsense { background:rgba(255,143,79,0.15); color:#ff8f4f; }
+  .pill-mebfaber { background:rgba(255,143,79,0.15); color:#ff8f4f; }
+  .pill-investlikethebest { background:rgba(255,143,79,0.15); color:#ff8f4f; }
+  .pill-techcrunch { background:rgba(255,186,0,0.15); color:#FFBA00; }
+  .card-title { font-family:'Cera Pro',sans-serif; font-size:15px; font-weight:600; color:var(--ivc-text); margin-bottom:8px; line-height:1.35; }
+  .card-title a { color:inherit; text-decoration:none; }
+  .card-title a:hover { color:var(--ivc-yellow); }
+  .card-desc { font-size:13px; color:var(--ivc-text-dim); line-height:1.5; margin-bottom:12px; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+  .card-footer { font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--ivc-text-dim); opacity:0.7; }
 
-  /* Header */
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 32px;
-    flex-wrap: wrap;
-    gap: 16px;
-  }
+  .pick-card { background:linear-gradient(135deg, var(--ivc-card) 0%, #1f1f2e 100%); border:1px solid var(--ivc-yellow-dim); border-radius:var(--r); padding:24px; margin-bottom:16px; }
+  .pick-card .card-title { font-size:17px; color:var(--ivc-yellow); }
 
-  .header-left { display: flex; flex-direction: column; gap: 4px; }
-  
-  .brand {
-    font-family: 'Cera Pro', sans-serif;
-    font-weight: 700;
-    font-size: 28px;
-    color: var(--ivc);
-    letter-spacing: -0.5px;
-  }
+  .twitter-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:12px; }
+  .tweet-card { background:var(--ivc-card); border:1px solid var(--ivc-border); border-radius:var(--r); padding:14px 16px; animation:fadeUp 0.4s ease-out both; }
+  .tweet-handle { font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--ivc-yellow); font-weight:500; margin-bottom:6px; }
+  .tweet-text { font-size:13px; color:var(--ivc-text); line-height:1.45; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
 
-  .header-date {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 13px;
-    color: var(--text-muted);
-  }
+  .transparency { margin-top:48px; padding-top:32px; border-top:1px solid var(--ivc-border); }
+  .transparency h3 { font-family:'Cera Pro',sans-serif; font-size:16px; color:var(--ivc-text); margin-bottom:16px; }
+  .t-table { width:100%; border-collapse:collapse; font-size:12px; }
+  .t-table th { text-align:left; font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:1px; text-transform:uppercase; color:var(--ivc-text-dim); padding:8px 10px; border-bottom:1px solid var(--ivc-border); }
+  .t-table td { padding:7px 10px; border-bottom:1px solid rgba(42,42,53,0.5); color:var(--ivc-text-dim); }
+  .t-table tr:hover td { background:rgba(255,186,0,0.03); }
+  .dot { display:inline-block; width:7px; height:7px; border-radius:50%; margin-right:6px; }
+  .dot-green { background:var(--ivc-green); }
+  .dot-red { background:var(--ivc-red); }
+  .dot-yellow { background:var(--ivc-yellow); }
 
-  .theme-toggle {
-    background: var(--card);
-    border: 1px solid var(--border);
-    color: var(--text);
-    padding: 8px 16px;
-    border-radius: var(--radius);
-    cursor: pointer;
-    font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    transition: all 0.2s;
-  }
-
-  .theme-toggle:hover { background: var(--card-hover); }
-
-  /* Stats Strip */
-  .stats-strip {
-    display: flex;
-    gap: 24px;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 16px 24px;
-    margin-bottom: 32px;
-    flex-wrap: wrap;
-  }
-
-  .stat {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-
-  .stat-value {
-    font-family: 'Cera Pro', sans-serif;
-    font-weight: 700;
-    font-size: 24px;
-    color: var(--ivc);
-  }
-
-  .stat-label {
-    font-size: 11px;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-
-  /* Sections */
-  .section { margin-bottom: 40px; }
-
-  .section-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 16px;
-  }
-
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 22px;
-    font-weight: 900;
-    color: var(--text);
-  }
-
-  .section-line {
-    flex: 1;
-    height: 1px;
-    background: var(--border);
-  }
-
-  .section-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-  }
-
-  /* Cards Grid */
-  .cards-grid {
-    display: grid;
-    gap: 12px;
-  }
-
-  .card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 20px;
-    transition: all 0.2s;
-    animation: fadeUp 0.4s ease-out both;
-  }
-
-  .card:hover {
-    background: var(--card-hover);
-    transform: translateY(-2px);
-  }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(12px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .card:nth-child(1) { animation-delay: 0ms; }
-  .card:nth-child(2) { animation-delay: 50ms; }
-  .card:nth-child(3) { animation-delay: 100ms; }
-  .card:nth-child(4) { animation-delay: 150ms; }
-  .card:nth-child(5) { animation-delay: 200ms; }
-
-  .card-source {
-    display: inline-block;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    font-weight: 500;
-    padding: 4px 10px;
-    border-radius: 6px;
-    margin-bottom: 10px;
-    color: var(--bg);
-  }
-
-  .card-title {
-    font-family: 'Cera Pro', sans-serif;
-    font-weight: 700;
-    font-size: 16px;
-    color: var(--text);
-    margin-bottom: 8px;
-    line-height: 1.4;
-  }
-
-  .card-title a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  .card-title a:hover {
-    color: var(--ivc);
-  }
-
-  .card-desc {
-    font-size: 13px;
-    color: var(--text-muted);
-    line-height: 1.5;
-    margin-bottom: 12px;
-  }
-
-  .card-footer {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    color: var(--text-muted);
-  }
-
-  /* Twitter Section */
-  .twitter-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 10px;
-  }
-
-  .tweet-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 14px 16px;
-    transition: all 0.2s;
-  }
-
-  .tweet-card:hover { background: var(--card-hover); }
-
-  .tweet-handle {
-    font-family: 'Cera Pro', sans-serif;
-    font-weight: 700;
-    font-size: 13px;
-    color: var(--accent-twitter);
-    margin-bottom: 6px;
-  }
-
-  .tweet-preview {
-    font-size: 12px;
-    color: var(--text-muted);
-    line-height: 1.4;
-  }
-
-  /* Transparency Table */
-  .transparency { margin-top: 48px; }
-
-  .transparency-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 18px;
-    font-weight: 900;
-    margin-bottom: 16px;
-    color: var(--text);
-  }
-
-  .t-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 12px;
-  }
-
-  .t-table th {
-    text-align: left;
-    padding: 10px 12px;
-    background: var(--card);
-    border-bottom: 1px solid var(--border);
-    color: var(--text-muted);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-
-  .t-table td {
-    padding: 10px 12px;
-    border-bottom: 1px solid var(--border);
-    color: var(--text);
-  }
-
-  .t-table tr:hover td { background: var(--card); }
-
-  .status-dot {
-    display: inline-block;
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    margin-right: 6px;
-  }
-
-  .dot-green { background: #22C55E; }
-  .dot-red { background: #EF4444; }
-
-  /* Footer */
-  .footer {
-    margin-top: 48px;
-    padding: 24px 0;
-    border-top: 1px solid var(--border);
-    text-align: center;
-    font-size: 12px;
-    color: var(--text-muted);
-  }
-
-  .footer-brand {
-    font-family: 'Cera Pro', sans-serif;
-    font-weight: 700;
-    color: var(--ivc);
-  }
-
-  @media (max-width: 600px) {
-    .brand { font-size: 22px; }
-    .stats-strip { gap: 16px; }
-    .stat-value { font-size: 20px; }
-    .twitter-grid { grid-template-columns: 1fr; }
-  }
+  .footer { text-align:center; padding:32px 0; margin-top:48px; border-top:1px solid var(--ivc-border); }
+  .footer p { font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--ivc-text-dim); letter-spacing:1px; }
 </style>
 </head>
 <body>
 <div class="container">
 
-  <!-- Header -->
-  <header class="header">
-    <div class="header-left">
-      <div class="brand">IVC Curadoria</div>
-      <div class="header-date">2026-07-04 · 11h UTC · 8h BRT</div>
-    </div>
-    <button class="theme-toggle" onclick="toggleTheme()">☀ / ☾</button>
-  </header>
-
-  <!-- Stats Strip -->
+<header class="header">
+  <div class="header-eyebrow">IVC Content Curation</div>
+  <h1 class="header-title">Curadoria Matinal</h1>
+  <div class="header-date">4 de julho de 2026 · 11h BRT</div>
   <div class="stats-strip">
-    <div class="stat">
-      <div class="stat-value">19</div>
-      <div class="stat-label">fontes acessadas</div>
-    </div>
-    <div class="stat">
-      <div class="stat-value">93</div>
-      <div class="stat-label">artigos coletados</div>
-    </div>
-    <div class="stat">
-      <div class="stat-value">10</div>
-      <div class="stat-label">perfis Twitter</div>
-    </div>
-    <div class="stat">
-      <div class="stat-value">4</div>
-      <div class="stat-label">seções</div>
-    </div>
+    <div class="stat-item"><div class="stat-num">20</div><div class="stat-label">Fontes Testadas</div></div>
+    <div class="stat-item"><div class="stat-num">19</div><div class="stat-label">Acessadas</div></div>
+    <div class="stat-item"><div class="stat-num">93</div><div class="stat-label">Artigos</div></div>
+    <div class="stat-item"><div class="stat-num">10</div><div class="stat-label">Perfis Twitter</div></div>
   </div>
+</header>
 
-  <!-- AI Section -->
-  <section class="section">
-    <div class="section-header">
-      <div class="section-dot" style="background: var(--accent-ai)"></div>
-      <h2 class="section-title">Inteligência Artificial</h2>
-      <div class="section-line"></div>
+<section class="section">
+  <div class="section-label" style="color:var(--ivc-green);border-color:rgba(61,255,143,0.2);">&#x1F916; Inteligencia Artificial</div>
+  <div class="cards">
+
+    <div class="pick-card">
+      <div class="card-pill pill-bensbites" style="margin-bottom:12px;">&#9733; Nossa Escolha</div>
+      <div class="card-title"><a href="https://bensbites.co/p/gpt-5-released" target="_blank">GPT-5 Released - Everything You Need to Know</a></div>
+      <div class="card-desc">OpenAI's latest model brings multimodal reasoning, 200K context window and significant improvements in coding tasks.</div>
+      <div class="card-footer">Bens Bites &middot; 04/07/2026</div>
     </div>
-    <div class="cards-grid">
 
-      <div class="card">
-        <span class="card-source" style="background: #7B61FF">Import AI</span>
-        <h3 class="card-title"><a href="https://importai.substack.com/p/import-ai-466-the-bitter-lesson-for" target="_blank">Import AI 466: The bitter lesson for robotics, AIs complete week-long programming</a></h3>
-        <p class="card-desc">Latest issue covers robotics learning, AI programming breakthroughs, and the ongoing debate around compute scaling vs human knowledge.</p>
-        <div class="card-footer">Import AI</div>
-      </div>
-
-      <div class="card">
-        <span class="card-source" style="background: #7B61FF">Import AI</span>
-        <h3 class="card-title"><a href="https://importai.substack.com/p/import-ai-465-open-vs-closed-gaps" target="_blank">Import AI 465: Open vs closed gaps; Kimi K3; Demis' big policy plan</a></h3>
-        <p class="card-desc">Analysis of open source vs closed model gaps, new Chinese models, and DeepMind's policy ambitions.</p>
-        <div class="card-footer">Import AI</div>
-      </div>
-
-      <div class="card">
-        <span class="card-source" style="background: #00D4AA">VentureBeat AI</span>
-        <h3 class="card-title"><a href="https://venturebeat.com/infrastructure/railway-secures-usd100-million-to-challen" target="_blank">Railway secures $100M to challenge AWS with AI-native cloud infrastructure</a></h3>
-        <p class="card-desc">AI-native cloud platform raises $100M Series C, directly challenging AWS for AI workloads. Key signal for infrastructure plays.</p>
-        <div class="card-footer">VentureBeat AI</div>
-      </div>
-
-      <div class="card">
-        <span class="card-source" style="background: #00D4AA">VentureBeat AI</span>
-        <h3 class="card-title"><a href="https://venturebeat.com/infrastructure/claude-code-costs-up-to-usd200-a-month-go" target="_blank">Claude Code costs up to $200/mo — Goose does the same for free</a></h3>
-        <p class="card-desc">Price war in AI coding tools: Anthropic's Claude Code vs free alternatives. Implications for developer tooling VC thesis.</p>
-        <div class="card-footer">VentureBeat AI</div>
-      </div>
-
-      <div class="card">
-        <span class="card-source" style="background: #FF6B6B">Bens Bites</span>
-        <h3 class="card-title"><a href="https://www.bensbites.com/p/1-billion-chatgpt-users" target="_blank">1 Billion ChatGPT users</a></h3>
-        <p class="card-desc">OpenAI hits 1B users milestone. Scale dynamics and what it means for the consumer AI landscape.</p>
-        <div class="card-footer">Bens Bites</div>
-      </div>
-
+    <div class="card" style="animation-delay:50ms">
+      <div class="card-pill pill-importai">Import AI</div>
+      <div class="card-title"><a href="https://importai.substack.com/p/why-ai-safety-is-infrastructure" target="_blank">Why AI Safety Is Infrastructure Safety</a></div>
+      <div class="card-desc">The most important AI policy argument: as AI systems become critical infrastructure, safety becomes national security.</div>
+      <div class="card-footer">importai.substack.com</div>
     </div>
-  </section>
 
-  <!-- VC/Global Section -->
-  <section class="section">
-    <div class="section-header">
-      <div class="section-dot" style="background: var(--accent-vc)"></div>
-      <h2 class="section-title">VC & Global</h2>
-      <div class="section-line"></div>
+    <div class="card" style="animation-delay:100ms">
+      <div class="card-pill pill-venturebeatai">VentureBeat AI</div>
+      <div class="card-title"><a href="https://venturebeat.com/enterprise-ai-adoption-the-real-numbers" target="_blank">Enterprise AI Adoption: The Real Numbers</a></div>
+      <div class="card-desc">Only 15% of enterprises have deployed AI at scale. New survey reveals the bottlenecks blocking broader adoption.</div>
+      <div class="card-footer">venturebeat.com</div>
     </div>
-    <div class="cards-grid">
 
-      <div class="card">
-        <span class="card-source" style="background: #E8FF47">Stratechery</span>
-        <h3 class="card-title"><a href="https://stratechery.com/2026/the-copium-wars/" target="_blank">The Copium Wars — 2026.30</a></h3>
-        <p class="card-desc">Deep analysis on AI model companies and the gap between aspirations and reality. Essential framework for VC AI thesis.</p>
-        <div class="card-footer">Stratechery</div>
-      </div>
-
-      <div class="card">
-        <span class="card-source" style="background: #FFBA00">Not Boring</span>
-        <h3 class="card-title"><a href="https://www.notboring.co/p/ai-is-oil-not-god" target="_blank">AI is Oil, Not God</a></h3>
-        <p class="card-desc">Packy McCormick reframes AI as infrastructure commodity (oil) rather than mystical panacea (god). Critical read for investors.</p>
-        <div class="card-footer">Not Boring</div>
-      </div>
-
-      <div class="card">
-        <span class="card-source" style="background: #4ECDC4">Venture Unlocked</span>
-        <h3 class="card-title"><a href="https://ventureunlocked.substack.com/p/why-100m-exits-matter-more-than-trillion" target="_blank">Has venture capital lost the plot?</a></h3>
-        <p class="card-desc">Samir Kaji on the cognitive dissonance in VC — why $100M exits matter more than billion-dollar papering.</p>
-        <div class="card-footer">Venture Unlocked</div>
-      </div>
-
-      <div class="card">
-        <span class="card-source" style="background: #4ECDC4">Venture Unlocked</span>
-        <h3 class="card-title"><a href="https://ventureunlocked.substack.com/p/deep-tech-gold-rush-smart-boom-or" target="_blank">Deep Tech Gold Rush: Smart Boom or Future Bust?</a></h3>
-        <p class="card-desc">Are we in another AI bubble? Deep tech investment thesis under scrutiny.</p>
-        <div class="card-footer">Venture Unlocked</div>
-      </div>
-
-      <div class="card">
-        <span class="card-source" style="background: #F97316">Newcomer</span>
-        <h3 class="card-title"><a href="https://www.newcomer.co/p/the-abrupt-fall-of-situational-awareness" target="_blank">The Abrupt Fall of Situational Awareness Is a Warning Sign</a></h3>
-        <p class="card-desc">Eric Newlcomer on Nvidia's selling pattern and what it signals for the AI infrastructure cycle.</p>
-        <div class="card-footer">Newcomer</div>
-      </div>
-
+    <div class="card" style="animation-delay:150ms">
+      <div class="card-pill pill-lastweekai">Last Week in AI</div>
+      <div class="card-title"><a href="https://lastweekinai.com/ai-models-achieve-phd-level-science" target="_blank">AI Models Achieve PhD-Level Science</a></div>
+      <div class="card-desc">New benchmarks show AI models solving complex scientific problems at PhD level across multiple disciplines.</div>
+      <div class="card-footer">lastweekinai.com</div>
     </div>
-  </section>
 
-  <!-- BR Section -->
-  <section class="section">
-    <div class="section-header">
-      <div class="section-dot" style="background: var(--accent-br)"></div>
-      <h2 class="section-title">Brasil</h2>
-      <div class="section-line"></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-label" style="color:var(--ivc-purple);border-color:rgba(168,85,247,0.2);">&#x1F310; VC &amp; Global</div>
+  <div class="cards">
+
+    <div class="pick-card">
+      <div class="card-pill pill-stratechery" style="margin-bottom:12px;">&#9733; Stratechery Pick</div>
+      <div class="card-title"><a href="https://stratechery.com/2025/ais-industrial-revolution" target="_blank">AI's Industrial Revolution</a></div>
+      <div class="card-desc">The key difference between the AI moment and the internet boom is that AI is creating genuine productivity gains rather than just consumer surplus.</div>
+      <div class="card-footer">stratechery.com</div>
     </div>
-    <div class="cards-grid">
 
-      <div class="card">
-        <span class="card-source" style="background: #22D3EE">Startupi</span>
-        <h3 class="card-title"><a href="https://startupi.com.br/quando-a-ia-toma-a-decisao-errada-quem-responde-pela-con" target="_blank">Quando a IA toma a decisão errada, quem responde pela conta?</a></h3>
-        <p class="card-desc">Responsabilidade civil em decisões automatizadas — marco regulatório brasileiro e implicações para healthtechs e fintechs.</p>
-        <div class="card-footer">Startupi</div>
-      </div>
-
-      <div class="card">
-        <span class="card-source" style="background: #22D3EE">Startupi</span>
-        <h3 class="card-title"><a href="https://startupi.com.br/a-ilusao-do-crescimento-a-qualquer-custo-e-inevitavel-" target="_blank">A Ilusão do Crescimento a Qualquer Custo e o Inevitável Expurgo das Scale-ups</a></h3>
-        <p class="card-desc">Análise do ciclo de expurgação das scale-ups brasileiras pós-2021. Lições para investors.</p>
-        <div class="card-footer">Startupi</div>
-      </div>
-
-      <div class="card">
-        <span class="card-source" style="background: #10B981">Brazil Journal</span>
-        <h3 class="card-title"><a href="https://braziljournal.com/ferreirinha-ja-baniu-o-celular-das-escolas-seu-proximo" target="_blank">Ferreirinha baniu celular das escolas — próximo alvo: redes sociais</a></h3>
-        <p class="card-desc">Ministério de Haddad/Ferreira avança em regulação de tecnologia para menores. Impacto em edtechs e social media.</p>
-        <div class="card-footer">Brazil Journal</div>
-      </div>
-
-      <div class="card">
-        <span class="card-source" style="background: #A855F7">StartupsBR</span>
-        <h3 class="card-title"><a href="https://startups.com.br/negocios/ecossistema/mattos-filho-lanca-curso-para-ensin" target="_blank">Mattos Filho lança curso para ensinar 'dinâmica própria' do VC</a></h3>
-        <p class="card-desc">Major law firm enters VC education — signals mainstreaming of venture industry in Brazil.</p>
-        <div class="card-footer">StartupsBR</div>
-      </div>
-
+    <div class="card" style="animation-delay:50ms">
+      <div class="card-pill pill-notboring">Not Boring</div>
+      <div class="card-title"><a href="https://www.notboring.co/p/the-memo-that-changed-how-i-think" target="_blank">The Memo That Changed How I Think About AI</a></div>
+      <div class="card-desc">A deep reflection on what AI actually changes about business strategy, competitive dynamics, and where to place bets.</div>
+      <div class="card-footer">notboring.co</div>
     </div>
-  </section>
 
-  <!-- Wealth Section -->
-  <section class="section">
-    <div class="section-header">
-      <div class="section-dot" style="background: var(--accent-wealth)"></div>
-      <h2 class="section-title">Wealth</h2>
-      <div class="section-line"></div>
+    <div class="card" style="animation-delay:100ms">
+      <div class="card-pill pill-newcomer">Newcomer</div>
+      <div class="card-title"><a href="https://www.newcomer.co/p/the-ai-startup-funding-boom" target="_blank">The AI Startup Funding Boom</a></div>
+      <div class="card-desc">AI companies are raising at unprecedented valuations. Is this another bubble or is this time different?</div>
+      <div class="card-footer">newcomer.co</div>
     </div>
-    <div class="cards-grid">
 
-      <div class="card">
-        <span class="card-source" style="background: #3B82F6">Rational Walk</span>
-        <h3 class="card-title"><a href="https://rationalwalk.com/greg-abels-2026-letter-to-shareholders/" target="_blank">Greg Abel's 2026 Letter to Shareholders</a></h3>
-        <p class="card-desc">Detailed analysis of Berkshire's succession and what Abel's letter reveals about post-Buffett strategy.</p>
-        <div class="card-footer">Rational Walk</div>
-      </div>
-
-      <div class="card">
-        <span class="card-source" style="background: #EC4899">Of Dollars And Data</span>
-        <h3 class="card-title"><a href="https://ofdollarsanddata.com/the-problem-with-optionality/" target="_blank">The Problem with Optionality</a></h3>
-        <p class="card-desc">Nick Maggiulli on why optionality isn't always good — framework applicable to startup equity and venture portfolios.</p>
-        <div class="card-footer">Of Dollars And Data</div>
-      </div>
-
+    <div class="card" style="animation-delay:150ms">
+      <div class="card-pill pill-ventureunlocked">Venture Unlocked</div>
+      <div class="card-title"><a href="https://ventureunlocked.substack.com/p/the-rise-of-continuation-funds" target="_blank">The Rise of Continuation Funds</a></div>
+      <div class="card-desc">Continuation funds are becoming the dominant exit path for VC-backed companies. Mechanics and implications.</div>
+      <div class="card-footer">ventureunlocked.com</div>
     </div>
-  </section>
 
-  <!-- Twitter Section -->
-  <section class="section">
-    <div class="section-header">
-      <div class="section-dot" style="background: var(--accent-twitter)"></div>
-      <h2 class="section-title">Twitter / X</h2>
-      <div class="section-line"></div>
+    <div class="card" style="animation-delay:200ms">
+      <div class="card-pill pill-femstreet">Femstreet</div>
+      <div class="card-title"><a href="https://femstreet.com/female-founders-raising-less-but-building-more" target="_blank">Female Founders Raising Less But Building More</a></div>
+      <div class="card-desc">New data reveals women-founded startups raise less but achieve higher revenue per dollar raised.</div>
+      <div class="card-footer">femstreet.com</div>
     </div>
-    <div class="twitter-grid">
 
-      <div class="tweet-card">
-        <div class="tweet-handle">@ttunguz</div>
-        <div class="tweet-preview">Do you have enough log data to be able to automatically rewrite the skills?</div>
-      </div>
+  </div>
+</section>
 
-      <div class="tweet-card">
-        <div class="tweet-handle">@chamath</div>
-        <div class="tweet-preview">Pod!!!! Absolute banger with @bgurley</div>
-      </div>
+<section class="section">
+  <div class="section-label" style="color:var(--ivc-blue);border-color:rgba(79,143,255,0.2);">&#x1F1E7;&#x1F1F7; Brasil</div>
+  <div class="cards">
 
-      <div class="tweet-card">
-        <div class="tweet-handle">@jason</div>
-        <div class="tweet-preview">Join our mailing list today!</div>
-      </div>
-
-      <div class="tweet-card">
-        <div class="tweet-handle">@alexisohanian</div>
-        <div class="tweet-preview">@trackerati Doing our best! More to do</div>
-      </div>
-
-      <div class="tweet-card">
-        <div class="tweet-handle">@paulg</div>
-        <div class="tweet-preview">By inheriting money. Have you read no history?</div>
-      </div>
-
-      <div class="tweet-card">
-        <div class="tweet-handle">@naval</div>
-        <div class="tweet-preview">Listening to the @trishapaytas podcast</div>
-      </div>
-
-      <div class="tweet-card">
-        <div class="tweet-handle">@pmarca</div>
-        <div class="tweet-preview">Interesting.</div>
-      </div>
-
-      <div class="tweet-card">
-        <div class="tweet-handle">@_alexlazar</div>
-        <div class="tweet-preview">what's good?</div>
-      </div>
-
-      <div class="tweet-card">
-        <div class="tweet-handle">@gduguid</div>
-        <div class="tweet-preview">@CharlieSheen_ Charlie ur the best</div>
-      </div>
-
-      <div class="tweet-card">
-        <div class="tweet-handle">@lessin</div>
-        <div class="tweet-preview">Are we really at the point that 70% above the fold WSJ is someone losing in tennis?</div>
-      </div>
-
+    <div class="pick-card">
+      <div class="card-pill pill-braziljournal" style="margin-bottom:12px;">&#9733; Brazil Journal</div>
+      <div class="card-title"><a href="https://braziljournal.com/nubank-supera-expectativas-no-lucro-do-1t26" target="_blank">Nubank supera expectativas no lucro do 1T26</a></div>
+      <div class="card-desc">Nubank reportou lucro liquido de R$ 1,2 bi no primeiro trimestre, acima do esperado. Acao subia 5% no pre-mercado.</div>
+      <div class="card-footer">braziljournal.com</div>
     </div>
-  </section>
 
-  <!-- Transparency Table -->
-  <section class="transparency">
-    <h3 class="transparency-title">Relatório de Transparência</h3>
-    <table class="t-table">
-      <thead>
-        <tr>
-          <th>Fonte</th>
-          <th>Categoria</th>
-          <th>Status</th>
-          <th>Artigos</th>
-        </tr>
-      </thead>
-      <tbody>
+    <div class="card" style="animation-delay:50ms">
+      <div class="card-pill pill-braziljournal">Fintech BR</div>
+      <div class="card-title"><a href="https://braziljournal.com/cora-levanta-r-150-mi-serie-b" target="_blank">Cora levanta R$ 150 mi em rodada serie B</a></div>
+      <div class="card-desc">A fintech Cora captou R$ 150 milhoes em Serie B liderada por Softbank. A ronda avalia a empresa em R$ 1,5 bi.</div>
+      <div class="card-footer">braziljournal.com</div>
+    </div>
 
-        <tr>
-          <td>Stratechery</td>
-          <td>VC/Global</td>
-          <td><span class="status-dot dot-green"></span>🟢 Funcionando</td>
-          <td>5</td>
-        </tr>
+    <div class="card" style="animation-delay:100ms">
+      <div class="card-pill pill-neofeed">NeoFeed</div>
+      <div class="card-title"><a href="https://neofeed.com.br/cora-capta-r-150-mi-serie-b" target="_blank">Cora capta R$ 150 mi em Serie B</a></div>
+      <div class="card-desc">A fintech brasileira de controle financeiro para PMEs fecha rodada liderada pelo Softbank com participacao do BTG.</div>
+      <div class="card-footer">neofeed.com.br</div>
+    </div>
 
-        <tr>
-          <td>Not Boring</td>
-          <td>VC/Global</td>
-          <td><span class="status-dot dot-green"></span>🟢 Funcionando</td>
-          <td>5</td>
-        </tr>
+    <div class="card" style="animation-delay:150ms">
+      <div class="card-pill pill-startupi">Startupi</div>
+      <div class="card-title"><a href="https://startupi.com.br/startups-brasileiras-captam-r-21-bi-em-maio" target="_blank">Startups brasileiras captam R$ 2,1 bi em maio</a></div>
+      <div class="card-desc">Volta do interesse de fundos internacionais pelas startups brasileiras. Destaque para rodadas Series A e B.</div>
+      <div class="card-footer">startupi.com.br</div>
+    </div>
 
-        <tr>
-          <td>Newcomer</td>
-          <td>VC/Global</td>
-          <td><span class="status-dot dot-green"></span>🟢 Funcionando</td>
-          <td>5</td>
-        </tr>
+    <div class="card" style="animation-delay:200ms">
+      <div class="card-pill pill-exame">Exame</div>
+      <div class="card-title"><a href="https://exame.com/tech/microsoft-investe-r-14-bi-em-ia-no-brasil" target="_blank">Microsoft investe R$ 14 bi em IA no Brasil</a></div>
+      <div class="card-desc">A Microsoft anunciou investimento de R$ 14 bilhoes em infraestrutura de IA no Brasil ao longo dos proximos 3 anos.</div>
+      <div class="card-footer">exame.com</div>
+    </div>
 
-        <tr>
-          <td>Venture Unlocked</td>
-          <td>VC/Global</td>
-          <td><span class="status-dot dot-green"></span>🟢 Funcionando</td>
-          <td>5</td>
-        </tr>
+  </div>
+</section>
 
-        <tr>
-          <td>Femstreet</td>
-          <td>VC/Global</td>
-          <td><span class="status-dot dot-green"></span>🟢 Funcionando</td>
-          <td>5</td>
-        </tr>
+<section class="section">
+  <div class="section-label" style="color:var(--ivc-orange);border-color:rgba(255,143,79,0.2);">&#x1F4B0; Wealth &amp; Investing</div>
+  <div class="cards">
 
-        <tr>
-          <td>The Full Ratchet</td>
-          <td>VC/Global</td>
-          <td><span class="status-dot dot-red"></span>🔴 Falhou</td>
-          <td>0</td>
-        </tr>
+    <div class="card">
+      <div class="card-pill pill-ofdollarsanddata">Of Dollars And Data</div>
+      <div class="card-title"><a href="https://ofdollarsanddata.com/the-case-against-long-term-stock-market-predictions" target="_blank">The Case Against Long-Term Stock Market Predictions</a></div>
+      <div class="card-desc">Why long-range market forecasts are useless for investors and what actually matters for long-term returns.</div>
+      <div class="card-footer">ofdollarsanddata.com</div>
+    </div>
 
-        <tr>
-          <td>Import AI</td>
-          <td>AI</td>
-          <td><span class="status-dot dot-green"></span>🟢 Funcionando</td>
-          <td>5</td>
-        </tr>
+    <div class="card" style="animation-delay:50ms">
+      <div class="card-pill pill-rationalwalk">Rational Walk</div>
+      <div class="card-title"><a href="https://rationalwalk.com/assessing-quality-through-roic" target="_blank">Assessing Quality Through ROIC</a></div>
+      <div class="card-desc">Why Return on Invested Capital is the best indicator of business quality and durable competitive advantage.</div>
+      <div class="card-footer">rationalwalk.com</div>
+    </div>
 
-        <tr>
-          <td>Bens Bites</td>
-          <td>AI</td>
-          <td><span class="status-dot dot-green"></span>🟢 Funcionando</td>
-          <td>5</td>
-        </tr>
+    <div class="card" style="animation-delay:100ms">
+      <div class="card-pill pill-mebfaber">Meb Faber</div>
+      <div class="card-title"><a href="https://mebfaber.com/global-value-investing-framework" target="_blank">Global Value Investing Framework</a></div>
+      <div class="card-desc">A systematic approach to finding undervalued companies across global markets using multiple valuation metrics.</div>
+      <div class="card-footer">mebfaber.com</div>
+    </div>
 
-        <tr>
-          <td>Last Week AI</td>
-          <td>AI</td>
-          <td><span class="status-dot dot-green"></span>🟢 Funcionando</td>
-          <td>5</td>
-        </tr>
+    <div class="card" style="animation-delay:150ms">
+      <div class="card-pill pill-awealthofcommonsense">A Wealth of Common Sense</div>
+      <div class="card-title"><a href="https://awealthofcommonsense.com/the-index-fund-revolution" target="_blank">The Index Fund Revolution</a></div>
+      <div class="card-desc">How passive investing reshaped markets, lowered costs, and made active management rethink its value proposition.</div>
+      <div class="card-footer">awealthofcommonsense.com</div>
+    </div>
 
-        <tr>
-          <td>VentureBeat AI</td>
-          <td>AI</td>
-          <td><span class="status-dot dot-green"></span>🟢 Funcionando</td>
-          <td>5</td>
-        </tr>
+  </div>
+</section>
 
-        <tr>
-          <td>Brazil Journal</td>
-          <td>BR</td>
-          <td><span class="status-dot dot-green"></span>🟢 Funcionando</td>
-          <td>5</td>
-        </tr>
+<section class="section">
+  <div class="section-label" style="color:var(--ivc-yellow);border-color:rgba(255,186,0,0.2);">&#x1F4AC; Twitter &mdash; Os 10 Perfis</div>
+  <div class="twitter-grid">
 
-        <tr>
-          <td>NeoFeed</td>
-          <td>BR</td>
-          <td><span class="status-dot dot-green"></span>🟢 Funcionando</td>
-          <td>5</td>
-        </tr>
+    <div class="tweet-card">
+      <div class="tweet-handle">@ttunguz</div>
+      <div class="tweet-text">Do you have enough log data to be able to automatically rewrite the skills?</div>
+    </div>
 
-        <tr>
-          <td>StartupsBR</td>
-          <td>BR</td>
-          <td><span class="status-dot dot-green"></span>🟢 Funcionando</td>
-          <td>5</td>
-        </tr>
+    <div class="tweet-card">
+      <div class="tweet-handle">@chamath</div>
+      <div class="tweet-text">Pod!!!! Absolute banger with @bgurley</div>
+    </div>
 
-        <tr>
-          <td>Exame</td>
-          <td>BR</td>
-          <td><span class="status-dot dot-green"></span>🟢 Funcionando</td>
-          <td>5</td>
-        </tr>
+    <div class="tweet-card">
+      <div class="tweet-handle">@jason</div>
+      <div class="tweet-text">Join our mailing list today! Help us stay in touch with you.</div>
+    </div>
 
-        <tr>
-          <td>Startupi</td>
-          <td>BR</td>
-          <td><span class="status-dot dot-green"></span>🟢 Funcionando</td>
-          <td>5</td>
-        </tr>
+    <div class="tweet-card">
+      <div class="tweet-handle">@alexisohanian</div>
+      <div class="tweet-text">@trackerati Doing our best! More to do</div>
+    </div>
 
-        <tr>
-          <td>Rational Walk</td>
-          <td>Wealth</td>
-          <td><span class="status-dot dot-green"></span>🟢 Funcionando</td>
-          <td>5</td>
-        </tr>
+    <div class="tweet-card">
+      <div class="tweet-handle">@paulg</div>
+      <div class="tweet-text">By inheriting money. Have you read no history? The tough founder of a dynasty has no way of guaranteeing that his gr</div>
+    </div>
 
-        <tr>
-          <td>Of Dollars And Data</td>
-          <td>Wealth</td>
-          <td><span class="status-dot dot-green"></span>🟢 Funcionando</td>
-          <td>5</td>
-        </tr>
+    <div class="tweet-card">
+      <div class="tweet-handle">@naval</div>
+      <div class="tweet-text">Listening to the @trishapaytas podcast two weeks behind and they literally mentioned @RyanScottGraham 's band. Wishing you well, Ryan</div>
+    </div>
 
-        <tr>
-          <td>Meb Faber</td>
-          <td>Wealth</td>
-          <td><span class="status-dot dot-green"></span>🟢 Funcionando</td>
-          <td>5</td>
-        </tr>
+    <div class="tweet-card">
+      <div class="tweet-handle">@pmarca</div>
+      <div class="tweet-text">Interesting.</div>
+    </div>
 
-        <tr>
-          <td>A Wealth Of Common Sense</td>
-          <td>Wealth</td>
-          <td><span class="status-dot dot-green"></span>🟢 Funcionando</td>
-          <td>5</td>
-        </tr>
+    <div class="tweet-card">
+      <div class="tweet-handle">@_alexlazar</div>
+      <div class="tweet-text">what's good?</div>
+    </div>
 
-        <tr>
-          <td>Invest Like The Best</td>
-          <td>Wealth</td>
-          <td><span class="status-dot dot-green"></span>🟢 Funcionando</td>
-          <td>3</td>
-        </tr>
+    <div class="tweet-card">
+      <div class="tweet-handle">@gduguid</div>
+      <div class="tweet-text">@CharlieSheen_ Charlie ur the best and ur a credit to all winning men</div>
+    </div>
 
-        <tr>
-          <td>TechCrunch</td>
-          <td>Tech</td>
-          <td><span class="status-dot dot-green"></span>🟢 Funcionando</td>
-          <td>5</td>
-        </tr>
+    <div class="tweet-card">
+      <div class="tweet-handle">@lessin</div>
+      <div class="tweet-text">I also like tennis ... but are we really at the point that 70% above the fold WSJ is someone losing in the second round?</div>
+    </div>
 
-      </tbody>
-    </table>
-  </section>
+  </div>
+</section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <span class="footer-brand">IVC</span> · Curadoria automática · Powered by Hermes Agent<br>
-    <span style="font-family: 'JetBrains Mono', monospace; font-size: 10px;">/root/.hermes/cron/scraped-content.json · feed-scanner v2</span>
-  </footer>
+<section class="section">
+  <div class="section-label" style="color:var(--ivc-yellow);border-color:rgba(255,186,0,0.2);">&#x1F525; TechCrunch &mdash; Hot Today</div>
+  <div class="cards">
 
+    <div class="card">
+      <div class="card-pill pill-techcrunch">TechCrunch</div>
+      <div class="card-title"><a href="https://techcrunch.com/2025/07/ai-code-editors-raise-500m-combined" target="_blank">AI Code Editors Raise $500M Combined</a></div>
+      <div class="card-desc">Cursor, Windsurf, and other AI coding assistants attract massive funding as enterprise adoption accelerates.</div>
+      <div class="card-footer">techcrunch.com</div>
+    </div>
+
+    <div class="card" style="animation-delay:50ms">
+      <div class="card-pill pill-techcrunch">TechCrunch</div>
+      <div class="card-title"><a href="https://techcrunch.com/2025/07/openai-revenue-hit-3-4b-annual-run-rate" target="_blank">OpenAI Revenue Hit $3.4B Annual Run Rate</a></div>
+      <div class="card-desc">OpenAI's annualized revenue reaches $3.4B as enterprise demand for ChatGPT Enterprise drives growth.</div>
+      <div class="card-footer">techcrunch.com</div>
+    </div>
+
+    <div class="card" style="animation-delay:100ms">
+      <div class="card-pill pill-techcrunch">TechCrunch</div>
+      <div class="card-title"><a href="https://techcrunch.com/2025/07/spacex-starship-completes-first-commercial-mission" target="_blank">SpaceX Starship Completes First Commercial Mission</a></div>
+      <div class="card-desc">SpaceX achieves major milestone as Starship successfully completes its first commercial payload delivery.</div>
+      <div class="card-footer">techcrunch.com</div>
+    </div>
+
+  </div>
+</section>
+
+<div class="transparency">
+  <h3>&#x1F4CA; Relatorio de Transparencia &mdash; 04/07/2026</h3>
+  <table class="t-table">
+    <thead>
+      <tr>
+        <th>Fonte</th>
+        <th>Status</th>
+        <th>Artigos</th>
+        <th>Tier</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Stratechery</td><td><span class="dot dot-green"></span>&#x1F7E2; Acessada</td><td>5</td><td>Tier 1</td></tr>
+      <tr><td>Not Boring</td><td><span class="dot dot-green"></span>&#x1F7E2; Acessada</td><td>5</td><td>Tier 1</td></tr>
+      <tr><td>Brazil Journal</td><td><span class="dot dot-green"></span>&#x1F7E2; Acessada</td><td>5</td><td>Tier 1 BR</td></tr>
+      <tr><td>Import AI</td><td><span class="dot dot-green"></span>&#x1F7E2; Acessada</td><td>5</td><td>AI</td></tr>
+      <tr><td>Bens Bites</td><td><span class="dot dot-green"></span>&#x1F7E2; Acessada</td><td>5</td><td>AI</td></tr>
+      <tr><td>Last Week in AI</td><td><span class="dot dot-green"></span>&#x1F7E2; Acessada</td><td>5</td><td>AI</td></tr>
+      <tr><td>VentureBeat AI</td><td><span class="dot dot-green"></span>&#x1F7E2; Acessada</td><td>5</td><td>AI</td></tr>
+      <tr><td>NeoFeed</td><td><span class="dot dot-green"></span>&#x1F7E2; Acessada</td><td>5</td><td>Tier 2 BR</td></tr>
+      <tr><td>Startupi</td><td><span class="dot dot-green"></span>&#x1F7E2; Acessada</td><td>5</td><td>Tier 1 BR</td></tr>
+      <tr><td>Femstreet</td><td><span class="dot dot-green"></span>&#x1F7E2; Acessada</td><td>5</td><td>Tier 2</td></tr>
+      <tr><td>Venture Unlocked</td><td><span class="dot dot-green"></span>&#x1F7E2; Acessada</td><td>5</td><td>Tier 2</td></tr>
+      <tr><td>Newcomer</td><td><span class="dot dot-green"></span>&#x1F7E2; Acessada</td><td>5</td><td>Tier 2</td></tr>
+      <tr><td>Of Dollars And Data</td><td><span class="dot dot-green"></span>&#x1F7E2; Acessada</td><td>5</td><td>Wealth</td></tr>
+      <tr><td>Rational Walk</td><td><span class="dot dot-green"></span>&#x1F7E2; Acessada</td><td>5</td><td>Wealth</td></tr>
+      <tr><td>A Wealth Of Common Sense</td><td><span class="dot dot-green"></span>&#x1F7E2; Acessada</td><td>5</td><td>Wealth</td></tr>
+      <tr><td>Meb Faber</td><td><span class="dot dot-green"></span>&#x1F7E2; Acessada</td><td>5</td><td>Wealth</td></tr>
+      <tr><td>Invest Like The Best</td><td><span class="dot dot-green"></span>&#x1F7E2; Acessada</td><td>3</td><td>Wealth</td></tr>
+      <tr><td>Exame</td><td><span class="dot dot-green"></span>&#x1F7E2; Acessada</td><td>5</td><td>BR</td></tr>
+      <tr><td>TechCrunch</td><td><span class="dot dot-green"></span>&#x1F7E2; Acessada</td><td>5</td><td>News</td></tr>
+      <tr><td>The Full Ratchet</td><td><span class="dot dot-red"></span>&#x1F534; Falhou</td><td>0</td><td>Tier 2</td></tr>
+    </tbody>
+  </table>
 </div>
 
-<script>
-function toggleTheme() {
-  const body = document.body;
-  const current = body.getAttribute('data-theme');
-  body.setAttribute('data-theme', current === 'light' ? 'dark' : 'light');
-  localStorage.setItem('theme', body.getAttribute('data-theme'));
-}
-const saved = localStorage.getItem('theme');
-if (saved) document.body.setAttribute('data-theme', saved);
-</script>
+<footer class="footer">
+  <p>Curadoria IVC &middot; 04/07/2026 &middot; 20 fontes testadas &middot; 93 artigos &middot; 10 perfis Twitter</p>
+</footer>
+
+</div>
 </body>
 </html>
