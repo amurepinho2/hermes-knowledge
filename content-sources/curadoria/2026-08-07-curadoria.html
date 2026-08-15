@@ -4,1133 +4,425 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Curadoria IVC — 2026-08-07</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 <style>
-:root {
-  --ivc-yellow: #FFBA00;
-  --ink: #1A1B1F;
-  --bg: #0d0d0f;
-  --card-bg: #18181f;
-  --card-hover: #1f1f28;
-  --text-primary: #f0f0f5;
-  --text-secondary: #8a8a9a;
-  --border: #2a2a35;
-  --radius: 12px;
-  --spacing: 4px;
-}
+  :root {
+    --ivc-yellow: #FFBA00;
+    --ivc-ink: #1A1B1F;
+    --ivc-surface: #18181f;
+    --ivc-bg: #0d0d0f;
+    --ivc-text: #e8e8e8;
+    --ivc-muted: #888;
+    --ivc-border: #2a2a35;
+    --ivc-ai: #7c3aed;
+    --ivc-vc: #0891b2;
+    --ivc-br: #16a34a;
+    --ivc-wealth: #ea580c;
+    --ivc-twitter: #1d9bf0;
+    --radius: 12px;
+    --spacing: 4px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--ivc-bg); color: var(--ivc-text); font-family: 'Inter', sans-serif; line-height: 1.5; min-height: 100vh; }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 24px 16px; }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
+  /* HEADER */
+  header { text-align: center; padding: 48px 0 32px; border-bottom: 1px solid var(--ivc-border); margin-bottom: 40px; }
+  .header-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ivc-yellow); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 12px; }
+  h1 { font-family: 'Playfair Display', serif; font-size: clamp(32px, 6vw, 56px); font-weight: 700; color: #fff; margin-bottom: 8px; line-height: 1.1; }
+  .header-date { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--ivc-muted); }
+  .stats-strip { display: flex; justify-content: center; gap: 32px; margin-top: 24px; flex-wrap: wrap; }
+  .stat { text-align: center; }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: var(--ivc-yellow); }
+  .stat-label { font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--ivc-muted); margin-top: 2px; }
 
-body {
-  background: var(--bg);
-  color: var(--text-primary);
-  font-family: 'Inter', sans-serif;
-  line-height: 1.6;
-  min-height: 100vh;
-}
+  /* SECTIONS */
+  .section { margin-bottom: 48px; }
+  .section-label { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+  .section-pill { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; }
+  .section-pill.ai { background: var(--ivc-ai); color: #fff; }
+  .section-pill.vc { background: var(--ivc-vc); color: #fff; }
+  .section-pill.br { background: var(--ivc-br); color: #fff; }
+  .section-pill.wealth { background: var(--ivc-wealth); color: #fff; }
+  .section-pill.twitter { background: var(--ivc-twitter); color: #fff; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 22px; color: #fff; }
+  .section-divider { flex: 1; height: 1px; background: var(--ivc-border); }
 
-.container { max-width: 900px; margin: 0 auto; padding: 24px 16px; }
+  /* CARDS */
+  .cards { display: grid; gap: 12px; }
+  .card { background: var(--ivc-surface); border: 1px solid var(--ivc-border); border-radius: var(--radius); padding: 20px; animation: fadeUp 0.4s ease both; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+  .card:nth-child(1) { animation-delay: 0ms; }
+  .card:nth-child(2) { animation-delay: 60ms; }
+  .card:nth-child(3) { animation-delay: 120ms; }
+  .card:nth-child(4) { animation-delay: 180ms; }
+  .card:nth-child(5) { animation-delay: 240ms; }
+  .card-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+  .source-pill { font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; padding: 3px 8px; border-radius: 6px; background: var(--ivc-border); color: var(--ivc-muted); }
+  .card-title { font-size: 15px; font-weight: 600; color: #fff; line-height: 1.3; margin-bottom: 8px; }
+  .card-title a { color: inherit; text-decoration: none; }
+  .card-title a:hover { color: var(--ivc-yellow); }
+  .card-desc { font-size: 13px; color: var(--ivc-muted); line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .card-footer { margin-top: 12px; font-size: 11px; color: var(--ivc-border); font-family: 'JetBrains Mono', monospace; }
+  .card-footer span { color: var(--ivc-muted); }
 
-.header {
-  text-align: center;
-  padding: 48px 0 32px;
-  border-bottom: 1px solid var(--border);
-  margin-bottom: 32px;
-}
+  /* PICK */
+  .pick .card-title a { color: var(--ivc-yellow); }
 
-.header-date {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 12px;
-  color: var(--ivc-yellow);
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 12px;
-}
+  /* TWITTER */
+  .tw-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px; }
+  .tw-card { background: var(--ivc-surface); border: 1px solid var(--ivc-border); border-radius: var(--radius); padding: 14px 16px; animation: fadeUp 0.4s ease both; }
+  .tw-handle { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--ivc-twitter); font-weight: 600; margin-bottom: 6px; }
+  .tw-text { font-size: 13px; color: var(--ivc-text); line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 
-.header-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 42px;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 8px;
-}
+  /* TRANSPARENCY */
+  .transparency { margin-top: 64px; border-top: 1px solid var(--ivc-border); padding-top: 32px; }
+  .trans-title { font-family: 'Playfair Display', serif; font-size: 18px; color: #fff; margin-bottom: 20px; text-align: center; }
+  table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  th { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ivc-muted); text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--ivc-border); }
+  td { padding: 8px 12px; border-bottom: 1px solid var(--ivc-border); color: var(--ivc-text); }
+  tr:last-child td { border-bottom: none; }
+  .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; }
+  .dot-green { background: #16a34a; }
+  .dot-red { background: #dc2626; }
+  .dot-yellow { background: var(--ivc-yellow); }
+  .source-name { font-weight: 600; color: #fff; }
 
-.header-subtitle {
-  color: var(--text-secondary);
-  font-size: 14px;
-}
+  /* FOOTER */
+  footer { text-align: center; padding: 40px 0 24px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ivc-muted); border-top: 1px solid var(--ivc-border); margin-top: 48px; }
+  footer a { color: var(--ivc-yellow); text-decoration: none; }
 
-.stats-strip {
-  display: flex;
-  justify-content: center;
-  gap: 32px;
-  margin-top: 20px;
-  flex-wrap: wrap;
-}
-
-.stat {
-  text-align: center;
-}
-
-.stat-value {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 28px;
-  font-weight: 500;
-  color: var(--ivc-yellow);
-}
-
-.stat-label {
-  font-size: 11px;
-  color: var(--text-secondary);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.section {
-  margin-bottom: 48px;
-}
-
-.section-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 24px;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 20px;
-  padding-bottom: 12px;
-  border-bottom: 2px solid var(--ivc-yellow);
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.section-title .emoji {
-  font-size: 20px;
-}
-
-.section-title .count {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 12px;
-  color: var(--text-secondary);
-  font-weight: 400;
-  margin-left: auto;
-}
-
-.cards {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing);
-}
-
-.card {
-  background: var(--card-bg);
-  border-radius: var(--radius);
-  padding: 20px;
-  border: 1px solid var(--border);
-  transition: all 0.2s ease;
-  animation: fadeUp 0.4s ease both;
-}
-
-.card:hover {
-  background: var(--card-hover);
-  border-color: var(--ivc-yellow);
-  transform: translateY(-2px);
-}
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.card:nth-child(1) { animation-delay: 0ms; }
-.card:nth-child(2) { animation-delay: 50ms; }
-.card:nth-child(3) { animation-delay: 100ms; }
-.card:nth-child(4) { animation-delay: 150ms; }
-.card:nth-child(5) { animation-delay: 200ms; }
-
-.card-header {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 12px;
-}
-
-.source-pill {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10px;
-  font-weight: 500;
-  padding: 4px 10px;
-  border-radius: 20px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.pill-ai { background: rgba(255,186,0,0.15); color: var(--ivc-yellow); }
-.pill-vc { background: rgba(100,180,255,0.15); color: #64b4ff; }
-.pill-br { background: rgba(80,255,150,0.15); color: #50ff96; }
-.pill-wealth { background: rgba(200,150,255,0.15); color: #c896ff; }
-.pill-twitter { background: rgba(255,100,100,0.15); color: #ff6464; }
-
-.card-title {
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 8px;
-  line-height: 1.4;
-}
-
-.card-title a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.card-title a:hover {
-  color: var(--ivc-yellow);
-}
-
-.card-desc {
-  font-size: 13px;
-  color: var(--text-secondary);
-  line-height: 1.5;
-  margin-bottom: 12px;
-}
-
-.card-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  color: var(--text-secondary);
-}
-
-.card-footer a {
-  color: var(--ivc-yellow);
-  text-decoration: none;
-}
-
-.card-footer a:hover {
-  text-decoration: underline;
-}
-
-.twitter-card {
-  background: var(--card-bg);
-  border-radius: var(--radius);
-  padding: 16px 20px;
-  border: 1px solid var(--border);
-  transition: all 0.2s ease;
-  animation: fadeUp 0.4s ease both;
-}
-
-.twitter-card:hover {
-  border-color: #ff6464;
-}
-
-.twitter-handle {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 13px;
-  font-weight: 500;
-  color: #ff6464;
-  margin-bottom: 6px;
-}
-
-.twitter-preview {
-  font-size: 14px;
-  color: var(--text-primary);
-  line-height: 1.5;
-}
-
-.twitter-meta {
-  font-size: 11px;
-  color: var(--text-secondary);
-  margin-top: 8px;
-}
-
-.transparency {
-  margin-top: 48px;
-  padding-top: 32px;
-  border-top: 1px solid var(--border);
-}
-
-.transparency h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 18px;
-  margin-bottom: 16px;
-  color: var(--text-secondary);
-}
-
-.transparency-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 12px;
-}
-
-.transparency-table th {
-  text-align: left;
-  padding: 8px 12px;
-  color: var(--text-secondary);
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  border-bottom: 1px solid var(--border);
-}
-
-.transparency-table td {
-  padding: 8px 12px;
-  border-bottom: 1px solid var(--border);
-}
-
-.transparency-table tr:hover td {
-  background: var(--card-bg);
-}
-
-.status-dot {
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  margin-right: 6px;
-}
-
-.dot-green { background: #50ff96; }
-.dot-yellow { background: var(--ivc-yellow); }
-.dot-red { background: #ff6464; }
-
-.footer-note {
-  text-align: center;
-  padding: 32px 0;
-  color: var(--text-secondary);
-  font-size: 11px;
-}
-
-@media (max-width: 600px) {
-  .header-title { font-size: 28px; }
-  .stats-strip { gap: 20px; }
-  .stat-value { font-size: 22px; }
-  .section-title { font-size: 20px; }
-}
+  /* RESPONSIVE */
+  @media (max-width: 600px) { .stats-strip { gap: 16px; } .stat-num { font-size: 22px; } }
 </style>
 </head>
 <body>
-<div class="container">
+<div class="wrap">
 
-<!-- HEADER -->
-<header class="header">
-  <div class="header-date">2026-08-07</div>
-  <h1 class="header-title">Curadoria IVC</h1>
-  <p class="header-subtitle">VC · Startups · Tecnologia · Wealth</p>
+<header>
+  <div class="header-eyebrow">IVC Content Curation</div>
+  <h1>Curadoria de Conteúdo</h1>
+  <div class="header-date">2026-08-07 · 8h Brasília</div>
   <div class="stats-strip">
-    <div class="stat">
-      <div class="stat-value">20</div>
-      <div class="stat-label">Fontes</div>
-    </div>
-    <div class="stat">
-      <div class="stat-value">93</div>
-      <div class="stat-label">Artigos</div>
-    </div>
-    <div class="stat">
-      <div class="stat-value">10</div>
-      <div class="stat-label">Perfis Twitter</div>
-    </div>
+    <div class="stat"><div class="stat-num">21</div><div class="stat-label">fontes testadas</div></div>
+    <div class="stat"><div class="stat-num">20</div><div class="stat-label">fontes acessadas</div></div>
+    <div class="stat"><div class="stat-num">98</div><div class="stat-label">artigos coletados</div></div>
+    <div class="stat"><div class="stat-num">10</div><div class="stat-label">perfis Twitter</div></div>
   </div>
 </header>
 
-<section class="section">
-<h2 class="section-title">🤖 AI <span class="count">4 fontes</span></h2>
-<div class="cards">
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-ai">ImportAI</span>
-    </div>
-    <h3 class="card-title"><a href="https://importai.substack.com/p/import-ai-467-self-sustaining-ai" target="_blank">Import AI 467: Self-sustaining AI viruses; pacing AI progress; confusion about AI and creativity</a></h3>
-    <p class="card-desc">When do we build the moon arcology?</p>
-    <div class="card-footer">
-      <span>Mon, 03 Aug 2026</span>
-      <a href="https://importai.substack.com/p/import-ai-467-self-sustaining-ai" target="_blank">Ler →</a>
-    </div>
+<!-- ══════════ AI ══════════ -->
+<div class="section">
+  <div class="section-label">
+    <span class="section-pill ai">AI</span>
+    <span class="section-title">Inteligência Artificial</span>
+    <div class="section-divider"></div>
   </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-ai">ImportAI</span>
+  <div class="cards">
+
+    <!-- BENS BITES -->
+    <div class="card pick">
+      <div class="card-header">
+        <span class="source-pill">Bens Bites</span>
+        <span style="font-family: JetBrains Mono; font-size:10px; color: var(--ivc-muted);">6 ago 2026</span>
+      </div>
+      <div class="card-title"><a href="https://www.bensbites.com/p/im-using-a-new-agent-app" target="_blank">I'm using a new agent app</a></div>
+      <div class="card-desc">is Google in trouble? + GPT 80% cheaper + new agent app changing workflows</div>
     </div>
-    <h3 class="card-title"><a href="https://importai.substack.com/p/import-ai-466-the-bitter-lesson-for" target="_blank">Import AI 466: The bitter lesson for robotics, AIs complete week-long programming tasks; and OpenAI's accidental AI hacker</a></h3>
-    <p class="card-desc">The warning shots will continue until civilization wakes up</p>
-    <div class="card-footer">
-      <span>Mon, 27 Jul 2026</span>
-      <a href="https://importai.substack.com/p/import-ai-466-the-bitter-lesson-for" target="_blank">Ler →</a>
+
+    <!-- IMPORT AI -->
+    <div class="card">
+      <div class="card-header">
+        <span class="source-pill">Import AI</span>
+        <span style="font-family: JetBrains Mono; font-size:10px; color: var(--ivc-muted);">3 ago 2026</span>
+      </div>
+      <div class="card-title"><a href="https://importai.substack.com/p/import-ai-467-self-sustaining-ai" target="_blank">Import AI 467: Self-sustaining AI viruses; pacing AI progress; confusion about AI and creativity</a></div>
+      <div class="card-desc">When do we build the moon arcology? AI viruses, progress pacing debates, and the confusion around AI creativity.</div>
     </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-ai">ImportAI</span>
+
+    <!-- LAST WEEK AI -->
+    <div class="card">
+      <div class="card-header">
+        <span class="source-pill">Last Week in AI</span>
+        <span style="font-family: JetBrains Mono; font-size:10px; color: var(--ivc-muted);">3 ago 2026</span>
+      </div>
+      <div class="card-title"><a href="https://lastweekin.ai/p/lwiai-podcast-253-opus-5-gemini-36" target="_blank">LWiAI #253: Opus 5, Gemini 3.6, Kimi K3, Hugging Face Hack</a></div>
+      <div class="card-desc">Anthropic releases Opus 5 promising Fable 5-like capabilities, Google releases three new Gemini AI models.</div>
     </div>
-    <h3 class="card-title"><a href="https://importai.substack.com/p/import-ai-465-open-vs-closed-gaps" target="_blank">Import AI 465: Open vs closed gaps; Kimi K3; Demis' big policy plan</a></h3>
-    <p class="card-desc">The singularity will be seen in hindsight as an interregnum</p>
-    <div class="card-footer">
-      <span>Mon, 20 Jul 2026</span>
-      <a href="https://importai.substack.com/p/import-ai-465-open-vs-closed-gaps" target="_blank">Ler →</a>
+
+    <!-- VENTUREBEAT AI -->
+    <div class="card">
+      <div class="card-header">
+        <span class="source-pill">VentureBeat AI</span>
+        <span style="font-family: JetBrains Mono; font-size:10px; color: var(--ivc-muted);">19 mai 2026</span>
+      </div>
+      <div class="card-title"><a href="https://venturebeat.com/technology/google-just-redesigned-the-search-box-for-the-first-time-in-25-years-heres-why-it-matters-more-than-you-think" target="_blank">Google redesigned the search box for the first time in 25 years — here's why it matters</a></div>
+      <div class="card-desc">After 25 years, Google is retiring the classic search box paradigm — a fundamental shift in how billions find information.</div>
     </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-ai">BensBites</span>
-    </div>
-    <h3 class="card-title"><a href="https://www.bensbites.com/p/im-using-a-new-agent-app" target="_blank">I'm using a new agent app</a></h3>
-    <p class="card-desc">is Google in trouble?</p>
-    <div class="card-footer">
-      <span>Thu, 06 Aug 2026</span>
-      <a href="https://www.bensbites.com/p/im-using-a-new-agent-app" target="_blank">Ler →</a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-ai">BensBites</span>
-    </div>
-    <h3 class="card-title"><a href="https://www.bensbites.com/p/what-my-agent-knows-about-me" target="_blank">What my agent knows about me</a></h3>
-    <p class="card-desc">80% cheaper GPT</p>
-    <div class="card-footer">
-      <span>Tue, 04 Aug 2026</span>
-      <a href="https://www.bensbites.com/p/what-my-agent-knows-about-me" target="_blank">Ler →</a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-ai">BensBites</span>
-    </div>
-    <h3 class="card-title"><a href="https://www.bensbites.com/p/1-billion-chatgpt-users" target="_blank">1 Billion ChatGPT users</a></h3>
-    <p class="card-desc">tinkering with tldraw is so much fun</p>
-    <div class="card-footer">
-      <span>Thu, 30 Jul 2026</span>
-      <a href="https://www.bensbites.com/p/1-billion-chatgpt-users" target="_blank">Ler →</a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-ai">LastWeekAI</span>
-    </div>
-    <h3 class="card-title"><a href="https://lastweekin.ai/p/lwiai-podcast-253-opus-5-gemini-36" target="_blank">LWiAI Podcast #253 - Opus 5, Gemini 3.6, Kimi K3, Hugging Face Hack</a></h3>
-    <p class="card-desc">Anthropic releases Opus 5 promising Fable 5-like capabilities, Google Releases Three New Gemini A.I. Models, and more!</p>
-    <div class="card-footer">
-      <span>Mon, 03 Aug 2026</span>
-      <a href="https://lastweekin.ai/p/lwiai-podcast-253-opus-5-gemini-36" target="_blank">Ler →</a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-ai">LastWeekAI</span>
-    </div>
-    <h3 class="card-title"><a href="https://lastweekin.ai/p/lwiai-podcast-252-gpt-56-grok-45" target="_blank">LWiAI Podcast #252 - GPT 5.6, Grok 4.5, Nemotron-Labs-Diffusion, AI 2040</a></h3>
-    <p class="card-desc">GPT-5.6 and Grok 4.5, Meta's Muse Spark 1.1, regulatory developments in AI and data centers, interpretability research from Anthropic, and the future ...</p>
-    <div class="card-footer">
-      <span>Tue, 21 Jul 2026</span>
-      <a href="https://lastweekin.ai/p/lwiai-podcast-252-gpt-56-grok-45" target="_blank">Ler →</a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-ai">LastWeekAI</span>
-    </div>
-    <h3 class="card-title"><a href="https://lastweekin.ai/p/last-week-in-ai-251-mythos-back-sonnet" target="_blank">Last Week in AI #251 - Mythos Back, Sonnet 5, Etched, LongCat</a></h3>
-    <p class="card-desc">Trump lifts restrictions on Anthropic, Anthropic launches Claude Sonnet 5, Google's NotebookLM updates, chips stories from Etched and Baidu, and more!</p>
-    <div class="card-footer">
-      <span>Tue, 21 Jul 2026</span>
-      <a href="https://lastweekin.ai/p/last-week-in-ai-251-mythos-back-sonnet" target="_blank">Ler →</a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-ai">VentureBeatAI</span>
-    </div>
-    <h3 class="card-title"><a href="https://venturebeat.com/technology/google-just-redesigned-the-search-box-for-the-first-time-in-25-years-heres-why-it-matters-more-than-you-think" target="_blank">Google just redesigned the search box for the first time in 25 years — here’s why it matters more than you think.</a></h3>
-    <p class="card-desc">For a quarter century, the Google search box has been one of the most recognizable interfaces in computing: a thin white rectangle, a blinking cursor,...</p>
-    <div class="card-footer">
-      <span>Tue, 19 May 2026</span>
-      <a href="https://venturebeat.com/technology/google-just-redesigned-the-search-box-for-the-first-time-in-25-years-heres-why-it-matters-more-than-you-think" target="_blank">Ler →</a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-ai">VentureBeatAI</span>
-    </div>
-    <h3 class="card-title"><a href="https://venturebeat.com/infrastructure/railway-secures-usd100-million-to-challenge-aws-with-ai-native-cloud" target="_blank">Railway secures $100 million to challenge AWS with AI-native cloud infrastructure</a></h3>
-    <p class="card-desc">Railway, a San Francisco-based cloud platform that has quietly amassed two million developers without spending a dollar on marketing, announced Thursd...</p>
-    <div class="card-footer">
-      <span>Thu, 22 Jan 2026</span>
-      <a href="https://venturebeat.com/infrastructure/railway-secures-usd100-million-to-challenge-aws-with-ai-native-cloud" target="_blank">Ler →</a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-ai">VentureBeatAI</span>
-    </div>
-    <h3 class="card-title"><a href="https://venturebeat.com/infrastructure/claude-code-costs-up-to-usd200-a-month-goose-does-the-same-thing-for-free" target="_blank">Claude Code costs up to $200 a month. Goose does the same thing for free.</a></h3>
-    <p class="card-desc">The artificial intelligence coding revolution comes with a catch: it&#x27;s expensive.Claude Code, Anthropic&#x27;s terminal-based AI agent that can w...</p>
-    <div class="card-footer">
-      <span>Mon, 19 Jan 2026</span>
-      <a href="https://venturebeat.com/infrastructure/claude-code-costs-up-to-usd200-a-month-goose-does-the-same-thing-for-free" target="_blank">Ler →</a>
-    </div>
+
   </div>
 </div>
-</section>
 
-<section class="section">
-<h2 class="section-title">🌐 VC/Global <span class="count">6 fontes</span></h2>
-<div class="cards">
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-vc">Stratechery</span>
-    </div>
-    <h3 class="card-title"><a href="https://stratechery.com/2026/google-earnings-the-frontier-case-amazon-earnings/" target="_blank">Google Earnings, The Frontier Case, Amazon Earnings</a></h3>
-    <p class="card-desc">Google's earnings seemed to confirm the Anthropic hedge; it was Andy Jassy who explained why their — and Amazon's — capex was justifiable.</p>
-    <div class="card-footer">
-      <span>Wed, 05 Aug 2026</span>
-      <a href="https://stratechery.com/2026/google-earnings-the-frontier-case-amazon-earnings/" target="_blank">Ler →</a>
-    </div>
+<!-- ══════════ VC / GLOBAL ══════════ -->
+<div class="section">
+  <div class="section-label">
+    <span class="section-pill vc">VC</span>
+    <span class="section-title">Venture Capital & Global</span>
+    <div class="section-divider"></div>
   </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-vc">Stratechery</span>
+  <div class="cards">
+
+    <!-- STRATECHERY pick -->
+    <div class="card pick">
+      <div class="card-header">
+        <span class="source-pill">Stratechery</span>
+        <span style="font-family: JetBrains Mono; font-size:10px; color: var(--ivc-muted);">5 ago 2026</span>
+      </div>
+      <div class="card-title"><a href="https://stratechery.com/2026/google-earnings-the-frontier-case-amazon-earnings/" target="_blank">Google Earnings, The Frontier Case, Amazon Earnings</a></div>
+      <div class="card-desc">Google's earnings seemed to confirm the Anthropic hedge; it was Andy Jassy who explained why Amazon's capex was justifiable.</div>
     </div>
-    <h3 class="card-title"><a href="https://stratechery.com/2026/microsoft-earnings-microsoft-vs-meta-the-efficiency-payoff/" target="_blank">Microsoft Earnings, Microsoft vs. Meta, The Efficiency Payoff</a></h3>
-    <p class="card-desc">Microsoft's earnings were compelling because they showed a clarity of strategy, lower costs, and a tangibility of application. The reason why is scari...</p>
-    <div class="card-footer">
-      <span>Tue, 04 Aug 2026</span>
-      <a href="https://stratechery.com/2026/microsoft-earnings-microsoft-vs-meta-the-efficiency-payoff/" target="_blank">Ler →</a>
+
+    <!-- NOT BORING -->
+    <div class="card">
+      <div class="card-header">
+        <span class="source-pill">Not Boring</span>
+        <span style="font-family: JetBrains Mono; font-size:10px; color: var(--ivc-muted);">31 jul 2026</span>
+      </div>
+      <div class="card-title"><a href="https://www.notboring.co/p/weekly-dose-of-optimism-204" target="_blank">Weekly Dose of Optimism #204</a></div>
+      <div class="card-desc">Enigma, Robots Covered, DoorDash Air, Zoox Approval, Free ChatGPT + HT + Extra Doses</div>
     </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-vc">Stratechery</span>
+
+    <!-- NEWCOMER -->
+    <div class="card">
+      <div class="card-header">
+        <span class="source-pill">Newcomer</span>
+        <span style="font-family: JetBrains Mono; font-size:10px; color: var(--ivc-muted);">31 jul 2026</span>
+      </div>
+      <div class="card-title"><a href="https://www.newcomer.co/p/the-abrupt-fall-of-situational-awareness" target="_blank">The Abrupt Fall of Situational Awareness Is a Warning Sign. So Is Nvidia's Vendor Financing.</a></div>
+      <div class="card-desc">Plus: Inside Leading the Future & a Thinking Machines Lab co-founder defects back to OpenAI.</div>
     </div>
-    <h3 class="card-title"><a href="https://stratechery.com/2026/meta-earnings-metas-timing-problems-the-financial-tail/" target="_blank">Meta Earnings, Meta's Timing Problems, The Financial Tail</a></h3>
-    <p class="card-desc">Meta's earnings were a bit disappointing; future promises about AI products were more disconcerting.</p>
-    <div class="card-footer">
-      <span>Mon, 03 Aug 2026</span>
-      <a href="https://stratechery.com/2026/meta-earnings-metas-timing-problems-the-financial-tail/" target="_blank">Ler →</a>
+
+    <!-- VENTURE UNLOCKED -->
+    <div class="card">
+      <div class="card-header">
+        <span class="source-pill">Venture Unlocked</span>
+        <span style="font-family: JetBrains Mono; font-size:10px; color: var(--ivc-muted);">28 jul 2026</span>
+      </div>
+      <div class="card-title"><a href="https://ventureunlocked.substack.com/p/why-100m-exits-matter-more-than-trillion" target="_blank">Has venture capital lost the plot?</a></div>
+      <div class="card-desc">Samir Kaji on why $100M exits matter more than trillion-dollar markups in the current venture landscape.</div>
     </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-vc">NotBoring</span>
-    </div>
-    <h3 class="card-title"><a href="https://www.notboring.co/p/weekly-dose-of-optimism-204" target="_blank">Weekly Dose of Optimism #204</a></h3>
-    <p class="card-desc">Enigma, Robots Covered, DoorDash Air, Zoox Approval, Free ChatGPT + HT + Extra Doses</p>
-    <div class="card-footer">
-      <span>Fri, 31 Jul 2026</span>
-      <a href="https://www.notboring.co/p/weekly-dose-of-optimism-204" target="_blank">Ler →</a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-vc">NotBoring</span>
-    </div>
-    <h3 class="card-title"><a href="https://www.notboring.co/p/ai-is-oil-not-god" target="_blank">AI is Oil, Not God</a></h3>
-    <p class="card-desc">I trust the market over ghost stories</p>
-    <div class="card-footer">
-      <span>Sat, 25 Jul 2026</span>
-      <a href="https://www.notboring.co/p/ai-is-oil-not-god" target="_blank">Ler →</a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-vc">NotBoring</span>
-    </div>
-    <h3 class="card-title"><a href="https://www.notboring.co/p/weekly-dose-of-optimism-203" target="_blank">Weekly Dose of Optimism #203</a></h3>
-    <p class="card-desc">Travis is Back, Jacobian Conjecture Falls, Skyroot, Star Axis, Thunder + Extra Doses</p>
-    <div class="card-footer">
-      <span>Fri, 24 Jul 2026</span>
-      <a href="https://www.notboring.co/p/weekly-dose-of-optimism-203" target="_blank">Ler →</a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-vc">Newcomer</span>
-    </div>
-    <h3 class="card-title"><a href="https://www.newcomer.co/p/the-abrupt-fall-of-situational-awareness" target="_blank">The Abrupt Fall of Situational Awareness Is a Warning Sign. So Is Nvidia’s Vendor Financing.</a></h3>
-    <p class="card-desc">Plus, a look inside Leading the Future & a Thinking Machines Lab co-founder defects back to OpenAI</p>
-    <div class="card-footer">
-      <span>Fri, 31 Jul 2026</span>
-      <a href="https://www.newcomer.co/p/the-abrupt-fall-of-situational-awareness" target="_blank">Ler →</a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-vc">Newcomer</span>
-    </div>
-    <h3 class="card-title"><a href="https://www.newcomer.co/p/dario-amodei-ali-ghodsi-and-nikesh" target="_blank">Dario Amodei, Ali Ghodsi & Nikesh Arora to Speak at Our 8th Cerebral Valley AI Summit</a></h3>
-    <p class="card-desc">CVAI will be back in San Francisco Thursday, Nov. 12</p>
-    <div class="card-footer">
-      <span>Wed, 29 Jul 2026</span>
-      <a href="https://www.newcomer.co/p/dario-amodei-ali-ghodsi-and-nikesh" target="_blank">Ler →</a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-vc">Newcomer</span>
-    </div>
-    <h3 class="card-title"><a href="https://www.newcomer.co/p/high-stakes-battle-over-china-policy" target="_blank">High-Stakes Battle Over China Policy & Open Source AI Pits LLM Giants Against Their Customers</a></h3>
-    <p class="card-desc">Plus, corporate VC investment skyrockets & Mistral preps for its next phase</p>
-    <div class="card-footer">
-      <span>Fri, 24 Jul 2026</span>
-      <a href="https://www.newcomer.co/p/high-stakes-battle-over-china-policy" target="_blank">Ler →</a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-vc">VentureUnlocked</span>
-    </div>
-    <h3 class="card-title"><a href="https://ventureunlocked.substack.com/p/why-100m-exits-matter-more-than-trillion" target="_blank">Has venture capital lost the plot?</a></h3>
-    <p class="card-desc">Follow me @samirkaji for my thoughts on the venture market, with a focus on the continued evolution of the VC landscape.</p>
-    <div class="card-footer">
-      <span>Tue, 28 Jul 2026</span>
-      <a href="https://ventureunlocked.substack.com/p/why-100m-exits-matter-more-than-trillion" target="_blank">Ler →</a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-vc">VentureUnlocked</span>
-    </div>
-    <h3 class="card-title"><a href="https://ventureunlocked.substack.com/p/crazy-and-rational-ventures-cognitive" target="_blank">Crazy, and Rational: Venture's Cognitive Dissonance Moment</a></h3>
-    <p class="card-desc">Having spent 27 years in and around private markets, including 22 years at SVB and First Republic where I had a front row seat to the dot-com era and ...</p>
-    <div class="card-footer">
-      <span>Mon, 06 Jul 2026</span>
-      <a href="https://ventureunlocked.substack.com/p/crazy-and-rational-ventures-cognitive" target="_blank">Ler →</a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-vc">VentureUnlocked</span>
-    </div>
-    <h3 class="card-title"><a href="https://ventureunlocked.substack.com/p/deep-tech-gold-rush-smart-boom-or" target="_blank">Deep Tech Gold Rush: Smart Boom or Future Bust?</a></h3>
-    <p class="card-desc">Follow me @samirkaji for my thoughts on the venture market, with a focus on the continued evolution of the VC landscape.</p>
-    <div class="card-footer">
-      <span>Thu, 04 Jun 2026</span>
-      <a href="https://ventureunlocked.substack.com/p/deep-tech-gold-rush-smart-boom-or" target="_blank">Ler →</a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-vc">Femstreet</span>
-    </div>
-    <h3 class="card-title"><a href="https://femstreet.substack.com/p/femstreetissue288" target="_blank">Common and costly product messaging mistakes; How to write a great fundraising blurb; The art of giving and receiving feedback</a></h3>
-    <p class="card-desc">Where women lead, shape, and fund the future.</p>
-    <div class="card-footer">
-      <span>Sun, 09 Jun 2024</span>
-      <a href="https://femstreet.substack.com/p/femstreetissue288" target="_blank">Ler →</a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-vc">Femstreet</span>
-    </div>
-    <h3 class="card-title"><a href="https://femstreet.substack.com/p/femstreetissue287" target="_blank">Lessons from failing to find PMF; Sales forecasting 101; Setting up your exit strategy</a></h3>
-    <p class="card-desc">Where women lead, shape, and fund the future.</p>
-    <div class="card-footer">
-      <span>Sun, 12 May 2024</span>
-      <a href="https://femstreet.substack.com/p/femstreetissue287" target="_blank">Ler →</a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-vc">Femstreet</span>
-    </div>
-    <h3 class="card-title"><a href="https://femstreet.substack.com/p/femstreetissue286" target="_blank">Why you should build your culture like a product; Moats for generative AI applications; Measuring personal growth</a></h3>
-    <p class="card-desc">Where women lead, shape, and fund the future.</p>
-    <div class="card-footer">
-      <span>Sun, 21 Apr 2024</span>
-      <a href="https://femstreet.substack.com/p/femstreetissue286" target="_blank">Ler →</a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-vc">TechCrunch</span>
-    </div>
-    <h3 class="card-title"><a href="https://techcrunch.com/2026/08/06/openais-new-ai-smart-speaker-will-reportedly-sell-for-between-300-and-400/" target="_blank">OpenAI's new AI smart speaker will reportedly sell for between $300 and $400</a></h3>
-    <p class="card-desc">Additional details about OpenAI's mysterious new AI device make it sound like a pricey smart speaker.</p>
-    <div class="card-footer">
-      <span>Thu, 06 Aug 2026</span>
-      <a href="https://techcrunch.com/2026/08/06/openais-new-ai-smart-speaker-will-reportedly-sell-for-between-300-and-400/" target="_blank">Ler →</a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-vc">TechCrunch</span>
-    </div>
-    <h3 class="card-title"><a href="https://techcrunch.com/2026/08/06/your-table-awaits-exhibit-at-techcrunch-disrupt-2026-to-be-seen-by-thousands/" target="_blank">Your table awaits: Exhibit at TechCrunch Disrupt 2026 to be seen by thousands</a></h3>
-    <p class="card-desc">Not everyone needs a keynote slot to make noise at TechCrunch Disrupt 2026. Sometimes the best way to meet investors, customers, and partners is by ex...</p>
-    <div class="card-footer">
-      <span>Thu, 06 Aug 2026</span>
-      <a href="https://techcrunch.com/2026/08/06/your-table-awaits-exhibit-at-techcrunch-disrupt-2026-to-be-seen-by-thousands/" target="_blank">Ler →</a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-vc">TechCrunch</span>
-    </div>
-    <h3 class="card-title"><a href="https://techcrunch.com/2026/08/06/vogue-just-gave-another-nod-of-approval-to-the-tech-world/" target="_blank">Vogue just gave another nod of approval to the tech world</a></h3>
-    <p class="card-desc">Vogue World is coming to San Francisco next year — perhaps another indication that tech bros are now part of the fashion zeitgeist.</p>
-    <div class="card-footer">
-      <span>Thu, 06 Aug 2026</span>
-      <a href="https://techcrunch.com/2026/08/06/vogue-just-gave-another-nod-of-approval-to-the-tech-world/" target="_blank">Ler →</a>
-    </div>
+
   </div>
 </div>
-</section>
 
-<section class="section">
-<h2 class="section-title">🇧🇷 Brasil <span class="count">5 fontes</span></h2>
-<div class="cards">
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-br">BrazilJournal</span>
-    </div>
-    <h3 class="card-title"><a href="https://braziljournal.com/a-resiliencia-do-peronismo-e-a-ruptura-de-milei-um-livro-que-explica-a-argentina/" target="_blank">A resiliência do peronismo e a ruptura de Milei: um livro que explica a Argentina</a></h3>
-    <p class="card-desc">Em sua campanha à Presidência, uma das promessas mais barulhentas de Javier Milei foi a de extinguir o Banco Central da Argentina. Milei não levou iss...</p>
-    <div class="card-footer">
-      <span>Fri, 07 Aug 2026</span>
-      <a href="https://braziljournal.com/a-resiliencia-do-peronismo-e-a-ruptura-de-milei-um-livro-que-explica-a-argentina/" target="_blank">Ler →</a>
-    </div>
+<!-- ══════════ BRASIL ══════════ -->
+<div class="section">
+  <div class="section-label">
+    <span class="section-pill br">BR</span>
+    <span class="section-title">Brasil</span>
+    <div class="section-divider"></div>
   </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-br">BrazilJournal</span>
-    </div>
-    <h3 class="card-title"><a href="https://braziljournal.com/com-a-apple-no-horizonte-samsung-se-arma-para-a-guerra-dos-dobraveis/" target="_blank">Com a Apple no horizonte, Samsung se arma para a “guerra dos dobráveis”</a></h3>
-    <p class="card-desc">Os celulares dobráveis estão se tornando a nova trincheira de disputa entre as fabricantes de smartphones. Com a iminência da Apple lançar seu primeir...</p>
-    <div class="card-footer">
-      <span>Fri, 07 Aug 2026</span>
-      <a href="https://braziljournal.com/com-a-apple-no-horizonte-samsung-se-arma-para-a-guerra-dos-dobraveis/" target="_blank">Ler →</a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-br">BrazilJournal</span>
-    </div>
-    <h3 class="card-title"><a href="https://braziljournal.com/alloha-emplaca-bond-de-us-350-milhoes-eb-capital-conversa-com-estrategicos/" target="_blank">Alloha emplaca bond de US$ 350 milhões; eB Capital conversa com estratégicos</a></h3>
-    <p class="card-desc">A Alloha Fibra – o provedor de serviços de fibra ótica controlado pela eB Capital que agora opera com a marca Giga+ – acaba de levantar US$ 350 milhõe...</p>
-    <div class="card-footer">
-      <span>Thu, 06 Aug 2026</span>
-      <a href="https://braziljournal.com/alloha-emplaca-bond-de-us-350-milhoes-eb-capital-conversa-com-estrategicos/" target="_blank">Ler →</a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-br">NeoFeed</span>
-    </div>
-    <h3 class="card-title"><a href="https://neofeed.com.br/negocios/na-porto-a-diversificacao-do-negocio-garante-o-lucro/" target="_blank">Na Porto, a diversificação do negócio garante o lucro</a></h3>
-    <p class="card-desc">Não é de hoje que a Porto vem propagando as vantagens da sua diversificação, iniciada em 2022, quando foi além dos seguros e estruturou outras três em...</p>
-    <div class="card-footer">
-      <span>Fri, 07 Aug 2026</span>
-      <a href="https://neofeed.com.br/negocios/na-porto-a-diversificacao-do-negocio-garante-o-lucro/" target="_blank">Ler →</a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-br">NeoFeed</span>
-    </div>
-    <h3 class="card-title"><a href="https://neofeed.com.br/negocios/o-efeito-copa-na-renner-vendas-esfriam-no-trimestre-e-varejista-reduz-projecao-de-receita/" target="_blank">O “efeito Copa” na Renner: vendas esfriam no trimestre e varejista reduz projeção de receita</a></h3>
-    <p class="card-desc">A Copa do Mundo acertou em cheio a Lojas Renner no segundo trimestre deste ano. E não de forma positiva. O maior evento esportivo pesou significativam...</p>
-    <div class="card-footer">
-      <span>Thu, 06 Aug 2026</span>
-      <a href="https://neofeed.com.br/negocios/o-efeito-copa-na-renner-vendas-esfriam-no-trimestre-e-varejista-reduz-projecao-de-receita/" target="_blank">Ler →</a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-br">NeoFeed</span>
-    </div>
-    <h3 class="card-title"><a href="https://neofeed.com.br/negocios/assai-cresce-receita-lucro-e-ganha-market-share-mas-as-despesas-preocupam/" target="_blank">Assaí cresce receita, lucro e ganha market share, mas as despesas preocupam</a></h3>
-    <p class="card-desc">Pressionada pelo aumento das despesas no segundo trimestre, a rede varejista Assaí reportou uma receita líquida de R$ 19,1 bilhões, alta de 0,9% no pe...</p>
-    <div class="card-footer">
-      <span>Thu, 06 Aug 2026</span>
-      <a href="https://neofeed.com.br/negocios/assai-cresce-receita-lucro-e-ganha-market-share-mas-as-despesas-preocupam/" target="_blank">Ler →</a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-br">Startupi</span>
-    </div>
-    <h3 class="card-title"><a href="https://startupi.com.br/brasil-entrega-r-62-bilhoes-para-bets-em-2025-enquanto-economia-fraqueja/" target="_blank">Brasil entrega R$ 62 bilhões para bets em 2025 enquanto economia fraqueja</a></h3>
-    <p class="card-desc">Startupi
+  <div class="cards">
 
-Brasil entrega R$ 62 bilhões para bets em 2025 enquanto economia fraqueja
-Mais do que um rombo orçamentário, o avanço desenfreado das bets i...</p>
-    <div class="card-footer">
-      <span>Fri, 07 Aug 2026</span>
-      <a href="https://startupi.com.br/brasil-entrega-r-62-bilhoes-para-bets-em-2025-enquanto-economia-fraqueja/" target="_blank">Ler →</a>
+    <!-- STARTUPI pick -->
+    <div class="card pick">
+      <div class="card-header">
+        <span class="source-pill">Startupi</span>
+        <span style="font-family: JetBrains Mono; font-size:10px; color: var(--ivc-muted);">7 ago 2026</span>
+      </div>
+      <div class="card-title"><a href="https://startupi.com.br/brasil-entrega-r-62-bilhoes-para-bets-em-2025-enquanto-economia-fraqueja/" target="_blank">Brasil entrega R$ 62 bilhões para bets em 2025 enquanto economia fragueja</a></div>
+      <div class="card-desc">Mais do que um rombo orçamentário, o avanço desenfreado das bets impõe uma grave crise de saúde mental e social ao país.</div>
     </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-br">Startupi</span>
-    </div>
-    <h3 class="card-title"><a href="https://startupi.com.br/como-interpretar-o-balanco-entre-a-fragil-economia-do-brasil-e-o-forte-lucro-recorrente-de-bilhoes-do-itau/" target="_blank">Como Interpretar o Balanço Entre a Frágil Economia do Brasil e o Forte Lucro Recorrente de Bilhões do Itaú</a></h3>
-    <p class="card-desc">Startupi
 
-Como Interpretar o Balanço Entre a Frágil Economia do Brasil e o Forte Lucro Recorrente de Bilhões do Itaú
-Em um cenário de crescimento aqué...</p>
-    <div class="card-footer">
-      <span>Fri, 07 Aug 2026</span>
-      <a href="https://startupi.com.br/como-interpretar-o-balanco-entre-a-fragil-economia-do-brasil-e-o-forte-lucro-recorrente-de-bilhoes-do-itau/" target="_blank">Ler →</a>
+    <!-- BRAZIL JOURNAL -->
+    <div class="card">
+      <div class="card-header">
+        <span class="source-pill">Brazil Journal</span>
+        <span style="font-family: JetBrains Mono; font-size:10px; color: var(--ivc-muted);">7 ago 2026</span>
+      </div>
+      <div class="card-title"><a href="https://braziljournal.com/alloha-emplaca-bond-de-us-350-milhoes-eb-capital-conversa-com-estrategicos/" target="_blank">Alloha emplaca bond de US$ 350 milhões; eB Capital conversa com estratégicos</a></div>
+      <div class="card-desc">A Alloha Fibra — controlada pela eB Capital — levantou US$ 350M com primeiro bond a yield de 12,25% e vencimento em fevereiro de 2031.</div>
     </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-br">Startupi</span>
-    </div>
-    <h3 class="card-title"><a href="https://startupi.com.br/o-ceu-e-o-limite-para-o-nubank-ele-acredita-que-sim/" target="_blank">O céu é o limite para o Nubank? Ele acredita que sim</a></h3>
-    <p class="card-desc">Startupi
 
-O céu é o limite para o Nubank? Ele acredita que sim
-Executivos do banco apresentaram possibilidades de triplicar o tamanho do negócio no Br...</p>
-    <div class="card-footer">
-      <span>Fri, 07 Aug 2026</span>
-      <a href="https://startupi.com.br/o-ceu-e-o-limite-para-o-nubank-ele-acredita-que-sim/" target="_blank">Ler →</a>
+    <!-- NEOFEDE -->
+    <div class="card">
+      <div class="card-header">
+        <span class="source-pill">NeoFeed</span>
+        <span style="font-family: JetBrains Mono; font-size:10px; color: var(--ivc-muted);">7 ago 2026</span>
+      </div>
+      <div class="card-title"><a href="https://neofeed.com.br/negocios/na-porto-a-diversificacao-do-negocio-garante-o-lucro/" target="_blank">Na Porto, a diversificação do negócio garante o lucro</a></div>
+      <div class="card-desc">Porto Bank, Porto Saúde e Porto Serviço: diversificação iniciada em 2022 se prova lucrativa no 2T26.</div>
     </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-br">Exame</span>
+
+    <!-- STARTUPSBR -->
+    <div class="card">
+      <div class="card-header">
+        <span class="source-pill">Startups.com.br</span>
+        <span style="font-family: JetBrains Mono; font-size:10px; color: var(--ivc-muted);">7 ago 2026</span>
+      </div>
+      <div class="card-title"><a href="https://startups.com.br/5-minutos-com/5-minutos-com-rafael-steinhauser-da-qualcomm-ao-teatro-experimental/" target="_blank">5 Minutos com: Rafael Steinhauser, da Qualcomm ao teatro experimental</a></div>
+      <div class="card-desc">Ex-presidente da Qualcomm na América Latina fala sobre investimentos em startups e a expansão de data centers no Brasil.</div>
     </div>
-    <h3 class="card-title"><a href="https://exame.com/brasil/tornado-e-ventos-acima-de-100-km-h-deixam-rio-grande-do-sul-em-alerta/" target="_blank">Tornado atinge o RS pela segunda vez em nove dias; ciclone traz temporais</a></h3>
-    <p class="card-desc"></p>
-    <div class="card-footer">
-      <span>2026-08-07T07:47</span>
-      <a href="https://exame.com/brasil/tornado-e-ventos-acima-de-100-km-h-deixam-rio-grande-do-sul-em-alerta/" target="_blank">Ler →</a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-br">Exame</span>
-    </div>
-    <h3 class="card-title"><a href="https://exame.com/invest/mercados/petrobras-guerra-no-ira-e-payroll-o-que-move-os-mercados/" target="_blank">Petrobras, guerra no Irã e payroll: o que move os mercados</a></h3>
-    <p class="card-desc"></p>
-    <div class="card-footer">
-      <span>2026-08-07T07:39</span>
-      <a href="https://exame.com/invest/mercados/petrobras-guerra-no-ira-e-payroll-o-que-move-os-mercados/" target="_blank">Ler →</a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-br">Exame</span>
-    </div>
-    <h3 class="card-title"><a href="https://exame.com/pop/e-preciso-ver-todos-os-filmes-e-series-do-mcu-antes-do-novo-vingadores-chefao-da-marvel-responde/" target="_blank">É preciso ver todos os filmes e séries do MCU antes do novo ‘Vingadores’? Chefão da Marvel responde</a></h3>
-    <p class="card-desc"></p>
-    <div class="card-footer">
-      <span>2026-08-07T07:34</span>
-      <a href="https://exame.com/pop/e-preciso-ver-todos-os-filmes-e-series-do-mcu-antes-do-novo-vingadores-chefao-da-marvel-responde/" target="_blank">Ler →</a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-br">StartupsBR</span>
-    </div>
-    <h3 class="card-title"><a href="https://startups.com.br/5-minutos-com/5-minutos-com-rafael-steinhauser-da-qualcomm-ao-teatro-experimental/" target="_blank">5 Minutos com: Rafael Steinhauser, da Qualcomm ao teatro experimental</a></h3>
-    <p class="card-desc">Rafael Steinhauser, ex-presidente da Qualcomm na América Latina | Crédito: Bob Souza/Arte por Startups.com.brEx-presidente da Qualcomm na América Lati...</p>
-    <div class="card-footer">
-      <span>Fri, 07 Aug 2026</span>
-      <a href="https://startups.com.br/5-minutos-com/5-minutos-com-rafael-steinhauser-da-qualcomm-ao-teatro-experimental/" target="_blank">Ler →</a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-br">StartupsBR</span>
-    </div>
-    <h3 class="card-title"><a href="https://startups.com.br/negocios/qualcomm-avanca-em-data-centers-e-ve-brasil-como-mercado-estrategico/" target="_blank">Qualcomm avança em data centers e vê Brasil como mercado estratégico</a></h3>
-    <p class="card-desc">Diego Aguiar, Head da Qualcomm no Brasil | Foto: DivulgaçãoDiego Aguiar, Head da Qualcomm no Brasil, afirma que a empresa quer expandir a capacidade c...</p>
-    <div class="card-footer">
-      <span>Thu, 06 Aug 2026</span>
-      <a href="https://startups.com.br/negocios/qualcomm-avanca-em-data-centers-e-ve-brasil-como-mercado-estrategico/" target="_blank">Ler →</a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-br">StartupsBR</span>
-    </div>
-    <h3 class="card-title"><a href="https://startups.com.br/la-fora/tik-tok-demite-250-e-reacende-polemica-da-ia-na-moderacao/" target="_blank">Tik Tok demite 250 e reacende polêmica da IA na moderação</a></h3>
-    <p class="card-desc">TikTok (Foto: Canva)Em meio a reestruturação, plataforma fechará escritório em Nashville, onde trabalha boa parte do time de moderação para os EUA
-O p...</p>
-    <div class="card-footer">
-      <span>Thu, 06 Aug 2026</span>
-      <a href="https://startups.com.br/la-fora/tik-tok-demite-250-e-reacende-polemica-da-ia-na-moderacao/" target="_blank">Ler →</a>
-    </div>
+
   </div>
 </div>
-</section>
 
-<section class="section">
-<h2 class="section-title">💰 Wealth <span class="count">5 fontes</span></h2>
-<div class="cards">
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-wealth">RationalWalk</span>
-    </div>
-    <h3 class="card-title"><a href="https://rationalwalk.com/greg-abels-2026-letter-to-shareholders/" target="_blank">Greg Abel's 2026 Letter to Shareholders</a></h3>
-    <p class="card-desc">Greg Abel's first letter to Berkshire Hathaway shareholders emphasized the need to keep the company's unique culture.</p>
-    <div class="card-footer">
-      <span>Mon, 02 Mar 2026</span>
-      <a href="https://rationalwalk.com/greg-abels-2026-letter-to-shareholders/" target="_blank">Ler →</a>
-    </div>
+<!-- ══════════ WEALTH ══════════ -->
+<div class="section">
+  <div class="section-label">
+    <span class="section-pill wealth">Wealth</span>
+    <span class="section-title">Riqueza & Investimentos</span>
+    <div class="section-divider"></div>
   </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-wealth">RationalWalk</span>
-    </div>
-    <h3 class="card-title"><a href="https://rationalwalk.com/greg-abels-unique-challenge/" target="_blank">Greg Abel's Unique Challenge</a></h3>
-    <p class="card-desc">Greg Abel takes over as Chief Executive Officer of Berkshire Hathaway on January 1, 2026, a job that will involve at least three major challenges.</p>
-    <div class="card-footer">
-      <span>Wed, 31 Dec 2025</span>
-      <a href="https://rationalwalk.com/greg-abels-unique-challenge/" target="_blank">Ler →</a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-wealth">RationalWalk</span>
-    </div>
-    <h3 class="card-title"><a href="https://rationalwalk.com/warren-buffetts-thanksgiving-letter/" target="_blank">Warren Buffett's Thanksgiving Letter</a></h3>
-    <p class="card-desc">Warren Buffett's Thanksgiving Letter sheds more light on why he decided to retire as CEO of Berkshire Hathaway.</p>
-    <div class="card-footer">
-      <span>Tue, 11 Nov 2025</span>
-      <a href="https://rationalwalk.com/warren-buffetts-thanksgiving-letter/" target="_blank">Ler →</a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-wealth">OfDollarsAndData</span>
-    </div>
-    <h3 class="card-title"><a href="https://ofdollarsanddata.com/why-100-in-your-20s-is-worth-500-in-your-60s/" target="_blank">Why $100 in Your 20s is Worth $500 in Your 60s</a></h3>
-    <p class="card-desc">What if I told you that $100 at 25 is worth $500 at 65, even after we adjust for inflation?
+  <div class="cards">
 
-Well...it is.
+    <!-- OF DOLLARS AND DATA pick -->
+    <div class="card pick">
+      <div class="card-header">
+        <span class="source-pill">Of Dollars and Data</span>
+        <span style="font-family: JetBrains Mono; font-size:10px; color: var(--ivc-muted);">4 ago 2026</span>
+      </div>
+      <div class="card-title"><a href="https://ofdollarsanddata.com/why-100-in-your-20s-is-worth-500-in-your-60s/" target="_blank">Why $100 in Your 20s is Worth $500 in Your 60s</a></div>
+      <div class="card-desc">O poder exponencial da juros compostos: $100 aos 25 vale $500 aos 65 ajustados pela inflação.</div>
+    </div>
 
-There's an unspoken belief in personal fin...</p>
-    <div class="card-footer">
-      <span>Tue, 04 Aug 2026</span>
-      <a href="https://ofdollarsanddata.com/why-100-in-your-20s-is-worth-500-in-your-60s/" target="_blank">Ler →</a>
+    <!-- A WEALTH OF COMMON SENSE -->
+    <div class="card">
+      <div class="card-header">
+        <span class="source-pill">A Wealth of Common Sense</span>
+        <span style="font-family: JetBrains Mono; font-size:10px; color: var(--ivc-muted);">6 ago 2026</span>
+      </div>
+      <div class="card-title"><a href="https://awealthofcommonsense.com/2026/08/investing-is-a-game-of-survival/" target="_blank">Investing is a Game of Survival</a></div>
+      <div class="card-desc">Why you shouldn't use leverage when investing, even if you're young — o jogo de sobrevivência do investidor.</div>
     </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-wealth">OfDollarsAndData</span>
-    </div>
-    <h3 class="card-title"><a href="https://ofdollarsanddata.com/the-problem-with-optionality/" target="_blank">The Problem with Optionality</a></h3>
-    <p class="card-desc">I’ve seen a lot of discussions this year around maximizing freedom and optionality. For example, consider this tweet:
-If you ever get up $1M in cash
 
-...</p>
-    <div class="card-footer">
-      <span>Tue, 28 Jul 2026</span>
-      <a href="https://ofdollarsanddata.com/the-problem-with-optionality/" target="_blank">Ler →</a>
+    <!-- MEB FABER -->
+    <div class="card">
+      <div class="card-header">
+        <span class="source-pill">Meb Faber</span>
+        <span style="font-family: JetBrains Mono; font-size:10px; color: var(--ivc-muted);">5 ago 2026</span>
+      </div>
+      <div class="card-title"><a href="https://mebfaber.com/2026/08/05/global-stock-market-valuations-2/" target="_blank">Global Stock Market Valuations</a></div>
+      <div class="card-desc">Global valuations as of June 30, 2026: CAPE ratio median 2025, cheapest markets at 14x, most expensive at 33x.</div>
     </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-wealth">OfDollarsAndData</span>
+
+    <!-- RATIONAL WALK -->
+    <div class="card">
+      <div class="card-header">
+        <span class="source-pill">Rational Walk</span>
+        <span style="font-family: JetBrains Mono; font-size:10px; color: var(--ivc-muted);">2 mar 2026</span>
+      </div>
+      <div class="card-title"><a href="https://rationalwalk.com/greg-abels-2026-letter-to-shareholders/" target="_blank">Greg Abel's 2026 Letter to Shareholders</a></div>
+      <div class="card-desc">A primeira carta de Greg Abel aos acionistas da Berkshire Hathaway enfatiza a necessidade de preservar a cultura única da empresa.</div>
     </div>
-    <h3 class="card-title"><a href="https://ofdollarsanddata.com/money-talks/" target="_blank">Money Talks: The Price of Status</a></h3>
-    <p class="card-desc">A year ago, I published my second book The Wealth Ladder. It's sold over 100,000 copies worldwide and hit the New York Times bestseller list in its th...</p>
-    <div class="card-footer">
-      <span>Tue, 21 Jul 2026</span>
-      <a href="https://ofdollarsanddata.com/money-talks/" target="_blank">Ler →</a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-wealth">MebFaber</span>
-    </div>
-    <h3 class="card-title"><a href="https://mebfaber.com/2026/08/05/global-stock-market-valuations-2/" target="_blank">Global Stock Market Valuations</a></h3>
-    <p class="card-desc">Via The Idea Farm&#8230;go sign up to get updates&#8230; Here are the global valuations as of June 30, 2026. Quarterly CAPE Ratio Updates Median CAPE ...</p>
-    <div class="card-footer">
-      <span>Wed, 05 Aug 2026</span>
-      <a href="https://mebfaber.com/2026/08/05/global-stock-market-valuations-2/" target="_blank">Ler →</a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-wealth">MebFaber</span>
-    </div>
-    <h3 class="card-title"><a href="https://mebfaber.com/2026/08/04/351s-going-mainstream/" target="_blank">351s Going Mainstream</a></h3>
-    <p class="card-desc">Both the WSJ and Bloomberg covered 351s recently. #6 coming this fall. Get up to speed here: https://cambriafunds.com/351
-The post 351s Going Mainstre...</p>
-    <div class="card-footer">
-      <span>Tue, 04 Aug 2026</span>
-      <a href="https://mebfaber.com/2026/08/04/351s-going-mainstream/" target="_blank">Ler →</a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-wealth">MebFaber</span>
-    </div>
-    <h3 class="card-title"><a href="https://mebfaber.com/2026/08/03/gravity-eventually/" target="_blank">Gravity (Eventually)</a></h3>
-    <p class="card-desc">"Since 1957, the 10 largest stocks in the S&#38;P 500 have underperformed an equal-weighted index of the remaining 490 stocks by 2.4% per year. But th...</p>
-    <div class="card-footer">
-      <span>Mon, 03 Aug 2026</span>
-      <a href="https://mebfaber.com/2026/08/03/gravity-eventually/" target="_blank">Ler →</a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-wealth">InvestLikeTheBest</span>
-    </div>
-    <h3 class="card-title"><a href="https://investlikethebest.substack.com/p/valueletter-snap-inc" target="_blank">ValueLetter - Snap Inc.</a></h3>
-    <p class="card-desc">What's the quality and intrinsic value of Snap-on Inc.? Well, Snap-on is a really great company. Find out, why!</p>
-    <div class="card-footer">
-      <span>Fri, 22 Mar 2024</span>
-      <a href="https://investlikethebest.substack.com/p/valueletter-snap-inc" target="_blank">Ler →</a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-wealth">InvestLikeTheBest</span>
-    </div>
-    <h3 class="card-title"><a href="https://investlikethebest.substack.com/p/excess-return-with-minimized-risk" target="_blank">Excess Return with Minimized Risk</a></h3>
-    <p class="card-desc">It's a common belief that the higher the return one wants to achieve, the higher the risk one has to take. But that's not always true.</p>
-    <div class="card-footer">
-      <span>Sat, 16 Mar 2024</span>
-      <a href="https://investlikethebest.substack.com/p/excess-return-with-minimized-risk" target="_blank">Ler →</a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-wealth">InvestLikeTheBest</span>
-    </div>
-    <h3 class="card-title"><a href="https://investlikethebest.substack.com/p/valueletter-intel-inc" target="_blank">ValueLetter - Intel® Inc.</a></h3>
-    <p class="card-desc">What's the quality and intrinsic value of Intel&#174; Inc.?</p>
-    <div class="card-footer">
-      <span>Wed, 13 Mar 2024</span>
-      <a href="https://investlikethebest.substack.com/p/valueletter-intel-inc" target="_blank">Ler →</a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-wealth">AWealthOfCommonSense</span>
-    </div>
-    <h3 class="card-title"><a href="https://awealthofcommonsense.com/2026/08/investing-is-a-game-of-survival/" target="_blank">Investing is a Game of Survival</a></h3>
-    <p class="card-desc">Why you shouldn't use leverage when investing, even if you're young.
-The post Investing is a Game of Survival appeared first on A Wealth of Common Sen...</p>
-    <div class="card-footer">
-      <span>Thu, 06 Aug 2026</span>
-      <a href="https://awealthofcommonsense.com/2026/08/investing-is-a-game-of-survival/" target="_blank">Ler →</a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-wealth">AWealthOfCommonSense</span>
-    </div>
-    <h3 class="card-title"><a href="https://awealthofcommonsense.com/2026/08/animal-spirits-when-genius-failed-again/" target="_blank">Animal Spirits: When Genius Failed, Again</a></h3>
-    <p class="card-desc">On today's show we discuss a crazy month in the stock market, Situational Awareness, leverage always gets you, the semiconductor crash, 60/40 will nev...</p>
-    <div class="card-footer">
-      <span>Wed, 05 Aug 2026</span>
-      <a href="https://awealthofcommonsense.com/2026/08/animal-spirits-when-genius-failed-again/" target="_blank">Ler →</a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="source-pill pill-wealth">AWealthOfCommonSense</span>
-    </div>
-    <h3 class="card-title"><a href="https://awealthofcommonsense.com/2026/08/spending-money/" target="_blank">Spending Money</a></h3>
-    <p class="card-desc">Why does the economy continue to grow?
-The post Spending Money appeared first on A Wealth of Common Sense.
-...</p>
-    <div class="card-footer">
-      <span>Tue, 04 Aug 2026</span>
-      <a href="https://awealthofcommonsense.com/2026/08/spending-money/" target="_blank">Ler →</a>
-    </div>
+
   </div>
 </div>
-</section>
-<section class="section">
-<h2 class="section-title">🐦 Twitter/X <span class="count">10 perfis</span></h2>
-<div class="cards">
-  <div class="twitter-card">
-    <div class="twitter-handle">@ttunguz</div>
-    <p class="twitter-preview">@Anvario Do you have enough log data to be able to automatically rewrite the skills?</p>
-    <div class="twitter-meta">5 tweets recentes</div>
+
+<!-- ══════════ TWITTER ══════════ -->
+<div class="section">
+  <div class="section-label">
+    <span class="section-pill twitter">X</span>
+    <span class="section-title">Twitter / X</span>
+    <div class="section-divider"></div>
   </div>
-  <div class="twitter-card">
-    <div class="twitter-handle">@chamath</div>
-    <p class="twitter-preview">Pod!!!! Absolute banger with @bgurley https://t.co/Q1TLRFi4XC</p>
-    <div class="twitter-meta">5 tweets recentes</div>
-  </div>
-  <div class="twitter-card">
-    <div class="twitter-handle">@jason</div>
-    <p class="twitter-preview">Join our mailing list today! Help us stay in touch with you. http://t.co/oAXLSwYe</p>
-    <div class="twitter-meta">5 tweets recentes</div>
-  </div>
-  <div class="twitter-card">
-    <div class="twitter-handle">@alexisohanian</div>
-    <p class="twitter-preview">@trackerati Doing our best! More to do</p>
-    <div class="twitter-meta">5 tweets recentes</div>
-  </div>
-  <div class="twitter-card">
-    <div class="twitter-handle">@paulg</div>
-    <p class="twitter-preview">@DouglasCarswell @LandsknechtPike By inheriting money. Have you read no history? The tough founder of a dynasty has no way of guaranteeing that his gr</p>
-    <div class="twitter-meta">5 tweets recentes</div>
-  </div>
-  <div class="twitter-card">
-    <div class="twitter-handle">@naval</div>
-    <p class="twitter-preview">Listening to the @trishapaytas podcast two weeks behind and they literally mentioned @RyanScottGraham ‘s band. Wishing you well, Ryan 😊</p>
-    <div class="twitter-meta">5 tweets recentes</div>
-  </div>
-  <div class="twitter-card">
-    <div class="twitter-handle">@pmarca</div>
-    <p class="twitter-preview">Interesting. https://t.co/gp3NIm2Yqp</p>
-    <div class="twitter-meta">5 tweets recentes</div>
-  </div>
-  <div class="twitter-card">
-    <div class="twitter-handle">@_alexlazar</div>
-    <p class="twitter-preview">what’s good? https://t.co/vR2zg653Ju</p>
-    <div class="twitter-meta">5 tweets recentes</div>
-  </div>
-  <div class="twitter-card">
-    <div class="twitter-handle">@gduguid</div>
-    <p class="twitter-preview">@CharlieSheen_ Charlie ur the best and ur a credit to all winning men</p>
-    <div class="twitter-meta">1 tweets recentes</div>
-  </div>
-  <div class="twitter-card">
-    <div class="twitter-handle">@lessin</div>
-    <p class="twitter-preview">I also like tennis ... but are we really at the point that 70% above the fold WSJ is someone losing in the second round? https://t.co/DUqdNPqRt5</p>
-    <div class="twitter-meta">5 tweets recentes</div>
+  <div class="tw-cards">
+
+    <div class="tw-card" style="animation-delay:0ms">
+      <div class="tw-handle">@ttunguz</div>
+      <div class="tw-text">@Anvario Do you have enough log data to be able to automatically rewrite the skills?</div>
+    </div>
+
+    <div class="tw-card" style="animation-delay:60ms">
+      <div class="tw-handle">@chamath</div>
+      <div class="tw-text">Pod!!!! Absolute banger with @bgurley https://t.co/Q1TLRFi4XC</div>
+    </div>
+
+    <div class="tw-card" style="animation-delay:120ms">
+      <div class="tw-handle">@jason</div>
+      <div class="tw-text">Join our mailing list today! Help us stay in touch with you. http://t.co/oAXLSwYe</div>
+    </div>
+
+    <div class="tw-card" style="animation-delay:180ms">
+      <div class="tw-handle">@alexisohanian</div>
+      <div class="tw-text">@trackerati Doing our best! More to do</div>
+    </div>
+
+    <div class="tw-card" style="animation-delay:240ms">
+      <div class="tw-handle">@paulg</div>
+      <div class="tw-text">@DouglasCarswell @LandsknechtPike By inheriting money. Have you read no history? The tough founder of a dynasty has no way of guaranteeing that his gr</div>
+    </div>
+
+    <div class="tw-card" style="animation-delay:300ms">
+      <div class="tw-handle">@naval</div>
+      <div class="tw-text">Listening to the @trishapaytas podcast two weeks behind and they literally mentioned @RyanScottGraham 's band. Wishing you well, Ryan 😊</div>
+    </div>
+
+    <div class="tw-card" style="animation-delay:360ms">
+      <div class="tw-handle">@pmarca</div>
+      <div class="tw-text">Interesting. https://t.co/gp3NIm2Yqp</div>
+    </div>
+
+    <div class="tw-card" style="animation-delay:420ms">
+      <div class="tw-handle">@_alexlazar</div>
+      <div class="tw-text">what's good? https://t.co/vR2zg653Ju</div>
+    </div>
+
+    <div class="tw-card" style="animation-delay:480ms">
+      <div class="tw-handle">@gduguid</div>
+      <div class="tw-text">@CharlieSheen_ Charlie ur the best and ur a credit to all winning men</div>
+    </div>
+
+    <div class="tw-card" style="animation-delay:540ms">
+      <div class="tw-handle">@lessin</div>
+      <div class="tw-text">I also like tennis ... but are we really at the point that 70% above the fold WSJ is someone losing in the second round?</div>
+    </div>
+
   </div>
 </div>
-</section>
-<section class="transparency">
-<h3>📊 Transparency Report</h3>
-<table class="transparency-table">
-<thead>
-<tr>
-  <th>Source</th>
-  <th>Status</th>
-  <th>Articles</th>
-  <th>Tier</th>
-</tr>
-</thead>
-<tbody>
-<tr><td>Stratechery</td><td><span class="status-dot dot-green"></span>✅</td><td>5</td><td>Tier 1</td></tr>
-<tr><td>Not Boring</td><td><span class="status-dot dot-green"></span>✅</td><td>5</td><td>Tier 1</td></tr>
-<tr><td>Brazil Journal</td><td><span class="status-dot dot-green"></span>✅</td><td>5</td><td>Tier 1</td></tr>
-<tr><td>Import AI</td><td><span class="status-dot dot-green"></span>✅</td><td>5</td><td>Tier 1</td></tr>
-<tr><td>Bens Bites</td><td><span class="status-dot dot-green"></span>✅</td><td>5</td><td>Tier 1</td></tr>
-<tr><td>Last Week AI</td><td><span class="status-dot dot-green"></span>✅</td><td>5</td><td>Tier 2</td></tr>
-<tr><td>VentureBeat AI</td><td><span class="status-dot dot-green"></span>✅</td><td>5</td><td>Tier 2</td></tr>
-<tr><td>NeoFeed</td><td><span class="status-dot dot-green"></span>✅</td><td>5</td><td>Tier 2</td></tr>
-<tr><td>Startupi</td><td><span class="status-dot dot-green"></span>✅</td><td>5</td><td>Tier 2</td></tr>
-<tr><td>Femstreet</td><td><span class="status-dot dot-green"></span>✅</td><td>5</td><td>Tier 2</td></tr>
-<tr><td>Venture Unlocked</td><td><span class="status-dot dot-green"></span>✅</td><td>5</td><td>Tier 2</td></tr>
-<tr><td>Newcomer</td><td><span class="status-dot dot-green"></span>✅</td><td>5</td><td>Tier 2</td></tr>
-<tr><td>Of Dollars And Data</td><td><span class="status-dot dot-green"></span>✅</td><td>5</td><td>Tier 2</td></tr>
-<tr><td>Rational Walk</td><td><span class="status-dot dot-green"></span>✅</td><td>5</td><td>Tier 2</td></tr>
-<tr><td>A Wealth Of Common Sense</td><td><span class="status-dot dot-green"></span>✅</td><td>5</td><td>Tier 2</td></tr>
-<tr><td>Meb Faber</td><td><span class="status-dot dot-green"></span>✅</td><td>5</td><td>Tier 2</td></tr>
-<tr><td>Invest Like The Best</td><td><span class="status-dot dot-green"></span>✅</td><td>3</td><td>Tier 2</td></tr>
-<tr><td>Exame</td><td><span class="status-dot dot-green"></span>✅</td><td>5</td><td>Tier 2</td></tr>
-<tr><td>TechCrunch</td><td><span class="status-dot dot-green"></span>✅</td><td>5</td><td>Tier 2</td></tr>
-<tr><td>StartupsBR</td><td><span class="status-dot dot-green"></span>✅</td><td>5</td><td>Tier 2</td></tr>
-</tbody>
-</table>
-</section>
-<footer class="footer-note">
-<p>Gerado em 2026-08-13 11:02 · IVC Content Curation · Total: 20 fontes, 93 artigos, 10 perfis Twitter</p>
+
+<!-- ══════════ TRANSPARENCY ══════════ -->
+<div class="transparency">
+  <div class="trans-title">Relatório de Transparência</div>
+  <table>
+    <thead>
+      <tr>
+        <th>Fonte</th>
+        <th>Categoria</th>
+        <th>Status</th>
+        <th>Artigos</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="source-name">Stratechery</td><td>global</td><td><span class="dot dot-green"></span>✅ Acessada</td><td>5</td></tr>
+      <tr><td class="source-name">NotBoring</td><td>global</td><td><span class="dot dot-green"></span>✅ Acessada</td><td>5</td></tr>
+      <tr><td class="source-name">BrazilJournal</td><td>brasil</td><td><span class="dot dot-green"></span>✅ Acessada</td><td>5</td></tr>
+      <tr><td class="source-name">NeoFeed</td><td>brasil</td><td><span class="dot dot-green"></span>✅ Acessada</td><td>5</td></tr>
+      <tr><td class="source-name">Startupi</td><td>brasil</td><td><span class="dot dot-green"></span>✅ Acessada</td><td>5</td></tr>
+      <tr><td class="source-name">Exame</td><td>brasil</td><td><span class="dot dot-green"></span>✅ Acessada</td><td>5</td></tr>
+      <tr><td class="source-name">StartupsBR</td><td>brasil</td><td><span class="dot dot-green"></span>✅ Acessada</td><td>5</td></tr>
+      <tr><td class="source-name">ImportAI</td><td>global</td><td><span class="dot dot-green"></span>✅ Acessada</td><td>5</td></tr>
+      <tr><td class="source-name">BensBites</td><td>global</td><td><span class="dot dot-green"></span>✅ Acessada</td><td>5</td></tr>
+      <tr><td class="source-name">LastWeekAI</td><td>global</td><td><span class="dot dot-green"></span>✅ Acessada</td><td>5</td></tr>
+      <tr><td class="source-name">VentureBeatAI</td><td>global</td><td><span class="dot dot-green"></span>✅ Acessada</td><td>5</td></tr>
+      <tr><td class="source-name">Newcomer</td><td>global</td><td><span class="dot dot-green"></span>✅ Acessada</td><td>5</td></tr>
+      <tr><td class="source-name">VentureUnlocked</td><td>global</td><td><span class="dot dot-green"></span>✅ Acessada</td><td>5</td></tr>
+      <tr><td class="source-name">Femstreet</td><td>global</td><td><span class="dot dot-green"></span>✅ Acessada</td><td>5</td></tr>
+      <tr><td class="source-name">OfDollarsAndData</td><td>global</td><td><span class="dot dot-green"></span>✅ Acessada</td><td>5</td></tr>
+      <tr><td class="source-name">RationalWalk</td><td>global</td><td><span class="dot dot-green"></span>✅ Acessada</td><td>5</td></tr>
+      <tr><td class="source-name">AWealthOfCommonSense</td><td>global</td><td><span class="dot dot-green"></span>✅ Acessada</td><td>5</td></tr>
+      <tr><td class="source-name">MebFaber</td><td>global</td><td><span class="dot dot-green"></span>✅ Acessada</td><td>5</td></tr>
+      <tr><td class="source-name">InvestLikeTheBest</td><td>global</td><td><span class="dot dot-green"></span>✅ Acessada</td><td>3</td></tr>
+      <tr><td class="source-name">TechCrunch</td><td>global</td><td><span class="dot dot-green"></span>✅ Acessada</td><td>5</td></tr>
+      <tr><td class="source-name">TheFullRatchet</td><td>global</td><td><span class="dot dot-red"></span>❌ Falhou</td><td>0</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<footer>
+  <a href="https://github.com/amurepinho2/hermes-knowledge/tree/main/curadoria">IVC Content Curation</a> · 2026-08-07 · 21 fontes · 98 artigos · 10 perfis Twitter
 </footer>
+
 </div>
 </body>
 </html>
