@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Curadoria IVC — 2026-08-25</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+
+:root {
+  --ivc-yellow: #FFBA00;
+  --ivc-ink: #1A1B1F;
+  --bg: #0d0d0f;
+  --card-bg: #18181f;
+  --card-border: #2a2a35;
+  --text-primary: #f0f0f5;
+  --text-secondary: #9999a8;
+  --text-muted: #666670;
+  --accent: #FFBA00;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --radius: 12px;
+  --spacing: 4px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text-primary); font-family: var(--font-body); line-height: 1.6; padding: 24px 16px 80px; max-width: 760px; margin: 0 auto; }
+.header { text-align: center; margin-bottom: 32px; border-bottom: 1px solid var(--card-border); padding-bottom: 24px; }
+.header-date { font-family: var(--font-mono); font-size: 12px; color: var(--ivc-yellow); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+.header-title { font-family: var(--font-display); font-size: 36px; color: var(--text-primary); margin-bottom: 4px; }
+.header-subtitle { color: var(--text-secondary); font-size: 14px; }
+.stats-strip { display: flex; gap: 16px; justify-content: center; margin: 16px 0; flex-wrap: wrap; }
+.stat { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; padding: 8px 16px; text-align: center; }
+.stat-n { font-family: var(--font-mono); font-size: 22px; color: var(--ivc-yellow); }
+.stat-l { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+.section { margin-bottom: 36px; }
+.section-label { font-family: var(--font-mono); font-size: 11px; color: var(--ivc-yellow); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; padding-bottom: 6px; border-bottom: 1px solid var(--card-border); }
+.cards { display: flex; flex-direction: column; gap: 12px; }
+.card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: var(--radius); padding: 16px; animation: fadeUp 0.4s ease both; }
+.card:hover { border-color: var(--ivc-yellow); }
+.card-source { display: inline-block; font-family: var(--font-mono); font-size: 10px; background: var(--ivc-yellow); color: var(--ivc-ink); padding: 2px 8px; border-radius: 4px; margin-bottom: 8px; font-weight: 700; letter-spacing: 0.5px; }
+.card-title { font-family: var(--font-display); font-size: 17px; color: var(--text-primary); margin-bottom: 8px; line-height: 1.35; }
+.card-title a { color: inherit; text-decoration: none; }
+.card-title a:hover { color: var(--ivc-yellow); }
+.card-desc { font-size: 13px; color: var(--text-secondary); margin-bottom: 10px; line-height: 1.55; }
+.card-footer { font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); }
+.card-footer a { color: var(--text-muted); text-decoration: none; }
+.card-footer a:hover { color: var(--ivc-yellow); }
+.twitter-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.twitter-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: var(--radius); padding: 12px 14px; font-size: 13px; color: var(--text-secondary); }
+.twitter-card .handle { font-family: var(--font-mono); font-size: 11px; color: var(--ivc-yellow); margin-bottom: 4px; }
+.transparency { margin-top: 40px; border-top: 1px solid var(--card-border); padding-top: 24px; }
+.transparency h3 { font-family: var(--font-mono); font-size: 11px; color: var(--ivc-yellow); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; }
+.trans-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.trans-table th { font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase; text-align: left; padding: 4px 8px; border-bottom: 1px solid var(--card-border); }
+.trans-table td { padding: 5px 8px; border-bottom: 1px solid #222230; color: var(--text-secondary); vertical-align: middle; }
+.dot-ok { color: #4ade80; } .dot-warn { color: #fbbf24; } .dot-fail { color: #f87171; }
+.footer { text-align: center; margin-top: 40px; font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-date">2026-08-25</div>
+  <div class="header-title">📰 Curadoria IVC</div>
+  <div class="header-subtitle">Startups · Venture Capital · Tecnologia</div>
+  <div class="stats-strip">
+    <div class="stat"><div class="stat-n">21</div><div class="stat-l">Feeds</div></div>
+    <div class="stat"><div class="stat-n">20</div><div class="stat-l">Acessados</div></div>
+    <div class="stat"><div class="stat-n">98</div><div class="stat-l">Artigos</div></div>
+    <div class="stat"><div class="stat-n">10</div><div class="stat-l">Tweets</div></div>
+  </div>
+</div>
+
+<div class="section"><div class="section-label">🤖 AI</div><div class="cards"><div class="card" style="animation-delay: 0ms;">
+  <span class="card-source">ImportAI</span>
+  <div class="card-title"><a href="https://importai.substack.com/p/import-ai-470-no-rights-for-machines" target="_blank">Import AI 470: No rights for machines; automating environment generation with SPADE; and building better GPU kernels wit</a></div>
+  <div class="card-desc">Differential acceleration of cyber, math, and AI</div>
+  <div class="card-footer"><a href="https://importai.substack.com/p/import-ai-470-no-rights-for-machines" target="_blank">https://importai.substack.com/p/import-ai-470-no-rights-for-machines…</a></div>
+</div><div class="card" style="animation-delay: 50ms;">
+  <span class="card-source">VentureBeatAI</span>
+  <div class="card-title"><a href="https://venturebeat.com/technology/google-just-redesigned-the-search-box-for-the-first-time-in-25-years-heres-why-it-matters-more-than-you-think" target="_blank">Google just redesigned the search box for the first time in 25 years — here’s why it matters more than you think.</a></div>
+  <div class="card-desc">For a quarter century, the Google search box has been one of the most recognizable interfaces in computing: a thin white rectangle, a blinking cursor, a few typed words, and a list of blue links. On T</div>
+  <div class="card-footer"><a href="https://venturebeat.com/technology/google-just-redesigned-the-search-box-for-the-first-time-in-25-years-heres-why-it-matters-more-than-you-think" target="_blank">https://venturebeat.com/technology/google-just-redesigned-the-search-b…</a></div>
+</div></div></div><div class="section"><div class="section-label">💰 VC / Global</div><div class="cards"><div class="card" style="animation-delay: 0ms;">
+  <span class="card-source">Stratechery</span>
+  <div class="card-title"><a href="https://stratechery.com/2026/autonomy-and-innovation/" target="_blank">Autonomy and Innovation</a></div>
+  <div class="card-desc">Incentives favor offense when it comes to agentic cybersecurity; it's the same dynamic that will limit incumbents and fuel startups in the long run.</div>
+  <div class="card-footer"><a href="https://stratechery.com/2026/autonomy-and-innovation/" target="_blank">https://stratechery.com/2026/autonomy-and-innovation/…</a></div>
+</div><div class="card" style="animation-delay: 50ms;">
+  <span class="card-source">Newcomer</span>
+  <div class="card-title"><a href="https://www.newcomer.co/p/two-huge-exits-show-the-power-of" target="_blank">Two Huge Exits Show the Power of a16z’s Megafund Model</a></div>
+  <div class="card-desc">Plus, the latest on OpenAI & Anthropic financials & the data center backlash builds.</div>
+  <div class="card-footer"><a href="https://www.newcomer.co/p/two-huge-exits-show-the-power-of" target="_blank">https://www.newcomer.co/p/two-huge-exits-show-the-power-of…</a></div>
+</div></div></div><div class="section"><div class="section-label">🇧🇷 Brasil</div><div class="cards"><div class="card" style="animation-delay: 0ms;">
+  <span class="card-source">StartupsBR</span>
+  <div class="card-title"><a href="https://startups.com.br/negocios/hugging-face-negocia-venda-por-us-13b-apos-dizer-nao-a-nvidia/" target="_blank">Hugging Face negocia venda por US$ 13B após dizer não à Nvidia</a></div>
+  <div class="card-desc">Logo da Hugging Face | Crédito: DivulgaçãoStartup teria recebido propostas de potenciais compradores e conversa com bancos para avaliar uma eventual venda
+O post Hugging Face negocia venda por US$ 13B</div>
+  <div class="card-footer"><a href="https://startups.com.br/negocios/hugging-face-negocia-venda-por-us-13b-apos-dizer-nao-a-nvidia/" target="_blank">https://startups.com.br/negocios/hugging-face-negocia-venda-por-us-13b…</a></div>
+</div><div class="card" style="animation-delay: 50ms;">
+  <span class="card-source">BrazilJournal</span>
+  <div class="card-title"><a href="https://braziljournal.com/a-era-do-uranio-barato-esta-acabando-diz-a-maior-produtora-global/" target="_blank">“A era do urânio barato está acabando,” diz a maior produtora global</a></div>
+  <div class="card-desc">Enquanto diversos países anunciam planos de retomar os investimentos em energia nuclear, mineradoras de urânio em todo o mundo enfrentam aumentos em seus custos operacionais e atrasos em projetos de e</div>
+  <div class="card-footer"><a href="https://braziljournal.com/a-era-do-uranio-barato-esta-acabando-diz-a-maior-produtora-global/" target="_blank">https://braziljournal.com/a-era-do-uranio-barato-esta-acabando-diz-a-m…</a></div>
+</div></div></div><div class="section"><div class="section-label">📈 Wealth</div><div class="cards"><div class="card" style="animation-delay: 0ms;">
+  <span class="card-source">OfDollarsAndData</span>
+  <div class="card-title"><a href="https://ofdollarsanddata.com/the-best-way-to-sell-a-concentrated-position/" target="_blank">The Best Way to Sell a Concentrated Position</a></div>
+  <div class="card-desc">Imagine being the typical SpaceX employee over the last few months. Your shares IPO at $135 and within a few days they peak at $225/share (up 67%) before they begin to decline. As of this morning they</div>
+  <div class="card-footer"><a href="https://ofdollarsanddata.com/the-best-way-to-sell-a-concentrated-position/" target="_blank">https://ofdollarsanddata.com/the-best-way-to-sell-a-concentrated-posit…</a></div>
+</div><div class="card" style="animation-delay: 50ms;">
+  <span class="card-source">RationalWalk</span>
+  <div class="card-title"><a href="https://rationalwalk.com/greg-abels-2026-letter-to-shareholders/" target="_blank">Greg Abel's 2026 Letter to Shareholders</a></div>
+  <div class="card-desc">Greg Abel's first letter to Berkshire Hathaway shareholders emphasized the need to keep the company's unique culture.</div>
+  <div class="card-footer"><a href="https://rationalwalk.com/greg-abels-2026-letter-to-shareholders/" target="_blank">https://rationalwalk.com/greg-abels-2026-letter-to-shareholders/…</a></div>
+</div></div></div><div class="section"><div class="section-label">🔧 Tech</div><div class="cards"><div class="card" style="animation-delay: 0ms;">
+  <span class="card-source">TechCrunch</span>
+  <div class="card-title"><a href="https://techcrunch.com/2026/08/24/indias-airbound-bags-37m-to-take-on-trucks-with-rocket-like-drones/" target="_blank">India's Airbound bags $37M to take on trucks with rocket-like drones</a></div>
+  <div class="card-desc">Airbound's ultra-lightweight approach to drone delivery has attracted backing from Greenoaks, DoorDash, and Silicon Valley investor Lachy Groom.</div>
+  <div class="card-footer"><a href="https://techcrunch.com/2026/08/24/indias-airbound-bags-37m-to-take-on-trucks-with-rocket-like-drones/" target="_blank">https://techcrunch.com/2026/08/24/indias-airbound-bags-37m-to-take-on-…</a></div>
+</div></div></div>
+
+<div class="section"><div class="section-label">𝕏 Twitter — Destaques</div><div class="twitter-grid"><div class="twitter-card"><div class="handle">@ttunguz</div><div>Do you have enough log data to be able to automatically rewrite the skills?</div></div><div class="twitter-card"><div class="handle">@chamath</div><div>Pod!!!! Absolute banger with @bgurley</div></div><div class="twitter-card"><div class="handle">@pmarca</div><div>Interesting.</div></div><div class="twitter-card"><div class="handle">@paulg</div><div>@DouglasCarswell By inheriting money. Have you read no history?</div></div><div class="twitter-card"><div class="handle">@lessin</div><div>are we really at the point that 70% above the fold WSJ is someone losing in the second round?</div></div></div></div>
+
+<div class="transparency">
+<h3>📡 Transparency Report</h3>
+<table class="trans-table">
+<thead><tr><th></th><th>Source</th><th>Category</th><th>Articles</th></tr></thead>
+<tbody><tr><td><span class='dot-ok'>✅</span></td><td>AWealthOfCommonSense</td><td>global</td><td>5</td></tr><tr><td><span class='dot-ok'>✅</span></td><td>BensBites</td><td>global</td><td>5</td></tr><tr><td><span class='dot-ok'>✅</span></td><td>BrazilJournal</td><td>brasil</td><td>5</td></tr><tr><td><span class='dot-ok'>✅</span></td><td>Exame</td><td>brasil</td><td>5</td></tr><tr><td><span class='dot-ok'>✅</span></td><td>Femstreet</td><td>global</td><td>5</td></tr><tr><td><span class='dot-ok'>✅</span></td><td>ImportAI</td><td>global</td><td>5</td></tr><tr><td><span class='dot-ok'>✅</span></td><td>InvestLikeTheBest</td><td>global</td><td>3</td></tr><tr><td><span class='dot-ok'>✅</span></td><td>LastWeekAI</td><td>global</td><td>5</td></tr><tr><td><span class='dot-ok'>✅</span></td><td>MebFaber</td><td>global</td><td>5</td></tr><tr><td><span class='dot-ok'>✅</span></td><td>NeoFeed</td><td>brasil</td><td>5</td></tr><tr><td><span class='dot-ok'>✅</span></td><td>Newcomer</td><td>global</td><td>5</td></tr><tr><td><span class='dot-ok'>✅</span></td><td>NotBoring</td><td>global</td><td>5</td></tr><tr><td><span class='dot-ok'>✅</span></td><td>OfDollarsAndData</td><td>global</td><td>5</td></tr><tr><td><span class='dot-ok'>✅</span></td><td>RationalWalk</td><td>global</td><td>5</td></tr><tr><td><span class='dot-ok'>✅</span></td><td>Startupi</td><td>brasil</td><td>5</td></tr><tr><td><span class='dot-ok'>✅</span></td><td>StartupsBR</td><td>brasil</td><td>5</td></tr><tr><td><span class='dot-ok'>✅</span></td><td>Stratechery</td><td>global</td><td>5</td></tr><tr><td><span class='dot-ok'>✅</span></td><td>TechCrunch</td><td>global</td><td>5</td></tr><tr><td><span class='dot-fail'>❌</span></td><td>TheFullRatchet</td><td>global</td><td>0</td></tr><tr><td><span class='dot-ok'>✅</span></td><td>VentureBeatAI</td><td>global</td><td>5</td></tr><tr><td><span class='dot-ok'>✅</span></td><td>VentureUnlocked</td><td>global</td><td>5</td></tr></tbody>
+</table>
+</div>
+
+<div class="footer">
+  Curadoria automática · IVC · 2026-08-25 · Feito com Hermes Agent
+</div>
+</body>
+</html>
