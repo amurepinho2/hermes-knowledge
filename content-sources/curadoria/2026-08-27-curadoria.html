@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Curadoria IVC — 2026-08-27</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --accent:#FFBA00;
+  --bg:#0d0d0f;
+  --card:#18181f;
+  --text:#f0f0f0;
+  --muted:#888;
+  --ink:#1A1B1F;
+  --r:12px;
+  --sp:4px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:Inter,Arial,sans-serif;min-height:100vh;padding:24px}
+.header{text-align:center;padding:32px 0 24px;border-bottom:1px solid #2a2a30;margin-bottom:32px}
+.header .date{font-family:JetBrains Mono,monospace;font-size:12px;color:var(--muted);letter-spacing:2px;text-transform:uppercase}
+.header h1{font-family:Playfair Display,Georgia,serif;font-size:2.4rem;color:var(--accent);margin:8px 0 16px}
+.stats-strip{display:flex;gap:24px;justify-content:center;margin-bottom:32px;flex-wrap:wrap}
+.stat{background:var(--card);border:1px solid #2a2a30;border-radius:var(--r);padding:12px 24px;text-align:center}
+.stat .num{font-size:1.8rem;font-weight:700;color:var(--accent)}
+.stat .label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+
+.section{margin-bottom:40px}
+.section-title{font-size:1.1rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:16px;display:flex;align-items:center;gap:10px;font-family:Inter}
+.section-dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid #2a2a30;border-radius:var(--r);padding:20px;display:flex;flex-direction:column;gap:10px;transition:transform .2s,border-color .2s}
+.card:hover{transform:translateY(-2px);border-color:var(--accent)}
+.card h3{font-size:1rem;font-weight:600;line-height:1.4}
+.card h3 a{color:var(--text);text-decoration:none}
+.card h3 a:hover{color:var(--accent)}
+.card p{font-size:13px;color:var(--muted);line-height:1.6;flex:1}
+.pill{font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;border-radius:20px;padding:3px 10px;width:fit-content}
+.read-link{font-size:12px;color:var(--accent);text-decoration:none;font-weight:500}
+.read-link:hover{text-decoration:underline}
+
+.tw-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.tw-card{background:var(--card);border:1px solid #2a2a30;border-radius:var(--r);padding:16px}
+.tw-handle{font-family:JetBrains Mono,monospace;font-size:12px;color:var(--accent);font-weight:600}
+.tw-card p{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.5}
+
+.transparency{margin-top:48px;padding-top:32px;border-top:1px solid #2a2a30}
+.transparency h2{font-size:13px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:16px}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid #2a2a30}
+th{color:var(--muted);text-transform:uppercase;letter-spacing:.5px;font-weight:500}
+.status-ok{color:#4ade80}
+.status-fail{color:#f87171}
+.status-warn{color:#fbbf24}
+
+.footer{text-align:center;padding:32px 0 16px;color:var(--muted);font-size:11px}
+@media(max-width:600px){.cards{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="header">
+  <div class="date">2026-08-27</div>
+  <h1>Curadoria IVC</h1>
+  <div class="stats-strip">
+    <div class="stat"><div class="num">20</div><div class="label">Fontes Testadas</div></div>
+    <div class="stat"><div class="num">20</div><div class="label">Fontes Acessadas</div></div>
+    <div class="stat"><div class="num">98</div><div class="label">Artigos Coletados</div></div>
+    <div class="stat"><div class="num">10</div><div class="label">Perfis Twitter</div></div>
+  </div>
+</header>
+
+
+<section class="section">
+  <h2 class="section-title"><span class="section-dot" style="background:#a78bfa"></span>🤖 AI & Machine Learning</h2>
+  <div class="cards">
+  <article class="card">
+    <span class="pill" style="background:#a78bfa22;color:#a78bfa;border:1px solid #a78bfa44"></span>
+    <h3><a href="https://importai.substack.com/p/import-ai-470-no-rights-for-machines" target="_blank">Import AI 470: No rights for machines; automating environment generation with SPADE; and building better GPU kernels with Hawkeye</a></h3>
+    <p>Differential acceleration of cyber, math, and AI...</p>
+    <a href="https://importai.substack.com/p/import-ai-470-no-rights-for-machines" target="_blank" class="read-link">Ler →</a>
+  </article>
+
+  <article class="card">
+    <span class="pill" style="background:#a78bfa22;color:#a78bfa;border:1px solid #a78bfa44"></span>
+    <h3><a href="https://importai.substack.com/p/import-ai-469-science-ai-rsi-simulator" target="_blank">Import AI 469: Science AI; RSI simulator; and Zuck's technological pessimism</a></h3>
+    <p>The new frontier of AI is developing capable autonomous researchers...</p>
+    <a href="https://importai.substack.com/p/import-ai-469-science-ai-rsi-simulator" target="_blank" class="read-link">Ler →</a>
+  </article>
+  </div>
+</section>
+
+<section class="section">
+  <h2 class="section-title"><span class="section-dot" style="background:#FFBA00"></span>🌐 VC / Global</h2>
+  <div class="cards">
+  <article class="card">
+    <span class="pill" style="background:#FFBA0022;color:#FFBA00;border:1px solid #FFBA0044"></span>
+    <h3><a href="https://stratechery.com/2026/apple-updates-mini-and-studio-ai-computers-openai-jalapeno/" target="_blank">Apple Updates Mini and Studio, AI Computers, OpenAI Jalapeño</a></h3>
+    <p>Apple and OpenAI have two completely different hardware announcements; both represent pressure on Nvidia....</p>
+    <a href="https://stratechery.com/2026/apple-updates-mini-and-studio-ai-computers-openai-jalapeno/" target="_blank" class="read-link">Ler →</a>
+  </article>
+
+  <article class="card">
+    <span class="pill" style="background:#FFBA0022;color:#FFBA00;border:1px solid #FFBA0044"></span>
+    <h3><a href="https://stratechery.com/2026/netflix-to-sell-streaming-services-streamers-as-aggregators-revisiting-roku/" target="_blank">Netflix to Sell Streaming Services?, Streamers as Aggregators, Revisiting Roku</a></h3>
+    <p>Netflix is considering selling other streaming services, and I think it's a good idea; it's also a let-down for Netflix's original goals and potential pivots....</p>
+    <a href="https://stratechery.com/2026/netflix-to-sell-streaming-services-streamers-as-aggregators-revisiting-roku/" target="_blank" class="read-link">Ler →</a>
+  </article>
+  </div>
+</section>
+
+<section class="section">
+  <h2 class="section-title"><span class="section-dot" style="background:#34d399"></span>🇧🇷 Brasil</h2>
+  <div class="cards">
+  <article class="card">
+    <span class="pill" style="background:#34d39922;color:#34d399;border:1px solid #34d39944"></span>
+    <h3><a href="https://braziljournal.com/bill-gates-big-techs-estao-escondendo-os-riscos-da-ai/" target="_blank">Bill Gates: Big Techs estão escondendo os riscos da AI</a></h3>
+    <p>A transição para a era da inteligência artificial será um dos períodos mais turbulentos da história da humanidade – e, neste momento, não estamos nos preparando adequadamente para ...</p>
+    <a href="https://braziljournal.com/bill-gates-big-techs-estao-escondendo-os-riscos-da-ai/" target="_blank" class="read-link">Ler →</a>
+  </article>
+
+  <article class="card">
+    <span class="pill" style="background:#34d39922;color:#34d399;border:1px solid #34d39944"></span>
+    <h3><a href="https://braziljournal.com/esfiha-de-juros-habibs-entra-em-rj-com-dividas-de-r-265-milhoes/" target="_blank">Nem a esfiha aguenta essa Selic: Habib’s entra em RJ</a></h3>
+    <p>Até a esfiha azeda com essa Selic. Dois meses depois de entrar com uma cautelar contra os credores, o Grupo Gennius – dono das marcas Habib’s, Ragazzo e Tendal – entrou em recupera...</p>
+    <a href="https://braziljournal.com/esfiha-de-juros-habibs-entra-em-rj-com-dividas-de-r-265-milhoes/" target="_blank" class="read-link">Ler →</a>
+  </article>
+  </div>
+</section>
+
+<section class="section">
+  <h2 class="section-title"><span class="section-dot" style="background:#60a5fa"></span>💰 Wealth & Investing</h2>
+  <div class="cards">
+  <article class="card">
+    <span class="pill" style="background:#60a5fa22;color:#60a5fa;border:1px solid #60a5fa44"></span>
+    <h3><a href="https://rationalwalk.com/greg-abels-2026-letter-to-shareholders/" target="_blank">Greg Abel's 2026 Letter to Shareholders</a></h3>
+    <p>Greg Abel's first letter to Berkshire Hathaway shareholders emphasized the need to keep the company's unique culture....</p>
+    <a href="https://rationalwalk.com/greg-abels-2026-letter-to-shareholders/" target="_blank" class="read-link">Ler →</a>
+  </article>
+
+  <article class="card">
+    <span class="pill" style="background:#60a5fa22;color:#60a5fa;border:1px solid #60a5fa44"></span>
+    <h3><a href="https://rationalwalk.com/greg-abels-unique-challenge/" target="_blank">Greg Abel's Unique Challenge</a></h3>
+    <p>Greg Abel takes over as Chief Executive Officer of Berkshire Hathaway on January 1, 2026, a job that will involve at least three major challenges....</p>
+    <a href="https://rationalwalk.com/greg-abels-unique-challenge/" target="_blank" class="read-link">Ler →</a>
+  </article>
+  </div>
+</section>
+
+<section class="section">
+  <h2 class="section-title"><span class="section-dot" style="background:#f472b6"></span>📰 Tech (TechCrunch)</h2>
+  <div class="cards">
+  <article class="card">
+    <span class="pill" style="background:#f472b622;color:#f472b6;border:1px solid #f472b644"></span>
+    <h3><a href="https://techcrunch.com/2026/08/26/nvidia-closes-in-on-hugging-face-acquisition/" target="_blank">Nvidia closes in on Hugging Face acquisition</a></h3>
+    <p>Nvidia has reportedly agreed to buy Hugging Face, the popular open-source AI hub, for $12.9 billion in a move that would let Nvidia both protect its chip empire and jump back into ...</p>
+    <a href="https://techcrunch.com/2026/08/26/nvidia-closes-in-on-hugging-face-acquisition/" target="_blank" class="read-link">Ler →</a>
+  </article>
+
+  <article class="card">
+    <span class="pill" style="background:#f472b622;color:#f472b6;border:1px solid #f472b644"></span>
+    <h3><a href="https://techcrunch.com/2026/08/26/viral-ai-startup-instinct-has-raised-350-million-at-a-2-5-billion-valuation/" target="_blank">Viral AI startup Instinct has raised $350M at a $2.5B valuation</a></h3>
+    <p>The startup is only a year old but it has already generated a massive amount of hype (and money) while also spurring privacy concerns....</p>
+    <a href="https://techcrunch.com/2026/08/26/viral-ai-startup-instinct-has-raised-350-million-at-a-2-5-billion-valuation/" target="_blank" class="read-link">Ler →</a>
+  </article>
+  </div>
+</section>
+
+<section class="section">
+  <h2 class="section-title"><span class="section-dot" style="background:#1d9bf0"></span>𝕏 Twitter</h2>
+  <div class="tw-grid">
+  <div class="tw-card">
+    <span class="tw-handle">@ttunguz</span>
+    <p>@Anvario Do you have enough log data to be able to automatically rewrite the skills?</p>
+  </div>
+  <div class="tw-card">
+    <span class="tw-handle">@chamath</span>
+    <p>Pod!!!! Absolute banger with @bgurley https://t.co/Q1TLRFi4XC</p>
+  </div>
+  <div class="tw-card">
+    <span class="tw-handle">@jason</span>
+    <p>Join our mailing list today! Help us stay in touch with you. http://t.co/oAXLSwYe</p>
+  </div>
+  <div class="tw-card">
+    <span class="tw-handle">@alexisohanian</span>
+    <p>@trackerati Doing our best! More to do</p>
+  </div>
+  <div class="tw-card">
+    <span class="tw-handle">@paulg</span>
+    <p>@DouglasCarswell @LandsknechtPike By inheriting money. Have you read no history? The tough founder of a dynasty has no way of guaranteeing that his gr</p>
+  </div>
+  <div class="tw-card">
+    <span class="tw-handle">@naval</span>
+    <p>Listening to the @trishapaytas podcast two weeks behind and they literally mentioned @RyanScottGraham ‘s band. Wishing you well, Ryan 😊</p>
+  </div>
+  <div class="tw-card">
+    <span class="tw-handle">@pmarca</span>
+    <p>Interesting. https://t.co/gp3NIm2Yqp</p>
+  </div>
+  <div class="tw-card">
+    <span class="tw-handle">@_alexlazar</span>
+    <p>what’s good? https://t.co/vR2zg653Ju</p>
+  </div>
+  <div class="tw-card">
+    <span class="tw-handle">@gduguid</span>
+    <p>@CharlieSheen_ Charlie ur the best and ur a credit to all winning men</p>
+  </div>
+  <div class="tw-card">
+    <span class="tw-handle">@lessin</span>
+    <p>I also like tennis ... but are we really at the point that 70% above the fold WSJ is someone losing in the second round? https://t.co/DUqdNPqRt5</p>
+  </div>
+  </div>
+</section>
+
+<div class="transparency">
+  <h2>📡 Transparency Report — 2026-08-27</h2>
+  <table>
+    <thead><tr><th>Source</th><th>Status</th><th>Articles</th><th>Category</th></tr></thead>
+    <tbody>
+      <tr><td>Stratechery</td><td class="status-ok">✅</td><td>5</td><td>VC/Global</td></tr>
+      <tr><td>NotBoring</td><td class="status-ok">✅</td><td>5</td><td>VC/Global</td></tr>
+      <tr><td>BrazilJournal</td><td class="status-ok">✅</td><td>5</td><td>BR</td></tr>
+      <tr><td>ImportAI</td><td class="status-ok">✅</td><td>5</td><td>AI</td></tr>
+      <tr><td>BensBites</td><td class="status-ok">✅</td><td>5</td><td>AI</td></tr>
+      <tr><td>LastWeekAI</td><td class="status-ok">✅</td><td>5</td><td>AI</td></tr>
+      <tr><td>VentureBeatAI</td><td class="status-ok">✅</td><td>5</td><td>AI</td></tr>
+      <tr><td>NeoFeed</td><td class="status-ok">✅</td><td>5</td><td>BR</td></tr>
+      <tr><td>Startupi</td><td class="status-ok">✅</td><td>5</td><td>BR</td></tr>
+      <tr><td>Femstreet</td><td class="status-ok">✅</td><td>5</td><td>VC/Global</td></tr>
+      <tr><td>VentureUnlocked</td><td class="status-ok">✅</td><td>5</td><td>VC/Global</td></tr>
+      <tr><td>Newcomer</td><td class="status-ok">✅</td><td>5</td><td>VC/Global</td></tr>
+      <tr><td>OfDollarsAndData</td><td class="status-ok">✅</td><td>5</td><td>Wealth</td></tr>
+      <tr><td>RationalWalk</td><td class="status-ok">✅</td><td>5</td><td>Wealth</td></tr>
+      <tr><td>AWealthOfCommonSense</td><td class="status-ok">✅</td><td>5</td><td>Wealth</td></tr>
+      <tr><td>MebFaber</td><td class="status-ok">✅</td><td>5</td><td>Wealth</td></tr>
+      <tr><td>InvestLikeTheBest</td><td class="status-ok">✅</td><td>3</td><td>Wealth</td></tr>
+      <tr><td>Exame</td><td class="status-ok">✅</td><td>5</td><td>BR</td></tr>
+      <tr><td>StartupsBR</td><td class="status-ok">✅</td><td>5</td><td>BR</td></tr>
+      <tr><td>TechCrunch</td><td class="status-ok">✅</td><td>5</td><td>Tech</td></tr>
+      <tr><td>TheFullRatchet</td><td class="status-warn">🟡</td><td>0</td><td>VC/Global</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<footer class="footer">
+  IVC Content Curation • 2026-08-27 • gerado automaticamente
+</footer>
+</body>
+</html>
