@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Curadoria IVC — 2026-09-11</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cera+Pro:wght@400;700;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+
+:root {{
+  --bg: #1A1B1F;
+  --surface: #22232a;
+  --surface2: #2a2b33;
+  --accent: #FFBA00;
+  --text: #f0f0f0;
+  --muted: #8a8a9a;
+  --border: #333340;
+  --radius: 12px;
+}}
+* {{ box-sizing: border-box; margin: 0; padding: 0; }}
+body {{ background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; padding: 24px; max-width: 900px; margin: 0 auto; }}
+.ivc-header {{ text-align: center; padding: 40px 0 24px; border-bottom: 1px solid var(--border); margin-bottom: 40px; }}
+.ivc-logo {{ font-family: 'Cera Pro', sans-serif; font-size: 2.4rem; font-weight: 900; color: var(--accent); letter-spacing: -1px; }}
+.ivc-date {{ color: var(--muted); font-size: 0.85rem; margin-top: 8px; font-family: 'JetBrains Mono', monospace; }}
+.stats-strip {{ display: flex; justify-content: center; gap: 32px; margin: 24px 0; flex-wrap: wrap; }}
+.stat {{ text-align: center; }}
+.stat-num {{ font-size: 1.8rem; font-weight: 700; color: var(--accent); font-family: 'Cera Pro', sans-serif; }}
+.stat-label {{ font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }}
+.section {{ margin-bottom: 48px; }}
+.section-header {{ margin-bottom: 20px; }}
+.section-title {{ font-family: 'Cera Pro', sans-serif; font-size: 1.3rem; font-weight: 700; padding-left: 12px; color: var(--text); }}
+.section-desc {{ color: var(--muted); font-size: 0.85rem; margin-top: 4px; padding-left: 16px; }}
+.cards-grid {{ display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 16px; }}
+.card {{ background: var(--surface); border-radius: var(--radius); padding: 20px; border: 1px solid var(--border); animation: fadeUp 0.4s ease both; }}
+@keyframes fadeUp {{ from {{ opacity: 0; transform: translateY(12px); }} to {{ opacity: 1; transform: none; }} }}
+.card:nth-child(1) {{ animation-delay: 0ms; }}
+.card:nth-child(2) {{ animation-delay: 80ms; }}
+.card:nth-child(3) {{ animation-delay: 160ms; }}
+.card:nth-child(4) {{ animation-delay: 240ms; }}
+.card-header {{ display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }}
+.source-pill {{ font-size: 0.7rem; font-weight: 600; padding: 3px 10px; border-radius: 20px; letter-spacing: 0.5px; }}
+.card-date {{ font-size: 0.72rem; color: var(--muted); font-family: 'JetBrains Mono', monospace; }}
+.card-title {{ font-size: 0.95rem; font-weight: 600; margin-bottom: 8px; line-height: 1.35; }}
+.card-title a {{ color: var(--text); text-decoration: none; }}
+.card-title a:hover {{ color: var(--accent); }}
+.card-desc {{ font-size: 0.8rem; color: var(--muted); line-height: 1.5; }}
+.twitter-section {{ background: var(--surface); border-radius: var(--radius); padding: 24px; border: 1px solid var(--border); }}
+.twitter-section h2 {{ font-family: 'Cera Pro', sans-serif; font-size: 1.1rem; margin-bottom: 16px; color: var(--accent); }}
+.tweets-grid {{ display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }}
+.tweet-card {{ background: var(--surface2); border-radius: 8px; padding: 14px; }}
+.tweet-handle {{ font-size: 0.75rem; font-weight: 700; color: var(--accent); font-family: 'JetBrains Mono', monospace; }}
+.tweet-text {{ font-size: 0.78rem; color: var(--text); margin-top: 6px; line-height: 1.4; }}
+.transparency {{ margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--border); }}
+.transparency h2 {{ font-family: 'Cera Pro', sans-serif; font-size: 1rem; color: var(--muted); margin-bottom: 16px; }}
+.transparency table {{ width: 100%; border-collapse: collapse; font-size: 0.78rem; }}
+.transparency th {{ text-align: left; color: var(--muted); padding: 6px 10px; border-bottom: 1px solid var(--border); }}
+.transparency td {{ padding: 6px 10px; border-bottom: 1px solid var(--border); color: var(--text); }}
+.transparency tr:hover {{ background: var(--surface); }}
+.footer {{ text-align: center; padding: 32px 0; color: var(--muted); font-size: 0.72rem; }}
+@media (max-width: 600px) {{
+  body {{ padding: 12px; }}
+  .cards-grid {{ grid-template-columns: 1fr; }}
+  .tweets-grid {{ grid-template-columns: 1fr; }}
+  .stats-strip {{ gap: 16px; }}
+}}
+
+</style>
+</head>
+<body>
+
+<header class="ivc-header">
+  <div class="ivc-logo">IVC Curadoria</div>
+  <div class="ivc-date">2026-09-11 · 11:00 UTC · Edição automática</div>
+  <div class="stats-strip">
+    <div class="stat"><div class="stat-num">20</div><div class="stat-label">Fontes testadas</div></div>
+    <div class="stat"><div class="stat-num">19</div><div class="stat-label">Fontes OK</div></div>
+    <div class="stat"><div class="stat-num">93</div><div class="stat-label">Artigos</div></div>
+    <div class="stat"><div class="stat-num">10</div><div class="stat-label">Perfis Twitter</div></div>
+  </div>
+</header>
+
+
+<section class="section">
+  <div class="section-header">
+    <h2 class="section-title" style="border-left:4px solid #00d4ff">AI & Agents</h2>
+    <p class="section-desc">Modelos, agentes autônomos e produtos de IA.</p>
+  </div>
+  <div class="cards-grid">
+  <article class="card" style="--accent:#00d4ff">
+    <div class="card-header">
+      <span class="source-pill" style="background:#00d4ff22;color:#00d4ff;border:1px solid #00d4ff44">ImportAI</span>
+      <span class="card-date">Mon, 07 Sep 2026</span>
+    </div>
+    <h3 class="card-title"><a href="https://importai.substack.com/p/import-ai-472-deepminds-cheating" target="_blank">Import AI 472: DeepMind's cheating math agents; populist AI policies; and Forethought theorizes a nightwatchman</a></h3>
+    <p class="card-desc">Plus, a machine hermeneutics story</p>
+  </article>
+  <article class="card" style="--accent:#00d4ff">
+    <div class="card-header">
+      <span class="source-pill" style="background:#00d4ff22;color:#00d4ff;border:1px solid #00d4ff44">ImportAI</span>
+      <span class="card-date">Mon, 31 Aug 2026</span>
+    </div>
+    <h3 class="card-title"><a href="https://importai.substack.com/p/import-ai-471-why-hugging-face-worries" target="_blank">Import AI 471: Why Hugging Face worries me; space mining; FIve Eyes on AI</a></h3>
+    <p class="card-desc">Plus, a live event with Robin Sloan!</p>
+  </article>
+  <article class="card" style="--accent:#00d4ff">
+    <div class="card-header">
+      <span class="source-pill" style="background:#00d4ff22;color:#00d4ff;border:1px solid #00d4ff44">BensBites</span>
+      <span class="card-date">Thu, 10 Sep 2026</span>
+    </div>
+    <h3 class="card-title"><a href="https://www.bensbites.com/p/everyone-needs-a-muse" target="_blank">Everyone needs a Muse</a></h3>
+    <p class="card-desc">ChatGPT images got better, again</p>
+  </article>
+  <article class="card" style="--accent:#00d4ff">
+    <div class="card-header">
+      <span class="source-pill" style="background:#00d4ff22;color:#00d4ff;border:1px solid #00d4ff44">BensBites</span>
+      <span class="card-date">Tue, 08 Sep 2026</span>
+    </div>
+    <h3 class="card-title"><a href="https://www.bensbites.com/p/the-first-gpt-6-model" target="_blank">The first GPT-6 model</a></h3>
+    <p class="card-desc">and what I'm building with it</p>
+  </article>
+  </div>
+</section>
+<section class="section">
+  <div class="section-header">
+    <h2 class="section-title" style="border-left:4px solid #a78bfa">VC & Global</h2>
+    <p class="section-desc">Análise de venture capital, estratégias de investimento e tendências globais.</p>
+  </div>
+  <div class="cards-grid">
+  <article class="card" style="--accent:#a78bfa">
+    <div class="card-header">
+      <span class="source-pill" style="background:#a78bfa22;color:#a78bfa;border:1px solid #a78bfa44">Stratechery</span>
+      <span class="card-date">Thu, 10 Sep 2026</span>
+    </div>
+    <h3 class="card-title"><a href="https://stratechery.com/2026/the-iphone-duo-the-intelligent-personal-hub-apple-watch-audio-intelligence/" target="_blank">The iPhone Duo, The Intelligent Personal Hub, Apple Watch Audio Intelligence</a></h3>
+    <p class="card-desc">Apple once again demonstrated the power of integrating hardware and software, but it's biggest AI blindspot might be its belief in the primacy of apps.</p>
+  </article>
+  <article class="card" style="--accent:#a78bfa">
+    <div class="card-header">
+      <span class="source-pill" style="background:#a78bfa22;color:#a78bfa;border:1px solid #a78bfa44">Stratechery</span>
+      <span class="card-date">Wed, 09 Sep 2026</span>
+    </div>
+    <h3 class="card-title"><a href="https://stratechery.com/2026/openai-does-math-reward-hacking-meta-launches-personal-agent/" target="_blank">OpenAI Does Math, Reward-Hacking, Meta Launches Personal Agent</a></h3>
+    <p class="card-desc">OpenAI solving one of the most famous math problems is extremely impressive, and of little impact to most people's lives; Meta's Muse agent launch has the potential to be the exact…</p>
+  </article>
+  <article class="card" style="--accent:#a78bfa">
+    <div class="card-header">
+      <span class="source-pill" style="background:#a78bfa22;color:#a78bfa;border:1px solid #a78bfa44">NotBoring</span>
+      <span class="card-date">Thu, 10 Sep 2026</span>
+    </div>
+    <h3 class="card-title"><a href="https://www.notboring.co/p/an-ode-to-counter-positioning" target="_blank">An Ode to Counter-Positioning</a></h3>
+    <p class="card-desc">How to Buy Time</p>
+  </article>
+  <article class="card" style="--accent:#a78bfa">
+    <div class="card-header">
+      <span class="source-pill" style="background:#a78bfa22;color:#a78bfa;border:1px solid #a78bfa44">NotBoring</span>
+      <span class="card-date">Tue, 08 Sep 2026</span>
+    </div>
+    <h3 class="card-title"><a href="https://www.notboring.co/p/everyone-is-reading-lonesome-dove" target="_blank">Everyone is Reading Lonesome Dove</a></h3>
+    <p class="card-desc">And the Potential Defragmentation of Culture</p>
+  </article>
+  </div>
+</section>
+<section class="section">
+  <div class="section-header">
+    <h2 class="section-title" style="border-left:4px solid #4ade80">Brasil</h2>
+    <p class="section-desc">Funding, M&A e movimento do ecossistema brasileiro.</p>
+  </div>
+  <div class="cards-grid">
+  <article class="card" style="--accent:#4ade80">
+    <div class="card-header">
+      <span class="source-pill" style="background:#4ade8022;color:#4ade80;border:1px solid #4ade8044">BrazilJournal</span>
+      <span class="card-date">Fri, 11 Sep 2026</span>
+    </div>
+    <h3 class="card-title"><a href="https://braziljournal.com/opiniao-tributacao-de-robos-ai-e-dados-existe-um-caminho/" target="_blank">OPINIÃO. Tributação de robôs, AI e dados: existe um caminho?</a></h3>
+    <p class="card-desc">Bill Gates voltou a defender uma ideia que parecia excêntrica quando ele a lançou, quase dez anos atrás: tributar os robôs. Agora, com a inteligência artificial avançando sobre tar…</p>
+  </article>
+  <article class="card" style="--accent:#4ade80">
+    <div class="card-header">
+      <span class="source-pill" style="background:#4ade8022;color:#4ade80;border:1px solid #4ade8044">BrazilJournal</span>
+      <span class="card-date">Fri, 11 Sep 2026</span>
+    </div>
+    <h3 class="card-title"><a href="https://braziljournal.com/sobra-energia-para-os-data-centers-o-gargalo-pode-ser-a-transmissao/" target="_blank">Sobra energia para os data centers. O gargalo pode ser a transmissão</a></h3>
+    <p class="card-desc">Diversas empresas de data centers se animaram para avançar com projetos após a aprovação do Redata no Congresso, mas o movimento já levanta uma dúvida entre os investidores e técni…</p>
+  </article>
+  <article class="card" style="--accent:#4ade80">
+    <div class="card-header">
+      <span class="source-pill" style="background:#4ade8022;color:#4ade80;border:1px solid #4ade8044">NeoFeed</span>
+      <span class="card-date">Fri, 11 Sep 2026</span>
+    </div>
+    <h3 class="card-title"><a href="https://neofeed.com.br/negocios/sergio-zimerman-da-petz-cobasi-dispara-contra-lula-alexandre-de-moraes-e-a-crise-no-varejo/" target="_blank">Sérgio Zimerman, da Petz Cobasi, dispara contra Lula, Alexandre de Moraes e a crise no varejo</a></h3>
+    <p class="card-desc">A três semanas do primeiro turno da eleição presidencial, e em um panorama de extrema polarização, o empresariado brasileiro tem procurado medir as palavras sobre o atual cenário m…</p>
+  </article>
+  <article class="card" style="--accent:#4ade80">
+    <div class="card-header">
+      <span class="source-pill" style="background:#4ade8022;color:#4ade80;border:1px solid #4ade8044">NeoFeed</span>
+      <span class="card-date">Fri, 11 Sep 2026</span>
+    </div>
+    <h3 class="card-title"><a href="https://neofeed.com.br/insiders/entre-a-memoria-e-o-silencio-o-que-nova-york-ensina-sobre-o-11-de-setembro/" target="_blank">Entre a memória e o silêncio, o que Nova York ensina sobre o 11 de setembro</a></h3>
+    <p class="card-desc">Nova York — “No dia 11 de setembro de 2001, aconteceu uma 'grande emergência' em Nova York, na qual muita gente se machucou e sentiu medo. Outros foram heróis ao ajudar as pessoas …</p>
+  </article>
+  </div>
+</section>
+<section class="section">
+  <div class="section-header">
+    <h2 class="section-title" style="border-left:4px solid #fb923c">Wealth & Markets</h2>
+    <p class="section-desc">Estratégias de patrimônio, alocação e mercados privados.</p>
+  </div>
+  <div class="cards-grid">
+  <article class="card" style="--accent:#fb923c">
+    <div class="card-header">
+      <span class="source-pill" style="background:#fb923c22;color:#fb923c;border:1px solid #fb923c44">RationalWalk</span>
+      <span class="card-date">Mon, 02 Mar 2026</span>
+    </div>
+    <h3 class="card-title"><a href="https://rationalwalk.com/greg-abels-2026-letter-to-shareholders/" target="_blank">Greg Abel's 2026 Letter to Shareholders</a></h3>
+    <p class="card-desc">Greg Abel's first letter to Berkshire Hathaway shareholders emphasized the need to keep the company's unique culture.</p>
+  </article>
+  <article class="card" style="--accent:#fb923c">
+    <div class="card-header">
+      <span class="source-pill" style="background:#fb923c22;color:#fb923c;border:1px solid #fb923c44">RationalWalk</span>
+      <span class="card-date">Wed, 31 Dec 2025</span>
+    </div>
+    <h3 class="card-title"><a href="https://rationalwalk.com/greg-abels-unique-challenge/" target="_blank">Greg Abel's Unique Challenge</a></h3>
+    <p class="card-desc">Greg Abel takes over as Chief Executive Officer of Berkshire Hathaway on January 1, 2026, a job that will involve at least three major challenges.</p>
+  </article>
+  <article class="card" style="--accent:#fb923c">
+    <div class="card-header">
+      <span class="source-pill" style="background:#fb923c22;color:#fb923c;border:1px solid #fb923c44">OfDollarsAndData</span>
+      <span class="card-date">Tue, 08 Sep 2026</span>
+    </div>
+    <h3 class="card-title"><a href="https://ofdollarsanddata.com/living-poor-to-die-rich/" target="_blank">Living Poor to Die Rich</a></h3>
+    <p class="card-desc">I recently joined a professional organization to discuss various topics in wealth management. On our first Zoom call there was a debate around the use of levered long/short strateg…</p>
+  </article>
+  <article class="card" style="--accent:#fb923c">
+    <div class="card-header">
+      <span class="source-pill" style="background:#fb923c22;color:#fb923c;border:1px solid #fb923c44">OfDollarsAndData</span>
+      <span class="card-date">Tue, 01 Sep 2026</span>
+    </div>
+    <h3 class="card-title"><a href="https://ofdollarsanddata.com/which-graduate-degrees-are-the-best-investment-why-i-skipped-my-mba/" target="_blank">Which Graduate Degrees Are the Best Investment? (Why I Skipped My MBA)</a></h3>
+    <p class="card-desc">When I was 27 years old I was at a crossroads. I was five years into my career, yet I was stagnating. Though I was making six figures, which was great for my 20s, I knew I couldn't…</p>
+  </article>
+  </div>
+</section>
+
+<div class="twitter-section">
+  <h2>🐦 Twitter / X — Picks</h2>
+  <div class="tweets-grid">
+  <div class="tweet-card">
+    <span class="tweet-handle">@ttunguz</span>
+    <p class="tweet-text">@Anvario Do you have enough log data to be able to automatically rewrite the skills?</p>
+  </div>
+  <div class="tweet-card">
+    <span class="tweet-handle">@chamath</span>
+    <p class="tweet-text">Pod!!!! Absolute banger with @bgurley https://t.co/Q1TLRFi4XC</p>
+  </div>
+  <div class="tweet-card">
+    <span class="tweet-handle">@jason</span>
+    <p class="tweet-text">Join our mailing list today! Help us stay in touch with you. http://t.co/oAXLSwYe</p>
+  </div>
+  <div class="tweet-card">
+    <span class="tweet-handle">@alexisohanian</span>
+    <p class="tweet-text">@trackerati Doing our best! More to do</p>
+  </div>
+  <div class="tweet-card">
+    <span class="tweet-handle">@paulg</span>
+    <p class="tweet-text">@DouglasCarswell @LandsknechtPike By inheriting money. Have you read no history? The tough founder of a dynasty has no way of guaranteeing that his gr</p>
+  </div>
+  <div class="tweet-card">
+    <span class="tweet-handle">@naval</span>
+    <p class="tweet-text">Listening to the @trishapaytas podcast two weeks behind and they literally mentioned @RyanScottGraham ‘s band. Wishing you well, Ryan 😊</p>
+  </div>
+  <div class="tweet-card">
+    <span class="tweet-handle">@pmarca</span>
+    <p class="tweet-text">Interesting. https://t.co/gp3NIm2Yqp</p>
+  </div>
+  <div class="tweet-card">
+    <span class="tweet-handle">@_alexlazar</span>
+    <p class="tweet-text">what’s good? https://t.co/vR2zg653Ju</p>
+  </div>
+  <div class="tweet-card">
+    <span class="tweet-handle">@gduguid</span>
+    <p class="tweet-text">@CharlieSheen_ Charlie ur the best and ur a credit to all winning men</p>
+  </div>
+  <div class="tweet-card">
+    <span class="tweet-handle">@lessin</span>
+    <p class="tweet-text">I also like tennis ... but are we really at the point that 70% above the fold WSJ is someone losing in the second round? https://t.co/DUqdNPqRt5</p>
+  </div>
+  </div>
+</div>
+
+<div class="transparency">
+  <h2>📡 Transparency Report — Fontes</h2>
+  <table>
+    <thead><tr><th>Fonte</th><th>Categoria</th><th>Status</th><th>Artigos</th></tr></thead>
+    <tbody><tr><td>Stratechery</td><td>VC/Global</td><td>🟢</td><td>5</td></tr>
+<tr><td>NotBoring</td><td>VC/Global</td><td>🟢</td><td>5</td></tr>
+<tr><td>BrazilJournal</td><td>BR</td><td>🟢</td><td>5</td></tr>
+<tr><td>NeoFeed</td><td>BR</td><td>🟢</td><td>5</td></tr>
+<tr><td>StartupsBR</td><td>BR</td><td>🟢</td><td>5</td></tr>
+<tr><td>Exame</td><td>BR</td><td>🟢</td><td>5</td></tr>
+<tr><td>Startupi</td><td>BR</td><td>🟢</td><td>5</td></tr>
+<tr><td>ImportAI</td><td>AI</td><td>🟢</td><td>5</td></tr>
+<tr><td>BensBites</td><td>AI</td><td>🟢</td><td>5</td></tr>
+<tr><td>LastWeekAI</td><td>AI</td><td>🟢</td><td>5</td></tr>
+<tr><td>VentureBeatAI</td><td>AI</td><td>🔴</td><td>0</td></tr>
+<tr><td>Femstreet</td><td>VC/Global</td><td>🟢</td><td>5</td></tr>
+<tr><td>VentureUnlocked</td><td>VC/Global</td><td>🟢</td><td>5</td></tr>
+<tr><td>Newcomer</td><td>VC/Global</td><td>🟢</td><td>5</td></tr>
+<tr><td>RationalWalk</td><td>Wealth</td><td>🟢</td><td>5</td></tr>
+<tr><td>OfDollarsAndData</td><td>Wealth</td><td>🟢</td><td>5</td></tr>
+<tr><td>MebFaber</td><td>Wealth</td><td>🟢</td><td>5</td></tr>
+<tr><td>InvestLikeTheBest</td><td>Wealth</td><td>🟢</td><td>3</td></tr>
+<tr><td>AWealthOfCommonSense</td><td>Wealth</td><td>🔴</td><td>0</td></tr>
+<tr><td>TechCrunch</td><td>Tech</td><td>🟢</td><td>5</td></tr>
+<tr><td>TheFullRatchet</td><td>VC/Global</td><td>🔴</td><td>0</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<footer class="footer">
+  IVC Curadoria · Powered by Hermes Agent · amurepinho.com
+</footer>
+
+</body>
+</html>
