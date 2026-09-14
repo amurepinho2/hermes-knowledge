@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Curadoria IVC — 2026-09-14</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+
+:root {
+  --yellow: #FFBA00;
+  --ink: #1A1B1F;
+  --bg: #0d0d0f;
+  --card-bg: #18181f;
+  --card-hover: #1f1f28;
+  --text: #e8e8ec;
+  --text-muted: #8888a0;
+  --border: #2a2a38;
+  --radius: 12px;
+}
+[data-theme="light"] {
+  --bg: #f5f5f0;
+  --card-bg: #ffffff;
+  --card-hover: #fafaf5;
+  --text: #1A1B1F;
+  --text-muted: #666670;
+  --border: #e0e0d8;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  padding: 24px 16px 80px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+.cera { font-family: 'Cera Pro', 'Inter', sans-serif; }
+header {
+  text-align: center;
+  padding: 40px 0 32px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 32px;
+}
+header .edition {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+header h1 {
+  font-size: 28px;
+  color: var(--yellow);
+  margin: 8px 0 4px;
+  letter-spacing: -0.5px;
+}
+header .tagline { font-size: 13px; color: var(--text-muted); }
+.stats-strip {
+  display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin: 16px 0 0;
+}
+.stat {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--text-muted);
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 4px 12px;
+}
+.stat strong { color: var(--yellow); }
+.theme-toggle {
+  position: fixed; top: 16px; right: 16px;
+  background: var(--card-bg); border: 1px solid var(--border);
+  border-radius: 20px; padding: 6px 12px; font-size: 11px;
+  color: var(--text-muted); cursor: pointer;
+  font-family: 'JetBrains Mono', monospace;
+}
+section { margin-bottom: 32px; }
+.section-title {
+  font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--text-muted); margin-bottom: 16px; padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: 8px;
+}
+.section-title .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--yellow); }
+.cards { display: flex; flex-direction: column; gap: 12px; }
+.card {
+  background: var(--card-bg); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 16px; text-decoration: none;
+  color: var(--text); display: block;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+  animation: fadeUp 0.4s ease both;
+}
+.card:hover { background: var(--card-hover); border-color: var(--yellow); transform: translateY(-2px); }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+.card .source-pill {
+  display: inline-block; font-size: 10px; font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 1px; text-transform: uppercase;
+  background: var(--yellow); color: var(--ink); border-radius: 4px; padding: 2px 8px; margin-bottom: 8px;
+}
+.card h3 { font-size: 15px; line-height: 1.4; margin-bottom: 6px; }
+.card p { font-size: 13px; color: var(--text-muted); line-height: 1.5;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.card .card-footer { margin-top: 10px; font-size: 11px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; }
+.hero-card {
+  background: linear-gradient(135deg, #1a1a2e 0%, #18181f 100%);
+  border: 1px solid var(--yellow); border-radius: var(--radius); padding: 24px; margin-bottom: 20px;
+}
+.hero-card .source-pill { background: var(--yellow); color: var(--ink); }
+.hero-card h2 { font-size: 18px; margin: 8px 0 10px; }
+.hero-card p { font-size: 14px; -webkit-line-clamp: 4; }
+.twitter-section { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; }
+.twitter-item { padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+.twitter-item:last-child { border-bottom: none; }
+.twitter-item .handle { font-family: 'JetBrains Mono', monospace; color: var(--yellow); font-size: 12px; margin-right: 8px; }
+.twitter-item .preview { color: var(--text); }
+.transparency { margin-top: 40px; }
+.transparency table { width: 100%; border-collapse: collapse; font-size: 12px; font-family: 'JetBrains Mono', monospace; }
+.transparency th { text-align: left; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase; font-size: 10px; padding: 8px 12px; border-bottom: 1px solid var(--border); }
+.transparency td { padding: 8px 12px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+.transparency .status-ok { color: #4ade80; }
+.transparency .status-fail { color: #f87171; }
+.transparency .status-warn { color: #fbbf24; }
+.transparency tr:hover td { background: var(--card-bg); }
+footer { text-align: center; margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border); font-size: 11px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; }
+
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var btn = document.querySelector('.theme-toggle');
+  if (!btn) return;
+  var saved = localStorage.getItem('ivc-theme');
+  if (saved) document.documentElement.setAttribute('data-theme', saved);
+  btn.addEventListener('click', function() {
+    var current = document.documentElement.getAttribute('data-theme');
+    var next = current === 'light' ? '' : 'light';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('ivc-theme', next);
+    btn.textContent = next === 'light' ? '☀️' : '🌙';
+  });
+});
+</script>
+</head>
+<body>
+<button class="theme-toggle">◐</button>
+
+<header>
+  <div class="edition">Edição Diária · 2026-09-14</div>
+  <h1 class="cera">Curadoria IVC</h1>
+  <div class="tagline">VC · Startups · Tecnologia · Wealth</div>
+  <div class="stats-strip">
+    <span class="stat"><strong>20</strong> fontes</span>
+    <span class="stat"><strong>90+</strong> artigos</span>
+    <span class="stat"><strong>10</strong> perfis Twitter</span>
+  </div>
+</header>
+
+<!-- AI -->
+<section>
+<div class="section-title"><span class="dot"></span>Inteligência Artificial</div>
+<div class="cards">
+<a class="card" href="https://importai.substack.com/p/import-ai-472-deepminds-cheating" target="_blank" style="animation-delay:0ms">
+  <span class="source-pill">ImportAI</span>
+  <h3>Import AI 472: DeepMind's cheating math agents; populist AI policies; and Forethought theorizes a nightwatchman</h3>
+  <p>Plus, a machine hermeneutics story</p>
+  <div class="card-footer">ImportAI</div>
+</a><a class="card" href="https://importai.substack.com/p/import-ai-471-why-hugging-face-worries" target="_blank" style="animation-delay:0ms">
+  <span class="source-pill">ImportAI</span>
+  <h3>Import AI 471: Why Hugging Face worries me; space mining; FIve Eyes on AI</h3>
+  <p>Plus, a live event with Robin Sloan!</p>
+  <div class="card-footer">ImportAI</div>
+</a><a class="card" href="https://www.bensbites.com/p/telling-ai-to-design-is-hard" target="_blank" style="animation-delay:50ms">
+  <span class="source-pill">BensBites</span>
+  <h3>Telling AI to design is hard</h3>
+  <p>Ben's session #6</p>
+  <div class="card-footer">BensBites</div>
+</a><a class="card" href="https://www.bensbites.com/p/everyone-needs-a-muse" target="_blank" style="animation-delay:50ms">
+  <span class="source-pill">BensBites</span>
+  <h3>Everyone needs a Muse</h3>
+  <p>ChatGPT images got better, again</p>
+  <div class="card-footer">BensBites</div>
+</a><a class="card" href="https://lastweekin.ai/p/lwiai-podcast-256-fable-51-astra" target="_blank" style="animation-delay:100ms">
+  <span class="source-pill">LastWeekAI</span>
+  <h3>LWiAI Podcast #256 - Fable 5.1, Astra Tease, Gemini 3.8 Flash</h3>
+  <p>Anthropic launches Claude Fable 5.1, OpenAI Is About (already has) to Release Its First AI Model With 'Critical' Cyber Abilities, OpenAI's rogue AI model incident was worse than we thought</p>
+  <div class="card-footer">LastWeekAI</div>
+</a><a class="card" href="https://lastweekin.ai/p/last-week-in-ai-343-gpt-6-openais" target="_blank" style="animation-delay:100ms">
+  <span class="source-pill">LastWeekAI</span>
+  <h3>Last Week in AI #343 - GPT-6, OpenAI’s agents chatted on a wiki, Fable 5.1</h3>
+  <p>GPT-6 Astra Is Here, Discovery of a new OpenAI agent message board, Anthropic launches Claude Fable 5.1 and says it's up to 45 percent cheaper for agentic work, and more!</p>
+  <div class="card-footer">LastWeekAI</div>
+</a></div></section>
+<section>
+<div class="section-title"><span class="dot" style="background:#a78bfa"></span>VC / Global</div>
+<div class="cards">
+<a class="card" href="https://stratechery.com/2026/pacing-the-frontier-ais-digital-limits-ai-commissars/" target="_blank" style="animation-delay:0ms">
+  <span class="source-pill">Stratechery</span>
+  <h3>Pacing the Frontier, AI's Digital Limits, AI Commissars</h3>
+  <p>Dario Amodei wants to pace the frontier; it's an unrealistic proposal that seems mostly geared to political control of AI.</p>
+  <div class="card-footer">Stratechery</div>
+</a><a class="card" href="https://stratechery.com/2026/duo-threats/" target="_blank" style="animation-delay:0ms">
+  <span class="source-pill">Stratechery</span>
+  <h3>2026.37: Duo Threats</h3>
+  <p>The best Stratechery content from the week of September 7, 2026, including the arrival of the Duo, AI that benefits humanity, and closing the book on a catastrophe.</p>
+  <div class="card-footer">Stratechery</div>
+</a><a class="card" href="https://www.notboring.co/p/weekly-dose-of-optimism-210" target="_blank" style="animation-delay:50ms">
+  <span class="source-pill">NotBoring</span>
+  <h3>Weekly Dose of Optimism #210</h3>
+  <p>Navier-Stokes, AlphaGenome Atlas, Ramjet-X, Ingressing Minds, Neko + Extra Doses</p>
+  <div class="card-footer">NotBoring</div>
+</a><a class="card" href="https://www.notboring.co/p/an-ode-to-counter-positioning" target="_blank" style="animation-delay:50ms">
+  <span class="source-pill">NotBoring</span>
+  <h3>An Ode to Counter-Positioning</h3>
+  <p>How to Buy Time</p>
+  <div class="card-footer">NotBoring</div>
+</a><a class="card" href="https://www.newcomer.co/p/for-startups-facing-the-ai-safety" target="_blank" style="animation-delay:100ms">
+  <span class="source-pill">Newcomer</span>
+  <h3>For Startups Facing the AI Safety Uproar, Cybersecurity Looms Larger than Existential Risk</h3>
+  <p>Plus, Mistral's pivot proves a head-scratcher & Ramp data hints at softening growth in AI spending</p>
+  <div class="card-footer">Newcomer</div>
+</a><a class="card" href="https://www.newcomer.co/p/exclusive-tech-reporter-alex-heath" target="_blank" style="animation-delay:100ms">
+  <span class="source-pill">Newcomer</span>
+  <h3>EXCLUSIVE: Tech Reporter Alex Heath Turns VC, Joins Sound Ventures</h3>
+  <p>Sources: After split with Ashton Kutcher, Guy Oseary's firm is raising $300 million</p>
+  <div class="card-footer">Newcomer</div>
+</a><a class="card" href="https://ventureunlocked.substack.com/p/wins-above-replacement-the-new-way" target="_blank" style="animation-delay:150ms">
+  <span class="source-pill">VentureUnlocked</span>
+  <h3>Wins Above Replacement: The New Way to Judge Founders</h3>
+  <p>Follow me @samirkaji for my thoughts on the venture market, with a focus on the continued evolution of the VC landscape.</p>
+  <div class="card-footer">VentureUnlocked</div>
+</a><a class="card" href="https://ventureunlocked.substack.com/p/from-facebook-engineer-to-2b-vc-aditya" target="_blank" style="animation-delay:150ms">
+  <span class="source-pill">VentureUnlocked</span>
+  <h3>From the early days of Facebook and learning from Zuck to building a $2B+ VC franchise w/South Park Commons</h3>
+  <p>Follow me @samirkaji for my thoughts on the venture market, with a focus on the continued evolution of the VC landscape.</p>
+  <div class="card-footer">VentureUnlocked</div>
+</a><a class="card" href="https://femstreet.substack.com/p/femstreetissue288" target="_blank" style="animation-delay:200ms">
+  <span class="source-pill">Femstreet</span>
+  <h3>Common and costly product messaging mistakes; How to write a great fundraising blurb; The art of giving and receiving feedback</h3>
+  <p>Where women lead, shape, and fund the future.</p>
+  <div class="card-footer">Femstreet</div>
+</a><a class="card" href="https://femstreet.substack.com/p/femstreetissue287" target="_blank" style="animation-delay:200ms">
+  <span class="source-pill">Femstreet</span>
+  <h3>Lessons from failing to find PMF; Sales forecasting 101; Setting up your exit strategy</h3>
+  <p>Where women lead, shape, and fund the future.</p>
+  <div class="card-footer">Femstreet</div>
+</a></div></section>
+<section>
+<div class="section-title"><span class="dot" style="background:#4ade80"></span>Brasil</div>
+<div class="cards">
+<a class="card" href="https://braziljournal.com/opiniao-carece-de-seriedade/" target="_blank" style="animation-delay:0ms">
+  <span class="source-pill">BrazilJournal</span>
+  <h3>OPINIÃO. Carece de seriedade</h3>
+  <p>Ficou engastado na memória forense o episódio em que o Ministro Aliomar Baleeiro, chamado a julgar a suspeição arguida contra o venerável Ministro Victor Nunes Leal, despachou em quatro palavras: “Rejeito, carece de seriedade.” O leitor de hoje talvez estranhe a economia. Baleeiro podia ser breve po</p>
+  <div class="card-footer">BrazilJournal</div>
+</a><a class="card" href="https://braziljournal.com/voce-pratica-algum-esporte-by-pedro-vinicio/" target="_blank" style="animation-delay:0ms">
+  <span class="source-pill">BrazilJournal</span>
+  <h3>Você pratica algum esporte? — by Pedro Vinicio</h3>
+  <p>Ver o último.
+The post Você pratica algum esporte? — by Pedro Vinicio appeared first on Brazil Journal.</p>
+  <div class="card-footer">BrazilJournal</div>
+</a><a class="card" href="https://neofeed.com.br/finde/uma-mulher-apagada-da-historia-o-caso-da-sra-orwell/" target="_blank" style="animation-delay:50ms">
+  <span class="source-pill">NeoFeed</span>
+  <h3>Uma mulher apagada da história: o caso da sra. Orwell</h3>
+  <p>“Como se faz uma mulher desaparecer?” Essa pergunta dá início a um dos capítulos de A vida invisível da Sra. Orwell, da australiana Anna Funder, publicado recentemente no Brasil pela Companhia das Letras. A mulher em questão é Eileen O’Shaughnessy, escritora, poeta e primeira esposa de George Orwell</p>
+  <div class="card-footer">NeoFeed</div>
+</a><a class="card" href="https://neofeed.com.br/finde/a-camera-discreta-que-flagrou-a-reconciliacao-dos-irmaos-gallagher-do-oasis/" target="_blank" style="animation-delay:50ms">
+  <span class="source-pill">NeoFeed</span>
+  <h3>A câmera discreta que flagrou a reconciliação dos irmãos Gallagher, do Oasis</h3>
+  <p>Veneza —  Os responsáveis por Oasis: Don’t Look Back in Anger juram que a intenção do documentário nunca foi influenciar a reconciliação dos irmãos Gallagher. Mas talvez o truque da câmera escondida tenha contribuído para a reaproximação gradual de Noel e Liam, capturada durante ensaios e shows da b</p>
+  <div class="card-footer">NeoFeed</div>
+</a><a class="card" href="https://startups.com.br/negocios/factorial-compra-startup-alema-empion-e-incorpora-ia-preditiva-ao-rh/" target="_blank" style="animation-delay:100ms">
+  <span class="source-pill">StartupsBR</span>
+  <h3>Factorial compra startup alemã Empion e incorpora IA preditiva ao RH</h3>
+  <p>Renan Conde, CEO da Factorial no Brasil | Crédito: DivulgaçãoAquisição acontece três meses após a HRtech captar US$ 150 milhões em rodada Série D e reforça estratégia de expansão via M&A
+O post Factorial compra startup alemã Empion e incorpora IA preditiva ao RH apareceu primeiro em Startups.</p>
+  <div class="card-footer">StartupsBR</div>
+</a><a class="card" href="https://startups.com.br/negocios/btg-pactual-bandeira-propria-de-cartao-para-abrir-mercado-b2b-de-r-50-trilhoes/" target="_blank" style="animation-delay:100ms">
+  <span class="source-pill">StartupsBR</span>
+  <h3>BTG Pactual cria bandeira própria de cartão para abrir mercado B2B de R$ 50 trilhões</h3>
+  <p>Cartão BTG Pay | Crédito: DivulgaçãoBTG Pay estreia reunindo maquininha, link de pagamento, cartão para empresas e gestão de recebíveis em uma única plataforma
+O post BTG Pactual cria bandeira própria de cartão para abrir mercado B2B de R$ 50 trilhões apareceu primeiro em Startups.</p>
+  <div class="card-footer">StartupsBR</div>
+</a><a class="card" href="https://exame.com/inteligencia-artificial/chefe-de-espionagem-da-china-alerta-que-ia-pode-ameacar-seguranca-politica-do-pais/" target="_blank" style="animation-delay:150ms">
+  <span class="source-pill">Exame</span>
+  <h3>Chefe de espionagem da China alerta que IA pode ameaçar segurança política do país</h3>
+  <p>Ministro cita deepfakes, bots, malware e “guerra cognitiva” entre seis riscos associados ao avanço da inteligência artificial</p>
+  <div class="card-footer">Exame</div>
+</a><a class="card" href="https://exame.com/tecnologia/examelab/ios-27-quais-iphones-podem-ser-atualizados-veja-a-lista-completa/" target="_blank" style="animation-delay:150ms">
+  <span class="source-pill">Exame</span>
+  <h3>iOS 27: quais iPhones podem ser atualizados? Veja a lista completa</h3>
+  <p>Pela 1ª vez, Apple não aposentou nenhum iPhone, mas recursos de inteligência artificial ficam restritos a modelos mais recentes</p>
+  <div class="card-footer">Exame</div>
+</a><a class="card" href="https://startupi.com.br/ia-ja-resolve-problemas-que-desafiaram-matematicos-por-um-seculo-mas-a-proxima-conta-devera-ser-resolvida-pelos-humanos-sob-pena-de-sua-propria-sobrevivencia/" target="_blank" style="animation-delay:200ms">
+  <span class="source-pill">Startupi</span>
+  <h3>IA já resolve problemas que desafiaram matemáticos por um século. Mas a próxima conta deverá ser resolvida pelos humanos, sob pena de sua própria sobrevivência</h3>
+  <p>Startupi
+
+IA já resolve problemas que desafiaram matemáticos por um século. Mas a próxima conta deverá ser resolvida pelos humanos, sob pena de sua própria sobrevivência
+Enquanto a OpenAI crava a solução de um dos Problemas do Prêmio do Milênio, Dario Amodei, da Anthropic, pede freios e outros CEOs </p>
+  <div class="card-footer">Startupi</div>
+</a><a class="card" href="https://startupi.com.br/como-fintechs-utilizam-ia-biometria-e-stablecoins-para-contornar-gargalos-do-sistema-financeiro/" target="_blank" style="animation-delay:200ms">
+  <span class="source-pill">Startupi</span>
+  <h3>Como fintechs utilizam IA, biometria e stablecoins para contornar gargalos do sistema financeiro</h3>
+  <p>Startupi
+
+Como fintechs utilizam IA, biometria e stablecoins para contornar gargalos do sistema financeiro
+Empresas de tecnologia financeira desenvolvem infraestruturas próprias para otimizar pagamentos corporativos, concessão de crédito e segurança no varejo.
+O post Como fintechs utilizam IA, biome</p>
+  <div class="card-footer">Startupi</div>
+</a></div></section>
+<section>
+<div class="section-title"><span class="dot" style="background:#f97316"></span>Wealth</div>
+<div class="cards">
+<a class="card" href="https://rationalwalk.com/greg-abels-2026-letter-to-shareholders/" target="_blank" style="animation-delay:0ms">
+  <span class="source-pill">RationalWalk</span>
+  <h3>Greg Abel's 2026 Letter to Shareholders</h3>
+  <p>Greg Abel's first letter to Berkshire Hathaway shareholders emphasized the need to keep the company's unique culture.</p>
+  <div class="card-footer">RationalWalk</div>
+</a><a class="card" href="https://ofdollarsanddata.com/living-poor-to-die-rich/" target="_blank" style="animation-delay:50ms">
+  <span class="source-pill">OfDollarsAndData</span>
+  <h3>Living Poor to Die Rich</h3>
+  <p>I recently joined a professional organization to discuss various topics in wealth management. On our first Zoom call there was a debate around the use of levered long/short strategies. For the uninitiated, a levered long/short strategy is a way of taking market risk (like buying an index fund) while</p>
+  <div class="card-footer">OfDollarsAndData</div>
+</a><a class="card" href="https://mebfaber.com/2026/09/01/10-investing-in-america-quotes/" target="_blank" style="animation-delay:100ms">
+  <span class="source-pill">MebFaber</span>
+  <h3>10 Investing in America Quotes</h3>
+  <p>"The first rule of compounding is to never interrupt it unnecessarily." — Charlie Munger "The best rule for investors is, 'Don't just do something, stand there.'" — John Bogle "The stock market is a device for transferring money from the impatient to the patient." — Warren Buffett "Money makes money</p>
+  <div class="card-footer">MebFaber</div>
+</a><a class="card" href="https://investlikethebest.substack.com/p/valueletter-snap-inc" target="_blank" style="animation-delay:150ms">
+  <span class="source-pill">InvestLikeTheBest</span>
+  <h3>ValueLetter - Snap Inc.</h3>
+  <p>What's the quality and intrinsic value of Snap-on Inc.? Well, Snap-on is a really great company. Find out, why!</p>
+  <div class="card-footer">InvestLikeTheBest</div>
+</a><a class="card" href="https://awealthofcommonsense.com/2026/09/people-hate-paying-taxes-more-than-they-like-making-money/" target="_blank" style="animation-delay:200ms">
+  <span class="source-pill">AWealthOfCommonSense</span>
+  <h3>People Hate Paying Taxes More Than They Like Making Money</h3>
+  <p>Pros and cons of tax-aware long/short strategies.
+The post People Hate Paying Taxes More Than They Like Making Money appeared first on A Wealth of Common Sense.
+...</p>
+  <div class="card-footer">AWealthOfCommonSense</div>
+</a></div></section>
+<section>
+<div class="section-title"><span class="dot" style="background:#38bdf8"></span>TechCrunch</div>
+<div class="cards">
+<a class="card" href="https://techcrunch.com/2026/09/13/insight-partners-devin-parekh-on-why-the-firm-is-diversifying-while-everyone-else-bets-the-farm-on-openai-and-anthropic/" target="_blank" style="animation-delay:0ms">
+  <span class="source-pill">TechCrunch</span>
+  <h3>Insight Partners' Deven Parekh on why the firm is diversifying while everyone else bets the farm on OpenAI and Anthropic</h3>
+  <p>Insight Partners' Devin Parekh opens up about losing Legora to General Catalyst, why he's fine holding stakes in rival AI labs, and why — even as everyone else piles into OpenAI and Anthropic — his $90 billion firm is deliberately staying diversified.</p>
+  <div class="card-footer">TechCrunch</div>
+</a><a class="card" href="https://techcrunch.com/2026/09/13/larry-ellison-cancels-7-5-billion-sale-of-oracle-stock/" target="_blank" style="animation-delay:50ms">
+  <span class="source-pill">TechCrunch</span>
+  <h3>Larry Ellison cancels $7.5 billion sale of Oracle stock</h3>
+  <p>Oracle had previously disclosed that Ellison planned to sell 50 million shares worth around $7.5 billion.</p>
+  <div class="card-footer">TechCrunch</div>
+</a><a class="card" href="https://techcrunch.com/2026/09/13/the-9-buzziest-startups-from-y-combinators-latest-demo-day-according-to-vcs/" target="_blank" style="animation-delay:100ms">
+  <span class="source-pill">TechCrunch</span>
+  <h3>The 9 buzziest startups from Y Combinator’s latest Demo Day, according to VCs</h3>
+  <p>From floating reactors to brain chips: VCs picked their favorite YC startups from the summer batch.</p>
+  <div class="card-footer">TechCrunch</div>
+</a></div></section>
+<section>
+<div class="section-title"><span class="dot" style="background:#1d9bf0"></span>Twitter / X</div>
+<div class="twitter-section">
+<div class="twitter-item">
+  <span class="handle">@ttunguz</span>
+  <span class="preview">@Anvario Do you have enough log data to be able to automatically rewrite the skills?</span>
+</div><div class="twitter-item">
+  <span class="handle">@chamath</span>
+  <span class="preview">Pod!!!! Absolute banger with @bgurley https://t.co/Q1TLRFi4XC</span>
+</div><div class="twitter-item">
+  <span class="handle">@jason</span>
+  <span class="preview">Join our mailing list today! Help us stay in touch with you. http://t.co/oAXLSwYe</span>
+</div><div class="twitter-item">
+  <span class="handle">@alexisohanian</span>
+  <span class="preview">@trackerati Doing our best! More to do</span>
+</div><div class="twitter-item">
+  <span class="handle">@paulg</span>
+  <span class="preview">@DouglasCarswell @LandsknechtPike By inheriting money. Have you read no history? The tough founder of a dynasty has no way of guaranteeing t</span>
+</div><div class="twitter-item">
+  <span class="handle">@naval</span>
+  <span class="preview">Listening to the @trishapaytas podcast two weeks behind and they literally mentioned @RyanScottGraham ‘s band. Wishing you well, Ryan 😊</span>
+</div><div class="twitter-item">
+  <span class="handle">@pmarca</span>
+  <span class="preview">Interesting. https://t.co/gp3NIm2Yqp</span>
+</div><div class="twitter-item">
+  <span class="handle">@_alexlazar</span>
+  <span class="preview">what’s good? https://t.co/vR2zg653Ju</span>
+</div><div class="twitter-item">
+  <span class="handle">@gduguid</span>
+  <span class="preview">@CharlieSheen_ Charlie ur the best and ur a credit to all winning men</span>
+</div><div class="twitter-item">
+  <span class="handle">@lessin</span>
+  <span class="preview">I also like tennis ... but are we really at the point that 70% above the fold WSJ is someone losing in the second round? https://t.co/DUqdNP</span>
+</div></div></section>
+<div class="transparency">
+<div class="section-title"><span class="dot" style="background:#888"></span>Transparência — Fontes</div>
+<table>
+<tr><th>Fonte</th><th>Status</th><th>Arts</th><th>Categoria</th></tr>
+<tr><td>Stratechery</td><td class='status-ok'>🟢</td><td>5</td><td>VC/Global</td></tr>
+<tr><td>NotBoring</td><td class='status-ok'>🟢</td><td>5</td><td>VC/Global</td></tr>
+<tr><td>Newcomer</td><td class='status-ok'>🟢</td><td>5</td><td>VC/Global</td></tr>
+<tr><td>VentureUnlocked</td><td class='status-ok'>🟢</td><td>5</td><td>VC/Global</td></tr>
+<tr><td>Femstreet</td><td class='status-ok'>🟢</td><td>5</td><td>VC/Global</td></tr>
+<tr><td>BrazilJournal</td><td class='status-ok'>🟢</td><td>5</td><td>BR</td></tr>
+<tr><td>NeoFeed</td><td class='status-ok'>🟢</td><td>5</td><td>BR</td></tr>
+<tr><td>StartupsBR</td><td class='status-ok'>🟢</td><td>5</td><td>BR</td></tr>
+<tr><td>Exame</td><td class='status-ok'>🟢</td><td>5</td><td>BR</td></tr>
+<tr><td>Startupi</td><td class='status-ok'>🟢</td><td>5</td><td>BR</td></tr>
+<tr><td>ImportAI</td><td class='status-ok'>🟢</td><td>5</td><td>AI</td></tr>
+<tr><td>BensBites</td><td class='status-ok'>🟢</td><td>5</td><td>AI</td></tr>
+<tr><td>LastWeekAI</td><td class='status-ok'>🟢</td><td>5</td><td>AI</td></tr>
+<tr><td>VentureBeatAI</td><td class='status-warn'>🟡</td><td>0</td><td>AI</td></tr>
+<tr><td>TechCrunch</td><td class='status-ok'>🟢</td><td>5</td><td>Tech</td></tr>
+<tr><td>RationalWalk</td><td class='status-ok'>🟢</td><td>5</td><td>Wealth</td></tr>
+<tr><td>OfDollarsAndData</td><td class='status-ok'>🟢</td><td>5</td><td>Wealth</td></tr>
+<tr><td>MebFaber</td><td class='status-ok'>🟢</td><td>5</td><td>Wealth</td></tr>
+<tr><td>InvestLikeTheBest</td><td class='status-ok'>🟢</td><td>3</td><td>Wealth</td></tr>
+<tr><td>AWealthOfCommonSense</td><td class='status-ok'>🟢</td><td>5</td><td>Wealth</td></tr>
+<tr><td>@ttunguz</td><td class='status-ok'>🟢</td><td>5</td><td>Twitter</td></tr>
+<tr><td>@chamath</td><td class='status-ok'>🟢</td><td>5</td><td>Twitter</td></tr>
+<tr><td>@jason</td><td class='status-ok'>🟢</td><td>5</td><td>Twitter</td></tr>
+<tr><td>@alexisohanian</td><td class='status-ok'>🟢</td><td>5</td><td>Twitter</td></tr>
+<tr><td>@paulg</td><td class='status-ok'>🟢</td><td>5</td><td>Twitter</td></tr>
+<tr><td>@naval</td><td class='status-ok'>🟢</td><td>5</td><td>Twitter</td></tr>
+<tr><td>@pmarca</td><td class='status-ok'>🟢</td><td>5</td><td>Twitter</td></tr>
+<tr><td>@_alexlazar</td><td class='status-ok'>🟢</td><td>5</td><td>Twitter</td></tr>
+<tr><td>@gduguid</td><td class='status-ok'>🟢</td><td>1</td><td>Twitter</td></tr>
+<tr><td>@lessin</td><td class='status-ok'>🟢</td><td>5</td><td>Twitter</td></tr>
+<tr><td>TheFullRatchet</td><td class='status-fail'>🔴</td><td>0</td><td>VC/Global</td></tr>
+</table>
+</div>
+
+<footer>
+  Curadoria IVC · gerada automaticamente · 2026-09-14
+</footer>
+</body>
+</html>
