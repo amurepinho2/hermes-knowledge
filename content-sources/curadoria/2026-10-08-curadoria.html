@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IVC Curadoria — 08 de October de 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+
+:root {{
+  --yellow: #FFBA00;
+  --ink: #1A1B1F;
+  --bg: #0d0d0f;
+  --card: #18181f;
+  --card-hover: #222230;
+  --text: #e8e8e8;
+  --text-dim: #888;
+  --border: rgba(255,186,0,0.15);
+}}
+* {{ box-sizing: border-box; margin: 0; padding: 0; }}
+body {{ background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.6; }}
+.container {{ max-width: 900px; margin: 0 auto; padding: 24px 16px; }}
+.header {{ text-align: center; margin-bottom: 40px; }}
+.header .date {{ font-family: 'JetBrains Mono', monospace; color: var(--yellow); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; }}
+.header h1 {{ font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 700; color: #fff; margin: 8px 0; }}
+.header .subtitle {{ color: var(--text-dim); font-size: 14px; }}
+.stats-strip {{ display: flex; justify-content: center; gap: 32px; margin-bottom: 40px; flex-wrap: wrap; }}
+.stat {{ text-align: center; }}
+.stat .num {{ font-family: 'JetBrains Mono', monospace; font-size: 28px; font-weight: 700; color: var(--yellow); }}
+.stat .label {{ font-size: 11px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; }}
+.section {{ margin-bottom: 40px; }}
+.section-title {{ font-family: 'Playfair Display', serif; font-size: 24px; color: #fff; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid var(--yellow); display: inline-block; }}
+.section-title span {{ color: var(--yellow); }}
+.cards {{ display: flex; flex-direction: column; gap: 12px; }}
+.card {{ background: var(--card); border-radius: 12px; padding: 20px; border: 1px solid var(--border); transition: all 0.2s; }}
+.card:hover {{ background: var(--card-hover); transform: translateY(-2px); }}
+.card-header {{ display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }}
+.pill {{ background: var(--yellow); color: var(--ink); font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px; }}
+.pill.ai {{ background: #7c3aed; color: #fff; }}
+.pill.vc {{ background: #059669; color: #fff; }}
+.pill.br {{ background: #2563eb; color: #fff; }}
+.pill.wealth {{ background: #d97706; color: #fff; }}
+.card h3 {{ font-size: 16px; font-weight: 600; color: #fff; line-height: 1.4; }}
+.card h3 a {{ color: inherit; text-decoration: none; }}
+.card h3 a:hover {{ color: var(--yellow); }}
+.card .desc {{ font-size: 13px; color: var(--text-dim); margin-top: 8px; line-height: 1.5; }}
+.card-footer {{ margin-top: 12px; font-size: 11px; color: var(--text-dim); }}
+.twitter-section {{ margin-bottom: 40px; }}
+.twitter-grid {{ display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }}
+.tweet-card {{ background: var(--card); border-radius: 12px; padding: 16px; border: 1px solid var(--border); }}
+.tweet-card .handle {{ font-family: 'JetBrains Mono', monospace; color: var(--yellow); font-size: 13px; font-weight: 600; }}
+.tweet-card .preview {{ font-size: 13px; color: var(--text); margin-top: 8px; line-height: 1.5; }}
+.tweet-card .meta {{ font-size: 11px; color: var(--text-dim); margin-top: 8px; }}
+.transparency {{ margin-top: 40px; }}
+.transparency h2 {{ font-family: 'Playfair Display', serif; font-size: 20px; color: #fff; margin-bottom: 16px; }}
+.table {{ width: 100%; border-collapse: collapse; font-size: 12px; }}
+.table th {{ text-align: left; padding: 8px 12px; color: var(--yellow); border-bottom: 1px solid var(--border); }}
+.table td {{ padding: 8px 12px; border-bottom: 1px solid rgba(255,255,255,0.05); }}
+.table tr:hover {{ background: rgba(255,186,0,0.05); }}
+.status-ok {{ color: #4ade80; }}
+.status-fail {{ color: #f87171; }}
+.footer {{ text-align: center; margin-top: 40px; padding: 24px; color: var(--text-dim); font-size: 11px; }}
+.footer a {{ color: var(--yellow); text-decoration: none; }}
+@keyframes fadeUp {{ from {{ opacity: 0; transform: translateY(10px); }} to {{ opacity: 1; transform: translateY(0); }} }}
+.card, .tweet-card {{ animation: fadeUp 0.4s ease-out forwards; opacity: 0; }}
+.card:nth-child(1) {{ animation-delay: 50ms; }}
+.card:nth-child(2) {{ animation-delay: 100ms; }}
+.card:nth-child(3) {{ animation-delay: 150ms; }}
+.tweet-card:nth-child(1) {{ animation-delay: 50ms; }}
+.tweet-card:nth-child(2) {{ animation-delay: 100ms; }}
+.tweet-card:nth-child(3) {{ animation-delay: 150ms; }}
+.tweet-card:nth-child(4) {{ animation-delay: 200ms; }}
+.tweet-card:nth-child(5) {{ animation-delay: 250ms; }}
+
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <div class="date">08 de October de 2026</div>
+  <h1>IVC Curadoria</h1>
+  <div class="subtitle">O melhor de VC, startups e tecnologia — selecionado para investidores</div>
+</div>
+
+<div class="stats-strip">
+  <div class="stat"><div class="num">20</div><div class="label">Fontes Testadas</div></div>
+  <div class="stat"><div class="num">19</div><div class="label">Fontes Acessadas</div></div>
+  <div class="stat"><div class="num">93</div><div class="label">Artigos Coletados</div></div>
+  <div class="stat"><div class="num">10</div><div class="label">Perfis Twitter</div></div>
+</div>
+
+<div class="section">
+<h2 class="section-title"><span>Inteligência Artificial</span></h2>
+<div class="cards">
+        <div class="card">
+          <div class="card-header">
+            <span class="pill ai">Import AI</span>
+          </div>
+          <h3><a href="https://importai.substack.com" target="_blank">Swarm Scaling, Google DeepMind Watermarks Biology, AI Science Economy</a></h3>
+          <p class="desc">Swarm scaling, watermarking de biologia pela DeepMind, e a economia da ciência com IA. Tendências práticas de implementação em produção.</p>
+        </div>
+        
+        <div class="card">
+          <div class="card-header">
+            <span class="pill ai">Bens Bites</span>
+          </div>
+          <h3><a href="https://bensbites.substack.com" target="_blank">OpenAI DevDay 2026 — Perspectives</a></h3>
+          <p class="desc">DevDay 2026 da OpenAI. Perspectives sobre os próximos passos da empresa e impacto no ecossistema.</p>
+        </div>
+        
+        <div class="card">
+          <div class="card-header">
+            <span class="pill ai">Last Week in AI</span>
+          </div>
+          <h3><a href="https://lastweekinai.com" target="_blank">Last Week in AI #345: 5 New Models, 9 Misalignment Incidents</a></h3>
+          <p class="desc">5 novos modelos lançados, 9 incidentes de desalinhamento reportados, e análise semanal do ecossistema AI.</p>
+        </div>
+        </div>
+</div>
+<div class="section">
+<h2 class="section-title"><span>VC & Global</span></h2>
+<div class="cards">
+        <div class="card">
+          <div class="card-header">
+            <span class="pill vc">Stratechery</span>
+          </div>
+          <h3><a href="https://stratechery.com" target="_blank">Apple, LG, Agent Standards e Amazon — Platform Strategy</a></h3>
+          <p class="desc">Análise da estratégia de plataformas: Apple, LG, Agent Standards e Amazon competindo pelo futuro da computação.</p>
+        </div>
+        
+        <div class="card">
+          <div class="card-header">
+            <span class="pill vc">Venture Unlocked</span>
+          </div>
+          <h3><a href="https://ventureunlocked.substack.com" target="_blank">Wins Above Replacement: The New Way to Judge Founders</a></h3>
+          <p class="desc">Framework para avaliar founders — similar a WAR stats no baseball. Como medir performance de forma consistente.</p>
+        </div>
+        
+        <div class="card">
+          <div class="card-header">
+            <span class="pill vc">Not Boring</span>
+          </div>
+          <h3><a href="https://www.notboring.co" target="_blank">Airbound: As We May Move — Future of Mobility</a></h3>
+          <p class="desc">Análise profunda de mobilidade aérea e o futuro do transporte de pessoas e mercadorias.</p>
+        </div>
+        </div>
+</div>
+<div class="section">
+<h2 class="section-title"><span>Brasil</span></h2>
+<div class="cards">
+        <div class="card">
+          <div class="card-header">
+            <span class="pill br">Brazil Journal</span>
+          </div>
+          <h3><a href="https://braziljournal.com" target="_blank">LLMs open-weight ameaçam chineses e Big Techs</a></h3>
+          <p class="desc">Modelos open-weight estão mudando o jogo — implicações para Big Techs e competidores chineses no mercado brasileiro.</p>
+        </div>
+        
+        <div class="card">
+          <div class="card-header">
+            <span class="pill br">NeoFeed</span>
+          </div>
+          <h3><a href="https://neofeed.com.br" target="_blank">EqSeed entra no crédito e expande para vertical maior que equity</a></h3>
+          <p class="desc">EqSeed diversifica e entra no mercado de crédito, apostnado em vertical maior que seu negócio original de equity.</p>
+        </div>
+        
+        <div class="card">
+          <div class="card-header">
+            <span class="pill br">Exame</span>
+          </div>
+          <h3><a href="https://exame.com" target="_blank">VOLL: viagens corporativas com ChatGPT, Gemini e Claude via MCP</a></h3>
+          <p class="desc">Primeira plataforma de viagens corporativas integrada a múltiplos LLMs via MCP — trend emergente de B2B AI.</p>
+        </div>
+        </div>
+</div>
+<div class="section">
+<h2 class="section-title"><span>Wealth & Investing</span></h2>
+<div class="cards">
+        <div class="card">
+          <div class="card-header">
+            <span class="pill wealth">Of Dollars And Data</span>
+          </div>
+          <h3><a href="https://ofdollarsanddata.com" target="_blank">Is Startup Equity a Bad Deal?</a></h3>
+          <p class="desc">Análise crítica: equity de startup é um mau negócio para funcionários? Dados e análises baseadas em evidências.</p>
+        </div>
+        
+        <div class="card">
+          <div class="card-header">
+            <span class="pill wealth">Rational Walk</span>
+          </div>
+          <h3><a href="https://rationalwalk.com" target="_blank">Greg Abel's 2026 Letter to Shareholders</a></h3>
+          <p class="desc">Carta de Greg Abel para acionistas 2026. Sucessão de Buffett e o futuro da Berkshire Hathaway.</p>
+        </div>
+        </div>
+</div>
+
+
+<div class="twitter-section">
+<h2 class="section-title"><span>Twitter/X — Picks</span></h2>
+<div class="twitter-grid">
+<div class="tweet-card">
+  <div class="handle">@ttunguz <span style="color:#888">(5 tweets)</span></div>
+  <p class="preview">RT @koahlabs: 𝗠𝗲𝗲𝘁 𝗖𝗔𝗣𝗜, 𝗼𝘂𝗿 𝗖𝗼𝗻𝘃𝗲𝗿𝘀𝗶𝗼𝗻 𝗔𝗣𝗜   • Server-side conversion tracking, no pixel required • Pixel-level parity on post-click event…...</p>
+</div>
+<div class="tweet-card">
+  <div class="handle">@chamath <span style="color:#888">(5 tweets)</span></div>
+  <p class="preview">Pod!!!! https://t.co/HL1eAk0Jsq...</p>
+</div>
+<div class="tweet-card">
+  <div class="handle">@jason <span style="color:#888">(5 tweets)</span></div>
+  <p class="preview">Join our mailing list today! Help us stay in touch with you. http://t.co/oAXLSwYe...</p>
+</div>
+<div class="tweet-card">
+  <div class="handle">@alexisohanian <span style="color:#888">(5 tweets)</span></div>
+  <p class="preview">Watch and see how fast our team grows in the next 5 years... everyone is somehow still sleeping on women's volleyball. Save this tweet.  https://t.co/...</p>
+</div>
+<div class="tweet-card">
+  <div class="handle">@paulg <span style="color:#888">(5 tweets)</span></div>
+  <p class="preview">I'm reading Shakespeare's Professional Career by Peter Thomson. Like most really good books, it covers much more than its title implies. It's so packe...</p>
+</div>
+<div class="tweet-card">
+  <div class="handle">@naval <span style="color:#888">(5 tweets)</span></div>
+  <p class="preview">Listening to the @trishapaytas podcast two weeks behind and they literally mentioned @RyanScottGraham ‘s band. Wishing you well, Ryan 😊...</p>
+</div>
+<div class="tweet-card">
+  <div class="handle">@pmarca <span style="color:#888">(5 tweets)</span></div>
+  <p class="preview">RT @donaldjewkes: I made this with one prompt using Opus 5.5  I spoke to my computer for 5mins, claude worked for 12 hours, and I woke up t…...</p>
+</div>
+<div class="tweet-card">
+  <div class="handle">@_alexlazar <span style="color:#888">(5 tweets)</span></div>
+  <p class="preview">what’s good? https://t.co/vR2zg653Ju...</p>
+</div>
+<div class="tweet-card">
+  <div class="handle">@gduguid <span style="color:#888">(1 tweets)</span></div>
+  <p class="preview">@CharlieSheen_ Charlie ur the best and ur a credit to all winning men...</p>
+</div>
+<div class="tweet-card">
+  <div class="handle">@lessin <span style="color:#888">(5 tweets)</span></div>
+  <p class="preview">@Mazzeo @theacademysf @brit @davemorin @Jessicalessin @Noho_Labs I said you were fat… not that you are fat - tenses matter :)...</p>
+</div>
+</div>
+</div>
+
+
+<div class="transparency">
+<h2>Relatório de Transparência</h2>
+<table class="table">
+<thead><tr><th>Fonte</th><th>Categoria</th><th>Artigos</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>Stratechery</td><td>global</td><td>5</td><td class='status-ok'>🟢 OK</td></tr>
+<tr><td>NeoFeed</td><td>brasil</td><td>5</td><td class='status-ok'>🟢 OK</td></tr>
+<tr><td>Newcomer</td><td>global</td><td>5</td><td class='status-ok'>🟢 OK</td></tr>
+<tr><td>VentureUnlocked</td><td>global</td><td>5</td><td class='status-ok'>🟢 OK</td></tr>
+<tr><td>OfDollarsAndData</td><td>global</td><td>5</td><td class='status-ok'>🟢 OK</td></tr>
+<tr><td>BrazilJournal</td><td>brasil</td><td>5</td><td class='status-ok'>🟢 OK</td></tr>
+<tr><td>StartupsBR</td><td>brasil</td><td>5</td><td class='status-ok'>🟢 OK</td></tr>
+<tr><td>ImportAI</td><td>global</td><td>5</td><td class='status-ok'>🟢 OK</td></tr>
+<tr><td>Startupi</td><td>brasil</td><td>5</td><td class='status-ok'>🟢 OK</td></tr>
+<tr><td>Femstreet</td><td>global</td><td>5</td><td class='status-ok'>🟢 OK</td></tr>
+<tr><td>RationalWalk</td><td>global</td><td>5</td><td class='status-ok'>🟢 OK</td></tr>
+<tr><td>TheFullRatchet</td><td>global</td><td>0</td><td class='status-ok'>🔴 FAIL</td></tr>
+<tr><td>AWealthOfCommonSense</td><td>global</td><td>5</td><td class='status-ok'>🟢 OK</td></tr>
+<tr><td>InvestLikeTheBest</td><td>global</td><td>3</td><td class='status-ok'>🟢 OK</td></tr>
+<tr><td>Exame</td><td>brasil</td><td>5</td><td class='status-ok'>🟢 OK</td></tr>
+<tr><td>MebFaber</td><td>global</td><td>5</td><td class='status-ok'>🟢 OK</td></tr>
+<tr><td>NotBoring</td><td>global</td><td>5</td><td class='status-ok'>🟢 OK</td></tr>
+<tr><td>BensBites</td><td>global</td><td>5</td><td class='status-ok'>🟢 OK</td></tr>
+<tr><td>LastWeekAI</td><td>global</td><td>5</td><td class='status-ok'>🟢 OK</td></tr>
+<tr><td>TechCrunch</td><td>global</td><td>5</td><td class='status-ok'>🟢 OK</td></tr>
+
+</tbody>
+</table>
+</div>
+
+<div class="footer">
+  <p>IVC Curadoria · Gerado automaticamente · 2026-10-08 11:03</p>
+</div>
+
+</div>
+</body>
+</html>
