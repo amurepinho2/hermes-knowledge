@@ -3,170 +3,274 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Curadoria IVC — 2026-09-26</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<title>Curadoria IVC — 26/set/2026</title>
 <style>
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-:root {
-  --bg: #0d0d0f;
-  --card-bg: #18181f;
-  --ink: #1A1B1F;
-  --ivc: #FFBA00;
-  --text: #e8e8ee;
-  --muted: #6b6b7b;
-  --border: #2a2a35;
-}
-body { background: var(--bg); color: var(--text); font-family: Inter, system-ui, sans-serif; }
-.container { max-width: 860px; margin: 0 auto; padding: 24px 16px; }
-.header { text-align: center; padding: 40px 0 32px; border-bottom: 1px solid var(--border); margin-bottom: 40px; }
-.header .date { font-family: JetBrains Mono, monospace; font-size: 12px; color: var(--ivc); letter-spacing: 0.1em; text-transform: uppercase; }
-.header h1 { font-family: Cera Pro, sans-serif; font-size: 32px; color: var(--ivc); margin: 8px 0 16px; }
-.header .stats { display: flex; justify-content: center; gap: 24px; font-size: 13px; color: var(--muted); }
-.header .stats span { background: var(--card-bg); padding: 6px 14px; border-radius: 20px; border: 1px solid var(--border); }
-.section { margin-bottom: 48px; }
-.section-title { font-family: Cera Pro, sans-serif; font-size: 18px; color: var(--text); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid var(--ivc); display: flex; align-items: center; gap: 8px; }
-.emoji { font-size: 20px; }
-.cards { display: grid; gap: 16px; }
-.card { background: var(--card-bg); border-radius: 12px; padding: 20px; border: 1px solid var(--border); animation: fadeUp 0.4s ease both; }
-.card:hover { border-color: var(--ivc); }
-.source-pill { font-size: 11px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 3px 10px; border-radius: 20px; display: inline-block; margin-bottom: 10px; }
-.card h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; line-height: 1.4; }
-.card h3 a { color: var(--text); text-decoration: none; }
-.card h3 a:hover { color: var(--ivc); }
-.desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
-.twitter-section { background: var(--card-bg); border-radius: 12px; padding: 24px; border: 1px solid var(--border); margin-bottom: 48px; }
-.twitter-section h2 { font-family: Cera Pro, sans-serif; font-size: 18px; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
-.twitter-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
-.tweet { background: var(--bg); border-radius: 8px; padding: 12px; font-size: 13px; line-height: 1.5; color: var(--text); }
-.tweet .handle { color: var(--ivc); font-weight: 700; font-size: 12px; display: block; margin-bottom: 6px; }
-.transparency { margin-top: 48px; }
-.transparency h2 { font-family: Cera Pro, sans-serif; font-size: 16px; margin-bottom: 16px; color: var(--muted); }
-.transparency table { width: 100%; border-collapse: collapse; font-size: 13px; }
-.transparency th { text-align: left; padding: 8px 12px; background: var(--card-bg); color: var(--muted); border-bottom: 1px solid var(--border); }
-.transparency td { padding: 8px 12px; border-bottom: 1px solid var(--border); }
-.transparency tr:hover td { background: var(--card-bg); }
-.dot-ok { color: #4ade80; }
-.dot-fail { color: #f87171; }
-.dot-warn { color: #fbbf24; }
-.footer { text-align: center; padding: 32px 0; color: var(--muted); font-size: 12px; border-top: 1px solid var(--border); margin-top: 48px; }
-@keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
-@media (max-width: 600px) { .header h1 { font-size: 24px; } .stats { flex-wrap: wrap; gap: 8px; } }
+* {{ margin: 0; padding: 0; box-sizing: border-box; }}
+:root {{
+    --ivc-yellow: #FFBA00;
+    --ivc-ink: #1A1B1F;
+    --bg: #0d0d0f;
+    --card-bg: #18181f;
+    --text: #e8e8ec;
+    --muted: #8888a0;
+    --radius: 12px;
+    --spacing: 4px;
+}}
+body {{ background: var(--bg); color: var(--text); font-family: Inter, sans-serif; padding: 20px; }}
+.container {{ max-width: 900px; margin: 0 auto; }}
+.header {{ text-align: center; padding: 40px 0; border-bottom: 1px solid #2a2a3a; margin-bottom: 40px; }}
+.header h1 {{ font-family: "Cera Pro", sans-serif; font-size: 2.5rem; color: var(--ivc-yellow); }}
+.header .date {{ font-family: "JetBrains Mono", monospace; color: var(--muted); margin-top: 8px; font-size: 0.9rem; }}
+.stats-strip {{ display: flex; justify-content: center; gap: 32px; margin: 20px 0; font-family: "JetBrains Mono", monospace; font-size: 0.8rem; color: var(--muted); }}
+.stats-strip span {{ color: var(--ivc-yellow); }}
+section {{ margin-bottom: 48px; }}
+section h2 {{ font-family: "Cera Pro", sans-serif; font-size: 1.4rem; color: var(--ivc-yellow); border-left: 4px solid var(--ivc-yellow); padding-left: 12px; margin-bottom: 20px; }}
+.cards-grid {{ display: grid; grid-template-columns: 1fr; gap: 12px; }}
+.card {{ background: var(--card-bg); border-radius: var(--radius); padding: 16px; border: 1px solid #2a2a3a; animation: fadeUp 0.4s ease both; }}
+.card:hover {{ border-color: var(--ivc-yellow); }}
+.source-pill {{ display: inline-block; background: var(--ivc-yellow); color: var(--ivc-ink); font-size: 0.7rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; font-family: "JetBrains Mono", monospace; margin-bottom: 8px; }}
+.source-pill.twitter {{ background: #1da1f2; color: #fff; }}
+.card h3 {{ font-size: 1rem; margin-bottom: 8px; line-height: 1.4; }}
+.card h3 a {{ color: var(--text); text-decoration: none; }}
+.card h3 a:hover {{ color: var(--ivc-yellow); }}
+.card p {{ font-size: 0.85rem; color: var(--muted); line-height: 1.6; }}
+.tweet-preview {{ font-size: 0.9rem; color: var(--text); font-style: italic; }}
+.transparency {{ margin-top: 60px; padding-top: 40px; border-top: 1px solid #2a2a3a; }}
+.transparency h2 {{ font-size: 1.1rem; color: var(--muted); border-color: var(--muted); }}
+table {{ width: 100%; border-collapse: collapse; font-size: 0.8rem; font-family: "JetBrains Mono", monospace; }}
+th {{ text-align: left; color: var(--muted); padding: 8px; border-bottom: 1px solid #2a2a3a; }}
+td {{ padding: 8px; border-bottom: 1px solid #1e1e28; }}
+tr:hover td {{ background: #1e1e28; }}
+.footer {{ text-align: center; color: var(--muted); font-size: 0.75rem; margin-top: 40px; padding: 20px; font-family: "JetBrains Mono", monospace; }}
+@keyframes fadeUp {{ from {{ opacity: 0; transform: translateY(12px); }} to {{ opacity: 1; transform: translateY(0); }} }}
+.card:nth-child(1) {{ animation-delay: 50ms; }}
+.card:nth-child(2) {{ animation-delay: 100ms; }}
+.card:nth-child(3) {{ animation-delay: 150ms; }}
+.card:nth-child(4) {{ animation-delay: 200ms; }}
+@media (min-width: 700px) {{ .cards-grid {{ grid-template-columns: 1fr 1fr; }} }}
 
 </style>
 </head>
 <body>
 <div class="container">
-  <header class="header">
-    <div class="date">2026-09-26 · 11h BRT</div>
-    <h1>📰 Curadoria IVC</h1>
-    <div class="stats">
-      <span>21 fontes testadas</span>
-      <span>20 acessadas</span>
-      <span>93 artigos</span>
-      <span>10 tweets</span>
+<div class="header">
+    <h1>IVC CONTENT</h1>
+    <div class="date">26 de Setembro de 2026 — Curadoria Matinal</div>
+    <div class="stats-strip">
+        <div><span>21</span> fontes testadas</div>
+        <div><span>20</span> acessadas</div>
+        <div><span>93</span> artigos</div>
+        <div><span>10</span>/10 perfis Twitter</div>
     </div>
-  </header>
+</div>
 
-  
-    <section class="section">
-      <h2 class="section-title"><span class="emoji">🤖</span> Inteligência Artificial</h2>
-      <div class="cards">
-    <article class="card" style="--src-color: #a78bfa">
-      <span class="source-pill" style="background:#a78bfa22;color:#a78bfa;border:1px solid #a78bfa44">Inteligência</span>
-      <h3><a href="https://importai.substack.com/p/import-ai-475-swarm-scaling-google" target="_blank">Import AI 475: Swarm scaling; Google DeepMind watermarks biology; and the AI science economy</a></h3>
-      <p class="desc">Who chooses what AI gets to do?...</p>
-    </article>
-    <article class="card" style="--src-color: #a78bfa">
-      <span class="source-pill" style="background:#a78bfa22;color:#a78bfa;border:1px solid #a78bfa44">Inteligência</span>
-      <h3><a href="https://lastweekin.ai/p/last-week-in-ai-346-719-math-manuscripts" target="_blank">Last Week in AI #346 - 719 math manuscripts, 2 Western open models, 1 more safety resignation</a></h3>
-      <p class="desc">OpenAI publishes hundreds of math proofs from unreleased frontier model, Mistral and Reflection AI launch open-weight models to rival China, and more!...</p>
-    </article></div>
-    </section>
-  
-    <section class="section">
-      <h2 class="section-title"><span class="emoji">🌐</span> VC & Global</h2>
-      <div class="cards">
-    <article class="card" style="--src-color: #60a5fa">
-      <span class="source-pill" style="background:#60a5fa22;color:#60a5fa;border:1px solid #60a5fa44">VC</span>
-      <h3><a href="https://stratechery.com/2026/its-not-you-its-me/" target="_blank">2026.41: It's Not You, It's Me</a></h3>
-      <p class="desc">The best Stratechery content from the week of October 5, 2026, including drifting apart from Apple, Facebook complications, and the delightful absurdity of U.S.-China dynamics....</p>
-    </article>
-    <article class="card" style="--src-color: #60a5fa">
-      <span class="source-pill" style="background:#60a5fa22;color:#60a5fa;border:1px solid #60a5fa44">VC</span>
-      <h3><a href="https://www.newcomer.co/p/competing-arr-estimates-and-fuzzy" target="_blank">Competing ARR Estimates & Fuzzy Valuation Math in the Spotlight as Markets Get Edgy</a></h3>
-      <p class="desc">Plus, Western startups aim to challenge China on open source & Google's AI flunks in the classroom...</p>
-    </article>
-    <article class="card" style="--src-color: #60a5fa">
-      <span class="source-pill" style="background:#60a5fa22;color:#60a5fa;border:1px solid #60a5fa44">VC</span>
-      <h3><a href="https://ventureunlocked.substack.com/p/wins-above-replacement-the-new-way" target="_blank">Wins Above Replacement: The New Way to Judge Founders</a></h3>
-      <p class="desc">Follow me @samirkaji for my thoughts on the venture market, with a focus on the continued evolution of the VC landscape....</p>
-    </article>
-    <article class="card" style="--src-color: #60a5fa">
-      <span class="source-pill" style="background:#60a5fa22;color:#60a5fa;border:1px solid #60a5fa44">VC</span>
-      <h3><a href="https://www.notboring.co/p/weekly-dose-of-optimism-214" target="_blank">Weekly Dose of Optimism #214</a></h3>
-      <p class="desc">Nobel, Matter Compiler, Anduril Shipyard, Mouth Cancer Patch, Biohub Virtual Cell + Extra Doses...</p>
-    </article></div>
-    </section>
-  
-    <section class="section">
-      <h2 class="section-title"><span class="emoji">🇧🇷</span> Brasil</h2>
-      <div class="cards">
-    <article class="card" style="--src-color: #34d399">
-      <span class="source-pill" style="background:#34d39922;color:#34d399;border:1px solid #34d39944">Brasil</span>
-      <h3><a href="https://startupi.com.br/ia-gestao-pessoas-startups-hrtechs-pmes/" target="_blank">Por que a startup que deixa o RH fora da IA pode escalar o problema?</a></h3>
-      <p class="desc">Startupi
+<section>
+<h2>🤖 AI & Technology</h2>
+<div class="cards-grid"><div class="card">
+        <span class="source-pill">ImportAI</span>
+        <h3><a href="https://importai.substack.com/p/import-ai-476-creativity-and-rsi" target="_blank">Import AI 476: Creativity and RSI; worse-than-China open weight models; AI goes to space</a></h3>
+        <p>Will we give robots the moon?</p>
+    </div><div class="card">
+        <span class="source-pill">ImportAI</span>
+        <h3><a href="https://importai.substack.com/p/import-ai-475-swarm-scaling-google" target="_blank">Import AI 475: Swarm scaling; Google DeepMind watermarks biology; and the AI science economy</a></h3>
+        <p>Who chooses what AI gets to do?</p>
+    </div><div class="card">
+        <span class="source-pill">BensBites</span>
+        <h3><a href="https://www.bensbites.com/p/text-is-so-2023" target="_blank">Text is so 2023</a></h3>
+        <p>Everyone wants an AI wife...not like that</p>
+    </div><div class="card">
+        <span class="source-pill">BensBites</span>
+        <h3><a href="https://www.bensbites.com/p/thoughts-from-san-francisco" target="_blank">Thoughts from San Francisco</a></h3>
+        <p>Agents.md in Google Docs</p>
+    </div><div class="card">
+        <span class="source-pill">LastWeekAI</span>
+        <h3><a href="https://lastweekin.ai/p/last-week-in-ai-346-719-math-manuscripts" target="_blank">Last Week in AI #346 - 719 math manuscripts, 2 Western open models, 1 more safety resignation</a></h3>
+        <p>OpenAI publishes hundreds of math proofs from unreleased frontier model, Mistral and Reflection AI launch open-weight models to rival China, and more!</p>
+    </div><div class="card">
+        <span class="source-pill">LastWeekAI</span>
+        <h3><a href="https://lastweekin.ai/p/lwiai-podcast-258-opus-55-sol-and" target="_blank">LWiAI Podcast #258 - Opus 5.5, Sol and Luna, Muse, DeepSeek-V4.1-Flash, Xi</a></h3>
+        <p>(Belated post :/ ) Anthropic releases Opus 5.5 with lower prices and Fable-level performance, OpenAI launches GPT-6 Sol and Luna, boasting lower cost and fewer mistakes</p>
+    </div><div class="card">
+        <span class="source-pill">TechCrunch</span>
+        <h3><a href="https://techcrunch.com/2026/10/12/meta-releases-its-first-frontier-model-muse-wonder/" target="_blank">Meta releases its first frontier model, Muse Wonder</a></h3>
+        <p>Where Muse Spark aimed to be a lightweight model that could perform at low latency, the Wonder models are larger and said to be more capable, with higher benchmark scores and better results on complex...</p>
+    </div><div class="card">
+        <span class="source-pill">TechCrunch</span>
+        <h3><a href="https://techcrunch.com/2026/10/12/windborne-wins-a-hefty-us-air-force-contract-for-its-balloon-data/" target="_blank">WindBorne wins a hefty US Air Force contract for its balloon data</a></h3>
+        <p>A Silicon Valley startup that uses weather balloons and AI to predict the weather won a U.S. military contract worth almost $50 million.</p>
+    </div></div>
+</section>
 
-Por que a startup que deixa o RH fora da IA pode escalar o problema?
-Para empreendedores, inteligência artificial na gestão de pessoas não é apenas automação de recrutame...</p>
-    </article>
-    <article class="card" style="--src-color: #34d399">
-      <span class="source-pill" style="background:#34d39922;color:#34d399;border:1px solid #34d39944">Brasil</span>
-      <h3><a href="https://neofeed.com.br/finde/fortunas-negocios-e-agora-uma-universidade-bilionaria-redesenham-miami/" target="_blank">Fortunas, negócios e agora uma universidade bilionária redesenham Miami</a></h3>
-      <p class="desc">Nova York — Depois de atrair bilionários, gestoras de investimentos e profissionais de tecnologia, Miami se prepara para receber um campus da Carnegie Mellon University (CMU). Fina...</p>
-    </article>
-    <article class="card" style="--src-color: #34d399">
-      <span class="source-pill" style="background:#34d39922;color:#34d399;border:1px solid #34d39944">Brasil</span>
-      <h3><a href="https://braziljournal.com/ele-esta-fazendo-em-itu-o-que-a-disney-fez-em-orlando" target="_blank">Ele está fazendo em Itu o que a Disney fez em Orlando</a></h3>
-      <p class="desc">ITU, São Paulo — O chão aqui ainda é obra. Km 84 da Castello Branco, terra revolvida, e o barulho frenético de um canteiro que tem uma missão a cumprir. Alexandre Costa anda no mei...</p>
-    </article></div>
-    </section>
-  
-    <section class="section">
-      <h2 class="section-title"><span class="emoji">💰</span> Wealth & Invest</h2>
-      <div class="cards">
-    <article class="card" style="--src-color: #fbbf24">
-      <span class="source-pill" style="background:#fbbf2422;color:#fbbf24;border:1px solid #fbbf2444">Wealth</span>
-      <h3><a href="https://mebfaber.com/2026/10/08/what-if-ai-stocks-are-like-the-airlines/" target="_blank">What If AI Stocks Are Like The&#8230;.Airlines?!</a></h3>
-      <p class="desc">Best analogy I've heard recently for the bear case on AI (via @unpopularvc) – AI firms are like the airlines. Amazing invention Changed the world Everyone uses them Trillion dollar...</p>
-    </article>
-    <article class="card" style="--src-color: #fbbf24">
-      <span class="source-pill" style="background:#fbbf2422;color:#fbbf24;border:1px solid #fbbf2444">Wealth</span>
-      <h3><a href="https://ofdollarsanddata.com/is-startup-equity-a-bad-deal/" target="_blank">Is Startup Equity a Bad Deal?</a></h3>
-      <p class="desc">Imagine joining a startup as employee number 10. Your salary is a bit below what the market pays for your role, but, in exchange, you get equity. How much? 0.25% of the company to ...</p>
-    </article></div>
-    </section>
+<section>
+<h2>💰 VC & Global</h2>
+<div class="cards-grid"><div class="card">
+        <span class="source-pill">Stratechery</span>
+        <h3><a href="https://stratechery.com/2026/spacex-buys-more-spectrum-musk-and-market-structure-distributed-cellular/" target="_blank">SpaceX Buys More Spectrum, Musk and Market Structure, Distributed Cellular</a></h3>
+        <p>SpaceX's mobile strategy is becoming clearly with its latest spectrum purchase, and it might work.</p>
+    </div><div class="card">
+        <span class="source-pill">Stratechery</span>
+        <h3><a href="https://stratechery.com/2026/personal-day-4/" target="_blank">Personal Day</a></h3>
+        <p>Personal Day — No Update</p>
+    </div><div class="card">
+        <span class="source-pill">NotBoring</span>
+        <h3><a href="https://www.notboring.co/p/weekly-dose-of-optimism-214" target="_blank">Weekly Dose of Optimism #214</a></h3>
+        <p>Nobel, Matter Compiler, Anduril Shipyard, Mouth Cancer Patch, Biohub Virtual Cell + Extra Doses</p>
+    </div><div class="card">
+        <span class="source-pill">NotBoring</span>
+        <h3><a href="https://www.notboring.co/p/weekly-dose-of-optimism-213" target="_blank">Weekly Dose of Optimism #213</a></h3>
+        <p>Starship Orbital, America.gov, Matic Master Plan, Freckle, Heart Age + Extra Doses</p>
+    </div><div class="card">
+        <span class="source-pill">Newcomer</span>
+        <h3><a href="https://www.newcomer.co/p/competing-arr-estimates-and-fuzzy" target="_blank">Competing ARR Estimates & Fuzzy Valuation Math in the Spotlight as Markets Get Edgy</a></h3>
+        <p>Plus, Western startups aim to challenge China on open source & Google's AI flunks in the classroom</p>
+    </div><div class="card">
+        <span class="source-pill">Newcomer</span>
+        <h3><a href="https://www.newcomer.co/p/after-missing-ais-early-days-lightspeed" target="_blank">After Missing AI’s Early Days, Lightspeed Remade Itself. Now It’s Poised to Score with Anthropic.</a></h3>
+        <p>A pivotal April 2023 meeting set the firm on an ambitious new course that includes PE-style roll-ups.</p>
+    </div><div class="card">
+        <span class="source-pill">VentureUnlocked</span>
+        <h3><a href="https://ventureunlocked.substack.com/p/wins-above-replacement-the-new-way" target="_blank">Wins Above Replacement: The New Way to Judge Founders</a></h3>
+        <p>Follow me @samirkaji for my thoughts on the venture market, with a focus on the continued evolution of the VC landscape.</p>
+    </div><div class="card">
+        <span class="source-pill">VentureUnlocked</span>
+        <h3><a href="https://ventureunlocked.substack.com/p/from-facebook-engineer-to-2b-vc-aditya" target="_blank">From the early days of Facebook and learning from Zuck to building a $2B+ VC franchise w/South Park Commons</a></h3>
+        <p>Follow me @samirkaji for my thoughts on the venture market, with a focus on the continued evolution of the VC landscape.</p>
+    </div><div class="card">
+        <span class="source-pill">Femstreet</span>
+        <h3><a href="https://femstreet.substack.com/p/femstreetissue288" target="_blank">Common and costly product messaging mistakes; How to write a great fundraising blurb; The art of giving and receiving feedback</a></h3>
+        <p>Where women lead, shape, and fund the future.</p>
+    </div><div class="card">
+        <span class="source-pill">Femstreet</span>
+        <h3><a href="https://femstreet.substack.com/p/femstreetissue287" target="_blank">Lessons from failing to find PMF; Sales forecasting 101; Setting up your exit strategy</a></h3>
+        <p>Where women lead, shape, and fund the future.</p>
+    </div></div>
+</section>
 
-  <div class="twitter-section">
-    <h2>🐦 Twitter/X — Picks</h2>
-    <div class="twitter-grid"><div class="tweet"><span class="handle">@ttunguz</span>RT @koahlabs: Meet CAPI, our Conversion API — Server-side conversion tracking, no pixel required</div><div class="tweet"><span class="handle">@chamath</span>Pod!!!! https://t.co/HL1eAk0Jsq</div><div class="tweet"><span class="handle">@jason</span>Join our mailing list today! Help us stay in touch with you.</div><div class="tweet"><span class="handle">@alexisohanian</span>Watch and see how fast our team grows in the next 5 years...</div><div class="tweet"><span class="handle">@paulg</span>I'm reading Shakespeare's Professional Career by Peter Thomson...</div><div class="tweet"><span class="handle">@naval</span>Listening to the @trishapaytas podcast two weeks behind...</div><div class="tweet"><span class="handle">@pmarca</span>RT @donaldjewkes: I made this with one prompt using Opus 5.5...</div><div class="tweet"><span class="handle">@_alexlazar</span>what's good? https://t.co/vR2zg653Ju</div><div class="tweet"><span class="handle">@gduguid</span>@CharlieSheen_ Charlie ur the best and ur a credit to all winning men</div><div class="tweet"><span class="handle">@lessin</span>@Mazzeo ... I said you were fat… not that you are fat - tenses matter :)</div></div>
-  </div>
+<section>
+<h2>🇧🇷 Brasil</h2>
+<div class="cards-grid"><div class="card">
+        <span class="source-pill">BrazilJournal</span>
+        <h3><a href="https://braziljournal.com/dylan-a-wealth-tech-com-ai-de-felipe-miranda" target="_blank">Dylan, a ‘wealth tech’ (com AI) de Felipe Miranda</a></h3>
+        <p>Depois de deixar a Empiricus, Felipe Miranda agora está montando a wealth tech Dylan, que vai oferecer consultoria financeira usando AI. Meses depois de sair da Empiricus, Felipe Miranda está montando...</p>
+    </div><div class="card">
+        <span class="source-pill">BrazilJournal</span>
+        <h3><a href="https://braziljournal.com/ainda-sem-o-clarity-act-wall-street-acelera-tokenizacao-diz-a-barrons" target="_blank">Ainda sem o Clarity Act, Wall Street acelera tokenização, diz a Barron’s</a></h3>
+        <p>O Clarity Act, a legislação que deverá dar segurança jurídica para a negociação e posse de criptomoedas nos EUA, emperrou no Senado. Mas Wall Street agora tem pressa para embarcar na era da tokenizaçã...</p>
+    </div><div class="card">
+        <span class="source-pill">NeoFeed</span>
+        <h3><a href="https://neofeed.com.br/inovacao/zuckerberg-diz-ter-alcancado-rivais-na-corrida-da-ia-e-prepara-nova-ofensiva-bilionaria/" target="_blank">Zuckerberg diz ter alcançado rivais na corrida da IA e prepara nova ofensiva bilionária</a></h3>
+        <p>O fundador e CEO da Meta, Mark Zuckerberg, afirmou que a empresa alcançou seus principais concorrentes na chamada "fronteira" da inteligência artificial (IA) e promete novos investimentos bilionários ...</p>
+    </div><div class="card">
+        <span class="source-pill">NeoFeed</span>
+        <h3><a href="https://neofeed.com.br/finde/o-milagre-do-padre-que-salvou-as-financas-da-puc-rio-e-com-o-apoio-de-arminio-fraga/" target="_blank">O “milagre” do padre que salvou as finanças da PUC-Rio. E com o apoio de Armínio Fraga</a></h3>
+        <p>Se fosse uma empresa privada, a Pontifícia Universidade Católica do Rio de Janeiro (PUC-Rio) teria chegado muito perto de um pedido de recuperação judicial em 2021. A instituição enfrentava uma enorme...</p>
+    </div><div class="card">
+        <span class="source-pill">StartupsBR</span>
+        <h3><a href="https://startups.com.br/negocios/scale-up-da-estonia-entra-na-disputa-por-infra-tecnologica-do-setor-rodoviario/" target="_blank">Scale-up da Estônia entra na disputa por infra tecnológica do setor rodoviário</a></h3>
+        <p>Thiego Paes, Diretor Regional, Latam / BD & Sales da Turnit | Foto: DivulgaçãoCom presença global, Turnit desembarcou oficialmente no Brasil e quer "tirar empresas de ônibus da zona de conforto"
+O pos...</p>
+    </div><div class="card">
+        <span class="source-pill">StartupsBR</span>
+        <h3><a href="https://startups.com.br/danca-das-cadeiras/barte-contrata-rodolfo-bizinoto-neto-como-diretor-de-estrategia/" target="_blank">Barte contrata Rodolfo Bizinoto Neto como Diretor de Estratégia</a></h3>
+        <p>Rodolfo Bizinoto Neto, novo Diretor de Estratégia da Barte (Imagem: Divulgação)Ex-cofundador da Mercai assume o novo cargo com foco na expansão de soluções de fluxo de caixa, cartões de crédito e auto...</p>
+    </div><div class="card">
+        <span class="source-pill">Exame</span>
+        <h3><a href="https://exame.com/inteligencia-artificial/uma-semana-com-os-dots-vale-a-pena-ter-um-agente-pessoal-do-chatgpt/" target="_blank">Uma semana com os dots: vale a pena ter um agente pessoal do ChatGPT?</a></h3>
+        <p>Experiência com agente da OpenAI incluiu limpeza de e-mails, criação de um calendário econômico e organização pessoal e profissional</p>
+    </div><div class="card">
+        <span class="source-pill">Exame</span>
+        <h3><a href="https://exame.com/negocios/ele-queria-fazer-renda-extra-e-acabou-criando-uma-rede-de-100-escolas-que-fatura-r-85-milhoes/" target="_blank">Ele só queria uma renda extra — e acabou criando uma rede de 100 escolas que fatura R$ 85 milhões</a></h3>
+        <p>Depois de crescer de forma gradual por duas décadas, rede de idiomas mira até 350 operações e aposta em novos formatos para aumentar a receita dos franqueados</p>
+    </div><div class="card">
+        <span class="source-pill">Startupi</span>
+        <h3><a href="https://startupi.com.br/tokenizacao-credito-empreendedor-captar/" target="_blank">Tokenização de crédito: a próxima chance do empreendedor captar sem bater na porta de bancos</a></h3>
+        <p>Startupi
 
-  <div class="transparency">
-    <h2>📊 Relatório de Transparência</h2>
-    <table>
-      <thead>
-        <tr><th>Fonte</th><th>Status</th><th>Artigos</th><th>Categoria</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Stratechery</td><td>🟢 Sucesso</td><td>5/5</td><td>VC/Global</td></tr><tr><td>NotBoring</td><td>🟢 Sucesso</td><td>5/5</td><td>VC/Global</td></tr><tr><td>ImportAI</td><td>🟢 Sucesso</td><td>5/5</td><td>AI</td></tr><tr><td>BensBites</td><td>🟢 Sucesso</td><td>5/5</td><td>AI</td></tr><tr><td>LastWeekAI</td><td>🟢 Sucesso</td><td>5/5</td><td>AI</td></tr><tr><td>BrazilJournal</td><td>🟢 Sucesso</td><td>5/5</td><td>BR</td></tr><tr><td>NeoFeed</td><td>🟢 Sucesso</td><td>5/5</td><td>BR</td></tr><tr><td>Startupi</td><td>🟢 Sucesso</td><td>5/5</td><td>BR</td></tr><tr><td>TechCrunch</td><td>🟢 Sucesso</td><td>5/5</td><td>Tech</td></tr><tr><td>Newcomer</td><td>🟢 Sucesso</td><td>5/5</td><td>VC/Global</td></tr><tr><td>VentureUnlocked</td><td>🟢 Sucesso</td><td>5/5</td><td>VC/Global</td></tr><tr><td>Femstreet</td><td>🟢 Sucesso</td><td>5/5</td><td>VC/Global</td></tr><tr><td>OfDollarsAndData</td><td>🟢 Sucesso</td><td>5/5</td><td>Wealth</td></tr><tr><td>RationalWalk</td><td>🟢 Sucesso</td><td>5/5</td><td>Wealth</td></tr><tr><td>AWealthOfCommonSense</td><td>🟢 Sucesso</td><td>5/5</td><td>Wealth</td></tr><tr><td>InvestLikeTheBest</td><td>🟢 Sucesso</td><td>3/5</td><td>Wealth</td></tr><tr><td>Exame</td><td>🟢 Sucesso</td><td>5/5</td><td>BR</td></tr><tr><td>MebFaber</td><td>🟢 Sucesso</td><td>5/5</td><td>Wealth</td></tr><tr><td>StartupsBR</td><td>🟢 Sucesso</td><td>5/5</td><td>BR</td></tr><tr><td>TheFullRatchet</td><td>🔴 Falhou</td><td>0/5</td><td>VC/Global</td></tr>
-      </tbody>
-    </table>
-  </div>
+Tokenização de crédito: a próxima chance do empreendedor captar sem bater na porta de bancos
+O mercado cresceu 10 vezes em um ano abrindo caminhos para startups e pequenas empresas usarem a ...</p>
+    </div><div class="card">
+        <span class="source-pill">Startupi</span>
+        <h3><a href="https://startupi.com.br/pucpr-investe-4-milhoes-hub-agrotech-parana/" target="_blank">Testes no campo real: PUCPR direciona R$ 4 milhões para aproximar startups e multinacionais do agronegócio</a></h3>
+        <p>Startupi
 
-  <footer class="footer">
-    Gerado automaticamente por Atlas Hermes · IVC Content Intelligence
-  </footer>
+Testes no campo real: PUCPR direciona R$ 4 milhões para aproximar startups e multinacionais do agronegócio
+Integrado a uma fazenda de 200 hectares na Região Metropolitana de Curitiba, novo h...</p>
+    </div></div>
+</section>
+
+<section>
+<h2>📊 Wealth & Investing</h2>
+<div class="cards-grid"><div class="card">
+        <span class="source-pill">RationalWalk</span>
+        <h3><a href="https://rationalwalk.com/buffett-completes-succession-plan/" target="_blank">Buffett Completes Succession Plan</a></h3>
+        <p>Warren Buffett has completed Berkshire's succession plan as he steps down as Chairman.</p>
+    </div><div class="card">
+        <span class="source-pill">OfDollarsAndData</span>
+        <h3><a href="https://ofdollarsanddata.com/playing-the-wrong-game/" target="_blank">Playing the Wrong Game</a></h3>
+        <p>A few months ago, I saw this tweet about the World Sauna Championships and how men will literally push themselves to the brink of death to win them, despite there being no tangible rewards. As the aut...</p>
+    </div><div class="card">
+        <span class="source-pill">MebFaber</span>
+        <h3><a href="https://mebfaber.com/2026/10/12/out-of-sample-value-returns-in-the-1800s/" target="_blank">Out of Sample Value Returns&#8230;in the 1800s?</a></h3>
+        <p>Imagine being a value bro from 1866 to 1926&#8230;worked even better!   Via @paradoxinvestor https://theideafarm.com/portfolio-management/the-cross-section-of-stock-returns-before-crsp-2/
+The post Out...</p>
+    </div><div class="card">
+        <span class="source-pill">InvestLikeTheBest</span>
+        <h3><a href="https://investlikethebest.substack.com/p/valueletter-snap-inc" target="_blank">ValueLetter - Snap Inc.</a></h3>
+        <p>What's the quality and intrinsic value of Snap-on Inc.? Well, Snap-on is a really great company. Find out, why!</p>
+    </div><div class="card">
+        <span class="source-pill">AWealthOfCommonSense</span>
+        <h3><a href="https://awealthofcommonsense.com/2026/10/talk-your-book-will-ai-debt-cause-a-recession/" target="_blank">Talk Your Book: Will AI Debt Cause a Recession?</a></h3>
+        <p>Today's Talk Your Book is brought to you by JP Morgan: To learn more about the JPMorgan Strategic Income Opportunities Fund click here: https://am.jpmorgan.com/us/en/asset-management/adv/products/jpmo...</p>
+    </div></div>
+</section>
+
+<section>
+<h2>🐦 Twitter / X</h2>
+<div class="cards-grid"><div class="card twitter-card">
+        <span class="source-pill twitter">@ttunguz</span>
+        <p class="tweet-preview">RT @koahlabs: 𝗠𝗲𝗲𝘁 𝗖𝗔𝗣𝗜, 𝗼𝘂𝗿 𝗖𝗼𝗻𝘃𝗲𝗿𝘀𝗶𝗼𝗻 𝗔𝗣𝗜   • Server-side conversion tracking, no pixel required • Pixel-level parity on post-click event…</p>
+    </div><div class="card twitter-card">
+        <span class="source-pill twitter">@chamath</span>
+        <p class="tweet-preview">Pod!!!! https://t.co/HL1eAk0Jsq</p>
+    </div><div class="card twitter-card">
+        <span class="source-pill twitter">@jason</span>
+        <p class="tweet-preview">Join our mailing list today! Help us stay in touch with you. http://t.co/oAXLSwYe</p>
+    </div><div class="card twitter-card">
+        <span class="source-pill twitter">@alexisohanian</span>
+        <p class="tweet-preview">Watch and see how fast our team grows in the next 5 years... everyone is somehow still sleeping on women's volleyball. Save this tweet.  https://t.co/</p>
+    </div><div class="card twitter-card">
+        <span class="source-pill twitter">@paulg</span>
+        <p class="tweet-preview">I'm reading Shakespeare's Professional Career by Peter Thomson. Like most really good books, it covers much more than its title implies. It's so packe</p>
+    </div><div class="card twitter-card">
+        <span class="source-pill twitter">@naval</span>
+        <p class="tweet-preview">Listening to the @trishapaytas podcast two weeks behind and they literally mentioned @RyanScottGraham ‘s band. Wishing you well, Ryan 😊</p>
+    </div><div class="card twitter-card">
+        <span class="source-pill twitter">@pmarca</span>
+        <p class="tweet-preview">RT @donaldjewkes: I made this with one prompt using Opus 5.5  I spoke to my computer for 5mins, claude worked for 12 hours, and I woke up t…</p>
+    </div><div class="card twitter-card">
+        <span class="source-pill twitter">@_alexlazar</span>
+        <p class="tweet-preview">what’s good? https://t.co/vR2zg653Ju</p>
+    </div><div class="card twitter-card">
+        <span class="source-pill twitter">@gduguid</span>
+        <p class="tweet-preview">@CharlieSheen_ Charlie ur the best and ur a credit to all winning men</p>
+    </div><div class="card twitter-card">
+        <span class="source-pill twitter">@lessin</span>
+        <p class="tweet-preview">@Mazzeo @theacademysf @brit @davemorin @Jessicalessin @Noho_Labs I said you were fat… not that you are fat - tenses matter :)</p>
+    </div></div>
+</section>
+
+<div class="transparency">
+<h2>📋 Transparency Report</h2>
+<table>
+<tr><th>Source</th><th>Status</th><th>Tier</th><th>Articles</th></tr>
+<tr><td>Stratechery</td><td>✅</td><td>1</td><td>5</td></tr><tr><td>NotBoring</td><td>✅</td><td>1</td><td>5</td></tr><tr><td>Newcomer</td><td>✅</td><td>2</td><td>5</td></tr><tr><td>VentureUnlocked</td><td>✅</td><td>2</td><td>5</td></tr><tr><td>OfDollarsAndData</td><td>✅</td><td>2</td><td>5</td></tr><tr><td>BrazilJournal</td><td>✅</td><td>1</td><td>5</td></tr><tr><td>StartupsBR</td><td>✅</td><td>2</td><td>5</td></tr><tr><td>ImportAI</td><td>✅</td><td>1</td><td>5</td></tr><tr><td>Startupi</td><td>✅</td><td>1</td><td>5</td></tr><tr><td>Femstreet</td><td>✅</td><td>2</td><td>5</td></tr><tr><td>RationalWalk</td><td>✅</td><td>2</td><td>5</td></tr><tr><td>AWealthOfCommonSense</td><td>✅</td><td>2</td><td>5</td></tr><tr><td>InvestLikeTheBest</td><td>✅</td><td>2</td><td>3</td></tr><tr><td>Exame</td><td>✅</td><td>2</td><td>5</td></tr><tr><td>MebFaber</td><td>✅</td><td>2</td><td>5</td></tr><tr><td>BensBites</td><td>✅</td><td>1</td><td>5</td></tr><tr><td>LastWeekAI</td><td>✅</td><td>1</td><td>5</td></tr><tr><td>TechCrunch</td><td>✅</td><td>2</td><td>5</td></tr><tr><td>NeoFeed</td><td>✅</td><td>2</td><td>5</td></tr><tr><td>TheFullRatchet</td><td>❌</td><td>2</td><td>0</td></tr>
+</table>
+</div>
+
+<div class="footer">
+IVC Content Curation · 21 fontes · 93 artigos · 10 perfis Twitter
+</div>
 </div>
 </body>
 </html>
